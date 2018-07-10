@@ -1,0 +1,10 @@
+/* SIDEBAR META - RELATED BLOG POSTS */
+#cmb2-metabox-sidebar_info .cmb2-id-meta-sidebar-category{padding-bottom: 0 !important;}
+#cmb2-metabox-sidebar_info p.cmb2-metabox-description{padding-bottom: 0 !important;}
+
+/* SERVICE TEMPLATE - TESTIMONIALS */
+#cmb2-metabox-service_testimonials ul.cmb2-checkbox-list label{font-size:9px !important;}
+
+/* SERVICE TEMPLATE - RELATED PROCEDURES */
+#cmb2-metabox-service_related ul{columns: 2;-webkit-columns: 2;-moz-columns: 2;}
+  #cmb2-metabox-service_related ul li{font-size: 10px !important;}
