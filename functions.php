@@ -31,9 +31,6 @@ if ( file_exists(  __DIR__ . '/lib/cmb2/init.php' ) ) {
   require_once  __DIR__ . '/lib/cmb2/init.php';
 }
 
-if ( file_exists(  __DIR__ . '/lib/theme-options/nhp-options.php' ) ) {
-  require_once  __DIR__ . '/lib/theme-options/nhp-options.php';
-}
 
 if ( file_exists(  __DIR__ . '/lib/tgm/class-tgm-plugin-activation.php' ) ) {
   require_once  __DIR__ . '/lib/tgm/class-tgm-plugin-activation.php';
@@ -784,26 +781,6 @@ add_filter('the_content','replace_content');
 	
 	
 // ================================================ CORE FUNCTIONS
-	
-//universal NHP show and get
-function showOption($name,$break=false){
-	global $NHP_Options;
-	$value = $NHP_Options->get($name);
-	if($break && $break==true){
-  	echo nl2br($value);
-	}else{
-  	echo $value;
-	}  	
-}
-function getOption($name,$break=false){
-	global $NHP_Options;
-	$value = $NHP_Options->get($name);
-	if($break && $break==true){
-  	return nl2br($value);
-	}else{
-  	return $value;
-	} 
-}
 
 //get the h1 tag for each page
 function get_the_h1(){
