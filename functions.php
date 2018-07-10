@@ -31,29 +31,6 @@ if ( file_exists(  __DIR__ . '/lib/cmb2/init.php' ) ) {
   require_once  __DIR__ . '/lib/cmb2/init.php';
 }
 
-
-if ( file_exists(  __DIR__ . '/lib/tgm/class-tgm-plugin-activation.php' ) ) {
-  require_once  __DIR__ . '/lib/tgm/class-tgm-plugin-activation.php';
-}
-add_action( 'tgmpa_register', 'codebase_register_required_plugins' );
-function codebase_register_required_plugins() {
-	$plugins = array(
-		array(
-			'name' => 'WPMU Dashboard',
-			'slug' => 'wpmu-dash',
-			'source' => get_template_directory() . '/lib/tgm/plugins/wpmu-dev-dash.zip',
-			'required' => true,
-		),
-	);
-	$config = array(
-		'id' => 'codebase',
-		'menu' => 'codebase-plugins',
-		'is_automatic' => true,
-	);
-	tgmpa( $plugins, $config );
-}
-
-
 // ================================================ GLOBAL VARS
 function get_form_processor(){
   $form_processor = 'https://dashboard.adsnext.com/dashboard/modules/forms/ProcessLeadCertV5.aspx';
