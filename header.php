@@ -8,7 +8,7 @@
 <meta charset="<?php bloginfo('charset'); ?>">
 <meta http-equiv="x-ua-compatible" content="ie=edge">
 <title><?php wp_title(''); ?></title>		
-<meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
 <link rel="shortcut icon" href="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/other/favicon.png">
 <link rel="apple-touch-icon-precomposed" href="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/other/apple-touch-icon-precomposed.png" >
 <link rel="pingback" href="<?php bloginfo('pingback_url'); ?>" />
