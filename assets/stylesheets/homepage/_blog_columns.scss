@@ -1,0 +1,39 @@
+.blog_columns{padding: 70px 0;text-align: center;}
+
+  .blog_columns-post{width: 28%;display: inline-block;margin: 0 20px;}
+  
+    .blog_columns-post a.feat-img{width: 100%;height: 0; padding-bottom:65%; display:block;overflow: hidden;}
+      .blog_columns-post a.feat-img img{display: block;width: 100%;height: auto;transition:transform .4s ease-in-out;}
+      .blog_columns-post a.feat-img:hover img{transform: scale(1.1,1.1);}
+      
+    .blog_columns-post h3{white-space: nowrap;overflow: hidden;text-overflow: ellipsis;color: $main-color;text-align: center;font-size: 14px;text-transform: uppercase;width: 90%;margin: 20px auto 8px;}
+    .blog_columns-post span.meta{color: $main-color;font-size: 12px;text-align: center;width: 100%;display: block;}
+    .blog_columns-post hr{width: 40px;height: 3px;background-color: $main-color;margin: 20px auto;border: 0 none;}
+    .blog_columns-post p{height: 67.2px;overflow: hidden;margin-bottom: 0;}
+    
+//INVERT COLOR SCHEME
+.blog_columns.invert .blog_columns-post h3{color: $white;}
+.blog_columns.invert span.meta{color: $white;}
+.blog_columns.invert p{color: rgba($white,.7);}
+    
+
+
+@media all and (max-width: $bp-laptop) {
+  
+  .blog_columns-post{width: 320px; &:nth-child(3){display: none;}}
+  
+}
+
+
+@media all and (max-width: $bp-phablet) {
+  
+  .blog_columns-post:nth-child(2){display: none;}
+  
+}
+
+@media all and (max-width: $bp-phone) {
+  
+  .blog_columns-post{width: 288px;margin: 0;}
+  
+}
+

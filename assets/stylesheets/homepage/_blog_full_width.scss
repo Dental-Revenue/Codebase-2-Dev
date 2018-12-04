@@ -1,0 +1,37 @@
+.blog_full_width{@include clearfix();padding:0; overflow:visible;}
+  .blog_full_width .hp-post{width: 33%;float: left;border-bottom: 10px solid $main-color;background-color:$white;display: block; position: relative;}
+  .blog_full_width .hp-post:nth-child(2){width: 34%;border-bottom: 10px solid darken($main-color,10%);background-color: rgba($black, .03);}
+  	
+  	.blog_full_width .hp-post .blog-date{background-color: #fff; border: 3px solid $main-color; border-radius: 50%; box-sizing: border-box; color: #2d3540; font-size: 28px; font-weight: 600; height: 100px; left: 0; line-height: 26px; margin: auto; padding-top: 18px; position: absolute; right: 0; text-align: center; text-transform: uppercase; top: -35px; width: 100px; display: block;}
+  		.blog_full_width .hp-post .blog-date::first-line{font-size: 18px; font-weight: 300;}
+    
+    .blog_full_width .hp-post a.feat-img{height: 280px;background-size: cover;background-position: center center;display: block;}
+    
+    .blog_full_width .hp-post-content{padding: 30px;box-sizing: border-box; @include clearfix();}
+      .blog_full_width .hp-post-content .post-title{margin: 0 0 20px 0;line-height: 100%;white-space: nowrap;overflow:hidden;text-overflow: ellipsis;}
+        .blog_full_width .hp-post-content .post-title a{color: inherit; &:hover{color: $black;}}
+      .blog_full_width .hp-post-content p{line-height: 2;height: 84px;overflow: hidden;text-overflow: ellipsis;-webkit-line-clamp: 3;-webkit-box-orient: vertical;display: -webkit-box;}
+      .blog_full_width .hp-post-content a.btn.outline.read-more{float: right; color:$main-color; border-color:$main-color; &:hover{background-color:$main-color; color:$white;}}
+      
+      
+      
+	//version without images
+	.hp-post.no-images{}
+  .hp-post.no-images .hp-post-content{padding: 80px 30px 30px;text-align: center;}
+  
+//INVERT COLOR SCHEME
+.blog_full_width.invert .hp-post:nth-child(2){background-color:transparent;}
+.blog_full_width.invert .hp-post:nth-child(2) .hp-post-content h3{color:$white;}
+	.blog_full_width.invert .hp-post:nth-child(2) .hp-post-content h3 a:hover{color:$main-color;}
+.blog_full_width.invert .hp-post:nth-child(2) .hp-post-content p{color:$white;}
+.blog_full_width.invert .hp-post:nth-child(2) .hp-post-content a.btn.outline.read-more{color:$white; border-color:$white; &:hover{background-color:$white; color:$main-color;}}
+      
+      
+/* Media Queries */
+@media all and (max-width: $bp-laptop) {
+	.hp-post{width: 50% !important; &:last-child{display: none;}}
+}
+
+@media all and (max-width: $bp-phablet) {
+	.hp-post{width: 100% !important; &:nth-child(2){display: none;}}
+}

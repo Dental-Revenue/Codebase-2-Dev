@@ -1,0 +1,50 @@
+.reviews_testimonials_fold{padding: 0;position: relative;@include clearfix();background-color: $white;}
+
+	.reviews_testimonials_fold h2{position: absolute;top:0;left: 0;z-index: 2;width: 100%;}
+	
+	.reviews_testimonials_fold-item{display: none;position: relative;z-index: 1;background-color: $white;height: 750px;}
+	
+		.reviews_testimonials_fold-overlay{background-size: cover;background-position: center center;z-index: 1;position: absolute;left: 0;top: 0;width: 100%;height: 100%;opacity: .15;}
+	
+		.reviews_testimonials_fold-thumb{width: 600px;height: 600px;margin-top: 150px;z-index: 2;position: relative;}
+			.reviews_testimonials_fold-thumb img{width: 100%;display: block;height: auto;z-index: 1;position: relative;}
+			.reviews_testimonials_fold-thumb a{@include center(both);z-index: 2;font-size: 120px;color: $white;text-shadow: 0 0 10px rgba($black,.2);opacity: .5;transition: opacity .3s; &:hover{opacity: 1;}}
+			
+		.reviews_testimonials_fold-text{position:absolute;top:150px;left: 600px;right: 0;height: auto;padding: 70px;box-sizing: border-box;text-align: left;max-width: 800px; &:first-child{margin-top: 0;}}
+			.reviews_testimonials_fold-text h3{text-transform: uppercase;font-size: 30px;font-weight: 300;letter-spacing: .03em;}
+			.reviews_testimonials_fold-text h4{text-transform: uppercase;font-size: 20px;font-weight: 300;letter-spacing: .03em;}
+  
+  .reviews_testimonials_fold-view-all{position: absolute;right: 40px;bottom: 40px;z-index: 3;}
+  
+  
+  
+  
+  //dots
+  .reviews_testimonials_fold .slick-dots{position: absolute;left: 670px;bottom: 50px;}
+  
+  
+  
+        
+/* Media Queries */
+@media all and (max-width: $bp-laptop) { 
+	
+	.reviews_testimonials_fold h2{position: relative;top:auto;left: auto;}
+	.reviews_testimonials_fold-item{height: 400px;padding-bottom: 150px;}
+		.reviews_testimonials_fold-thumb{display: none;}
+		.reviews_testimonials_fold-text{left: auto;top:auto;width: 100%;max-width: none;position: relative;}
+			.reviews_testimonials_fold-text h3{font-size: 20px;}
+			.reviews_testimonials_fold-text h4{font-size: 20px;}
+			.reviews_testimonials_fold-text p{font-size: 13px;}
+	
+	.reviews_testimonials_fold .slick-dots{left: 70px;}	
+	.reviews_testimonials_fold-view-all{}
+	
+} 
+ 
+@media all and (max-width: $bp-phablet) {
+	
+	.reviews_testimonials_fold-text{padding: 36px;}
+	.reviews_testimonials_fold .slick-dots{left: 50%;bottom: 60px;@include prefix(transform, translate(-50%, 0));bottom: 16px;}	
+	.reviews_testimonials_fold-view-all{right: 36px;left: 36px;text-align: center;}
+	
+} 

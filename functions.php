@@ -1,80 +1,197 @@
 <?php
 
 // ================================================ SCRIPTS	AND STYLESHEETS
-function theme_scripts() {
+function theme_scripts_styles() {
+	
+	$appearance_info = get_option('appearance_info');
+	$heading_font = $appearance_info['heading_font'];
+	$body_font = $appearance_info['body_font'];
+	wp_enqueue_style( 'google-fonts', '//fonts.googleapis.com/css?family='.$heading_font.':400,600,800%7C'.$body_font.':300,400,400i,600' , false, false);
+	wp_enqueue_style( 'main-styles', get_template_directory_uri() . '/assets/stylesheets/style.php/style.scss',false, false);
   
   wp_deregister_script('jquery');
 
-  // DR Script Pack 2.8
-    // modernizr 2.8.3
-    // jquery 2.1.4
-    // jscookie 2.1.3
-    // drcookietrack 1.0
-    // drformprocessor 1.0
   wp_register_script('drscriptpack', ("//cdn.dentalrevenue.com/assets/scriptpack/2.8/drscriptpack.min.js"), array(), '2.8',true);
   wp_enqueue_script('drscriptpack');
+  
+  //main js file
+  wp_enqueue_script('scripts', get_template_directory_uri() . '/assets/scripts/scripts-min.js', array(), null,true);
   
   //recaptcha, conditionally loaded
   wp_register_script('recaptcha', ("https://www.google.com/recaptcha/api.js"), array(), null,true); 
   
 }
-add_action( 'wp_enqueue_scripts', 'theme_scripts' );
+add_action( 'wp_enqueue_scripts', 'theme_scripts_styles' );
 
-function admin_styles() {
-  wp_enqueue_style('admin-styles', get_template_directory_uri().'/admin.css');
+function admin_scripts_styles() {
+  wp_enqueue_style('admin-styles', get_template_directory_uri().'/admin/admin.css');
+  wp_enqueue_script('jquery-ui', get_template_directory_uri().'/admin/jquery-ui.min.js');
+  wp_enqueue_script('admin-scripts', get_template_directory_uri().'/admin/admin.js');
 }
-add_action('admin_enqueue_scripts', 'admin_styles');
+add_action('admin_enqueue_scripts', 'admin_scripts_styles');
   
   
-// ================================================ INIT LIBRARIES
-if ( file_exists(  __DIR__ . '/lib/cmb2/init.php' ) ) {
-  require_once  __DIR__ . '/lib/cmb2/init.php';
+// ================================================ LIBRARIES
+if ( file_exists(  __DIR__ . '/inc/libs/cmb2/init.php' ) ) {
+  require_once  __DIR__ . '/inc/libs/cmb2/init.php';
 }
+if ( file_exists(  __DIR__ . '/inc/libs/shortcode-button/shortcode-button.php' ) ) {
+  require_once  __DIR__ . '/inc/libs/shortcode-button/shortcode-button.php';
+}
+
+
+
+// ================================================ SHORTCODES
+if ( file_exists(  __DIR__ . '/inc/shortcodes.php' ) ) {
+  require_once  __DIR__ . '/inc/shortcodes.php';
+}
+if ( file_exists(  __DIR__ . '/inc/custom-shortcodes.php' ) ) {
+  require_once  __DIR__ . '/inc/custom-shortcodes.php';
+}
+if ( file_exists(  __DIR__ . '/inc/custom-shortcodes-2.php' ) ) {
+  require_once  __DIR__ . '/inc/custom-shortcodes-2.php';
+}
+if ( file_exists(  __DIR__ . '/inc/custom-shortcodes-3.php' ) ) {
+  require_once  __DIR__ . '/inc/custom-shortcodes-3.php';
+}
+
+// ================================================ THEME OPTIONS
+if ( file_exists(  __DIR__ . '/inc/theme-options.php' ) ) {
+  require_once  __DIR__ . '/inc/theme-options.php';
+}
+if ( file_exists(  __DIR__ . '/inc/theme-options-ref.php' ) ) {
+  require_once  __DIR__ . '/inc/theme-options-ref.php';
+}
+
+// ================================================ MODULES META
+if ( file_exists(  __DIR__ . '/inc/meta/meta-modules.php' ) ) {
+  require_once  __DIR__ . '/inc/meta/meta-modules.php';
+}
+
+// CUSTOM HP MODULES
+if ( file_exists(  __DIR__ . '/inc/custom-modules.php' ) ) {
+  require_once  __DIR__ . '/inc/custom-modules.php';
+}
+
+// ================================================ TESTIMONIALS CPT
+if ( file_exists(  __DIR__ . '/inc/meta/meta-testimonials.php' ) ) {
+  require_once  __DIR__ . '/inc/meta/meta-testimonials.php';
+}
+// ================================================ TESTIMONIALS META
+if ( file_exists(  __DIR__ . '/inc/cpts/cpt-testimonials.php' ) ) {
+  require_once  __DIR__ . '/inc/cpts/cpt-testimonials.php';
+}
+
+// MODIFIED GET TEMPLATE PART TO ACCEPT ARGUMENTS
+function get_partial( $file, $template_args = array(), $cache_args = array() ) {
+    $template_args = wp_parse_args( $template_args );
+    $cache_args = wp_parse_args( $cache_args );
+    if ( $cache_args ) {
+        foreach ( $template_args as $key => $value ) {
+            if ( is_scalar( $value ) || is_array( $value ) ) {
+                $cache_args[$key] = $value;
+            } else if ( is_object( $value ) && method_exists( $value, 'get_id' ) ) {
+                $cache_args[$key] = call_user_method( 'get_id', $value );
+            }
+        }
+        if ( ( $cache = wp_cache_get( $file, serialize( $cache_args ) ) ) !== false ) {
+            if ( ! empty( $template_args['return'] ) )
+                return $cache;
+            echo $cache;
+            return;
+        }
+    }
+    $file_handle = $file;
+    do_action( 'start_operation', 'hm_template_part::' . $file_handle );
+    if ( file_exists( get_stylesheet_directory() . '/' . $file . '.php' ) )
+        $file = get_stylesheet_directory() . '/' . $file . '.php';
+    elseif ( file_exists( get_template_directory() . '/' . $file . '.php' ) )
+        $file = get_template_directory() . '/' . $file . '.php';
+    ob_start();
+    $return = require( $file );
+    $data = ob_get_clean();
+    do_action( 'end_operation', 'hm_template_part::' . $file_handle );
+    if ( $cache_args ) {
+        wp_cache_set( $file, $data, serialize( $cache_args ), 3600 );
+    }
+    if ( ! empty( $template_args['return'] ) )
+        if ( $return === false )
+            return false;
+        else
+            return $data;
+    echo $data;
+}
+
+
+
+// HEX TO HSL (FOR LIGHTNESS DETECTION)
+function hexToHsl($hex) {
+    $hex = array($hex[0].$hex[1], $hex[2].$hex[3], $hex[4].$hex[5]);
+    $rgb = array_map(function($part) {
+        return hexdec($part) / 255;
+    }, $hex);
+
+    $max = max($rgb);
+    $min = min($rgb);
+
+    $l = ($max + $min) / 2;
+
+    if ($max == $min) {
+        $h = $s = 0;
+    } else {
+        $diff = $max - $min;
+        $s = $l > 0.5 ? $diff / (2 - $max - $min) : $diff / ($max + $min);
+
+        switch($max) {
+            case $rgb[0]:
+                $h = ($rgb[1] - $rgb[2]) / $diff + ($rgb[1] < $rgb[2] ? 6 : 0);
+                break;
+            case $rgb[1]:
+                $h = ($rgb[2] - $rgb[0]) / $diff + 2;
+                break;
+            case $rgb[2]:
+                $h = ($rgb[0] - $rgb[1]) / $diff + 4;
+                break;
+        }
+
+        $h /= 6;
+    }
+
+    return array($h, $s, $l);
+}
+
+// REMOVE THEME SUPPORTS BASED ON PAGES/TEMPLATES by https://gist.github.com/ramseyp/4060095
+$remove_theme_supports = true;
+if ( $remove_theme_supports ) {
+	function hide_theme_supports() {
+	  if(isset($_GET['post'])){
+	  	$homepgname = get_the_title($_GET['post']);
+			if($homepgname == 'Home'){ 
+	    	remove_post_type_support('page', 'editor');
+	  	}
+	  }
+	}
+	add_action( 'admin_init',  'hide_theme_supports' );
+}
+
 
 // ================================================ GLOBAL VARS
 function get_form_processor(){
   $form_processor = 'https://dashboard.adsnext.com/dashboard/modules/forms/ProcessLeadCertV5.aspx';
   return $form_processor;
 }
-	
-// ================================================ UNIVERSAL SHORTCODES
 
-//all theme options
-$shortcodes = array('practice_name','street_address','city','state','zip_code','new_patient_phone','current_patient_phone','google_map','company_hours','doctor_name','doctor_name_two','doctor_name_three','review_link');	
-function generate_shortcode( $atts, $content = '', $shortcode = '' ){ 
-  if($shortcode=='company_hours'){
-    $var = getOption($shortcode,$break=true);
-  }else{
-    $var = getOption($shortcode);
-  }
-  return $var;
-}
-foreach ($shortcodes as $shortcode) {
-  add_shortcode( $shortcode, 'generate_shortcode' );
-}
-
-//new patient phone wrapped
-function new_patient_phone_span_shortcode($atts){
-  $var = getOption('new_patient_phone');
-  return '<span class="tracknum">'.$var.'</span>';
-}
-add_shortcode( 'new_patient_phone_span', 'new_patient_phone_span_shortcode' );
-
-//site url
-function site_url_shortcode($atts){
-  return get_site_url();
-}
-add_shortcode( 'site_url', 'site_url_shortcode' );
-
-//video iframe
-function video_frame( $atts, $content = null ) {
-  return '<iframe class="video-iframe" src="'.$content.'"></iframe>';
-}
-add_shortcode("video", "video_frame");
 	
 // ================================================ CORE META
+
+if ( file_exists(  __DIR__ . '/inc/meta/meta-gallery-1.php' ) ) {
+  require_once  __DIR__ . '/inc/meta/meta-gallery-1.php';
+}
+
+
 	
 //General Page Information Meta Box
+/*
 function general_meta() {
   $prefix = 'meta_';
   $box = new_cmb2_box(array(
@@ -93,9 +210,11 @@ function general_meta() {
   ));
 }
 add_action( 'cmb2_admin_init', 'general_meta' );
+*/
 
 
 //Page Tabs Meta Box
+/*
 function tabs_meta(){
   
   //prep exclude ids
@@ -138,9 +257,11 @@ function tabs_meta(){
   ));
 }
 add_action( 'cmb2_admin_init', 'tabs_meta' );
+*/
 
 
 //Category Selector Meta Box for Blog Widget
+/*
 function taxonomy_meta(){
   if(is_active_widget( false, false, 'blog', true )){
     $prefix = 'meta_';
@@ -163,9 +284,11 @@ function taxonomy_meta(){
   }
 }
 add_action( 'cmb2_admin_init', 'taxonomy_meta' );
+*/
 
 
 //Meta Box for Gallery Widget
+/*
 function widget_gallery_meta() {
   $prefix = 'widget_';
   
@@ -188,22 +311,28 @@ function widget_gallery_meta() {
   
 }
 add_action( 'cmb2_admin_init', 'widget_gallery_meta' );
+*/
 
 // ********************************************** Service Template
-if ( file_exists(  __DIR__ . '/lib/service-template-meta.php' ) ) {
-  require_once  __DIR__ . '/lib/service-template-meta.php';
+/*
+if ( file_exists(  __DIR__ . '/inc/service-template-meta.php' ) ) {
+  require_once  __DIR__ . '/inc/service-template-meta.php';
 }	
+*/
 // ********************************************** End Service Template
 
 // ================================================ META FUNCTIONS
 //Pages to exclude for metabox
+/*
 function cmb2_exclude_ids( $box ) {
 	$ids_to_exclude = $box->prop( 'exclude_ids', array() );
 	$excluded = in_array( $box->object_id(), $ids_to_exclude, true );
 	return ! $excluded;
 }
+*/
 
 //Page selector for any select metabox
+/*
 function cmb2_get_post_options( $query_args ) {
   $args = wp_parse_args( $query_args, array('post_type'   => 'page','numberposts' => -1,'orderby' => 'name','order' => 'ASC'));
   $posts = get_posts( $args );
@@ -213,8 +342,10 @@ function cmb2_get_post_options( $query_args ) {
   }
   return $post_options;
 }
+*/
 
 //Term (Category) selector for any select metabox
+/*
 function cmb2_get_term_options( $taxonomy = 'category', $args = array() ){
   $args['taxonomy'] = $taxonomy;
   $args = wp_parse_args( $args, array( 'taxonomy' => 'category' ) );
@@ -228,6 +359,7 @@ function cmb2_get_term_options( $taxonomy = 'category', $args = array() ){
   }
   return $term_options;
 }
+*/
 
 // ================================================ CMB2 CORE MODS
 
@@ -301,6 +433,7 @@ function cmb2_wysiwyg_word_counter( $args, $field ) {
 }
 
 // ================================================ BUILD SIDEBARS
+/*
 if (function_exists('register_sidebar')){
   register_sidebar(
     array(
@@ -323,8 +456,10 @@ if (function_exists('register_sidebar')){
     )
   );  
 }
+*/
 
 //Blog Widget 
+/*
 class widget_blog extends WP_Widget {
   
   function __construct() {parent::__construct('blog', __('Blog Posts', 'widget_blog_domain'), array( 'description' => __( 'Shows 3 recent post titles. Control the specific category on each page.', 'widget_blog_domain' ), ));}
@@ -361,8 +496,10 @@ class widget_blog extends WP_Widget {
   }
 
 }
+*/
 
 //Form Widget 
+/*
 class widget_form extends WP_Widget {
   
   function __construct() {parent::__construct('form', __('Contact Form', 'widget_form_domain'));}
@@ -418,8 +555,10 @@ class widget_form extends WP_Widget {
   }
 
 }
+*/
 
 //Schedule Appointment Widget 
+/*
 class widget_appt extends WP_Widget {
   
   function __construct() {parent::__construct('appt', __('Appointment Button', 'widget_form_domain'));}
@@ -451,9 +590,11 @@ class widget_appt extends WP_Widget {
   }
 
 }
+*/
 
 
 // Gallery Widget
+/*
 if(!class_exists('widget_gallery')){
 class widget_gallery extends WP_Widget {
   
@@ -535,13 +676,15 @@ class widget_gallery extends WP_Widget {
   }
 
 }
-} //end check to see if this widget already exists 
+}
+*/ //end check to see if this widget already exists 
 
 
 
 
 
 // Register and load all widgets
+/*
 function wpb_load_widget() {
   //get DS theme data
   $theme_data = wp_get_theme();
@@ -563,6 +706,7 @@ function wpb_load_widget() {
   
 }
 add_action( 'widgets_init', 'wpb_load_widget' );
+*/
 
 
 // Unregister all widgets we don't want
@@ -589,6 +733,7 @@ add_action('widgets_init', 'unregister_default_widgets', 18);
 // ================================================ BUILD OUT INITIAL PAGES AUTOMATICALLY
 
 //Home Page (Front Page)
+/*
 if (isset($_GET['activated']) && is_admin()){
 	$new_page_title = 'Home';
 	$new_page_content = '';
@@ -606,8 +751,10 @@ if (isset($_GET['activated']) && is_admin()){
 	update_option( 'page_on_front', $homeSet->ID );
 	update_option( 'show_on_front', 'page' );
 }
+*/
 
 //Blog Page (Posts Page)
+/*
 if (isset($_GET['activated']) && is_admin()){
 	$new_page_title = 'Blog';
 	$new_page_content = '';
@@ -624,8 +771,10 @@ if (isset($_GET['activated']) && is_admin()){
 	$blogSet = get_page_by_title( 'Blog' );
 	update_option( 'page_for_posts', $blogSet->ID );
 }
+*/
 
 //Leave Review Page
+/*
 if (isset($_GET['activated']) && is_admin()){
 	$new_page_title = 'Leave a Review';
 	$new_page_content = 'THE CONTENT FOR THIS PAGE IS PROVIDED BY CODEBASE';
@@ -645,8 +794,10 @@ if (isset($_GET['activated']) && is_admin()){
 		}
 	}
 }
+*/
 
 //Privacy Policy Page
+/*
 if (isset($_GET['activated']) && is_admin()){
 	$new_page_title = 'Privacy Policy';
 	$new_page_content = 'THE CONTENT FOR THIS PAGE IS PROVIDED BY CODEBASE';
@@ -666,8 +817,10 @@ if (isset($_GET['activated']) && is_admin()){
 		}
 	}
 }
+*/
 
 //Terms of Use Page
+/*
 if (isset($_GET['activated']) && is_admin()){
 	$new_page_title = 'Terms of Use';
 	$new_page_content = 'THE CONTENT FOR THIS PAGE IS PROVIDED BY CODEBASE';
@@ -687,8 +840,10 @@ if (isset($_GET['activated']) && is_admin()){
 		}
 	}
 }
+*/
 
 //Sitemap Page
+/*
 if (isset($_GET['activated']) && is_admin()){
 	$new_page_title = 'Sitemap';
 	$new_page_content = 'THE CONTENT FOR THIS PAGE IS PROVIDED BY CODEBASE';
@@ -708,9 +863,11 @@ if (isset($_GET['activated']) && is_admin()){
 		}
 	}
 }
+*/
 
 
 //Accessibility Page
+/*
 if (is_admin()){
 	$new_page_title = 'Accessibility';
 	$page_check = get_page_by_title($new_page_title);
@@ -730,8 +887,10 @@ if (is_admin()){
 		}
 	}
 }
+*/
 
 //Replace the standard content for specific pages (leave review, ...)
+/*
 function replace_content($content){
   global $post;
   $realtemplate = get_post_meta($post->ID, '_wp_page_template', true);
@@ -755,9 +914,19 @@ function replace_content($content){
   return $content;
 }
 add_filter('the_content','replace_content');
+*/
 	
 	
 // ================================================ CORE FUNCTIONS
+
+function getOption($name,$break=false){
+	$value = get_option($name);
+	if($break && $break==true){
+  	return nl2br($value);
+	}else{
+  	return $value;
+	}
+}
 
 //get the h1 tag for each page
 function get_the_h1(){
@@ -848,6 +1017,7 @@ function disable_default_dashboard_widgets() {
 add_action('admin_menu', 'disable_default_dashboard_widgets');
 
 //Numbered Pagination
+/*
 function numeric_posts_nav() {
   if( is_singular() )
   	return;
@@ -888,6 +1058,7 @@ function numeric_posts_nav() {
   if ( get_next_posts_link() )
   	printf( '<li>%s</li>' . "\n", get_next_posts_link() );
 }
+*/
 
 // Add RSS links to <head> section
 add_theme_support( 'automatic-feed-links' );
@@ -901,30 +1072,27 @@ add_action('init', 'removeHeadLinks');
 remove_action('wp_head', 'wp_generator');
 
 
-// Add support for Post Formats & Post Thumbnails     
+// Standard thumb generation   
 add_theme_support( 'post-thumbnails' ); 
 
-add_image_size('extra-large', 1300, '', true);
-add_image_size('large', 700, '', true);
-add_image_size('medium', 250, '', true);
-add_image_size('small', 120, '', true);
+add_image_size('xxl', 1300, '', true);
+add_image_size('xl', 700, '', true);
+add_image_size('lg', 500, '', true);
+add_image_size('md', 250, '', true);
+add_image_size('sm', 120, '', true);
+add_image_size('xs', 80, '', true);
 
-add_image_size('xl-square', 1300, 1300, true); 
-add_image_size('lg-square', 700, 700, true); 
+add_image_size('xxl-square', 1300, 1300, true); 
+add_image_size('xl-square', 700, 700, true); 
+add_image_size('lg-square', 500, 500, true); 
 add_image_size('md-square', 300, 300, true); 
 add_image_size('sm-square', 120, 120, true); 
-add_image_size('recent-post', 320, 210, true);
+add_image_size('xs-square', 80, 80, true); 
 
-	/* special image sizes for gallery v1 */
-	add_image_size('smile-gallery-portrait', 400, 600, true); 
-  
-	/* special image sizes for gallery v2 */
-  add_image_size('sg-primary', 300, '', true);
-  add_image_size('sg-primary-md', 600, '', true);
-  add_image_size('sg-primary-lg', 900, '', true);
-  add_image_size('sg-stitch', 300, 200, true);
-  add_image_size('sg-stitch-md', 600, 400, true);
-  add_image_size('sg-stitch-lg', 900, 600, true);
+//Thumb generation for Gallery V1
+add_image_size('g1_ba_thumb', 300, 200, true);
+add_image_size('g1_ba_full', 900, 600, true);  
+
 
 
 // Add page slug to body class
@@ -944,12 +1112,14 @@ add_filter('body_class', 'add_slug_to_body_class');
 
 
 // Remove thumbnail width and height dimensions that prevent fluid images in the_thumbnail
+/*
 function remove_thumbnail_dimensions( $html ){
   $html = preg_replace('/(width|height)=\"\d*\"\s/', "", $html);
   return $html;
 }
 add_filter('post_thumbnail_html', 'remove_thumbnail_dimensions', 10); 
 add_filter('image_send_to_editor', 'remove_thumbnail_dimensions', 10); 
+*/
 
 
 // Report version numbers back to home base

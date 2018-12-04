@@ -1,0 +1,12 @@
+.carousel_2{}
+
+	.carousel_2-block{@include clearfix();}
+		.carousel_2-block img{max-width: 100%;height:auto;display: block;}
+	.carousel_2-block.hover-up-parent{position:relative; overflow:hidden; }
+		.carousel_2-block.hover-up-parent:hover .hover-up-child{bottom:0;}
+		.carousel_2-block .hover-up-child{line-height:50px; display:block; width:100%; position:absolute; bottom:-50px; transition:bottom .3s linear; background-color:rgba($main-color,.8); color:$white; font-size:13px; text-transform:uppercase; font-weight:800; letter-spacing:.05em; text-align:right; padding:0 20px; box-sizing:border-box;}
+		
+		
+	
+	//hover state
+.carousel_2-block:hover a.read-more{bottom: 0;}

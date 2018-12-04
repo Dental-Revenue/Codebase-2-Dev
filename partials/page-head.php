@@ -1,7 +1,10 @@
-<div class="page-head">
-	<div class="row"> 
-		
-		<?php if(is_archive()){ ?>
+<?php
+	$appearance_info = get_option( 'appearance_info');
+	$page_head_img = '';
+	if(isset($appearance_info['page_head_img'])){ $page_head_img = $appearance_info['page_head_img']; }
+	
+	function std_page_head_info(){
+		 if(is_archive()){ ?>
       
       <?php if (is_category()) { ?>
         <h1>Archive for the &#8216;<?php single_cat_title(); ?>&#8217; Category</h1>
@@ -25,7 +28,34 @@
 			
 			<h1><?php if (get_the_h1()) { the_h1(); }else{ the_title(); } ?></h1>
 		
-		<?php } ?>
+		<?php }
+	}
+?>
+
+<?php if(empty($page_head_img)){ ?>
+
+<div class="page-head no-img-bg">
+	<div class="row"> 
+  	
+  	<?php if (function_exists('yoast_breadcrumb')){yoast_breadcrumb('<p class="breadcrumbs">','</p>');} ?>
+  	
+  	<?php std_page_head_info(); ?>
 		
 	</div>
 </div>
+
+<?php } else { ?>
+
+
+<div class="page-head img-bg" style="background-image:url(<?php echo $page_head_img; ?>);">
+	<div class="page-head-overlay"></div>
+	<div class="row"> 
+		
+		<?php std_page_head_info(); ?>
+				
+	</div>
+	
+	<?php if (function_exists('yoast_breadcrumb')){yoast_breadcrumb('<div class="breadcrumbs"><div class="row">','</div></div>');} ?>
+</div>
+
+<?php } ?>

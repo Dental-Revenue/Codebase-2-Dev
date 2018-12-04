@@ -1,0 +1,26 @@
+.static_cta_fold{border-top: 3px solid $main-color;background-size: cover;background-position: center center; padding:0;}
+
+	.static_cta_fold .row{padding: 100px 0;}
+	
+	.static_cta_fold-content{max-width: 500px;}
+	.static_cta_fold-content.left{text-align: left;}
+	.static_cta_fold-content.center{text-align: center; margin:0 auto;}
+	.static_cta_fold-content.right{text-align: right;float: right;}
+		
+		.static_cta_fold-content h3{font-size:32px; line-height:112%; font-weight:600; color:$main-color; text-transform:uppercase; span{font-size:55%; display:block;}}
+		//.static_cta_fold-content p{color: $white;}
+		.static_cta_fold-content a{margin: 6px 4px 0;}
+		
+//INVERT COLOR SCHEME
+.static_cta_fold.invert .static_cta_fold-content h3{color:$white;}
+.static_cta_fold.invert .static_cta_fold-content p{color:$white;}
+
+@media all and (max-width: $bp-row) { 
+} 
+
+@media all and (max-width: $bp-phone) {
+	
+	.static_cta_fold-content{text-align: center !important;}
+	.static_cta_fold-content a{margin: 6px;}
+	
+}

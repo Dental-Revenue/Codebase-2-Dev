@@ -1,0 +1,22 @@
+.rte{& >:first-child{margin-top: 0;} & >:last-child{margin-bottom: 0;}}
+
+  .rte h2, .rte h3, .rte h4, .rte h5{color: $main-color;text-transform: uppercase;letter-spacing: .03em;}
+  .rte h2{font-size: 30px;}
+  .rte h3{font-size: 24px;}
+  .rte h4{font-size: 22px;}
+  .rte h5{font-size: 18px;}
+  
+  .rte p, .rte ul, .rte ol{}
+  .rte ul, .rte ol{padding-left: 30px; box-sizing: border-box;}
+  
+  .rte a{font-weight: 600;color: $main-color;}
+    .rte a:not(.btn):hover{text-decoration: underline;}
+  .rte blockquote{border-left: 3px solid $accent;padding-left: 14px;font-weight: 600;font-size: 16px;margin: 30px 0 30px 3%;}
+    .rte blockquote p{font-size: 16px;font-weight: 600;}
+  .rte hr{}
+  .rte iframe{border: 0 none; height: 300px; width: 100%;}
+  .rte img{max-width: 100%;height: auto;}
+  
+.general-tabs{margin: 30px 0 0;}
+  .general-tabs .tabs-nav{margin-bottom: 20px;}
+  .general-tabs tabs-content{}

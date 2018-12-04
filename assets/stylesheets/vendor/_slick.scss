@@ -1,0 +1,33 @@
+/* Slick, as provided by slick developer */
+.slick-slider{position: relative;display: block;-moz-box-sizing: border-box;box-sizing: border-box;-webkit-user-select: none;-moz-user-select: none;-ms-user-select: none;user-select: none;-webkit-touch-callout: none;-khtml-user-select: none;-ms-touch-action: pan-y; touch-action: pan-y;-webkit-tap-highlight-color: transparent;text-align: center;}
+.slick-list{position: relative;display: block;overflow: hidden;margin: 0;padding: 0;}
+.slick-list:focus{outline: none;}
+.slick-list.dragging{cursor: pointer;cursor: hand;}
+.slick-slider .slick-track,.slick-slider .slick-list{-webkit-transform: translate3d(0, 0, 0);-moz-transform: translate3d(0, 0, 0);-ms-transform: translate3d(0, 0, 0);-o-transform: translate3d(0, 0, 0);transform: translate3d(0, 0, 0);}
+.slick-track{position: relative;top: 0;left: 0;display: block;}
+.slick-track:before,.slick-track:after{display: table;content: '';}
+.slick-track:after{clear: both;}
+.slick-loading .slick-track{visibility: hidden;}
+.slick-slide{display: none;float: left;min-height: 1px;height: 100%;}
+.slick-slide img{display: block;}
+.slick-slide.slick-loading img{display: none;}
+.slick-slide.dragging img{pointer-events: none;}
+.slick-initialized .slick-slide{display: block !important;}
+.slick-loading .slick-slide{visibility: hidden;}
+.slick-vertical .slick-slide{display: block; height: auto;border: 1px solid transparent;}
+.slick-arrow.slick-hidden {display: none;}
+
+/* slick styles for Codebase */
+.slick-dots{padding: 20px;border-radius: 3px;display: inline-block;border: 1px solid rgba($black,.1);list-style:none;box-shadow: 0 0 13px rgba(0,0,0,0.03);margin: 40px auto 0;transition:transform .3s ease-in-out;}
+.slick-dots:hover{transform: scale(1.03,1.03);box-shadow: 0 0 13px rgba(0,0,0,0.06);}
+  .slick-dots li{display: block;float: left;}
+    .slick-dots li button{width: 14px;height: 14px;border-radius: 50%;font-size: 0;color: transparent;background-color: $white;border:2px solid $accent;opacity: .35;padding: 0;display: block;margin: 0 5px;}
+.slick-dots li.slick-active button{background-color: $accent;opacity: 1;}
+
+.slick-next,.slick-prev{position: absolute;top:50%;font-size: 0;background:transparent;padding: 0;border: 0; &:before{font-size: 60px;color: $white;}}
+  .slick-next{right: -40px; &:before{content:"\f125";}}
+.slick-prev{left: -40px; &:before{content:"\f124";}}
+
+.invert .slick-dots{border: 1px solid rgba($white, .3);}
+	.invert .slick-dots li button{border:2px solid $white;}
+	.invert .slick-dots li.slick-active button{background-color:$white;}

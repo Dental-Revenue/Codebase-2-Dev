@@ -11,7 +11,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <link rel="shortcut icon" href="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/other/favicon.png">
 <link rel="apple-touch-icon-precomposed" href="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/other/apple-touch-icon-precomposed.png" >
-<link rel="pingback" href="<?php bloginfo('pingback_url'); ?>" />
+
 <?php wp_head(); ?>
 
 <?php if(getOption('form_recaptcha') && getOption('form_recaptcha')!=''){
@@ -39,4 +39,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <!-- End Google Tag Manager (noscript) -->
 <?php } ?>
   
-  <?php get_template_part( 'partials/header' ); ?>
+<?php get_template_part( 'partials/header' ); ?>
+
+<div class="page-wrap">

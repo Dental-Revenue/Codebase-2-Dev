@@ -1,0 +1,35 @@
+/* FONTS */
+//$special-font: 'Raleway', serif;
+//$heading-font: 'Raleway', serif;
+//$body-font: 'Karla', sans-serif;
+//$fa: 'Font Awesome 5 Free';
+
+/* BASIC COLORS */
+$white:#fff;
+
+$lt-grey:#FAFAFA; //rgba($black,.02);
+$md-lt-grey:#F2F2F2; //rgba($black,.05);
+$md-grey:#B2B2B2; //rgba($black,.3);
+$md-dk-grey:#4C4C4C; //rgba($black,.7);
+$dk-grey:#333333; //rgba($black,.8);
+
+$black:#000;
+$google-red:#dd4c39;
+
+/* BRAND COLORS */
+//$main-color; THIS IS SET IN SETTINGS
+$accent: $md-grey;
+$cta-color: $accent;
+
+/* TEXT COLORS */
+$body-color: $dk-grey;
+$heading-color: $main-color;
+
+/* BREAKPOINTS */
+$bp-desktop: 1600px;
+$bp-row: 1334px;
+$bp-laptop: 1199px;
+$bp-tablet: 1079px;
+$bp-phablet: 767px;
+$bp-phone: 599px;
+$bp-sm-phone: 479px;

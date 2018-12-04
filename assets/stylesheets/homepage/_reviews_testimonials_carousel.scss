@@ -1,0 +1,33 @@
+.reviews_testimonials_carousel{background-color: $main-color;text-align: center;padding: 60px 0;}
+
+  .reviews_testimonials_carousel h2{font-size:35px;color: $white;margin-bottom: 40px; font-weight: 400;}
+  	.reviews_testimonials_carousel h2 span {font-weight: 800;}
+
+  .textslider-item{display: none;}
+     .slick-slide .textslider-item img{display: inline-block;border-radius: 50%;}
+    .textslider-item p{color:$white;max-width:700px; display:block; margin:20px auto;}
+    .textslider-item div{margin-top: 24px;}
+    
+      .textslider-item div {color:$white;font-family: $heading-font;font-style: normal;font-weight: 900;text-transform: uppercase;letter-spacing:0.05em;font-size: 13px;}
+    
+      .textslider-item div span{}
+      .textslider-item div em{margin: 0 20px;opacity: .3;}
+      .textslider-item div a{display: inline-block; &:hover{opacity: .7;}}
+        .textslider-item div a i{left:6px;transition:all .3s;position: relative; }
+          .textslider-item div a:hover i{left: 10px;}
+  
+
+
+@media all and (max-width: $bp-phablet) {
+  
+  .textslider-item img{width: 80px;height: 80px;}
+  .textslider-item p{font-size: 12px;}
+    .textslider-item div *{font-size: 12px;}
+    .textslider-item div span{margin: 0 8px;}
+    .textslider-item div em{display: none;}
+    .textslider-item div a{margin: 0 8px;}
+  
+  .reviews_testimonials_carousel .slick-dots{bottom: -38px;position: relative;margin: 0;}
+    .reviews_testimonials_carousel .slick-dots li button{width: 7px;height: 7px;}
+  
+}

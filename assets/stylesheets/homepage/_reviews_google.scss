@@ -1,0 +1,38 @@
+.reviews_google{position: relative;text-align: center;}
+
+	.g-box{border-top:3px solid $main-color; border-left:1px solid $md-lt-grey; border-right:1px solid $md-lt-grey; border-bottom:1px solid $md-lt-grey;padding: 20px;box-sizing: border-box;display: inline-block;margin: 0 20px 20px;width:100%;max-width: 350px;vertical-align: top;text-align: left; background-color:$white; }
+	
+		// General Panel Styles
+		.g-panel{display: block;clear: both;}
+			.g-panel-img{float: left;width: 68px;height: 68px;margin: 0 20px 20px 0;display: block;border-radius:50%;overflow: hidden;}
+				.g-panel-img img{display: block;width: 100%;height: auto;}
+			.g-panel-detail{overflow: hidden;}
+				.g-panel-detail h3{margin: 3px 0 4px;font-size: 15px;font-weight: 700; color: $google-red;}
+				.g-panel-detail i{color: $google-red;font-size: 18px;}
+				.g-panel-detail .g-logo{height: 22px;width: auto;display: inline-block;vertical-align: -8px;margin-left: 8px;}
+				.g-panel-detail p{clear: both;margin: 0;font-weight: 300;font-size: 13px;}
+				
+		//Client Panel
+		
+		//Customer Panel
+		.g-panel.g-customer .g-panel-img{border-radius: 0;}
+		.g-customer .g-panel-detail h3{color: #427fed;font-weight: 400;}
+		.g-customer-excerpt{font-size: 12px;line-height: 200%;margin: 0;clear: both;}
+	
+	//buttons
+	.reviews_google-buttons{margin-top: 30px;}
+	.reviews_google .btn{margin: 10px 4px 0;}
+	.reviews_google .btn.google{background-color: $google-red;border-color: $google-red; color:$white; }
+
+
+
+@media all and (max-width: $bp-row) {  
+  .g-box:nth-child(2){display: none;}
+} 
+
+
+@media all and (max-width: $bp-phone) {
+	.g-box{margin: 0 0 20px;}
+	.g-panel-detail h3{font-size: 13px;}
+	.g-panel-detail p,.g-customer-excerpt{font-size: 12px;}
+}

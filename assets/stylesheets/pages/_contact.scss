@@ -1,0 +1,21 @@
+//contact page
+.contact-content{text-align:center; margin:0;}
+	.contact-content p{margin:0 0 20px; line-height:24px;}
+	.contact-content input, .contact-content textarea{display: block;width: 100%;padding: 10px;margin: 0 0 20px;box-sizing: border-box;font-size: 16px;}
+		.contact-content input:focus, .contact-content textarea:focus { border: 1px solid #e4c147;}
+	.contact-content input[type="radio"]{width:unset; display:inline; margin:0;}
+	.contact-content hr{width: 100%;border: 0 none;height: 1px; box-sizing: border-box;display: block;margin: 30px auto;background-color: rgba($md-grey,.3);}
+	.contact-content .form-field-title{text-align:left; margin:0; padding:0; font-family:$heading-font; color:$dk-grey;}
+	
+	.contact-content .radio-button-contain{}
+		.radio-button-contain p{margin:0;}
+		.radio-button-contain span{margin-right:5px;}
+	
+	.contact-content .select-contain{overflow:hidden;margin:0 0 20px; background-color:$white; border:1px solid lighten($md-grey, 20%); position:relative; cursor:pointer;  &:before{content:"\f123"; position:absolute; left:10px; top:50%; transform:translateY(-50%); color:$main-color; z-index:1;} }
+		.contact-content .select-contain select{width:110%; font-family:$body-font; font-size:16px; color:$md-grey; box-sizing:border-box; padding:0px 0px 0px 30px;border:none; appearance:none;-moz-appearance:none;-webkit-appearance:none;width:100%; position:relative; z-index:2; background-color:transparent; }
+			.contact-content .select-contain select option{padding:10px;}
+	
+	.contact-content button{display: block;width: 100%;}
+	
+	.contact-content .success-msg, .success-msg.app-msg{display:none; font-size:30px; font-weight:600; color:$main-color; text-align:center;}
+	.contact-content .general-error, .general-error.app-msg{font-size:17px; font-family:$heading-font; letter-spacing:1px; color:red; text-transform:uppercase; margin:20px 0 0; text-align:center;}

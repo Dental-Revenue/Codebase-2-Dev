@@ -1,0 +1,5 @@
+.static_intro_section{padding: 0 0 70px;text-align: center;}
+  
+//INVERT COLOR SCHEME
+.static_intro_section.invert h2{color: $white;}
+	.static_intro_section.invert p{color: rgba($white,.7);}

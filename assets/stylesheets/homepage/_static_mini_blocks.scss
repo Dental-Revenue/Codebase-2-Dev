@@ -1,0 +1,32 @@
+.static_mini_blocks{padding: 70px 0;}
+  
+    .m1-left{float: left;width: 30%;& >:last-child{margin-bottom: 0;}}
+  	.m1-left h2{font-size: 28px;margin:0 0 20px;text-transform: uppercase;line-height: 1.1;}
+  		.m1-left h2 span{display: block;font-size: 50%;opacity: .7;margin: 0;line-height: 2;}
+  
+  .m1-right{float: right;width: 66%;}
+    .m1-right ul{margin-bottom: 3%;}
+  
+    .m1-block{position:relative; float: left;padding: 0;border-radius: 3px;box-shadow: 0 0 10px rgba(0,0,0,0.03);width: 48.5%;margin: 0 3% 3% 0; box-sizing: border-box; transition:transform .3s ease-in-out; overflow: hidden;background-color: $white; border:1px solid $md-lt-grey; &:nth-child(2n+2){margin-right: 0;} &:hover{transform: scale(1.03,1.03);box-shadow: 0 0 18px rgba($black,0.1);}}
+    
+    	.m1-block-image{position:absolute; top:0; left:0; bottom: 0;width: 60px;height: 100%;background-size: cover;background-position: center center;}
+    	.m1-block-text{overflow: hidden;padding: 20px 20px 20px 80px;}
+        .m1-block-text h3{color: $main-color;text-transform: uppercase;font-size: 14px;letter-spacing: .05em;}
+        .m1-block-text p{height: 67px;overflow: hidden;}
+        .m1-block-text a.read-more{color: $main-color;font-size: 14px; &:hover{text-decoration: underline;}}
+      
+ 
+//INVERT COLOR SCHEME
+.static_mini_blocks.invert .m1-left h2{color: $white;}
+	.static_mini_blocks.invert .m1-left p{color: rgba($white,.7);} 
+	.static_mini_blocks.invert .m1-left a{color: $white;}
+      
+
+@media all and (max-width: $bp-tablet) {
+  .m1-left{width: 100%;float: none;margin-bottom: 40px;}
+  .m1-right{width: 100%;float: none;}
+} 
+
+@media all and (max-width: $bp-phablet) {
+  .m1-block{width: 100%;margin-right: 0;}
+}
