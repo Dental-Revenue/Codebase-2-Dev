@@ -10,9 +10,6 @@ function theme_scripts_styles() {
 	wp_enqueue_style( 'main-styles', get_template_directory_uri() . '/assets/stylesheets/style.php/style.scss',false, false);
   
   wp_deregister_script('jquery');
-
-  wp_register_script('drscriptpack', ("//cdn.dentalrevenue.com/assets/scriptpack/2.8/drscriptpack.min.js"), array(), '2.8',true);
-  wp_enqueue_script('drscriptpack');
   
   //main js file
   wp_enqueue_script('scripts', get_template_directory_uri() . '/assets/scripts/scripts-min.js', array(), null,true);
