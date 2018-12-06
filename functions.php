@@ -79,6 +79,15 @@ if ( file_exists(  __DIR__ . '/inc/cpts/cpt-testimonials.php' ) ) {
   require_once  __DIR__ . '/inc/cpts/cpt-testimonials.php';
 }
 
+// ================================================ GALLERIES META
+if ( file_exists(  __DIR__ . '/inc/meta/meta-gallery-grid.php' ) ) {
+  require_once  __DIR__ . '/inc/meta/meta-gallery-grid.php';
+}
+
+if ( file_exists(  __DIR__ . '/inc/meta/meta-gallery-scroll.php' ) ) {
+  require_once  __DIR__ . '/inc/meta/meta-gallery-scroll.php';
+}
+
 // MODIFIED GET TEMPLATE PART TO ACCEPT ARGUMENTS
 function get_partial( $file, $template_args = array(), $cache_args = array() ) {
     $template_args = wp_parse_args( $template_args );
@@ -180,10 +189,6 @@ function get_form_processor(){
 
 	
 // ================================================ CORE META
-
-if ( file_exists(  __DIR__ . '/inc/meta/meta-gallery-1.php' ) ) {
-  require_once  __DIR__ . '/inc/meta/meta-gallery-1.php';
-}
 
 
 	
@@ -1089,6 +1094,17 @@ add_image_size('xs-square', 80, 80, true);
 //Thumb generation for Gallery V1
 add_image_size('g1_ba_thumb', 300, 200, true);
 add_image_size('g1_ba_full', 900, 600, true);  
+
+/* special image sizes for gallery scroll style */
+add_image_size('smile-gallery-portrait', 400, 600, true); 
+  
+/* special image sizes for gallery grid style */
+add_image_size('sg-primary', 300, '', true);
+add_image_size('sg-primary-md', 600, '', true);
+add_image_size('sg-primary-lg', 900, '', true);
+add_image_size('sg-stitch', 300, 200, true);
+add_image_size('sg-stitch-md', 600, 400, true);
+add_image_size('sg-stitch-lg', 900, 600, true);
 
 
 
