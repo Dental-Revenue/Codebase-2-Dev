@@ -1,11 +1,13 @@
-<?php $instance = $template_args['instance']; ?>
+<?php $instance = $template_args['instance'];
+	$appearance_info = get_option( 'appearance_info');
+	$headline_style = $appearance_info['headline_style']; ?>
   
 <div class="row">
 	<?php
   $raw_headline = get_post_meta(get_the_id(),$instance.'_headline',true);
 	$headline = str_replace(array('{','}'), array('<span>','</span>'),$raw_headline);
 	?>
-	<h2 class="hp-headline"><?php echo $headline; ?></h2>
+	<h2 class="<?php echo $headline_style; ?>"><?php echo $headline; ?></h2>
 </div>
 <div class="row">
 	

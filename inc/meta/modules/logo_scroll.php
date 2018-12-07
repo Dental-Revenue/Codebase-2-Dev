@@ -15,11 +15,11 @@
 					'id'   => $prefix .'common_images',
 					'type' => 'multicheck_inline',
 					'options' => array(
-						'/wp-content/themes/codebase2/assets/images/layout/logo-ada.jpg' => 'ADA',
-						'/wp-content/themes/codebase2/assets/images/layout/logo-aacd.jpg' => 'AACD',
-						'/wp-content/themes/codebase2/assets/images/layout/logo-academy.jpg' => 'Academy of General Dentistry',
-						'/wp-content/themes/codebase2/assets/images/layout/logo-cerec.jpg' => 'CEREC',
-						'/wp-content/themes/codebase2/assets/images/layout/logo-invisalign.jpg' => 'Invisalign',
+						'/wp-content/themes/codebase-2/assets/images/layout/logo-ada.jpg' => 'ADA',
+						'/wp-content/themes/codebase-2/assets/images/layout/logo-aacd.jpg' => 'AACD',
+						'/wp-content/themes/codebase-2/assets/images/layout/logo-academy.jpg' => 'Academy of General Dentistry',
+						'/wp-content/themes/codebase-2/assets/images/layout/logo-cerec.jpg' => 'CEREC',
+						'/wp-content/themes/codebase-2/assets/images/layout/logo-invisalign.jpg' => 'Invisalign',
 					),
 				));
 				$box->add_field( array(

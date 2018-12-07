@@ -1,4 +1,6 @@
-<?php $instance = $template_args['instance']; ?>
+<?php $instance = $template_args['instance'];
+	$appearance_info = get_option( 'appearance_info');
+	$headline_style = $appearance_info['headline_style']; ?>
   
 <div class="row">
 	
@@ -13,7 +15,7 @@
   </div>
   
   <div class="static_image_content-right">
-    <h2><?php echo $title; ?></h2>
+    <h2 class="<?php echo $headline_style; ?>"><?php echo $title; ?></h2>
     <?php echo wpautop($excerpt); ?>
     <?php 
 	    $buttons = get_post_meta(get_the_id(),$instance.'_buttons',true);

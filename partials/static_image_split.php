@@ -1,5 +1,7 @@
 <?php 
 	$instance = $template_args['instance']; 
+	$appearance_info = get_option( 'appearance_info');
+	$headline_style = $appearance_info['headline_style'];
 ?>
 
 
@@ -19,23 +21,23 @@
   <div class="static_image_split-right">
     
     <div class="static_image_split-content">
-      <h2 class="hp-headline"><?php echo $headline; ?></h2>
+      <h2 class="<?php echo $headline_style; ?>"><?php echo $headline; ?></h2>
      <?php echo wpautop($content); ?>
     </div>
     
     <div class="static_image_split-contact">
       <div class="contact-options">
           <div class="contact-option">
-            <i class="icon ion-ios-telephone-outline"></i>
+            <i class="icon fas fa-phone"></i>
             <p>New Patients <span class="bold tracknum">(410) 410-4104</span></p>
           </div> 
           <a class="contact-option street-address" href="https://maps.google.com/" target="_blank">
-            <i class="icon ion-ios-navigate-outline"></i>
+            <i class="icon fas fa-compass"></i>
             <p>320 E. Towsontown Blvd. Suite 201 <span class="bold">Towson, MD 21286</span></p>
           </a>
       </div>
       <?php $page = get_pages(array('meta_key' => '_wp_page_template','meta_value' => 'page-templates/template-schedule.php')); ?>
-      <a href="<?php echo get_permalink($page[0]->ID); ?>" class="btn">Schedule Appointment</a>
+      <a href="<?php echo get_permalink($page[0]->ID); ?>" class="btn solid">Schedule Appointment</a>
     </div>
     
   </div>

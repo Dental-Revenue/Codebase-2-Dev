@@ -1,4 +1,6 @@
-<?php $instance = $template_args['instance']; ?>
+<?php $instance = $template_args['instance'];
+	$appearance_info = get_option( 'appearance_info');
+	$headline_style = $appearance_info['headline_style']; ?>
 
 
 <div class="row">
@@ -10,7 +12,7 @@
 	$content = get_post_meta(get_the_id(),$instance.'_content',true);
 	?>
   <div class="static_blocks_list-text">
-    <?php if(!empty($headline)){ ?><h2><?php echo $headline; ?></h2><?php } ?>
+    <?php if(!empty($headline)){ ?><h2 class="<?php echo $headline_style; ?>"><?php echo $headline; ?></h2><?php } ?>
     <?php if(!empty($content)){ ?><div class="rte"><?php echo $content; ?></div><?php } ?>
   </div>
   

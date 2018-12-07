@@ -4,7 +4,7 @@
     .static_image_content-left > img{width: 100%;height:auto;display: block;} 
 
   .static_image_content-right{width: 600px;display: inline-block;vertical-align: top;text-align: left;}
-    .static_image_content-right h2{text-align: left; font-size:35px; line-height:116%; font-weight:400;}
+    .static_image_content-right h2{text-align: left; line-height:116%; padding:0; color:$main-color; &:after {display:none;}}
     .static_image_content-right p{margin-bottom: 30px;}
     .static_image_content-right a{margin: 4px 4px 0 0; &:first-of-type{margin-left: 0;}}
     

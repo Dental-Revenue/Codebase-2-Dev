@@ -1,5 +1,5 @@
 .blog_full_width{@include clearfix();padding:0; overflow:visible;}
-  .blog_full_width .hp-post{width: 33%;float: left;border-bottom: 10px solid $main-color;background-color:$white;display: block; position: relative;}
+  .blog_full_width .hp-post{width: 33%;float: left;border-bottom: 10px solid $main-color;background-color:$white;display: block; position: relative; margin-bottom:0;}
   .blog_full_width .hp-post:nth-child(2){width: 34%;border-bottom: 10px solid darken($main-color,10%);background-color: rgba($black, .03);}
   	
   	.blog_full_width .hp-post .blog-date{background-color: #fff; border: 3px solid $main-color; border-radius: 50%; box-sizing: border-box; color: #2d3540; font-size: 28px; font-weight: 600; height: 100px; left: 0; line-height: 26px; margin: auto; padding-top: 18px; position: absolute; right: 0; text-align: center; text-transform: uppercase; top: -35px; width: 100px; display: block;}
