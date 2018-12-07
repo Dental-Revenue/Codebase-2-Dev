@@ -9,6 +9,7 @@ require('slick-carousel');
 //require('jquery-sticky-kit');
 require('sidr/dist/jquery.sidr.js');
 require('bootstrap/js/dist/tab.js');
+var magnificPopup = require('magnific-popup');
 
 // Jquery here
 $(document).ready(function(){

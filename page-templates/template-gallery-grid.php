@@ -62,7 +62,7 @@ Template Name: Gallery - Grid Style
 							} ?>
 							
 							<div class="sg-grid-item f-all <?php echo $feat_type; if(!empty($filters)){foreach($filters as $filter){echo ' f-'.sanitize_title($filter);}} ?>">
-								<a href="#" class="sg-patient">
+								<a href="#" class="sg-patient" data-images="<?php echo '#img'.$gallery_img_1_id; ?>">
 									<span class="overlay"></span>
 									<img src="<?php echo $gallery_img_1[0]; ?>" alt="<?php echo 'Main Gallery Image '.$gallery_count.' | '.get_the_title(); ?>" />
 						      <?php if($feat_type=='ba'){ ?>  
@@ -74,13 +74,15 @@ Template Name: Gallery - Grid Style
 						      <?php } ?>
 					      </a>
 					      
-					      <?php if($feat_type=='ba'){
-					            echo "<div class='sg-lightbox-set' id='img".$gallery_img_1_id."'>"."<img src='about:blank' data-src='".$gallery_img_1[0]."' />"."<img src='about:blank' data-src='".$gallery_img_2[0]."' /></div>";
-					          }else{
-					            $gallery_img_1_lg = wp_get_attachment_image_src( $gallery_img_1_id, 'sg-primary-lg' );
-					            echo "<div class='sg-lightbox-single' id='img".$gallery_img_1_id."'>"."<img src='about:blank' data-src='".$gallery_img_1_lg[0]."' /></div>";
-					          } ?>
-						
+					      <div class="sg-lightbox-images mfp-hide">
+						      <?php if($feat_type=='ba'){
+						            echo "<div class='sg-lightbox-set' id='img".$gallery_img_1_id."'>"."<img src='about:blank' data-src='".$gallery_img_1[0]."' />"."<img src='about:blank' data-src='".$gallery_img_2[0]."' /></div>";
+						          }else{
+						            $gallery_img_1_lg = wp_get_attachment_image_src( $gallery_img_1_id, 'sg-primary-lg' );
+						            echo "<div class='sg-lightbox-single' id='img".$gallery_img_1_id."'>"."<img src='about:blank' data-src='".$gallery_img_1_lg[0]."' /></div>";
+						          } ?>
+					      </div>
+							
 							</div>
 						<?php $gallery_count++; } ?>
 		    	</div>
