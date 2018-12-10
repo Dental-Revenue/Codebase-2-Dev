@@ -1,0 +1,17 @@
+.g-scroll-contain{display: block; margin: 0 auto;  max-width: 800px;}
+
+  .g-scroll-slide{@include clearfix(); margin: 0 auto; text-align: left; overflow: hidden;}
+  	.g-scroll-slide h3{color: $main-color;font-size: 14px;line-height: 1.25;position: relative;text-transform: uppercase; clear: both; text-align: left; margin-top: 30px;}
+    .g-scroll-slide img{display:block; width: 49%;height: auto;float: left;margin:0 0 20px 2%; &:first-child{margin-left: 0;}}
+    .g-scroll-slide p{text-align: left;}
+
+
+/* Media Queries */
+@media all and (max-width: $bp-phablet) {
+  .g-scroll-slide{width: 100%;text-align: center;}
+    //.g-scroll-slide img{display: inline-block;margin: 6px !important;width: 144px;height: 144px;float: none;}
+}
+
+@media all and (max-width: $bp-phone) {
+  .g-scroll-slide img{display: block;margin: 0 0 30px 2% !important; width: 49%; height: auto; float: left; &:first-child{margin-left: 0 !important;}}
+}

@@ -265,6 +265,7 @@ $('.static_tabs-left ul li:first-child a').tab('show');
 	      $.magnificPopup.close();
 	  });
 	
+	$('.slick-g-scroll').slick({dots:true,arrows:false,infinite:false,speed:200});
 	
 	    	
 });

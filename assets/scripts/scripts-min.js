@@ -340,6 +340,8 @@ $(document).ready(function () {
 		$('body').on('click', '.custom-mfp-close', function () {
 				$.magnificPopup.close();
 		});
+
+		$('.slick-g-scroll').slick({ dots: true, arrows: false, infinite: false, speed: 200 });
 });
 
 },{"bootstrap/js/dist/tab.js":4,"imagesloaded":10,"isotope-layout":11,"jquery":18,"jquery-bridget":17,"magnific-popup":20,"sidr/dist/jquery.sidr.js":24,"slick-carousel":25}],4:[function(require,module,exports){
