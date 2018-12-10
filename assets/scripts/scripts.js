@@ -10,6 +10,9 @@ require('slick-carousel');
 require('sidr/dist/jquery.sidr.js');
 require('bootstrap/js/dist/tab.js');
 var magnificPopup = require('magnific-popup');
+var jQueryBridget = require('jquery-bridget');
+var Isotope = require('isotope-layout');
+var imagesLoaded = require('imagesloaded');
 
 // Jquery here
 $(document).ready(function(){
@@ -21,6 +24,7 @@ $(document).ready(function(){
   });
   $('.header').toggleClass('scrolled', $(document).scrollTop() >= 30);
 	
+	//MODULE SPECIFIC *********
 	
 	//Module Carousel_1
 	$('.slick-carousel_1').slick({
@@ -156,6 +160,110 @@ $(document).ready(function(){
   
   //Show tab for Mod 20
 $('.static_tabs-left ul li:first-child a').tab('show');
+
+
+//GALLERY SPECIFIC *********
+
+	//Grid Style Gallery
+	if($('body.page-template-template-gallery-grid').length>0){
+		jQueryBridget( 'isotope', Isotope, $ );
+		
+		function getHashFilter() {
+	    var hash = location.hash;
+	    return hash.replace("#", "");
+		}
+		var $grid = $('.g-grid-grid');
+	    var $filters = $('.g-grid-filters').on('click', 'a', function() {
+	        var filterAttr = $(this).attr('data-filter');
+	        var filterAttr = filterAttr.replace(".f-", "");
+	        location.hash = encodeURIComponent(filterAttr);
+	        return false;
+	    });
+	    var isIsotopeInit = false;
+	
+	    function onHashchange() {
+	        var hashFilter = getHashFilter();
+	        if (!hashFilter && isIsotopeInit) {
+	            return;
+	        }
+	        if (!hashFilter || hashFilter == '') {
+	            var hashFilter = 'all';
+	        }
+	        isIsotopeInit = true;
+	        $grid.imagesLoaded(function() {
+		       // console.log(isotope);
+	            $grid.isotope({
+	                itemSelector: '.g-grid-grid-item',
+	                percentPosition: true,
+	                masonry: {
+	                    columnWidth: '.g-grid-sizer'
+	                },
+	                filter: '.f-' + hashFilter
+	            });
+	        });
+	        if (hashFilter) {
+	            $filters.find('.active').removeClass('active');
+	            $filters.find('[data-filter=".f-' + hashFilter + '"]').addClass('active');
+	        }
+	    }
+	    $(window).on('hashchange', onHashchange);
+	    onHashchange();
+		
+		
+		
+		$.each($(".g-grid-patient"), function() {
+	        var data = $(this).attr('data-images').trim().split(' ');
+	        var items = [];
+	        if (data && data != '') {
+	            for (var i = 0; i < data.length; ++i) {
+	                var item = {};
+	                if ($(data[i]).hasClass('g-grid-lightbox-single')) {
+	                    item["src"] = $(data[i]).find('img').attr('data-src');
+	                    item["type"] = "image";
+	                    items.push(item);
+	                } else {
+	                    var fullHTML = $("<div />").append($(data[i]).clone()).html();
+	                    fullHTML = fullHTML.replace('src="about:blank" ', '');
+	                    fullHTML = fullHTML.replace('src="about:blank" ', '');
+	                    fullHTML = fullHTML.replace('data-src', 'src');
+	                    fullHTML = fullHTML.replace('data-src', 'src');
+	                    item["src"] = fullHTML;
+	                    item["type"] = "inline";
+	                    items.push(item);
+	                }
+	            }
+	        }
+	        $(this).magnificPopup({
+	            midClick: true,
+	            items: items,
+	            gallery: {
+	                enabled: true
+	            },
+	            verticalFit: true,
+	            closeMarkup: '<button title="%title%" type="button" class="custom-mfp-close">&#215;</button>',
+	            callbacks: {
+	                open: function() {
+	                    var wHeight = $(window).height();
+	                    $('.g-grid-lightbox-set').css('height', wHeight * .9 + "px");
+	                },
+	                resize: function() {
+	                    var wHeight = $(window).height();
+	                    $('.g-grid-lightbox-set').css('height', wHeight * .9 + "px");
+	                },
+	                change: function() {
+	                    var wHeight = $(window).height();
+	                    if (this.content.hasClass('g-grid-lightbox-set')) {
+	                        this.content.css('height', wHeight - 80 + "px");
+	                    }
+	                }
+	            }
+	        });
+	    });
+	  }
+	  
+	  $('body').on('click', '.custom-mfp-close', function() {
+	      $.magnificPopup.close();
+	  });
 	
 	
 	    	
