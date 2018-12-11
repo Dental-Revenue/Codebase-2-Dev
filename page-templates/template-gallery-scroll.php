@@ -28,29 +28,26 @@ Template Name: Gallery - Scroll Style
 	        		  foreach($gallery_items as $item){
 								$gallery_img_1 = $gallery_img_2 = $gallery_desc = $feat_type = '';
 								if(isset($item['desc'])){ $gallery_desc = $item['desc']; }
-								if(isset($item['img_1'])){ 
+								if(!empty($item['img_1'])){ 
 									$gallery_img_1_id = $item['img_1_id']; 
-									$gallery_img_1 = wp_get_attachment_image_src( $gallery_img_1_id, 'md-square' ); 
+									$gallery_img_1 = wp_get_attachment_image_src( $gallery_img_1_id, 'lg-square' ); 
 									$feat_type = 'portrait';
 								}
-								if(isset($item['img_2'])){ 
+								if(!empty($item['img_2'])){ 
 									$gallery_img_2_id = $item['img_2_id']; 
-									$gallery_img_2 = wp_get_attachment_image_src( $gallery_img_2_id, 'md-square' ); 
+									$gallery_img_2 = wp_get_attachment_image_src( $gallery_img_2_id, 'lg-square' ); 
 									$feat_type = 'ba';
 								} 
 							?>
 	        		  
-        		  <div class="g-scroll-slide">
-        				
-
-	      	  			
+        		  <div class="g-scroll-slide <?php echo $feat_type; ?>">
+        					
 	      	  			<?php 
 	      	  			  echo '<img src="'.$gallery_img_1[0].'">';	
-	      	  			  echo '<img src="'.$gallery_img_2[0].'">';
-	      	  			   echo '<p>'.$gallery_desc.'</p>';
+	      	  			  if(!empty($gallery_img_2)){ echo '<img src="'.$gallery_img_2[0].'">'; }
+	      	  			  echo '<p>'.$gallery_desc.'</p>';
 	      	  			?>
 	      	  			
-	
         		  </div>
         		
         		<?php } ?>   

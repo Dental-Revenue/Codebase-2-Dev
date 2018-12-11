@@ -13,7 +13,7 @@
       .g-grid-patient{border-bottom: 4px solid $md-grey;display: block;position: relative;}
         .g-grid-patient img{width: 100%;height: auto;display: block;}
         .g-grid-patient span.excerpt{display: block;padding: 20px;margin: 0;background-color: $white;font-size: 13px;position: relative;z-index: 2;box-shadow: 0 0 8px rgba($black,.1);}
-        .g-grid-patient span.overlay{display: block;position: absolute;top:0;right:0;bottom:0;left:0;background-color: rgba($main-color,0);z-index: 1;transition: background-color .6s; &:before{content:"";display: block;position: absolute;top:20px;right: 20px;width: 60px;height: 28px;background-image:url('../images/layout/icon-ba.png');background-position: right top;background-size: contain;background-repeat: no-repeat;transform: translate(-50px,0);opacity: 0;transition:transform .3s, opacity .3s;}}
+        .g-grid-patient span.overlay{display: block;position: absolute;top:0;right:0;bottom:0;left:0;background-color: rgba($main-color,0);z-index: 1;transition: background-color .6s; &:before{content:"";display: block;position: absolute;top:20px;right: 20px;width: 60px;height: 28px;background-image:url('../../images/layout/icon-ba.png');background-position: right top;background-size: contain;background-repeat: no-repeat;transform: translate(-50px,0);opacity: 0;transition:transform .3s, opacity .3s;}}
         
         .g-grid-patient:hover span.overlay{background-color: rgba($main-color,0.75); &:before{transform: translate(0,0);opacity: 1;}}
       

@@ -4,6 +4,9 @@
   	.g-scroll-slide h3{color: $main-color;font-size: 14px;line-height: 1.25;position: relative;text-transform: uppercase; clear: both; text-align: left; margin-top: 30px;}
     .g-scroll-slide img{display:block; width: 49%;height: auto;float: left;margin:0 0 20px 2%; &:first-child{margin-left: 0;}}
     .g-scroll-slide p{text-align: left;}
+    
+  .g-scroll-slide.portrait{max-width:392px;}
+  	.g-scroll-slide.portrait img{width:100%;}
 
 
 /* Media Queries */
