@@ -73,6 +73,8 @@ function render_modules(){ ?>
 							<option value="static_side_by_side">Static Side By Side</option>
 							<option value="static_multiple_col">Static Multiple Columns</option>
 							<option value="static_tabs">Static Tabs</option>
+							<option value="static_4_up">Static 4-Up</option>
+							<option value="static_5_up">Static 5-Up</option>
 							<option value="breaker">Breaker</option>
 							<option value="carousel_1">Carousel 1</option>
 							<option value="carousel_2">Carousel 2</option>
