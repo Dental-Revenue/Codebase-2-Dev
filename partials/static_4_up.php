@@ -4,11 +4,6 @@
 	$headline_style = $appearance_info['headline_style'];
 	
 	$title = get_post_meta( get_the_ID(), $instance.'_title', true ); 
-	
-	$img = get_post_meta( get_the_ID(), $instance.'_img_id', true ); 
-	$img = wp_get_attachment_image_src( $big_img, 'lg' ); 
-	$link_title = get_post_meta( get_the_ID(), $instance.'_img_link_title', true ); 
-	$link = get_post_meta( get_the_ID(), $instance.'_img_link', true );
 	 
 ?>
   
@@ -16,19 +11,19 @@
   
   <div class="row">
 	  <?php 
-		 $images = get_post_meta(get_the_id(),$instance.'_images',true);
-		 foreach ((array) $images as $key => $image ) {
+		 $columns = get_post_meta(get_the_id(),$instance.'_images',true);
+		 foreach ((array) $columns as $key => $column ) {
 		 $image_img = $image_link = $image_link_title = '';
-		 if(isset($image['img'])){ 
-			 $image_img = $image['img']; 
-			 $image_img = wp_get_attachment_image_src( $image_img, 'lg' ); 
-		 }
-		 if(isset($image['img_link'])){ $image_link = $image['img_link']; }
-		 if(isset($image['img_link_title'])){ $image_link_title = $image['img_link_title']; } ?>
+		 if(isset($column[$instance.'_img_link'])){ $image_link = $column[$instance.'_img_link']; }
+		 if(isset($column[$instance.'_img_link_title'])){ $image_link_title = $column[$instance.'_img_link_title']; }
+		 if(isset($column[$instance.'_img'])){ 
+			 $image_img = $column[$instance.'_img'];
+			 //$image_img = wp_get_attachment_image_src( $image_img, 'md' );
+		 } ?>
 	  
 		  <div class="columns six static_4_up-column">
 			  
-			  <a href="<?php echo $image_link ?>" class="static_4_up-box hover-up-parent" style="background-image:url(<?php echo $image_img[0]; ?>);"><span class="hover-up-child"><?php echo $image_link_title ?></span></a>
+			  <a href="<?php echo $image_link ?>" class="static_4_up-box hover-up-parent" style="background-image:url(<?php echo $image_img; ?>);"><span class="hover-up-child"><?php echo $image_link_title ?></span></a>
 			  
 		  </div>
 		  
