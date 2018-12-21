@@ -85,6 +85,7 @@ function render_modules(){ ?>
 							<option value="logo_scroll">Logo Scroll</option>
 							<option value="reviews_testimonials_fold">Reviews Testimonials Fold</option>
 							<option value="reviews_testimonials_carousel">Reviews Testimonials Carousel</option>
+							<option value="reviews_testimonials_grid">Reviews Testimonials Grid</option>
 							<option value="reviews_google">Reviews Google</option>
 						</select>
 						<label>Module Name</label>

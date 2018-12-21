@@ -321,6 +321,16 @@ function homepage_meta() {
 
 // ===============================================================================
 
+
+			case "reviews_testimonials_grid":
+			
+				require_once  __DIR__ . '/modules/reviews_testimonials_grid.php';
+				
+			break;
+			
+
+// ===============================================================================
+
 			
 		} //end switch
 	} 

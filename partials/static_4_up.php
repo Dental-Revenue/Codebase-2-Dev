@@ -17,13 +17,13 @@
 		 if(isset($column[$instance.'_img_link'])){ $image_link = $column[$instance.'_img_link']; }
 		 if(isset($column[$instance.'_img_link_title'])){ $image_link_title = $column[$instance.'_img_link_title']; }
 		 if(isset($column[$instance.'_img'])){ 
-			 $image_img = $column[$instance.'_img'];
-			 //$image_img = wp_get_attachment_image_src( $image_img, 'md' );
+			 $image_img_id = $column[$instance.'_img_id'];
+			 $image_img = wp_get_attachment_image_src( $image_img_id, 'lg' );
 		 } ?>
 	  
 		  <div class="columns six static_4_up-column">
 			  
-			  <a href="<?php echo $image_link ?>" class="static_4_up-box hover-up-parent" style="background-image:url(<?php echo $image_img; ?>);"><span class="hover-up-child"><?php echo $image_link_title ?></span></a>
+			  <a href="<?php echo $image_link ?>" class="static_4_up-box hover-up-parent" style="background-image:url(<?php echo $image_img[0]; ?>);"><span class="hover-up-child"><?php echo $image_link_title ?></span></a>
 			  
 		  </div>
 		  
