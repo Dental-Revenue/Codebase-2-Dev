@@ -12,3 +12,15 @@
 			.static_5_up-box.hover-up-parent:hover .hover-up-child{bottom:0;}
 			
 		.static_5_up_left_column .static_5_up-box:first-child, .static_5_up_right_column .static_5_up-box:first-child {margin-bottom:10px;}
+		
+
+@media all and (max-width: $bp-tablet) {  
+	.static_5_up_left_column, .static_5_up_right_column {width:100%; padding-left: 0;}
+		.static_5_up_left_column .static_5_up-box, .static_5_up_right_column .static_5_up-box {width:47.8%; padding-top:47.8%; float:left; display:inline-block; &:first-child{margin-right:4.4%; margin-bottom:20px;}}
+	.static_5_up_middle_column {width:100%; padding-left:0; margin-bottom: 20px;}
+}
+
+
+@media all and (max-width: $bp-phone) { 
+	.static_5_up_left_column .static_5_up-box, .static_5_up_right_column .static_5_up-box {width:100%; padding-top:100%; margin-bottom:20px; &:first-child{margin-right:0%;}}
+}

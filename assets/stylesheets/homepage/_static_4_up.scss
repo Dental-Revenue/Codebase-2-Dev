@@ -1,5 +1,5 @@
 .static_4_up {padding:0 0 70px;}
-	.static_4_up-column.columns {margin-bottom:40px; &:nth-child(2n-1){margin-left:0;}}
+	.static_4_up-column.columns {margin-bottom:40px; &:nth-child(2n-1){margin-left:0;} &:last-child {margin-bottom:0;} &:nth-last-child(2) {margin-bottom:0;}}
 	.static_4_up-box{width: 100%;margin: 0;padding-top:75%;display: block;background-size: cover;background-position: center center; }
 		.static_4_up-box.hover-up-parent{position:relative; overflow:hidden;}
 			.static_4_up-box.hover-up-parent .hover-up-child{line-height:50px; display:block; width:100%; position:absolute; bottom:-50px; transition:bottom .3s; background-color:rgba($main-color, .8); color:$white; font-size:13px; text-transform:uppercase; font-weight:800; letter-spacing:.05em; text-align:right; padding:0 20px; box-sizing:border-box;}

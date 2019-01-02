@@ -20,5 +20,14 @@
 
 
 @media all and (max-width: $bp-tablet) {
-  .row .columns{width: 100% !important;margin-left: 0;}
+}
+
+@media all and (max-width: $bp-phablet) {  
+}
+
+@media all and (max-width: $bp-phone) {
+  .row .columns{width: 100% !important;margin-left: 0;}    
+}
+
+@media all and (max-width: $bp-sm-phone) {
 }

@@ -267,5 +267,16 @@ $('.static_tabs-left ul li:first-child a').tab('show');
 	
 	$('.slick-g-scroll').slick({dots:true,arrows:false,infinite:false,speed:200});
 	
+	
+  //Youtube Popups
+  $('.popup-youtube').magnificPopup({
+		type: 'iframe',
+		mainClass: 'mfp-fade',
+		removalDelay: 160,
+		preloader: false,
+		fixedContentPos: false
+	});
+	
+	
 	    	
 });
