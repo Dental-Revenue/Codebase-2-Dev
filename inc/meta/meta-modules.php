@@ -130,6 +130,16 @@ function homepage_meta() {
 				require_once  __DIR__ . '/modules/breaker.php';
 				
 			break;
+			
+
+// ===============================================================================
+			
+			
+			case "specials_breaker":
+				
+				require_once  __DIR__ . '/modules/specials_breaker.php';
+				
+			break;
 
 
 // ===============================================================================

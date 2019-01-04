@@ -76,6 +76,7 @@ function render_modules(){ ?>
 							<option value="static_4_up">Static 4-Up</option>
 							<option value="static_5_up">Static 5-Up</option>
 							<option value="breaker">Breaker</option>
+							<option value="specials_breaker">Specials Breaker</option>
 							<option value="carousel_1">Carousel 1</option>
 							<option value="carousel_2">Carousel 2</option>
 							<option value="carousel_3">Carousel 3</option>
