@@ -1,26 +1,26 @@
 <?php
-function init_my_shortcode_button_3() {
+function init_my_shortcode_button_well() {
 
-	$button_slug = 'faqs';
+	$button_slug = 'well';
 	$js_button_data = array(
-		'qt_button_text' => __( 'Add FAQs', 'shortcode-button' ),
-		'button_tooltip' => __( 'Add FAQs', 'shortcode-button' ),
+		'qt_button_text' => __( 'Add Well Block', 'shortcode-button' ),
+		'button_tooltip' => __( 'Add Well Block', 'shortcode-button' ),
 		'icon'           => 'dashicons-info',
-		'include_close'  => false, // Will wrap your selection in the shortcode
+		'include_close'  => true, // Will wrap your selection in the shortcode
 		'mceView'        => true, // Live preview of shortcode in editor. YMMV.
 		'l10ncancel'     => __( 'Cancel', 'shortcode-button' ),
-		'l10ninsert'     => __( 'Insert FAQs', 'shortcode-button' ),
+		'l10ninsert'     => __( 'Insert Well Block', 'shortcode-button' ),
 	);
 
 	// Optional additional parameters
 	$additional_args = array(
-		'cmb_metabox_config'   => 'shortcode_button_cmb_config_3',
+		'cmb_metabox_config'   => 'shortcode_button_cmb_config_well',
 	);
 
 	$button = new Shortcode_Button( $button_slug, $js_button_data, $additional_args );
 }
 // This hook, with this priority ensures the Shortcode_Button library is loaded.
-add_action( 'shortcode_button_load', 'init_my_shortcode_button_3', ( SHORTCODE_BUTTONS_LOADED + 1 ) );
+add_action( 'shortcode_button_load', 'init_my_shortcode_button_well', ( SHORTCODE_BUTTONS_LOADED + 1 ) );
 
 /**
  * Return CMB2 config array
@@ -29,7 +29,7 @@ add_action( 'shortcode_button_load', 'init_my_shortcode_button_3', ( SHORTCODE_B
  *
  * @return array               CMB2 config array
  */
-function shortcode_button_cmb_config_3( $button_data ) {
+function shortcode_button_cmb_config_well( $button_data ) {
 
 	return array(
 		'id'     => 'shortcode_'. $button_data['slug'],
@@ -38,12 +38,7 @@ function shortcode_button_cmb_config_3( $button_data ) {
 				'name'    => 'Title (optional)',
 				'id'      => 'title',
 				'type'    => 'text',
-			),
-			array(
-				'name'    => 'FAQs',
-				'id'      => 'faq_group',
-				'type'    => 'group',
-			),
+			)
 		),
 		// keep this w/ a key of 'options-page' and use the button slug as the value
 		'show_on' => array( 'key' => 'options-page', 'value' => $button_data['slug'] ),
@@ -51,6 +46,17 @@ function shortcode_button_cmb_config_3( $button_data ) {
 
 }
 
+function add_my_shortcode_button_well($atts, $content = ""){
+	extract(shortcode_atts(array(
+    'title' => ''
+  ), $atts));
+   
+  $title_input = '';
+  if($title != ''){$title_input = '<h2>'.$title.'</h2>';}
+	return '<div class="well">'.$title_input.''.$content.'</div>';
+}
+
+add_shortcode('well', 'add_my_shortcode_button_well');
 
 
 ?>

@@ -42,14 +42,17 @@ if ( file_exists(  __DIR__ . '/inc/libs/shortcode-button/shortcode-button.php' )
 if ( file_exists(  __DIR__ . '/inc/shortcodes.php' ) ) {
   require_once  __DIR__ . '/inc/shortcodes.php';
 }
-if ( file_exists(  __DIR__ . '/inc/custom-shortcodes.php' ) ) {
-  require_once  __DIR__ . '/inc/custom-shortcodes.php';
+if ( file_exists(  __DIR__ . '/inc/custom-shortcode-mini-gallery.php' ) ) {
+  require_once  __DIR__ . '/inc/custom-shortcode-mini-gallery.php';
 }
-if ( file_exists(  __DIR__ . '/inc/custom-shortcodes-2.php' ) ) {
-  require_once  __DIR__ . '/inc/custom-shortcodes-2.php';
+if ( file_exists(  __DIR__ . '/inc/custom-shortcode-testimonials.php' ) ) {
+  require_once  __DIR__ . '/inc/custom-shortcode-testimonials.php';
 }
-if ( file_exists(  __DIR__ . '/inc/custom-shortcodes-3.php' ) ) {
-  require_once  __DIR__ . '/inc/custom-shortcodes-3.php';
+if ( file_exists(  __DIR__ . '/inc/custom-shortcode-faq.php' ) ) {
+  require_once  __DIR__ . '/inc/custom-shortcode-faq.php';
+}
+if ( file_exists(  __DIR__ . '/inc/custom-shortcode-well.php' ) ) {
+  require_once  __DIR__ . '/inc/custom-shortcode-well.php';
 }
 
 // ================================================ THEME OPTIONS

@@ -1,5 +1,5 @@
 <?php
-function init_my_shortcode_button() {
+function init_my_shortcode_button_mini_gallery() {
 
 	$button_slug = 'mini_gallery';
 
@@ -29,7 +29,7 @@ function init_my_shortcode_button() {
 	// Optional additional parameters
 	$additional_args = array(
 		// Can be a callback or metabox config array
-		'cmb_metabox_config'   => 'shortcode_button_cmb_config',
+		'cmb_metabox_config'   => 'shortcode_button_cmb_config_mini_gallery',
 		// Set the conditions of the shortcode buttons
 		//'conditional_callback' => 'shortcode_button_only_pages',
 
@@ -40,7 +40,8 @@ function init_my_shortcode_button() {
 	$button = new Shortcode_Button( $button_slug, $js_button_data, $additional_args );
 }
 // This hook, with this priority ensures the Shortcode_Button library is loaded.
-add_action( 'shortcode_button_load', 'init_my_shortcode_button', ( SHORTCODE_BUTTONS_LOADED + 1 ) );
+add_action( 'shortcode_button_load', 'init_my_shortcode_button_mini_gallery', ( SHORTCODE_BUTTONS_LOADED + 1 ) );
+
 
 /**
  * Return CMB2 config array
@@ -49,7 +50,7 @@ add_action( 'shortcode_button_load', 'init_my_shortcode_button', ( SHORTCODE_BUT
  *
  * @return array               CMB2 config array
  */
-function shortcode_button_cmb_config( $button_data ) {
+function shortcode_button_cmb_config_mini_gallery( $button_data ) {
 
 	return array(
 		'id'     => 'shortcode_'. $button_data['slug'],

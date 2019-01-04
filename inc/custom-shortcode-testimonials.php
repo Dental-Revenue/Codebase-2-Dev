@@ -1,5 +1,5 @@
 <?php
-function init_my_shortcode_button_2() {
+function init_my_shortcode_button_testimonials() {
 
 	$button_slug = 'testimonials';
 	$js_button_data = array(
@@ -14,13 +14,13 @@ function init_my_shortcode_button_2() {
 
 	// Optional additional parameters
 	$additional_args = array(
-		'cmb_metabox_config'   => 'shortcode_button_cmb_config_2',
+		'cmb_metabox_config'   => 'shortcode_button_cmb_config_testimonials',
 	);
 
 	$button = new Shortcode_Button( $button_slug, $js_button_data, $additional_args );
 }
 // This hook, with this priority ensures the Shortcode_Button library is loaded.
-add_action( 'shortcode_button_load', 'init_my_shortcode_button_2', ( SHORTCODE_BUTTONS_LOADED + 1 ) );
+add_action( 'shortcode_button_load', 'init_my_shortcode_button_testimonials', ( SHORTCODE_BUTTONS_LOADED + 1 ) );
 
 /**
  * Return CMB2 config array
@@ -29,7 +29,7 @@ add_action( 'shortcode_button_load', 'init_my_shortcode_button_2', ( SHORTCODE_B
  *
  * @return array               CMB2 config array
  */
-function shortcode_button_cmb_config_2( $button_data ) {
+function shortcode_button_cmb_config_testimonials( $button_data ) {
 
 	return array(
 		'id'     => 'shortcode_'. $button_data['slug'],
