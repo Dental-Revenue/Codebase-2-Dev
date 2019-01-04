@@ -1,9 +1,10 @@
-.specials_breaker {padding:60px 0;text-align:center;}
+.specials_breaker {padding:0 0 70px;text-align:center;}
 
-	.specials_breaker h2 {color:$dk-grey;margin:0 0 20px;font-weight: 400;font-size:2em;line-height: 1.4;}
+	.specials_breaker h2 {padding-bottom:0;}
+	.specials_breaker p {font-size: 18px;}
 	.specials_breaker a.btn{background-color: $white; margin-top: 30px; color:$main-color; &:hover {background-color: $black;color: $white;}}
 	
 	.specials_breaker .module-image:after{content:''; position:absolute;height:100%;width:100%;top:0;left:0;background-color: rgba($main-color,.85);}
 		
 //INVERT COLOR SCHEME
-.specials_breaker.invert h2{color: $white;}
+.specials_breaker.invert h2, .specials_breaker.invert p{color: $white;}

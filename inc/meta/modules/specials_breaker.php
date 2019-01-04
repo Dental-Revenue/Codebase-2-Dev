@@ -1,11 +1,18 @@
 <?php	
-
 $box->add_field( array(
-	'name' => 'Specials Breaker Text',
-	'id' => $prefix.'specials_breaker_text',
+	'name' => 'Specials Breaker Headline',
+	'id' => $prefix.'specials_breaker_headline',
 	'type' => 'text',
 	'attributes'  => array(
  		'placeholder' => 'A small amount of text',
+ 		'required'    => 'required',
+ 	),
+));
+$box->add_field( array(
+	'name' => 'Specials Breaker Text',
+	'id' => $prefix.'specials_breaker_text',
+	'type' => 'textarea_small',
+	'attributes'  => array(
  		'required'    => 'required',
  	),
 ));

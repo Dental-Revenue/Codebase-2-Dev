@@ -5,7 +5,7 @@
   .static_image_split-right{width: 50%;position: relative;margin-left: 50%;}
   
     .static_image_split-content{padding: 30px;background-color: darken($main-color, 20%);}
-      .static_image_split-content h2{color: $white;font-size: 28px; text-transform: uppercase; line-height: 130%;}
+      .static_image_split-content h2{color: $white;font-size: 28px; text-transform: uppercase; line-height: 130%; text-align: left; padding: 0;}
       	.static_image_split-content h2 span {display: block;font-size: 50%;opacity: .7;margin: 0;}
       	.static_image_split-content h2:after {content: '';display: block;width: 40px;height: 3px;background-color: $main-color;margin: 14px 0 26px;}
       .static_image_split-content *{max-width: 400px; color: $white; text-align:left; margin-left:0;}

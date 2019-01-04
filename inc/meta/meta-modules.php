@@ -190,6 +190,16 @@ function homepage_meta() {
 				require_once  __DIR__ . '/modules/static_image_split.php';
 				
 			break;
+			
+
+// ===============================================================================
+			
+			
+			case "static_image_offset":
+				
+				require_once  __DIR__ . '/modules/static_image_offset.php';
+				
+			break;
 
 // ===============================================================================
 

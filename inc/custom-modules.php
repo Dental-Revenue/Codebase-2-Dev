@@ -67,6 +67,7 @@ function render_modules(){ ?>
 							<option value="static_block_grid">Static Block Grid</option>
 							<option value="static_cta_fold">Static CTA Fold</option>
 							<option value="static_image_split">Static Image Split</option>
+							<option value="static_image_offset">Static Image Offset</option>
 							<option value="static_blocks_list">Static Blocks List</option>
 							<option value="static_photo_list">Static Photo List</option>
 							<option value="static_image_content">Static Image Content</option>
