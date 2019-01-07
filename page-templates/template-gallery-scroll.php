@@ -12,7 +12,12 @@ Template Name: Gallery - Scroll Style
 	<!-- main -->
 	<div role="main">	
 		<div class="row">
-
+				
+				<?php 
+			   $gallery_items = get_post_meta(get_the_id(),'gallery_repeat_group',true); 
+			   if(!empty($gallery_items)){
+				?>
+				
 				<div class="g-scroll-contain">
 
 		    	<div class="main-content">
@@ -24,7 +29,6 @@ Template Name: Gallery - Scroll Style
 		    	<div class="slick-g-scroll">
         	
         		  <?php 
-	        		  $gallery_items = get_post_meta(get_the_id(),'gallery_repeat_group',true); 
 	        		  foreach($gallery_items as $item){
 								$gallery_img_1 = $gallery_img_2 = $gallery_desc = $feat_type = '';
 								if(isset($item['desc'])){ $gallery_desc = $item['desc']; }
@@ -53,9 +57,8 @@ Template Name: Gallery - Scroll Style
         		<?php } ?>   
 	
 		    	</div>
-  
 		  	</div>
-
+				<?php } else { echo 'No Gallery Items Present'; } ?>
 		</div>
 	</div>
 	

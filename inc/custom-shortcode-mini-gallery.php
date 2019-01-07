@@ -123,4 +123,41 @@ function shortcode_button_only_pages() {
 	// Ok, guess we're on a 'page' edit screen
 	return true;
 }
+
+
+function add_my_shortcode_button_mini_gallery($atts, $content = ""){
+	extract(shortcode_atts(array(
+    'title' => '',
+    'page_id' => '',
+    'type' => ''
+  ), $atts));
+   
+/*
+  if($type == 'grid'){
+	  
+  } elseif ($type =='slider'){
+	  
+  } else {
+	  return '';
+  }
+*/
+
+return 'title:'.$title.' page_id:'.$page_id.' type:'.$type;
+  
+  
+  
+  
+  
+  
+  
+  
+  
+/*
+  $title_input = '';
+  if($title != ''){$title_input = '<h2>'.$title.'</h2>';}
+	return '<div class="well">'.$title_input.''.$content.'</div>';
+*/
+}
+
+add_shortcode('mini_gallery', 'add_my_shortcode_button_mini_gallery');
 ?>

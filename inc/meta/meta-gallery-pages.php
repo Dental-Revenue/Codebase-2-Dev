@@ -29,14 +29,14 @@ function gallery_grid_meta() {
 	) );
   	
 	$box->add_group_field( $group_box, array(
-  	'name' => 'Image 1',
-  	'desc' => 'If using for Smile Gallery, this would be the BEFORE PHOTO. If only one photo is available, just upload here.',
+  	'name' => 'Image 1 (Main Photo)',
+  	'desc' => 'If using for Smile Gallery, this would be the AFTER PHOTO. If only one photo is available, just upload here.',
 		'id' => 'img_1',
 		'type' => 'file'
 	));
 	$box->add_group_field( $group_box, array(
-  	'name' => 'Image 2',
-  	'desc' => 'If using for Smile Gallery, this would be the AFTER PHOTO',
+  	'name' => 'Image 2 (Secondary Photo)',
+  	'desc' => 'If using for Smile Gallery, this would be the BEFORE PHOTO',
 		'id' => 'img_2',
 		'type' => 'file'
 	));

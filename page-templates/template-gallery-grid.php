@@ -21,7 +21,10 @@ Template Name: Gallery - Grid Style
         	  endwhile; endif; ?>
 		    	</div>
 		    	
-		    	<?php $gallery_items = get_post_meta(get_the_id(),'gallery_repeat_group',true); ?>
+		    	<?php 
+			    	$gallery_items = get_post_meta(get_the_id(),'gallery_repeat_group',true); 
+			    	if(!empty($gallery_items)){
+		    	?>
 		    	<div class="g-grid-filters">
 					  <a href="#" class="active" data-filter=".f-all">All</a>
 					  <?php 
@@ -81,7 +84,7 @@ Template Name: Gallery - Grid Style
 						<?php $gallery_count++; } ?>
 		    	</div>
 		    </div>
-		  
+		  <?php } else { echo 'No Gallery Items Present'; } ?>
 		  </div>
 		
 		</div>

@@ -83,12 +83,8 @@ if ( file_exists(  __DIR__ . '/inc/cpts/cpt-testimonials.php' ) ) {
 }
 
 // ================================================ GALLERIES META
-if ( file_exists(  __DIR__ . '/inc/meta/meta-gallery-grid.php' ) ) {
-  require_once  __DIR__ . '/inc/meta/meta-gallery-grid.php';
-}
-
-if ( file_exists(  __DIR__ . '/inc/meta/meta-gallery-scroll.php' ) ) {
-  require_once  __DIR__ . '/inc/meta/meta-gallery-scroll.php';
+if ( file_exists(  __DIR__ . '/inc/meta/meta-gallery-pages.php' ) ) {
+  require_once  __DIR__ . '/inc/meta/meta-gallery-pages.php';
 }
 
 // MODIFIED GET TEMPLATE PART TO ACCEPT ARGUMENTS
