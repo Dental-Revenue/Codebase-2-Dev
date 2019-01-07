@@ -4,8 +4,8 @@
 
 ?>
 
-<?php if ($nav_style == 'style-a') { ?>
-	<header class="header <?php echo $nav_style; ?>">  
+<?php if ($nav_style == 'header-style-a') { ?>
+	<header class="header">  
 	  
 	  <div class="header-logo">
 	    <h1>    <a class="logo" href="/"><img src="<?php site_ops_logo(); ?>" alt="<?php site_ops_practice_name(); ?>" /></a>
@@ -56,8 +56,8 @@
 	  
 	  
 	</header> 
-<?php } else if ($nav_style == 'style-b') { ?>
-<header class="header <?php echo $nav_style; ?>">  
+<?php } else if ($nav_style == 'header-style-b') { ?>
+<header class="header">  
 	  
 	  <div class="header-logo">
 	    <h1><a class="logo" href="/"><img src="<?php site_ops_logo(); ?>" alt="<?php site_ops_practice_name(); ?>" /></a></h1>  
@@ -66,7 +66,6 @@
 	  
 	  
 	  <div class="header-bottom">
-	    <div class="row full">
 	    
 	      <nav class="large-nav">
 	        <?php wp_nav_menu(array('container' => '')); ?>        

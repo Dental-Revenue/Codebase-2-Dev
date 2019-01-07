@@ -18,6 +18,14 @@ header.scrolled{top:-84px;}
   /* HEADER BOTTOM SECTION */  
   .header-bottom{background-color: $dk-grey;z-index: 1;position: relative;}
   
+ .header-style-b {}
+ 	.header-style-b .page-wrap {margin-top:0;}
+ 	.header-style-b header {box-shadow: 0 0 1.5rem rgba(0,0,0,.15); top:15px; width:94%; left:3%; height:auto; display: flex;}
+ 		.header-style-b .header-logo {left: 0;position: relative; height:60px;}
+ 		.header-style-b .schedule {display: none;}
+ 		.header-style-b .header-logo .logo img {max-width: 90%; transform: translate(5%,-50%);}
+ 		.header-style-b .header-bottom {padding-left:20px;flex:1;}
+  
   
 /* HEADER V1 SCROLLED */
 header.nav-up{top:-145px;}
