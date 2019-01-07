@@ -1106,6 +1106,15 @@ add_image_size('sg-stitch-md', 600, 400, true);
 add_image_size('sg-stitch-lg', 900, 600, true);
 
 
+// Menu Locations	
+function register_menus() {
+  register_nav_menus(array(
+    'primary-navigation' => __( 'Primary Navigation' ),
+  ));
+}
+add_action( 'init', 'register_menus' );
+
+
 
 // Add page slug to body class
 function add_slug_to_body_class($classes){
