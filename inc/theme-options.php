@@ -276,6 +276,39 @@ function cmb2_appearance_options() {
 	));
 	
 	$box->add_field( array(
+		'name' 					=> 'Navigation',
+		'id'   					=> 'nav',
+		'type' 					=> 'title',
+	));
+	
+	$box->add_field( array(
+		'name' 					=> 'Navigation Style',
+		'desc'					=> 'Choose the style of navigation',
+		'id'   					=> 'nav_style',
+		'type' => 'select',
+		'options'          => array(
+			'style-a' => 'Style A',
+			'style-b' => 'Style B',
+			'style-c' => 'Style C',
+			'style-d' => 'Style D',
+		),
+		'default' => 'style-a'
+	));
+	
+	$box->add_field( array(
+		'name' 					=> 'Scroll Behavior',
+		'desc'					=> 'Choose how you would like the navigation change once scrolled down the page',
+		'id'   					=> 'scroll_style',
+		'type' => 'select',
+		'options'          => array(
+			'sticky' => 'Whole Navigation (stays the same)',
+			'slim' => 'Slim Version',
+			'no-stick' => 'Do Not Stick Nav to Top',
+		),
+		'default' => 'sticky'
+	));
+	
+	$box->add_field( array(
 		'name' 					=> 'Module Specific',
 		'id'   					=> 'module_title',
 		'type' 					=> 'title',

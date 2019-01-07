@@ -1,4 +1,9 @@
-<header class="header test-duck">  
+<?php
+	$appearance_info = get_option( 'appearance_info');
+	$nav_style = $appearance_info['nav_style'];
+
+?>
+<header class="header <?php echo $nav_style; ?>">  
   
   <div class="header-logo">
     <h1>    <a class="logo" href="/"><img src="<?php site_ops_logo(); ?>" alt="<?php site_ops_practice_name(); ?>" /></a>

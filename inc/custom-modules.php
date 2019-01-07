@@ -59,6 +59,7 @@ function render_modules(){ ?>
 						<h2>Add Module</h2>
 						<label>Module #</label>
 						<select name="module_name">
+							<option value="fold_slider">Fold Slider</option>
 							<option value="static_mini_blocks">Static Mini Blocks</option>
 							<option value="static_big_small">Static Big/Small</option>
 							<option value="static_big_small_hover">Static Big/Small Hover</option>

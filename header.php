@@ -40,5 +40,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <?php } ?>
   
 <?php get_template_part( 'partials/header' ); ?>
+<?php get_template_part( 'partials/fold' ); ?>
 
 <div class="page-wrap">

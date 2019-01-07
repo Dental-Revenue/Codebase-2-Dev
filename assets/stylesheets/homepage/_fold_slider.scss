@@ -1,0 +1,38 @@
+.fold_slider{}
+	
+	
+	// General Slide Styling
+	.fold-slide{width: 100%;height: 100%;background-image:url('../images/layout/hp-fold-bg.jpg');background-size: cover;background-position: center center;position: relative;z-index: 2;overflow: hidden;}
+    .fold-slide-text{transition:transform .5s;@include center(both);text-align: center;width: 90%;max-width: 700px;z-index: 3;}
+    	.fold-slide-text h2{font-weight: 900;font-size: 56px;line-height:90%;text-transform: uppercase;color: $white;margin:0;&:after{content:'';width: 100px;height: 4px;background-color: $white;margin: 30px auto;display: block;}}
+			.fold-slide-text p{font-size: 17px;margin: 0 0 1.5em;color: $white;}
+	
+	
+	// Slick Slider (if more than one slide)
+  .slick-fold, .slick-fold .slick-list,.slick-fold .slick-track{height: 100%;z-index: 2;}
+  	.slick-fold .fold-slide{display: none;}
+  		.slick-fold .fold-slide-text{@include center(left);opacity: 0;}
+  
+  .slick-fold .slick-dots{margin: 0;position: absolute;right: 40px;bottom: 40px;background-color: transparent;border: 0 none;padding: 0;z-index: 3;}
+    .slick-fold .slick-dots li{clear: both;}
+      .slick-fold .slick-dots li button{margin: 5px 0;background-color: transparent;border-color: $white;}
+      .slick-fold .slick-dots li.slick-active button{background-color: $white;}
+      
+  .slick-fold .fold-slide.slick-current .fold-slide-text{@include center(both);opacity: 1;}
+  
+  
+  
+  
+@media all and (max-width: $bp-laptop) {
+  .fold-slide-text h2{font-size: 36px;&:after{margin: 20px auto;}}
+  .fold-slide-text p{font-size: 15px;}
+}
+
+@media all and (max-width: $bp-phablet) {
+  .slick-fold .slick-dots{display: none;}
+}
+
+@media all and (max-width: $bp-phone) {
+  .fold-slide-text h2{font-size: 24px;&:after{margin: 10px auto;height: 2px}}
+  .fold-slide-text p{font-size: 13px;}
+}
