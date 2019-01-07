@@ -26,6 +26,15 @@ $(document).ready(function(){
 	
 	//MODULE SPECIFIC *********
 	
+	//Module Fold_slider
+	$('.slick-fold_slider').slick({
+		slidesToShow: 1,
+		slidesToScroll: 1,
+		speed:500,
+		arrows: false,
+		dots: true,
+	});
+	
 	//Module Carousel_1
 	$('.slick-carousel_1').slick({
 		slidesToShow: 4,
