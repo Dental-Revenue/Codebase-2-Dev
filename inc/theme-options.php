@@ -287,10 +287,10 @@ function cmb2_appearance_options() {
 		'id'   					=> 'nav_style',
 		'type' => 'select',
 		'options'          => array(
-			'style-a' => 'Style A',
-			'style-b' => 'Style B',
-			'style-c' => 'Style C',
-			'style-d' => 'Style D',
+			'header-style-a' => 'Style A',
+			'header-style-b' => 'Style B',
+			'header-style-c' => 'Style C',
+			'header-style-d' => 'Style D',
 		),
 		'default' => 'style-a'
 	));

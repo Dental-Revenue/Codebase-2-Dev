@@ -1131,6 +1131,17 @@ function add_slug_to_body_class($classes){
 }	
 add_filter('body_class', 'add_slug_to_body_class'); 
 
+// Add header-style to body class
+function add_header_style_to_body_class($classes){
+  $appearance_info = get_option( 'appearance_info');
+	$nav_style = $appearance_info['nav_style'];
+  if ($nav_style != '') {
+		$classes[] = $nav_style;
+  }
+  return $classes;
+}	
+add_filter('body_class', 'add_header_style_to_body_class'); 
+
 
 // Remove thumbnail width and height dimensions that prevent fluid images in the_thumbnail
 /*
