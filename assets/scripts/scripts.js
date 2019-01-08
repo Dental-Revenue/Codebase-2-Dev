@@ -35,7 +35,7 @@ $(document).ready(function(){
       arrows:false,
       dots:true,
       autoplay: true,
-      autoplaySpeed: 3500,
+      autoplaySpeed: 5000,
       fade: true,
       cssEase: 'linear',
       pauseOnHover: false,
