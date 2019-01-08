@@ -142,6 +142,49 @@ $(document).ready(function(){
       });
     });   
   }
+  
+  //Mini Gallery Shortcode Button
+  if($('.slick-mini-gallery').length>0){
+    $.each( $('.slick-mini-gallery'), function(e) {
+      $(this).slick({
+        autoplay:true,
+        autoplaySpeed: 3000,
+        infinite: true,
+        slidesToShow: 1,
+        slidesToScroll: 1,
+        speed: 300,
+        arrows:false,
+        dots:true
+      });
+    });   
+  }
+  
+  $('.grid-mini-gallery').magnificPopup({
+	  delegate: 'a.mini-gallery-grid-item',
+	  midClick: true,
+	  type: 'image',
+	  gallery: {
+	      enabled: true
+	  },
+	  verticalFit: true,
+	  closeMarkup: '<button title="%title%" type="button" class="custom-mfp-close">&#215;</button>',
+	  callbacks: {
+	      open: function() {
+	          var wHeight = $(window).height();
+	          $('.g-grid-lightbox-set').css('height', wHeight * .9 + "px");
+	      },
+	      resize: function() {
+	          var wHeight = $(window).height();
+	          $('.g-grid-lightbox-set').css('height', wHeight * .9 + "px");
+	      },
+	      change: function() {
+	          var wHeight = $(window).height();
+	          if (this.content.hasClass('g-grid-lightbox-set')) {
+	              this.content.css('height', wHeight - 80 + "px");
+	          }
+	      }
+	  }
+	});
 	
 	
 	//Module 11

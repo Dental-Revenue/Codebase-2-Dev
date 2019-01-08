@@ -24,24 +24,29 @@ Template Name: Gallery - Grid Style
 		    	<?php 
 			    	$gallery_items = get_post_meta(get_the_id(),'gallery_repeat_group',true); 
 			    	if(!empty($gallery_items)){
+				    	$filter_array = array();
+				    	foreach($gallery_items as $item){
+					    	if(!empty($item['tags'])){ array_push($filter_array, $item['tags']); }
+					    } 
+				    	if(!empty($filter_array)){
 		    	?>
-		    	<div class="g-grid-filters">
-					  <a href="#" class="active" data-filter=".f-all">All</a>
-					  <?php 
-						  $filter_array = array();
-						  foreach($gallery_items as $item){
-								$filters = '';		
-								if(isset($item['tags'])){ $filters = $item['tags']; } 
-								foreach($filters as $filter){ 
-									if(!in_array($filter, $filter_array)){ array_push($filter_array, $filter); }
-								} 
-							} 
-							
-							foreach($filter_array as $filter){ ?>
-								<a href="#" data-filter=".f-<?php echo sanitize_title($filter); ?>"><?php echo $filter; ?></a>
-							<?php } ?>
-					</div>
-		    	
+					    	<div class="g-grid-filters">
+								  <a href="#" class="active" data-filter=".f-all">All</a>
+								  <?php 
+									  $filter_array = array();
+									  foreach($gallery_items as $item){
+											$filters = '';		
+											if(isset($item['tags'])){ $filters = $item['tags']; } 
+											foreach($filters as $filter){ 
+												if(!in_array($filter, $filter_array)){ array_push($filter_array, $filter); }
+											} 
+										} 
+										
+										foreach($filter_array as $filter){ ?>
+											<a href="#" data-filter=".f-<?php echo sanitize_title($filter); ?>"><?php echo $filter; ?></a>
+										<?php } ?>
+								</div>
+		    	<?php } ?>
 		    	<div class="g-grid-grid">
 					  <div class="g-grid-sizer"></div>
 					  <?php $gallery_count = 1; foreach($gallery_items as $item){

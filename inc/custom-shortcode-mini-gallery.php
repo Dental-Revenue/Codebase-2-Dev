@@ -87,7 +87,7 @@ function shortcode_button_cmb_config_mini_gallery( $button_data ) {
 
 function cmb_gallery_pages(){
 	
-	$args = array( 'post_type' => 'page', 'post_status' => 'publish', 'meta_query' => array(array( 'key' => '_wp_page_template', 'value' => 'page-templates/template-gallery-1.php',)));
+	$args = array( 'post_type' => 'page', 'post_status' => 'publish', 'meta_query' => array(array( 'key' => '_wp_page_template', 'value' => array('page-templates/template-gallery-grid.php', 'page-templates/template-gallery-scroll.php'),)));
 	$the_query = new WP_Query($args);
 	$page_options = array();
 	while ( $the_query->have_posts() ) : $the_query->the_post();
@@ -131,26 +131,50 @@ function add_my_shortcode_button_mini_gallery($atts, $content = ""){
     'page_id' => '',
     'type' => ''
   ), $atts));
-   
-/*
-  if($type == 'grid'){
-	  
-  } elseif ($type =='slider'){
-	  
-  } else {
-	  return '';
-  }
-*/
+  
+  $has_title = false;
+  if(!empty($title)){ $has_title = true; }
+  
+  $output = '';
+  $output.= '<div class="mini-gallery-container '.$type;
+  if($has_title){ $output.= ' has_title"><h2>'.$title.'</h2>'; } else { $output.='">'; }
+  $output.= $type == 'slider' ? '<div class="slick-mini-gallery">' : '<div class="grid-mini-gallery">';
+  
+  $gallery_items = get_post_meta($page_id,'gallery_repeat_group',true);
+  if(!empty($gallery_items)){
+	  $count = 1;
+  	foreach($gallery_items as $item){
+	  	if($count == 9){break;}
+	  	$gallery_img = "";
+	  	if(!empty($item['img_1'])){ 
+				$gallery_img_id = $item['img_1_id']; 
+				$gallery_img_thumb = wp_get_attachment_image_src( $gallery_img_id, 'lg-square' ); 
+				$gallery_img_gallery = wp_get_attachment_image_src( $gallery_img_id, 'full' ); 
+				$gallery_img_slider = wp_get_attachment_image_src( $gallery_img_id, 'xxl' ); 
+			}
+			
+			if($type == 'slider'){
+				$output .= '<div class="mini-gallery-slide">';
+				$output .= '<img src="'.$gallery_img_slider[0].'">';
+				$output .= '</div>';
+		  } elseif($type =='grid'){
+			  $output .= '<a href="'.$gallery_img_gallery[0].'" class="mini-gallery-grid-item" style="background-image:url('.$gallery_img_thumb[0].');"></a>';
+		  }	else {
+			  $output .= 'Please specify either grid or slider type';
+			  break;
+		 }
+		 $count++;
+	  }
+  
+  $output.= '</div></div>';
+  return $output;
+
+} else {
+	return 'No Images Present';
+}
 
 return 'title:'.$title.' page_id:'.$page_id.' type:'.$type;
-  
-  
-  
-  
-  
-  
-  
-  
+   
   
 /*
   $title_input = '';
