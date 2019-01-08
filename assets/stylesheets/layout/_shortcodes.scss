@@ -1,8 +1,31 @@
 //WELL BLOCK
-.well{min-height: 20px; margin-bottom: 20px; background-color: $md-lt-grey;border: 1px solid rgba(0, 0, 0, 0.05); -webkit-border-radius: 10px; -moz-border-radius: 10px; border-radius: 10px; -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.05); -moz-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.05); box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.05); margin-top: 0px;padding: 40px;}
+.well{min-height: 20px; margin-bottom: 20px; background-color: $md-lt-grey;border: 1px solid rgba(0, 0, 0, 0.05); -webkit-border-radius: 10px; -moz-border-radius: 10px; border-radius: 10px; margin-top: 0px;padding: 40px; box-sizing:border-box;}
 	.well h4{font-size:30px;}
 	.well > *:last-child{margin-bottom:0;}
-
+	
+//MINI-GALLERY
+.mini-gallery-container{width:100%; background-color: $md-lt-grey;border: 1px solid rgba(0, 0, 0, 0.05); -webkit-border-radius: 10px; -moz-border-radius: 10px; border-radius: 10px; margin: 0px; position:relative; }
+	.mini-gallery-container h2{text-align:center; margin:0 0 20px;}
+	
+	//SLIDER STYLE
+	.mini-gallery-container.slider{height:0; padding-bottom:50%; text-align:center;}
+	.mini-gallery-container.slider h2{margin-top:5%;}
+	.mini-gallery-container .slick-mini-gallery{position:absolute; top:10%; left:10%; right:10%; bottom:calc(10% + 35px); }
+	.mini-gallery-container.has_title .slick-mini-gallery{top:calc(10% + 44px);}
+		.slick-mini-gallery .mini-gallery-slide{height:100%; text-align:center;}
+			
+			.slick-mini-gallery .slick-list{height:100%;}
+			.slick-mini-gallery .slick-track{height:100%;}
+			.slick-mini-gallery .slick-slide>div{height:100%;}
+			
+			.slick-mini-gallery .mini-gallery-slide img{height:100%; display:inline-block;}
+			
+		.slick-mini-gallery ul.slick-dots{margin:20px 0 0; border:none; box-shadow:none; padding:0px;}
+		
+		//GRID STYLE
+		.mini-gallery-container.grid{padding:40px; box-sizing:border-box;}
+		.mini-gallery-container .grid-mini-gallery{position: relative; padding: 0; margin: 0 auto; @include clearfix();}
+			.grid-mini-gallery a.mini-gallery-grid-item{margin-left: 4.4%; float: left; width: 30.4%; height:0; padding-bottom:30.4%; background-size:cover; background-position:center center; display:block; &:first-child{margin-left:0;} &:nth-child(3n + 4){margin-left: 0px; clear:both;} &:nth-child(n+4){margin-top:4.4%;}}
 
 @media all and (max-width: $bp-tablet) {
 }

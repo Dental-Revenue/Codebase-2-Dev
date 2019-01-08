@@ -121,6 +121,15 @@ $(document).ready(function () {
 
 		//MODULE SPECIFIC *********
 
+		//Module Fold_slider
+		$('.slick-fold_slider').slick({
+				slidesToShow: 1,
+				slidesToScroll: 1,
+				speed: 500,
+				arrows: false,
+				dots: true
+		});
+
 		//Module Carousel_1
 		$('.slick-carousel_1').slick({
 				slidesToShow: 4,
@@ -211,6 +220,49 @@ $(document).ready(function () {
 						});
 				});
 		}
+
+		//Mini Gallery Shortcode Button
+		if ($('.slick-mini-gallery').length > 0) {
+				$.each($('.slick-mini-gallery'), function (e) {
+						$(this).slick({
+								autoplay: true,
+								autoplaySpeed: 3000,
+								infinite: true,
+								slidesToShow: 1,
+								slidesToScroll: 1,
+								speed: 300,
+								arrows: false,
+								dots: true
+						});
+				});
+		}
+
+		$('.grid-mini-gallery').magnificPopup({
+				delegate: 'a.mini-gallery-grid-item',
+				midClick: true,
+				type: 'image',
+				gallery: {
+						enabled: true
+				},
+				verticalFit: true,
+				closeMarkup: '<button title="%title%" type="button" class="custom-mfp-close">&#215;</button>',
+				callbacks: {
+						open: function open() {
+								var wHeight = $(window).height();
+								$('.g-grid-lightbox-set').css('height', wHeight * .9 + "px");
+						},
+						resize: function resize() {
+								var wHeight = $(window).height();
+								$('.g-grid-lightbox-set').css('height', wHeight * .9 + "px");
+						},
+						change: function change() {
+								var wHeight = $(window).height();
+								if (this.content.hasClass('g-grid-lightbox-set')) {
+										this.content.css('height', wHeight - 80 + "px");
+								}
+						}
+				}
+		});
 
 		//Module 11
 		/*if($('.slick-m11').length>0){
@@ -342,6 +394,15 @@ $(document).ready(function () {
 		});
 
 		$('.slick-g-scroll').slick({ dots: true, arrows: false, infinite: false, speed: 200 });
+
+		//Youtube Popups
+		$('.popup-youtube').magnificPopup({
+				type: 'iframe',
+				mainClass: 'mfp-fade',
+				removalDelay: 160,
+				preloader: false,
+				fixedContentPos: false
+		});
 });
 
 },{"bootstrap/js/dist/tab.js":4,"imagesloaded":10,"isotope-layout":11,"jquery":18,"jquery-bridget":17,"magnific-popup":20,"sidr/dist/jquery.sidr.js":24,"slick-carousel":25}],4:[function(require,module,exports){
