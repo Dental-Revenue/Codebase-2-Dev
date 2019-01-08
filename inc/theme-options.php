@@ -290,7 +290,6 @@ function cmb2_appearance_options() {
 			'header-style-a' => 'Style A',
 			'header-style-b' => 'Style B',
 			'header-style-c' => 'Style C',
-			'header-style-d' => 'Style D',
 		),
 		'default' => 'style-a'
 	));
@@ -301,7 +300,7 @@ function cmb2_appearance_options() {
 		'id'   					=> 'scroll_style',
 		'type' => 'select',
 		'options'          => array(
-			'sticky' => 'Whole Navigation (stays the same)',
+			'full' => 'Full Version (stays the same)',
 			'slim' => 'Slim Version',
 			'no-stick' => 'Do Not Stick Nav to Top',
 		),

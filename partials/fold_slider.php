@@ -3,7 +3,7 @@
 	$appearance_info = get_option( 'appearance_info');
 	$headline_style = $appearance_info['headline_style'];
 ?>
-  <div class="slick-init slick-fold_slider" data-slides="<?php echo get_post_meta(get_the_id(),$instance.'_items',true); ?>">
+  <div class="slick-init slick-fold_slider">
 	  
 	  <?php
     $blocks = get_post_meta(get_the_id(),$instance.'_fold_slides',true);

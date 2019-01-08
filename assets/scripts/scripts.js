@@ -20,19 +20,28 @@ $(document).ready(function(){
 
 	//scroll stick
 	$(document).scroll(function() {
-    $('.header').toggleClass('scrolled', $(document).scrollTop() >= 30);
+    $('.header.slim').toggleClass('scrolled', $(document).scrollTop() >= 30);
   });
-  $('.header').toggleClass('scrolled', $(document).scrollTop() >= 30);
+  $('.header.slim').toggleClass('scrolled', $(document).scrollTop() >= 30);
 	
 	//MODULE SPECIFIC *********
 	
 	//Module Fold_slider
 	$('.slick-fold_slider').slick({
-		slidesToShow: 1,
-		slidesToScroll: 1,
-		speed:500,
-		arrows: false,
-		dots: true,
+    infinite: true,
+      slidesToShow: 1,
+      slidesToScroll: 1,
+      speed: 500,
+      arrows:false,
+      dots:true,
+      autoplay: true,
+      autoplaySpeed: 3500,
+      fade: true,
+      cssEase: 'linear',
+      pauseOnHover: false,
+      responsive: [
+        {breakpoint: 480,settings: {dots:false,}},
+      ]
 	});
 	
 	//Module Carousel_1

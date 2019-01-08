@@ -1,4 +1,6 @@
-.static_image_offset {padding: 0; display: flex; width:100%;}
+.static_image_offset {padding: 0;}
+
+	.static_image_offset .module-content {display:flex; width:100%;}
 
 	.offset_left {width:50%; padding:70px 5%; box-sizing: border-box; float: left; background-color: rgba($main-color,.2); overflow: visible;}
 		.offset_left h2 {text-align: left; padding:0 0 30px; &:after {margin:14px 0 0;}}
