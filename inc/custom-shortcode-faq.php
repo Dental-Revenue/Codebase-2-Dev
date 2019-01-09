@@ -40,9 +40,28 @@ function shortcode_button_cmb_config_faq( $button_data ) {
 				'type'    => 'text',
 			),
 			array(
-				'name'    => 'FAQs',
+				'title'		=> 'Questions/Answers',
 				'id'      => 'faq_group',
 				'type'    => 'group',
+				'options'	=> array(
+					'group_title'   => 'Question {#}', // since version 1.1.4, {#} gets replaced by row number
+          'add_button'    => 'Add Question',
+          'remove_button' => 'Remove Question',
+          'sortable'      => true, // beta
+          'closed'        => true, // true to have the groups closed by default
+				),
+				'fields'	=> array(
+					array(
+						'name'    => 'FAQ Question',
+						'id'      => 'faq_question',
+						'type'    => 'text',
+					),
+					array(
+						'name'    => 'FAQ Answer',
+						'id'      => 'faq_answer',
+						'type'    => 'textarea',
+					)
+				)
 			),
 		),
 		// keep this w/ a key of 'options-page' and use the button slug as the value
@@ -50,6 +69,33 @@ function shortcode_button_cmb_config_faq( $button_data ) {
 	);
 
 }
+
+function add_my_shortcode_button_faq($atts, $content = ""){
+	extract(shortcode_atts(array(
+    'title' => '',
+    'faq_group' => ''
+  ), $atts));
+  
+  $faq_group = preg_replace(array('/\|~/','/~\|/','/\'/'),array('[',']','"'),$faq_group);
+	$faq_group_array = json_decode(utf8_decode($faq_group), true);
+	$output = '';
+	$output .= 'is active?';
+/*
+	foreach($faq_group_array as $faq_group => $faq_group_single){
+		$output .= 'group active';
+		//$output .= 'question: '.$faq_group['faq_question'].' answer:'.$faq_group['faq_answer'].'<br/>';
+	}
+*/
+	ob_start();
+  var_dump($faq_group_array);
+  $result = ob_get_clean();
+  return utf8_decode($faq_group);
+  
+	//return $faq_group_array[0];
+	//return $faq_group;
+}
+
+add_shortcode('faqs', 'add_my_shortcode_button_faq');
 
 
 
