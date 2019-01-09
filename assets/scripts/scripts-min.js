@@ -228,6 +228,34 @@ $(document).ready(function () {
 				});
 		}
 
+		//Module 11
+		/*if($('.slick-m11').length>0){
+    var slides = $('.slick-m11').attr('data-slides');    
+    $.each( $('.slick-m11'), function(e) {
+      var slides = $(this).attr('data-slides');
+      $(this).slick({
+        infinite: true,
+        slidesToShow: parseInt(slides),
+        slidesToScroll: 1,
+        speed: 400,
+        arrows:false,
+        dots:false,
+        autoplay:true,
+        autoplaySpeed:3000,
+        responsive: [
+          {breakpoint: 1200,settings: {slidesToShow: 3}},
+          {breakpoint: 800,settings: {slidesToShow: 2}},
+          {breakpoint: 400,settings: {slidesToShow: 1}},
+        ]
+      });
+    });   
+  } */
+
+		//Show tab for Mod 20
+		$('.static_tabs-left ul li:first-child a').tab('show');
+
+		//SHORTCODE BLOCKS ********
+
 		//Mini Gallery Shortcode Button
 		if ($('.slick-mini-gallery').length > 0) {
 				$.each($('.slick-mini-gallery'), function (e) {
@@ -271,31 +299,44 @@ $(document).ready(function () {
 				}
 		});
 
-		//Module 11
-		/*if($('.slick-m11').length>0){
-    var slides = $('.slick-m11').attr('data-slides');    
-    $.each( $('.slick-m11'), function(e) {
-      var slides = $(this).attr('data-slides');
-      $(this).slick({
-        infinite: true,
-        slidesToShow: parseInt(slides),
-        slidesToScroll: 1,
-        speed: 400,
-        arrows:false,
-        dots:false,
-        autoplay:true,
-        autoplaySpeed:3000,
-        responsive: [
-          {breakpoint: 1200,settings: {slidesToShow: 3}},
-          {breakpoint: 800,settings: {slidesToShow: 2}},
-          {breakpoint: 400,settings: {slidesToShow: 1}},
-        ]
-      });
-    });   
-  } */
+		//Faqs shortcode button
+		if ($('.faq_shortcode_contain').length > 0) {
+				var loadAccordian = function loadAccordian() {
+						var allTriggers = $('.faq_accordion > span[data-accordion="question"] > a');
+						var allPanels = $('.faq_accordion > span[data-accordion="answer"]').hide();
+						$('.faq_accordion > span[data-accordion="question"] > a').on('click', function (e) {
+								e.preventDefault();
+								var target = $(this).parent().next();
+								if (!target.hasClass('active')) {
+										allPanels.removeClass('active').slideUp();
+										target.addClass('active').slideDown();
+										allTriggers.removeClass('active');
+										$(this).addClass('active');
+								} else {
+										allTriggers.removeClass('active');
+										allPanels.removeClass('active').slideUp();
+								}
+								return false;
+						});
+				};
+				loadAccordian();
+		}
 
-		//Show tab for Mod 20
-		$('.static_tabs-left ul li:first-child a').tab('show');
+		//testimonials shortcode button
+		if ($('.slick_shortcode_testimonials').length > 0 && $('.slick_slide_shortcode_testimonials').length > 1) {
+				$.each($('.slick_shortcode_testimonials'), function (e) {
+						$(this).slick({
+								autoplay: true,
+								autoplaySpeed: 3000,
+								infinite: true,
+								slidesToShow: 1,
+								slidesToScroll: 1,
+								speed: 300,
+								arrows: false,
+								dots: true
+						});
+				});
+		}
 
 		//GALLERY SPECIFIC *********
 

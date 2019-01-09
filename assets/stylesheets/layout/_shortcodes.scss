@@ -26,6 +26,24 @@
 		.mini-gallery-container.grid{padding:40px; box-sizing:border-box;}
 		.mini-gallery-container .grid-mini-gallery{position: relative; padding: 0; margin: 0 auto; @include clearfix();}
 			.grid-mini-gallery a.mini-gallery-grid-item{margin-left: 4.4%; float: left; width: 30.4%; height:0; padding-bottom:30.4%; background-size:cover; background-position:center center; display:block; &:first-child{margin-left:0;} &:nth-child(3n + 4){margin-left: 0px; clear:both;} &:nth-child(n+4){margin-top:4.4%;}}
+			
+//FAQs
+.faq_shortcode_contain{min-height: 20px; margin-bottom: 20px; background-color: $md-lt-grey;border: 1px solid rgba(0, 0, 0, 0.05); -webkit-border-radius: 10px; -moz-border-radius: 10px; border-radius: 10px; margin-top: 0px;padding: 40px; box-sizing:border-box;}
+	.faq_shortcode_contain .faq_accordion{}
+		.faq_accordion span[data-accordion="question"]{display:block;}
+			.faq_accordion span[data-accordion="question"] a{position:relative; padding-left:20px; &:before{content:"\f067"; margin-right:10px; font-family:'Font Awesome 5 Free'; color:$main-color; position:absolute; display:block; left:0; top:2px;}}
+			.faq_accordion span[data-accordion="question"] a.active:before{content:"\f068";}
+		//.faq_accordion span[data-accordion="answer"]{display:none;}
+		
+//TESTIMONIALs
+.testimonials_shortcode_contain{min-height: 20px; margin-bottom: 20px; background-color: $main-color;border: 1px solid rgba(0, 0, 0, 0.05); -webkit-border-radius: 10px; -moz-border-radius: 10px; border-radius: 10px; margin-top: 0px;padding: 40px; box-sizing:border-box; text-align:center;}
+	.testimonials_shortcode_contain h2{color:$white;}
+	.testimonials_shortcode_contain p{color:$white; font-size:18px;}
+		.testimonials_shortcode_contain p span{display:block; margin-top:20px !important; font-weight:bold; text-transform:uppercase;}
+	
+	.slick_shortcode_testimonials ul.slick-dots{margin:20px 0 0; border:none; box-shadow:none; padding:0px;}
+		.slick_shortcode_testimonials .slick-dots li button{background-color:#fff; border:none;}
+		.slick_shortcode_testimonials .slick-dots li.slick-active button{background-color:#fff; }
 
 @media all and (max-width: $bp-tablet) {
 }

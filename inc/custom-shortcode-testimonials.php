@@ -44,7 +44,6 @@ function shortcode_button_cmb_config_testimonials( $button_data ) {
 				'id'      => 'testimonials',
 				'type'    => 'multicheck',
 				'options_cb' => 'cmb2_get_testimonials',
-				'row_classes' => 'cmb2-smalltext-list',
 			),
 		),
 		// keep this w/ a key of 'options-page' and use the button slug as the value
@@ -64,6 +63,43 @@ function cmb2_get_testimonials() {
   }
   return $post_options;
 }
+
+
+function add_my_shortcode_button_testimonials($atts, $content = ""){
+	extract(shortcode_atts(array(
+    'title' => '',
+    'testimonials' => ''
+  ), $atts));
+  $testimonials = preg_replace(array('/\|~/','/~\|/','/\'/','/\s+/'),array('[',']','"',' '),$testimonials); //replaces |~,[ + ~|,] + '," + all whitespace,' ' + \r\n,^
+	$testimonials_array = json_decode($testimonials, true);
+	
+	$output = '';
+	$output .= '<div class="testimonials_shortcode_contain">';
+	$output .= '<h2>'.$title.'</h2>';
+	$output .= '<div class="slick_shortcode_testimonials">';
+		
+		foreach($testimonials_array as $testimonial_id){
+			$testimonial_name = get_the_title( $testimonial_id );
+			$testimonial_content = get_post($testimonial_id, ARRAY_A);
+			$testimonial_content = $testimonial_content['post_content'];
+			
+			$output .= '<div class="slick_slide_shortcode_testimonials">';
+			$output .= '<p>'.$testimonial_content.'';
+			$output .= '<span>'.$testimonial_name.'</span></p>';
+			$output .= '</div>';
+		}
+  
+  $output .= '</div></div>';
+/*
+  ob_start();
+  var_dump($testimonials_array);
+  $result = ob_get_clean();
+*/
+  return $output;
+
+}
+
+add_shortcode('testimonials', 'add_my_shortcode_button_testimonials');
 
 
 
