@@ -117,7 +117,7 @@ header.nav-down.shrink{top:-84px;box-shadow: 0 0 4px rgba(0,0,0,0.25);}
   .large-nav > ul{float: left;margin: 0;padding:0 200px 0 0;list-style: none;@include clearfix();}
     .large-nav > ul > li{float: left;position: relative;}
       .large-nav > ul > li > a{line-height: 60px;font-size:13px;font-family: $heading-font;font-weight: 900;letter-spacing: .15em;text-transform: uppercase;color: $lt-grey;margin-right: 36px;}
-      .large-nav > ul > li.menu-item-has-children > a:after{content:"";font-family:Ionicons;display: inline-block;vertical-align: -1px;margin-left: 4px;}
+      .large-nav > ul > li.menu-item-has-children > a:after{content:"\f055";font-family:'Font Awesome 5 Free';display: inline-block;vertical-align: -1px;margin-left: 4px;}
       .large-nav > ul > li:last-child > a{margin-right: 0;}
         .large-nav > ul > li > a:hover{color: $main-color;}
   .large-nav .schedule{@include center(right); padding:9px 20px;}
@@ -142,7 +142,7 @@ header.nav-down.shrink{top:-84px;box-shadow: 0 0 4px rgba(0,0,0,0.25);}
 .mobile-nav{display: none; @include clearfix();overflow: hidden;}
   .mobile-nav a{width: 33.333%;float: left;display:block;border-left: 1px solid darken( $dk-grey, 10% );border-right: 1px solid lighten($dk-grey,10%);line-height: 61px; height:61px; overflow:hidden;box-sizing: border-box; text-align: center; font-size: 26px; color: $lt-grey; position: relative; &:first-child{border-left: 0 none;} &:last-child{border-right: 0 none;} &:hover{color: $main-color;}}
   .mobile-nav.call-enabled a{width: 25%;}
-    .mobile-nav a i{vertical-align: middle;}
+    .mobile-nav a i{vertical-align: middle; font-size:17px;}
     .mobile-nav a span{font-size: 12px;margin-left: 8px;vertical-align: middle;}
     
 

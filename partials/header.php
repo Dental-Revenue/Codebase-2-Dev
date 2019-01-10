@@ -47,9 +47,9 @@
 	      </nav>
 	      
 	      <nav class="mobile-nav ">
-	        <a href="#" id="panel-main"><i class="icon ion-navicon"></i><span>Menu</span></a>
-	                <a href="#"><i class="icon ion-ios-calendar-outline"></i><span>Schedule Appt</span></a>
-	        <a href="#" id="panel-more"><i class="icon ion-ios-more-outline"></i><span>More Info</span></a>
+	        <a href="#" id="panel-main"><i class="fas fa-bars"></i><span>Menu</span></a>
+	                <a href="#"><i class="far fa-calendar-alt"></i><span>Schedule Appt</span></a>
+	        <a href="#" id="panel-more"><i class="fas fa-info"></i><span>More Info</span></a>
 	      </nav>
 	    
 	    </div>
@@ -74,9 +74,9 @@
 	      </nav>
 	      
 	      <nav class="mobile-nav ">
-	        <a href="#" id="panel-main"><i class="icon ion-navicon"></i><span>Menu</span></a>
-	                <a href="#"><i class="icon ion-ios-calendar-outline"></i><span>Schedule Appt</span></a>
-	        <a href="#" id="panel-more"><i class="icon ion-ios-more-outline"></i><span>More Info</span></a>
+	        <a href="#" id="panel-main"><i class="fas fa-bars"></i><span>Menu</span></a>
+	                <a href="#"><i class="far fa-calendar-alt"></i><span>Schedule Appt</span></a>
+	        <a href="#" id="panel-more"><i class="fas fa-info"></i><span>More Info</span></a>
 	      </nav>
 	    
 	    </div>
@@ -125,9 +125,9 @@
 	      </nav>
 	      
 	      <nav class="mobile-nav ">
-	        <a href="#" id="panel-main"><i class="icon ion-navicon"></i><span>Menu</span></a>
-	                <a href="#"><i class="icon ion-ios-calendar-outline"></i><span>Schedule Appt</span></a>
-	        <a href="#" id="panel-more"><i class="icon ion-ios-more-outline"></i><span>More Info</span></a>
+	        <a href="#" id="panel-main"><i class="fas fa-bars"></i><span>Menu</span></a>
+	                <a href="#"><i class="far fa-calendar-alt"></i><span>Schedule Appt</span></a>
+	        <a href="#" id="panel-more"><i class="fas fa-info"></i><span>More Info</span></a>
 	      </nav>
 	    
 	    </div>
