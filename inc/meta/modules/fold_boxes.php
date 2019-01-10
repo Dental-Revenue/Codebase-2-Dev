@@ -1,4 +1,4 @@
-<?php 
+<?php   
 
 $box->add_field( array(
 	'name' => 'Slider Height',
