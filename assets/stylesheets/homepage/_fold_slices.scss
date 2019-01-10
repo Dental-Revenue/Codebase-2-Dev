@@ -1,3 +1,5 @@
+.fold_slices {padding-bottom:0px;}
+
 .fold-slices{overflow: hidden;background-color: $black; height:100%; &:after{content:"";position: absolute;top:0;left: 0;width: 100%;height: 200px;background-image: -webkit-gradient(linear,left top,left bottom,color-stop(0, rgba($black,.7)),color-stop(1, rgba($black,0)));background-image: -o-linear-gradient(bottom, rgba($black,.7) 0%, rgba($black,0) 100%);background-image: -moz-linear-gradient(bottom, rgba($black,.7) 0%, rgba($black,0) 100%);background-image: -webkit-linear-gradient(bottom, rgba($black,.7) 0%, rgba($black,0) 100%);background-image: -ms-linear-gradient(bottom, rgba($black,.7) 0%, rgba($black,0) 100%);background-image: linear-gradient(to bottom, rgba($black,.7) 0%, rgba($black,0) 100%);z-index: 3;}}
 
 .fold-slice{width: 100%;height:100%;background-size: cover;background-position: center center;float: left;position: relative;transition:width .4s;}

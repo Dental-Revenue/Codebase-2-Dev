@@ -3,11 +3,12 @@
 	$appearance_info = get_option( 'appearance_info');
 	$headline_style = $appearance_info['headline_style'];
 	
-	$slices = get_post_meta( get_the_ID(),$instance.'_fold_slides', true );
+	$slices = get_post_meta( get_the_ID(),$instance.'_fold_slices', true );
 	if(sizeof($slices)<3){ echo "<p>The slice style ATF requires a minimum of 3 slides</p>"; }else{
 	$num_slices = sizeof($slices)-1;
 	$slice_width = (40/$num_slices);
 	$overlay = (get_post_meta( get_the_ID(), $instance.'_overlay', true )!='') ? get_post_meta( get_the_ID(), $instance.'_overlay', true ) : 30 ;
+	$slider_height = get_post_meta(get_the_id(),$instance.'_height',true);
 	?>
 		
 	<div id="hp-fold" class="fold-slices" data-slice="<?php echo $slice_width; ?>">
@@ -18,7 +19,7 @@
 			$image = wp_get_attachment_image_src($s['image_id'],'extra-large');
 			?>
 			
-			<div class="fold-slice <?php if($counter==0){ echo 'active'; } ?>" style="background-image: url(<?php echo $image[0]; ?>);">
+			<div class="fold-slice <?php if($counter==0){ echo 'active'; } ?>" style="background-image: url(<?php echo $image[0]; ?>);height:<?php echo $slider_height; ?>">
 				
 				<?php if(isset($s['video_webm']) && $s['video_webm']!='' && isset($s['video_mp4']) && $s['video_mp4']!=''){ ?>
 					<video class="fold-video" autoplay loop muted data-audio="true" poster="<?php echo $image[0]; ?>">

@@ -4,14 +4,15 @@
 	$headline_style = $appearance_info['headline_style'];
 
 	$boxes = get_post_meta( get_the_ID(),$instance.'_fold_boxes', true );
-	if(sizeof($panels)<4){ echo "<p>The slice style ATF requires a minimum of 4 slides</p>"; }else{
+	if(sizeof($boxes)<4){ echo "<p>The slice style ATF requires a minimum of 4 slides</p>"; } else {
+	$slider_height = get_post_meta(get_the_id(),$instance.'_height',true);
 		?>
 
-	<div id="hp-fold" class="fold-panel">
+	<div id="hp-fold" class="fold-panel" style="height:<?php echo $slider_height; ?>;">
 	  
 	  
 	  <?php $first = true;
-		foreach((array) $panels as $p ) {
+		foreach((array) $boxes as $p ) {
 		$image = wp_get_attachment_image_src($p['image_id'],'xxl');
 		?>
 		

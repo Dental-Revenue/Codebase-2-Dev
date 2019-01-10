@@ -14,7 +14,7 @@
     foreach ((array) $blocks as $key => $block ) {
 	  $image = wp_get_attachment_image_src( $block['image_id'], 'xxl' );
     ?>
-		<div class="fold-slide" style="background-image: url(<?php echo $image[0]; ?>);">
+		<div class="fold-slide" style="background-image: url(<?php echo $image[0]; ?>);height:<?php echo $slider_height; ?>;">
 			<?php if(isset($block['video_webm']) && $block['video_webm']!='' && isset($block['video_mp4']) && $block['video_mp4']!=''){ ?>
 				<video class="fold-video" autoplay loop muted data-audio="true" poster="<?php echo $image[0]; ?>">
 					<source src="<?php echo $block['video_webm']; ?>" type="video/webm">

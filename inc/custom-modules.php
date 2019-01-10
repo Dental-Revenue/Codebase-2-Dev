@@ -61,7 +61,7 @@ function render_modules(){ ?>
 						<select name="module_name">
 							<option value="fold_slider">Fold Slider</option>
 							<option>------------------</option>
-							<option value="fold_panels">Fold Panels</option>
+							<option value="fold_slices">Fold Slices</option>
 							<option>------------------</option>
 							<option value="fold_boxes">Fold Boxes</option>
 							<option>------------------</option>
