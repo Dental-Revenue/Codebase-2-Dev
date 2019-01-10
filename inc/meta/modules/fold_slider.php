@@ -1,5 +1,38 @@
 <?php   
 	
+
+$box->add_field( array(
+	'name' => 'Slider Type',
+	'id' => $prefix.'type',
+	'type' => 'select',
+	'options'          => array(
+		'traditional' => 'Traditional',
+		'panel' => 'Panel',
+		'slice' => 'Slice',
+	),
+	'default' => 'traditional'
+));
+
+$box->add_field( array(
+	'name' => 'Slider Height',
+	'desc' => 'include measurement (i.e. px, % or vh)',
+	'id' => $prefix.'height',
+	'type' => 'text',
+	'attributes'  => array(
+ 		'required'    => 'required',
+ 	),
+));
+
+$box->add_field( array(
+	'name' => 'Overlay Darkness',
+	'desc' => 'Defaults to 30 (percent)',
+    'id' => $prefix . 'overlay',
+    'type' => 'text',
+    'attributes' => array(
+			'type' => 'number',
+			'pattern' => '\d*',
+		),
+));
 $group_field = $box->add_field( array(
 	'id' => $prefix.'fold_slides',
 	'type' => 'group',
@@ -22,6 +55,11 @@ $box->add_group_field( $group_field, array(
 	'type' => 'textarea_small',
 ));
 $box->add_group_field( $group_field, array(
+	'name' => 'Button Text',
+	'id'   => 'cta',
+	'type' => 'text',
+));
+$box->add_group_field( $group_field, array(
 	'name' => 'Link to...',
 	'id'   => 'url',
 	'type' => 'text',
@@ -34,6 +72,16 @@ $box->add_group_field( $group_field, array(
 	'query_args' => array(
 		'type' => array('image/gif','image/jpeg','image/png')
 	)
+));
+$box->add_group_field( $group_field, array(
+	'name' => 'Background Video (webm)',
+	'id' => 'video_webm',
+	'type' => 'file'
+));
+$box->add_group_field( $group_field, array(
+  'name' => 'Background Video (mp4)',
+  'id' => 'video_mp4',
+  'type' => 'file'
 ));
 
 ?>
