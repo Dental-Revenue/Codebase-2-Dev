@@ -2,9 +2,9 @@
 
 	//general blocks
 	.cvt-block{width: 33.333%;float: left;height: 350px;background-size: cover;background-position: right center;position: relative;overflow: hidden;}
-		.cvt-block span{display: block;width: 100%;padding: 20px;box-sizing:border-box;background-color:rgba($white,.8);color: $accent;text-transform: uppercase;letter-spacing: .05em;font-size: 16px;@include center(bottom);font-weight: 600;}
+		.cvt-block span{display: block;width: 100%;padding: 20px;box-sizing:border-box;background-color:rgba($main-color,.8);color: $white;text-transform: uppercase;letter-spacing: .05em;font-size: 16px;@include center(bottom);font-weight: 600;}
 		
-		.cvt-content{position: absolute;left:0;top:0;width: 100%;height: 100%;background-color: rgba($accent,.8);padding: 30px;box-sizing: border-box;transform: translateY(-100%);transition: transform .3s;}
+		.cvt-content{position: absolute;left:0;top:0;width: 100%;height: 100%;background-color: rgba($main-color,.8);padding: 30px;box-sizing: border-box;transform: translateY(-100%);transition: transform .3s;}
 			.cvt-content h3{color: $white;text-transform: uppercase;font-weight: 400;letter-spacing: .05em;}
 			.cvt-content p{color: $white;font-size: 13px;opacity: .8;}
 			.cvt-content a{color: $white;text-transform: uppercase;letter-spacing: .05em;position: absolute;left:30px;bottom:30px; &:hover{opacity: .7;}}
@@ -15,7 +15,7 @@
 	.cvt-block:hover .cvt-content{transform: translateY(0);}	
 	
 	//custom first static block
-	.cvt-block.static{background-color: $accent;padding: 30px;box-sizing: border-box;}
+	.cvt-block.static{background-color: $main-color;padding: 30px;box-sizing: border-box;}
 		.cvt-block.static h2{color: $white;text-align: left; padding: 0; &:after {display: none;}}
 		.cvt-block.static p{color: $white;font-size: 13px;opacity: .8;}
 		.cvt-block.static a{color: $white;text-transform: uppercase;letter-spacing: .05em;position: absolute;left:30px;bottom:30px; &:hover{opacity: .7;}}
@@ -32,7 +32,7 @@
 	
 	.cvt-block{width: 100%;height: 250px;}
 		.cvt-block span{display: none;}
-		.cvt-content{transform: translateY(0);background-color: rgba($accent,.5);}
+		.cvt-content{transform: translateY(0);background-color: rgba($main-color,.5);}
 	
 	.cvt-block.static{height: auto;}
 		.cvt-block.static a{position: relative;left: auto;bottom: auto;}
