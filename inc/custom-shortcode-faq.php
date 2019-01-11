@@ -94,15 +94,23 @@ function add_my_shortcode_button_faq($atts, $content = ""){
 	ob_start();
   var_dump($faq_group_array);
   $result = ob_get_clean();
-
+*/
+/*
+	$attsArray = $atts['faq_group'];
 	ob_start();
-  var_dump($atts);
+  var_dump($attsArray);
   $result = ob_get_clean();
   return $result;
 */
+
+  
+  return htmlentities($atts['faq_group']);
+
   
 	//return $faq_group_array[0];
-	return $output;
+	//return $output;
+	
+	
 }
 
 add_shortcode('faqs', 'add_my_shortcode_button_faq');

@@ -30,10 +30,10 @@
 //FAQs
 .faq_shortcode_contain{min-height: 20px; margin-bottom: 20px; background-color: $md-lt-grey;border: 1px solid rgba(0, 0, 0, 0.05); -webkit-border-radius: 10px; -moz-border-radius: 10px; border-radius: 10px; margin-top: 0px;padding: 40px; box-sizing:border-box;}
 	.faq_shortcode_contain .faq_accordion{}
-		.faq_accordion span[data-accordion="question"]{display:block;}
-			.faq_accordion span[data-accordion="question"] a{position:relative; padding-left:20px; &:before{content:"\f067"; margin-right:10px; font-family:'Font Awesome 5 Free'; color:$main-color; position:absolute; display:block; left:0; top:2px;}}
+		.faq_accordion span[data-accordion="question"]{display:block; margin-bottom: 10px;}
+			.faq_accordion span[data-accordion="question"] a{position:relative; padding-left:20px; &:before{content:"\f067"; margin-right:10px; font-family:'Font Awesome 5 Free'; color:$main-color; position:absolute; display:block; left:0; top:3px;font-size:14px;}}
 			.faq_accordion span[data-accordion="question"] a.active:before{content:"\f068";}
-		//.faq_accordion span[data-accordion="answer"]{display:none;}
+		.faq_accordion span[data-accordion="answer"]{display:block;}
 		
 //TESTIMONIALs
 .testimonials_shortcode_contain{min-height: 20px; margin-bottom: 20px; background-color: $main-color;border: 1px solid rgba(0, 0, 0, 0.05); -webkit-border-radius: 10px; -moz-border-radius: 10px; border-radius: 10px; margin-top: 0px;padding: 40px; box-sizing:border-box; text-align:center;}

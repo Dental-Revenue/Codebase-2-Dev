@@ -1,0 +1,59 @@
+//EXTENDERS
+
+.widget-btn {display: inline-block;margin: 0; padding: 16px 22px;border-radius: 3px;font-size: 13px;text-transform: uppercase;font-weight: 800; @include prefix(transition,0.2s ease-in-out); text: {transform: uppercase;decoration: none;} cursor:pointer; letter-spacing: .05em;}
+.widget-btn-sm{@extend .widget-btn;font-size: 11px;padding: 12px 18px;}
+.widget-on-light{
+	border:3px solid $main-color;
+  background-color: $main-color;
+  color: $white;
+  &:hover{background-color: transparent;color: $main-color;}
+}
+
+aside{background-color: $main-color;border-radius: 3px;display: block;padding: 20px;box-sizing: border-box;margin: 24px 0; &:first-child{margin-top: 0;} &:last-child{margin-bottom: 0;}}
+  aside h3{color: $white;font-weight: 300;text-align: center;text-transform: uppercase;letter-spacing: .05em;margin-bottom: 24px;line-height: 100%;}
+
+
+/* CUSTOM SIDEBAR BLOG WIDGET */
+aside.widget_blog{padding-bottom: 10px;}
+  aside.widget_blog a{color: $white;display: block;margin: 0;position: relative;padding: 20px 0 20px 40px;box-sizing: border-box;line-height: 1.4;border-top:1px solid rgba($black,.1); &:hover{opacity: .7;} &:before{content:'\f09e';font-size: 180%;font-family: $font-awesome;position: absolute;top:50%;left: 0;line-height:1;margin-top: -10px; font-weight:700;}}
+  
+  
+/* CUSTOM SIDEBAR NAV WIDGET */
+aside.widget_nav_menu{}
+  aside.widget_nav_menu ul{margin: 0 0 0 20px;padding: 0;}
+    aside.widget_nav_menu ul li{color: $white;}
+      aside.widget_nav_menu ul li a{font-size: 16px;font-weight: 600; &:hover{opacity: .7;}}
+      
+  aside.widget_nav_menu ul ul{margin-left: 20px;}
+    aside.widget_nav_menu ul ul li a{font-size: 14px;font-weight: 400;}
+      
+
+/* CUSTOM SIDEBAR FORM WIDGET */
+aside.widget_form{}
+  aside.widget_form .captcha-container{margin-bottom: 20px;}
+  aside.widget_form button{margin-bottom: 0;display: block;width: 100%; @extend .widget-btn; @extend .widget-on-light;}  
+  
+
+/* CUSTOM APPOINTMENT BTN WIDGET */
+aside.widget_appt{background-color: transparent;border-radius: none;padding: 0;}
+  $button-bottom : darken($main-color,10%);
+  aside.widget_appt a{@extend .widget-btn; @extend .widget-on-light;position:relative;top:0;width: 100%;box-sizing: border-box;padding: 20px 10px;font-size: 15px;text-align: center;text-shadow:0 0 10px rgba($black,0.2);border: 0 none; box-shadow: 0 5px 0 0 $button-bottom, 0 10px 5px rgba($black, 0.1);@include prefix(transition,all .3s); &:hover{background-color: $main-color;color: $white;box-shadow: 0 2px 0 0 $button-bottom, 0 5px 3px rgba($black, 0.1);top:3px;}}
+
+
+/* CUSTOM GALLERY WIDGET */
+aside.widget_gallery{}
+  aside.widget_gallery .slick-dots{margin: 20px auto 0;}
+    aside.widget_gallery .slick-dots li button{background-color: $main-color;height: 10px;width: 10px;}
+
+  .slick-widget-gallery{}
+    a.slick-widget-gallery-img{width: 100%;height: auto;}
+      a.slick-widget-gallery-img img{display: block;width: 100%;height: auto;border: 5px solid $white;box-sizing: border-box;max-width: 325px;margin: 0 auto;}
+      
+  aside.widget_gallery > a{@extend .widget-on-light; @extend .widget-btn-sm; display: block;margin: 20px 0 0;text-align: center;}
+      
+/* Media Queries */      
+@media all and (max-width: $bp-tablet) {
+  
+  aside:first-child{margin-top: 30px;}
+  
+} 
