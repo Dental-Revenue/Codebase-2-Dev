@@ -1,4 +1,4 @@
-<?php 
+<?php   
 
 $box->add_field( array(
 	'name' => 'Slider Height',
@@ -21,7 +21,7 @@ $box->add_field( array(
 		),
 ));
 $group_field = $box->add_field( array(
-	'id' => $prefix.'fold_slides',
+	'id' => $prefix.'fold_boxes',
 	'type' => 'group',
 	'options' => array(
 		'group_title'   => __( 'Slide {#}', 'cmb2' ),

@@ -53,6 +53,8 @@ header{}
 		.header-style-c .header-logo .logo {width:500px;}
 	
 	.header-style-c .header-top {height:130px;}
+		
+	.header-style-c .header-top .row {width:96%; max-width: 96%;}
 	
 	.header-style-c .contact-option {opacity:.5; transition: opacity .3s ease; float: right; &:hover {opacity:1;} &.street-address {float: left;} &:nth-child(2) { margin-left:15px;}}
 		.header-style-c .contact-option i {font-size:15px; margin:8px 4px 0; width:20px;}
