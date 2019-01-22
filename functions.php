@@ -1142,6 +1142,17 @@ function add_header_style_to_body_class($classes){
 }	
 add_filter('body_class', 'add_header_style_to_body_class'); 
 
+// Add scroll_style to body class
+function add_scroll_style_to_body_class($classes){
+  $appearance_info = get_option( 'appearance_info');
+	$scroll_style = $appearance_info['scroll_style'];
+  if ($scroll_style != '') {
+		$classes[] = $scroll_style;
+  }
+  return $classes;
+}	
+add_filter('body_class', 'add_scroll_style_to_body_class'); 
+
 
 // Remove thumbnail width and height dimensions that prevent fluid images in the_thumbnail
 /*

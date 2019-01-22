@@ -1,12 +1,11 @@
 <?php
 	$appearance_info = get_option( 'appearance_info');
 	$nav_style = $appearance_info['nav_style'];
-	$scroll_style = $appearance_info['scroll_style'];
 
 ?>
 
 <?php if ($nav_style == 'header-style-a') { ?>
-	<header class="header <?php echo $scroll_style; ?>">  
+	<header class="header">  
 	  
 	  <div class="header-logo">
 	    <h1>    <a class="logo" href="/"><img src="<?php site_ops_logo(); ?>" alt="<?php site_ops_practice_name(); ?>" /></a>
@@ -58,7 +57,7 @@
 	  
 	</header> 
 <?php } else if ($nav_style == 'header-style-b') { ?>
-<header class="header <?php echo $scroll_style; ?>">  
+<header class="header">  
 	  
 	  <div class="header-logo">
 	    <h1><a class="logo" href="/"><img src="<?php site_ops_logo(); ?>" alt="<?php site_ops_practice_name(); ?>" /></a></h1>  
@@ -86,7 +85,7 @@
 	</header>
 	
 <?php } else if ($nav_style == 'header-style-c') { ?>	
-	<header class="header <?php echo $scroll_style; ?>">  
+	<header class="header">  
 	  
 	  <div class="header-logo">
 	    <h1>    <a class="logo" href="/"><img src="<?php site_ops_logo(); ?>" alt="<?php site_ops_practice_name(); ?>" /></a>

@@ -291,7 +291,7 @@ function cmb2_appearance_options() {
 			'header-style-b' => 'Style B',
 			'header-style-c' => 'Style C',
 		),
-		'default' => 'style-a'
+		'default' => 'header-style-a'
 	));
 	
 	$box->add_field( array(
@@ -304,7 +304,7 @@ function cmb2_appearance_options() {
 			'slim' => 'Slim Version',
 			'no-stick' => 'Do Not Stick Nav to Top',
 		),
-		'default' => 'sticky'
+		'default' => 'slim'
 	));
 	
 	$box->add_field( array(

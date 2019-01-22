@@ -2,7 +2,8 @@
 header{}
 	
 	header{width: 100%;height:144px;position: fixed;z-index: 1000;top:0;transition:top .3s;}
-	header.scrolled{top:-84px;}
+	.scrolled header{top:-84px;}
+	.full header{top:0px;}
 
   /* HEADER ABSOLUTE LOGO */
   .header-logo{height: 84px;width: 320px;position: absolute;top:0;left: 36px;background-color: $white;z-index: 3;}
@@ -20,6 +21,10 @@ header{}
   .header-bottom{background-color: $dk-grey;z-index: 1;position: relative;}
   
 
+/* HEADER Stick Style */
+	.no-stick header {position:static;}
+	.no-stick .page-wrap {margin-top:0;}
+
 /* HEADER STYLE-A */
 .header-style-a {}
   
@@ -36,10 +41,8 @@ header{}
  		.header-style-b .header-bottom {padding-left:20px;flex:1;}
  		
  		.header-style-b .large-nav .schedule {float:right; margin:10px; top:0; transform: none; }
- 		
- 		.header-style-b .fold_slider, .header-style-b .fold-slide {height:calc(100vh - 20px);}
  	
- 	.header-style-b header.scrolled {top:0;}
+ 	.header-style-b.scrolled header {top:0;}
  		
 
 /* HEADER STYLE-C */  
@@ -47,6 +50,8 @@ header{}
 
 	.header-style-c header {height:190px;}
 	.header-style-c .page-wrap {margin-top:190px;}
+	
+	.header-style-c.scrolled.slim header {top:-130px;}
 	
 	
 	.header-style-c .header-logo {height:100px; margin-top:30px; width: 500px; left:50%; transform: translateX(-50%); background-color: transparent;}
@@ -66,7 +71,6 @@ header{}
 		
 	.header-style-c header.scrolled {top:-130px;}
  		
- 	.header-style-c .fold_slider, .header-style-c .fold_slider .module-content, .header-style-c .fold-slide {height:calc(90vh);}
   
   
 /* HEADER V1 SCROLLED */

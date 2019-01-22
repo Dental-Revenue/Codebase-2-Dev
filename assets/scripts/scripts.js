@@ -20,9 +20,14 @@ $(document).ready(function(){
 
 	//scroll stick
 	$(document).scroll(function() {
-    $('.header.slim').toggleClass('scrolled', $(document).scrollTop() >= 30);
+    $('body.slim').toggleClass('scrolled', $(document).scrollTop() >= 30);
   });
-  $('.header.slim').toggleClass('scrolled', $(document).scrollTop() >= 30);
+  $('body.slim').toggleClass('scrolled', $(document).scrollTop() >= 30);
+	
+	$(document).scroll(function() {
+    $('body.full').toggleClass('scrolled', $(document).scrollTop() >= 30);
+  });
+  $('body.full').toggleClass('scrolled', $(document).scrollTop() >= 30);
 	
 	//MODULE SPECIFIC *********
 	
@@ -78,6 +83,7 @@ $(document).ready(function(){
       {breakpoint: 480,settings: {slidesToShow: 1,slidesToScroll: 1,}},
     ]
 	});
+	
 	
 	//Module 26 Carousel
 	if($('.slick-carousel_2').length>0){
