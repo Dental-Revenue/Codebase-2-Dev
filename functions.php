@@ -1195,5 +1195,10 @@ function codebase_report_home() {
 	curl_close ($ch);
 }
 
-		
+// Disable Gutenberg
+add_filter( 'gutenberg_can_edit_post_type', '__return_false' );
+add_filter( 'use_block_editor_for_post_type', '__return_false' );
+// Disable "Try Gutenberg" panel
+remove_action( 'try_gutenberg_panel', 'wp_try_gutenberg_panel' );
+	
 ?>
