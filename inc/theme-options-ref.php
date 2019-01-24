@@ -152,6 +152,11 @@ function site_ops_body_font($echo = true){
 	if(!empty($option['body_font'])){if($echo){echo $option['body_font'];}else{return $option['body_font'];}}else{if($echo){echo '';}else{return '';}}
 }
 
+function site_ops_cta_text($echo = true){
+	$option = get_option('appearance_info'); 
+	if(!empty($option['cta_text'])){if($echo){echo $option['cta_text'];}else{return $option['cta_text'];}}else{if($echo){echo '';}else{return '';}}
+}
+
 function site_ops_buttons_style($echo = true){
 	$option = get_option('appearance_info'); 
 	if(!empty($option['buttons_style'])){if($echo){echo $option['buttons_style'];}else{return $option['buttons_style'];}}else{if($echo){echo '';}else{return '';}}

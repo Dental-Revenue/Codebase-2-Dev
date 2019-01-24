@@ -60,7 +60,7 @@
 	    <?php } ?>
     </ul>
     <?php $page = get_pages(array('meta_key' => '_wp_page_template','meta_value' => 'page-templates/template-schedule.php')); ?>
-    <a class="schedule btn on-light" href="<?php echo get_permalink($page[0]->ID); ?>">Schedule Appointment</a>
+    <a class="schedule btn on-light" href="<?php echo get_permalink($page[0]->ID); ?>"><?php site_ops_cta_text(); ?></a>
   </div>
   
   

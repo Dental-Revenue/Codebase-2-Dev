@@ -37,7 +37,7 @@
           </a>
       </div>
       <?php $page = get_pages(array('meta_key' => '_wp_page_template','meta_value' => 'page-templates/template-schedule.php')); ?>
-      <a href="<?php echo get_permalink($page[0]->ID); ?>" class="btn solid">Schedule Appointment</a>
+      <a href="<?php echo get_permalink($page[0]->ID); ?>" class="btn solid"><?php site_ops_cta_text(); ?></a>
     </div>
     
   </div>

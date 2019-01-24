@@ -36,7 +36,7 @@
             <p>Current Patients <span class="bold"><?php site_ops_current_patient_phone(); ?></span></p>
           </div> 
           <?php } ?>
-          <a href="/schedule-appointment/" class="btn outline schedule">Schedule Appointment</a>
+          <a href="/schedule-appointment/" class="btn outline schedule"><?php site_ops_cta_text(); ?></a>
         </div>
         
         <div class="footer-column">

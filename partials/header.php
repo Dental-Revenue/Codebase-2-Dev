@@ -42,7 +42,7 @@
 	    
 	      <nav class="large-nav">
 	        <?php wp_nav_menu(array('container' => '')); ?>        
-					<a href="/schedule-appointment/" class="schedule btn sm outline">Schedule Appointment</a>
+					<a href="/schedule-appointment/" class="schedule btn sm outline"><?php site_ops_cta_text(); ?></a>
 	      </nav>
 	      
 	      <nav class="mobile-nav ">
@@ -69,7 +69,7 @@
 	    
 	      <nav class="large-nav">
 	        <?php wp_nav_menu(array('container' => '')); ?>        
-					<a href="/schedule-appointment/" class="schedule btn sm outline">Schedule Appointment</a>
+					<a href="/schedule-appointment/" class="schedule btn sm outline"><?php site_ops_cta_text(); ?></a>
 	      </nav>
 	      
 	      <nav class="mobile-nav ">
@@ -120,12 +120,12 @@
 	    
 	      <nav class="large-nav">
 	        <?php wp_nav_menu(array('container' => '')); ?>        
-					<a href="/schedule-appointment/" class="schedule btn sm outline">Schedule Appointment</a>
+					<a href="/schedule-appointment/" class="schedule btn sm outline"><?php site_ops_cta_text(); ?></a>
 	      </nav>
 	      
 	      <nav class="mobile-nav ">
 	        <a href="#" id="panel-main"><i class="fas fa-bars"></i><span>Menu</span></a>
-	                <a href="#"><i class="far fa-calendar-alt"></i><span>Schedule Appt</span></a>
+	                <a href="#"><i class="far fa-calendar-alt"></i><span><?php site_ops_cta_text(); ?></span></a>
 	        <a href="#" id="panel-more"><i class="fas fa-info"></i><span>More Info</span></a>
 	      </nav>
 	    

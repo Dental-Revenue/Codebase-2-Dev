@@ -253,6 +253,14 @@ function cmb2_appearance_options() {
 	));
 	
 	$box->add_field( array(
+		'name' 					=> 'CTA button text',
+		'desc'					=> 'Text in CTA buttons. Default: Schedule Appointment',
+		'id'   					=> 'cta_text',
+		'type' 					=> 'text',
+		'default'				=> 'Schedule Appointment'
+	));
+	
+	$box->add_field( array(
 		'name' 					=> 'Button Corner Style',
 		'desc'					=> 'Rounded or Square Cornered Buttons',
 		'id'   					=> 'buttons_style',
