@@ -87,6 +87,11 @@ if ( file_exists(  __DIR__ . '/inc/meta/meta-gallery-pages.php' ) ) {
   require_once  __DIR__ . '/inc/meta/meta-gallery-pages.php';
 }
 
+// ================================================ WIDGETS
+if ( file_exists(  __DIR__ . '/inc/custom-widgets.php' ) ) {
+  require_once  __DIR__ . '/inc/custom-widgets.php';
+}
+
 // MODIFIED GET TEMPLATE PART TO ACCEPT ARGUMENTS
 function get_partial( $file, $template_args = array(), $cache_args = array() ) {
     $template_args = wp_parse_args( $template_args );
@@ -433,71 +438,7 @@ function cmb2_wysiwyg_word_counter( $args, $field ) {
 	<?php
 }
 
-// ================================================ BUILD SIDEBARS
-/*
-if (function_exists('register_sidebar')){
-  register_sidebar(
-    array(
-    'name' => __( 'Default Sidebar'),
-    'id' => 'default-sidebar',
-    'before_widget' => '<aside id="%1$s" class="widget %2$s">',
-    'after_widget' => '</aside>',
-    'before_title' => '<h3 class="widget-title">',
-    'after_title' => '</h3>',
-    )
-  );
-  register_sidebar(
-    array(
-    'name' => __( 'Blog Sidebar'),
-    'id' => 'blog-sidebar',
-    'before_widget' => '<aside id="%1$s" class="widget %2$s">',
-    'after_widget' => '</aside>',
-    'before_title' => '<h3 class="widget-title">',
-    'after_title' => '</h3>',
-    )
-  );  
-}
-*/
 
-//Blog Widget 
-/*
-class widget_blog extends WP_Widget {
-  
-  function __construct() {parent::__construct('blog', __('Blog Posts', 'widget_blog_domain'), array( 'description' => __( 'Shows 3 recent post titles. Control the specific category on each page.', 'widget_blog_domain' ), ));}
-  
-  public function widget( $args, $instance ) {
-    $title = apply_filters( 'widget_title', $instance['title'] );
-    $queried_object = get_queried_object();
-    if ( $queried_object ) { $post_id = $queried_object->ID; }
-    echo $args['before_widget'];
-    if (!empty($title)){echo $args['before_title'] . $title . $args['after_title'];}
-    $blog_args = array( 'post_type' => 'post', 'orderby' => 'post_date','order' => 'DESC','posts_per_page' => 3 );
-    if(get_post_meta( $post_id, 'meta_sidebar_category', true )!=''){$blog_args['cat'] = get_post_meta( $post_id, 'meta_sidebar_category', true );}
-    $loop = new WP_Query( $blog_args );
-    while ( $loop->have_posts() ) : $loop->the_post();
-      echo "<a href='".get_the_permalink()."'>".get_the_title()."</a>";
-    endwhile;
-    echo $args['after_widget'];
-  }
-		
-  public function form( $instance ) {
-    if (isset($instance[ 'title' ])){ $title = $instance[ 'title' ];}else{$title = __( 'From Our Blog', 'widget_blog_domain' );}
-    ?>
-    <p>
-      <label for="<?php echo $this->get_field_id( 'title' ); ?>"><?php _e( 'Title:' ); ?></label> 
-      <input class="widefat" id="<?php echo $this->get_field_id( 'title' ); ?>" name="<?php echo $this->get_field_name( 'title' ); ?>" type="text" value="<?php echo esc_attr( $title ); ?>" />
-    </p>
-    <?php
-  }
-	
-  public function update( $new_instance, $old_instance ) {
-    $instance = array();
-    $instance['title'] = ( ! empty( $new_instance['title'] ) ) ? strip_tags( $new_instance['title'] ) : '';
-      return $instance;
-  }
-
-}
-*/
 
 //Form Widget 
 /*
@@ -544,41 +485,6 @@ class widget_form extends WP_Widget {
     ?>
     <p>
       <label for="<?php echo $this->get_field_id( 'title' ); ?>"><?php _e( 'Title:' ); ?></label> 
-      <input class="widefat" id="<?php echo $this->get_field_id( 'title' ); ?>" name="<?php echo $this->get_field_name( 'title' ); ?>" type="text" value="<?php echo esc_attr( $title ); ?>" />
-    </p>
-    <?php
-  }
-	
-  public function update( $new_instance, $old_instance ) {
-    $instance = array();
-    $instance['title'] = ( ! empty( $new_instance['title'] ) ) ? strip_tags( $new_instance['title'] ) : '';
-      return $instance;
-  }
-
-}
-*/
-
-//Schedule Appointment Widget 
-/*
-class widget_appt extends WP_Widget {
-  
-  function __construct() {parent::__construct('appt', __('Appointment Button', 'widget_form_domain'));}
-  
-  public function widget( $args, $instance ) {
-    $btn_text = $instance['title'];
-    echo $args['before_widget']; ?>
-      <?php $page = get_pages(array('meta_key' => '_wp_page_template','meta_value' => 'page-templates/template-schedule.php')); ?>
-      <a href="<?php echo get_permalink($page[0]->ID); ?>">
-        <?php if($btn_text && $btn_text!=''){ echo $btn_text; }else{ echo 'Schedule Appointment'; } ?>
-      </a>
-    <?php echo $args['after_widget'];
-  }
-		
-  public function form( $instance ) {
-    if (isset($instance[ 'title' ])){ $title = $instance[ 'title' ];}else{$title = __( 'Schedule Appointment', 'widget_form_domain' );}
-    ?>
-    <p>
-      <label for="<?php echo $this->get_field_id( 'title' ); ?>">Button Text:</label> 
       <input class="widefat" id="<?php echo $this->get_field_id( 'title' ); ?>" name="<?php echo $this->get_field_name( 'title' ); ?>" type="text" value="<?php echo esc_attr( $title ); ?>" />
     </p>
     <?php
