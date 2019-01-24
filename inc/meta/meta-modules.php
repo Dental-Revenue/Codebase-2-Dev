@@ -13,7 +13,7 @@ function homepage_meta() {
 	} elseif ( isset( $_REQUEST['post_ID'] ) ) {
     $current_page = absint( $_REQUEST['post_ID'] ) ;
 	}	
-	$modules = $wpdb->get_results( "SELECT * FROM modules WHERE page = ".$current_page);
+	$modules = $wpdb->get_results( "SELECT * FROM modules WHERE page = ".$current_page." ORDER BY display_order ASC");
 	
 	//echo $current_page;
 			
@@ -57,7 +57,7 @@ function homepage_meta() {
 			
 			case "static_mini_blocks":
 				
-				require_once  __DIR__ . '/modules/static_mini_blocks.php';
+				require  __DIR__ . '/modules/static_mini_blocks.php';
 				
 			break;
 
@@ -67,7 +67,7 @@ function homepage_meta() {
 
 			case "static_intro_section":
 				
-				require_once  __DIR__ . '/modules/static_intro_section.php';
+				require  __DIR__ . '/modules/static_intro_section.php';
 
 			break;
 
@@ -77,7 +77,7 @@ function homepage_meta() {
 			
 			case "carousel_1":
 				
-				require_once  __DIR__ . '/modules/carousel_1.php';
+				require  __DIR__ . '/modules/carousel_1.php';
 				
 			break;
 
@@ -87,7 +87,7 @@ function homepage_meta() {
 			
 			case "carousel_2":
 				
-				require_once  __DIR__ . '/modules/carousel_2.php';
+				require  __DIR__ . '/modules/carousel_2.php';
 				
 			break;
 				
@@ -97,7 +97,7 @@ function homepage_meta() {
 			
 			case "static_big_small":
 				
-				require_once  __DIR__ . '/modules/static_big_small.php';
+				require  __DIR__ . '/modules/static_big_small.php';
 				
 			break;
 				
@@ -107,7 +107,7 @@ function homepage_meta() {
 			
 			case "static_big_small_hover":
 				
-				require_once  __DIR__ . '/modules/static_big_small_hover.php';
+				require  __DIR__ . '/modules/static_big_small_hover.php';
 				
 			break;
 
@@ -117,7 +117,7 @@ function homepage_meta() {
 			
 			case "static_big_big":
 				
-				require_once  __DIR__ . '/modules/static_big_big.php';
+				require  __DIR__ . '/modules/static_big_big.php';
 			
 			break;
 			
@@ -127,7 +127,7 @@ function homepage_meta() {
 			
 			case "breaker":
 				
-				require_once  __DIR__ . '/modules/breaker.php';
+				require  __DIR__ . '/modules/breaker.php';
 				
 			break;
 			
@@ -137,7 +137,7 @@ function homepage_meta() {
 			
 			case "specials_breaker":
 				
-				require_once  __DIR__ . '/modules/specials_breaker.php';
+				require  __DIR__ . '/modules/specials_breaker.php';
 				
 			break;
 
@@ -147,7 +147,7 @@ function homepage_meta() {
 			
 			case "static_block_grid":
 				
-				require_once  __DIR__ . '/modules/static_block_grid.php';
+				require  __DIR__ . '/modules/static_block_grid.php';
 				
 			break;
 
@@ -157,7 +157,7 @@ function homepage_meta() {
 			
 			case "blog_big_small":
 				
-				require_once  __DIR__ . '/modules/blog_big_small.php';
+				require  __DIR__ . '/modules/blog_big_small.php';
 				
 			break;
 
@@ -167,7 +167,7 @@ function homepage_meta() {
 			
 			case "blog_columns":
 				
-				require_once  __DIR__ . '/modules/blog_columns.php';
+				require  __DIR__ . '/modules/blog_columns.php';
 				
 			break;
 
@@ -177,7 +177,7 @@ function homepage_meta() {
 			
 			case "blog_full_width":
 				
-				require_once  __DIR__ . '/modules/blog_full_width.php';
+				require  __DIR__ . '/modules/blog_full_width.php';
 				
 			break;
 			
@@ -187,7 +187,7 @@ function homepage_meta() {
 			
 			case "static_image_split":
 				
-				require_once  __DIR__ . '/modules/static_image_split.php';
+				require  __DIR__ . '/modules/static_image_split.php';
 				
 			break;
 			
@@ -197,7 +197,7 @@ function homepage_meta() {
 			
 			case "static_image_offset":
 				
-				require_once  __DIR__ . '/modules/static_image_offset.php';
+				require  __DIR__ . '/modules/static_image_offset.php';
 				
 			break;
 
@@ -205,7 +205,7 @@ function homepage_meta() {
 
 			case "logo_scroll":
 			
-				require_once  __DIR__ . '/modules/logo_scroll.php';
+				require  __DIR__ . '/modules/logo_scroll.php';
 				
 			break;
 			
@@ -214,7 +214,7 @@ function homepage_meta() {
 
 			case "static_blocks_list":
 			
-				require_once  __DIR__ . '/modules/static_blocks_list.php';
+				require  __DIR__ . '/modules/static_blocks_list.php';
 				
 			break;
 			
@@ -224,7 +224,7 @@ function homepage_meta() {
 
 			case "static_photo_list":
 			
-				require_once  __DIR__ . '/modules/static_photo_list.php';
+				require  __DIR__ . '/modules/static_photo_list.php';
 				
 			break;
 			
@@ -234,7 +234,7 @@ function homepage_meta() {
 
 			case "carousel_3":
 			
-				require_once  __DIR__ . '/modules/carousel_3.php';
+				require  __DIR__ . '/modules/carousel_3.php';
 				
 			break;
 			
@@ -244,7 +244,7 @@ function homepage_meta() {
 
 			case "static_image_content":
 			
-				require_once  __DIR__ . '/modules/static_image_content.php';
+				require  __DIR__ . '/modules/static_image_content.php';
 				
 			break;
 			
@@ -254,7 +254,7 @@ function homepage_meta() {
 
 			case "static_multiple_col":
 			
-				require_once  __DIR__ . '/modules/static_multiple_col.php';
+				require  __DIR__ . '/modules/static_multiple_col.php';
 				
 			break;
 			
@@ -264,7 +264,7 @@ function homepage_meta() {
 
 			case "static_side_by_side":
 			
-				require_once  __DIR__ . '/modules/static_side_by_side.php';
+				require  __DIR__ . '/modules/static_side_by_side.php';
 				
 			break;
 			
@@ -274,7 +274,7 @@ function homepage_meta() {
 
 			case "static_tabs":
 			
-				require_once  __DIR__ . '/modules/static_tabs.php';
+				require  __DIR__ . '/modules/static_tabs.php';
 				
 			break;
 			
@@ -284,7 +284,7 @@ function homepage_meta() {
 
 			case "static_cta_fold":
 			
-				require_once  __DIR__ . '/modules/static_cta_fold.php';
+				require  __DIR__ . '/modules/static_cta_fold.php';
 				
 			break;
 			
@@ -294,7 +294,7 @@ function homepage_meta() {
 
 			case "reviews_testimonials_fold":
 			
-				require_once  __DIR__ . '/modules/reviews_testimonials_fold.php';
+				require  __DIR__ . '/modules/reviews_testimonials_fold.php';
 				
 			break;
 			
@@ -304,7 +304,7 @@ function homepage_meta() {
 
 			case "reviews_testimonials_carousel":
 			
-				require_once  __DIR__ . '/modules/reviews_testimonials_carousel.php';
+				require  __DIR__ . '/modules/reviews_testimonials_carousel.php';
 				
 			break;
 			
@@ -314,7 +314,7 @@ function homepage_meta() {
 
 			case "reviews_google":
 			
-				require_once  __DIR__ . '/modules/reviews_google.php';
+				require  __DIR__ . '/modules/reviews_google.php';
 				
 			break;
 			
@@ -324,7 +324,7 @@ function homepage_meta() {
 
 			case "static_4_up":
 			
-				require_once  __DIR__ . '/modules/static_4_up.php';
+				require  __DIR__ . '/modules/static_4_up.php';
 				
 			break;
 			
@@ -334,7 +334,7 @@ function homepage_meta() {
 
 			case "static_5_up":
 			
-				require_once  __DIR__ . '/modules/static_5_up.php';
+				require  __DIR__ . '/modules/static_5_up.php';
 				
 			break;
 			
@@ -344,7 +344,7 @@ function homepage_meta() {
 
 			case "reviews_testimonials_grid":
 			
-				require_once  __DIR__ . '/modules/reviews_testimonials_grid.php';
+				require  __DIR__ . '/modules/reviews_testimonials_grid.php';
 				
 			break;
 			
@@ -354,7 +354,7 @@ function homepage_meta() {
 
 			case "fold_slider":
 			
-				require_once  __DIR__ . '/modules/fold_slider.php';
+				require  __DIR__ . '/modules/fold_slider.php';
 				
 			break;
 			
@@ -364,7 +364,7 @@ function homepage_meta() {
 
 			case "fold_slices":
 			
-				require_once  __DIR__ . '/modules/fold_slices.php';
+				require  __DIR__ . '/modules/fold_slices.php';
 				
 			break;
 			
@@ -374,7 +374,7 @@ function homepage_meta() {
 
 			case "fold_boxes":
 			
-				require_once  __DIR__ . '/modules/fold_boxes.php';
+				require  __DIR__ . '/modules/fold_boxes.php';
 				
 			break;
 			
@@ -447,6 +447,30 @@ function cmb2_output_logo_file_list( $file_list_meta_key, $img_size = 'medium' )
 	foreach ( (array) $files as $attachment_id => $attachment_url ) {
 		echo wp_get_attachment_image( $attachment_id, $img_size );
 	}
+}
+
+
+add_filter( 'get_user_option_meta-box-order_page', 'cmb_metabox_order' );
+function cmb_metabox_order( $order ) {
+	
+	$current_page = 0;
+	if ( isset( $_REQUEST['post'] ) ) {
+    $current_page = absint( $_REQUEST['post'] ) ;
+	} elseif ( isset( $_REQUEST['post_ID'] ) ) {
+    $current_page = absint( $_REQUEST['post_ID'] ) ;
+	}	
+	
+	global $wpdb;
+	$result = '';
+	$modules = $wpdb->get_results( "SELECT * FROM modules WHERE page = ".$current_page." ORDER BY display_order ASC");
+	foreach($modules as $m){
+		$result .= $m->id.',';
+	}
+	$result = rtrim($result,',');
+	
+    return array(
+        'normal' => $result,
+    );
 }
 
 ?>

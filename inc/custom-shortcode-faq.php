@@ -104,11 +104,11 @@ function add_my_shortcode_button_faq($atts, $content = ""){
 */
 
   
-  return htmlentities($atts['faq_group']);
+  //return htmlentities($atts['faq_group']);
 
   
 	//return $faq_group_array[0];
-	//return $output;
+	return $output;
 	
 	
 }

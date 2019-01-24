@@ -20,9 +20,11 @@ jQuery(document).ready(function($){
 			//console.log(event);
 			//console.log(ui);
 			
+			
+			
 			//loop through and put number on each
 			$('.hp-module-block').each( function( index, element ){
-				
+
 				var instance = $(this).attr('data-instance');
 				var order = index;
 				
@@ -33,6 +35,10 @@ jQuery(document).ready(function($){
 					data: {action:"update_module_order",instance:instance , order:order},
 					success: function(response){
 						console.log(response);
+					},
+					error: function(xhr, ajaxOptions, thrownError){
+						console.log(xhr.status);
+						console.log(thrownError);
 					}
 				});
 				
@@ -41,6 +47,39 @@ jQuery(document).ready(function($){
 		}
 	});
   $( "#sortable" ).disableSelection();
+  
+  $( ".meta-box-sortables" ).sortable({
+	  update: function( event, ui ) {
+			//console.log(event);
+			//console.log(ui);
+			
+			
+
+			//loop through and put number on each
+			$('.cmb2-postbox').each( function( index, element ){
+
+				var instance = $(this).attr('id');
+				var order = index;
+				
+				$.ajax({
+					type: 'post',
+					dataType: 'json',
+					url: '/wp-admin/admin-ajax.php',
+					data: {action:"update_module_order",instance:instance , order:order},
+					success: function(response){
+						console.log(response);
+					},
+					error: function(xhr, ajaxOptions, thrownError){
+						console.log(xhr.status);
+						console.log(thrownError);
+					}
+				});
+				
+			});
+
+			
+		}
+	 });
   
   //When a "background type" gets changed for a module, show specific fields
 /*
