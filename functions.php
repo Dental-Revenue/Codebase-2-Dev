@@ -63,6 +63,11 @@ if ( file_exists(  __DIR__ . '/inc/theme-options-ref.php' ) ) {
   require_once  __DIR__ . '/inc/theme-options-ref.php';
 }
 
+// ================================================ STANDARD PAGE META
+if ( file_exists(  __DIR__ . '/inc/meta/meta-standard.php' ) ) {
+  require_once  __DIR__ . '/inc/meta/meta-standard.php';
+}
+
 // ================================================ MODULES META
 if ( file_exists(  __DIR__ . '/inc/meta/meta-modules.php' ) ) {
   require_once  __DIR__ . '/inc/meta/meta-modules.php';
@@ -73,11 +78,11 @@ if ( file_exists(  __DIR__ . '/inc/custom-modules.php' ) ) {
   require_once  __DIR__ . '/inc/custom-modules.php';
 }
 
-// ================================================ TESTIMONIALS CPT
+// ================================================ TESTIMONIALS META
 if ( file_exists(  __DIR__ . '/inc/meta/meta-testimonials.php' ) ) {
   require_once  __DIR__ . '/inc/meta/meta-testimonials.php';
 }
-// ================================================ TESTIMONIALS META
+// ================================================ TESTIMONIALS CPT
 if ( file_exists(  __DIR__ . '/inc/cpts/cpt-testimonials.php' ) ) {
   require_once  __DIR__ . '/inc/cpts/cpt-testimonials.php';
 }

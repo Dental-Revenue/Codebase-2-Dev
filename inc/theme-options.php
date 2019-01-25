@@ -261,6 +261,17 @@ function cmb2_appearance_options() {
 	));
 	
 	$box->add_field( array(
+		'name' 					=> 'Sidebars On or Off?',
+		'id'   					=> 'sidebars_global',
+		'type' => 'radio_inline',
+		'options'          => array(
+			'on' => 'On',
+			'off' => 'Off',
+		),
+		'default' => 'on'
+	));
+	
+	$box->add_field( array(
 		'name' 					=> 'Button Corner Style',
 		'desc'					=> 'Rounded or Square Cornered Buttons',
 		'id'   					=> 'buttons_style',

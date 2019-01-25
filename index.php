@@ -1,12 +1,24 @@
-<?php get_header(); ?>
+<?php 
+	get_header(); 
+	
+	$page_sidebar = get_post_meta( get_the_id(), 'standard_sidebar', true );
+	$global_sidebar = site_ops_global_sidebar(false);
+	$class_row = "row sm"; $class_columns = "columns twelve";
+	if($global_sidebar == 'on'){ 
+		if($page_sidebar == 'on'){ $class_row = "row"; $class_columns = "columns eight"; }
+	}
+?>
+
+	<!-- page head -->
+  <?php get_template_part( 'partials/page-head' ); ?> 
 
   <!-- main -->
 	<div role="main">	
 
-		<div class="row">
+		<div class="<?php echo $class_row; ?>">
 
 		
-			<div class="columns eight">
+			<div class="<?php echo $class_columns; ?>">
 				
 				<?php 
 				if(is_single()){ 
@@ -36,17 +48,21 @@
 					
 				<hr />
 					
-			  <?php include (TEMPLATEPATH . '/inc/pagination.php' ); ?>          
+			  <?php //include (TEMPLATEPATH . '/inc/pagination.php' ); ?>          
 				
 			</div>
 			
-			
-			<div class="columns four">
-				
-				<?php get_sidebar(); ?>
-				
-			</div>
-			
+			<?php 
+				if($global_sidebar == 'on'){ 
+					if($page_sidebar == 'on'){ 
+			?>
+						<div class="columns four">
+							<?php get_sidebar(); ?>
+						</div>
+			<?php 
+					} 
+				} 
+			?>
 		
 		</div> <!-- /row -->
 			
