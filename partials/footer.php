@@ -82,6 +82,56 @@
     </div>
   </div>
   
+  <?php if(site_ops_side_tabs_active(false) == 'yes_no_social' || site_ops_side_tabs_active(false) == 'yes_social'){ ?>
+  
+	  <div class="social-side-tabs"> 
+		  
+		  <?php 
+			  $social_side_tabs = site_ops_side_tabs_repeat(false);
+			  foreach ( (array) $social_side_tabs as $key => $side_tab ) {
+				  $side_tab_title_long = $side_tab_title_short = $side_tab_icon = $side_tab_link = $side_tab_color = '';
+				  if(isset($side_tab['tab_long_title'])){ $side_tab_title_long = esc_html( $side_tab['tab_long_title'] ); }
+				  if(isset($side_tab['tab_short_title'])){ $side_tab_title_short = esc_html( $side_tab['tab_short_title'] ); }
+				  if(isset($side_tab['tab_icon'])){ $side_tab_icon = esc_html( $side_tab['tab_icon'] ); }
+				  if(isset($side_tab['tab_link_url'])){ $side_tab_link = esc_html( $side_tab['tab_link_url'] ); }
+				  if(isset($side_tab['tab_color'])){ $side_tab_color = esc_html( $side_tab['tab_color'] ); }
+			?>
+			
+			  <a href="<?php echo $side_tab_link; ?>" class="social-side-tab" style="background-color:<?php echo $side_tab_color; ?>;">
+					<span><i class="<?php echo $side_tab_icon; ?>"></i> <?php echo $side_tab_title_short; ?></span>
+					<span><?php echo $side_tab_title_long; ?></span>
+			  </a>
+		  
+		  <?php 
+			  } 
+			  
+			  if(site_ops_side_tabs_active(false) == 'yes_social'){
+			?>
+		  
+		  <?php if(!empty(site_ops_facebook(false))){ ?>
+			  <a href="<?php site_ops_facebook(); ?>" class="social-side-tab" style="background-color:#3b5998;">
+					<span><i class="fab fa-facebook-f"></i> Like Us</span>
+					<span>Like Us On Facebook</span>
+			  </a>
+			<?php } ?>
+			<?php if(!empty(site_ops_google_plus(false))){ ?>
+			  <a href="<?php site_ops_google_plus(); ?>" class="social-side-tab" style="background-color:#dd4b39;">
+					<span><i class="fab fa-google-plus-g"></i> Reviews</span>
+					<span>Read Our Google Reviews</span>
+			  </a>
+			<?php } ?>
+			<?php if(!empty(site_ops_yelp(false))){ ?>
+			  <a href="<?php site_ops_yelp(); ?>" class="social-side-tab" style="background-color:#b62717;">
+					<span><i class="fab fa-yelp"></i> Reviews</span>
+					<span>Read Our Yelp Reviews</span>
+			  </a>
+			 <?php } ?>
+		  
+		  <?php } ?>
+	  </div>
+	
+	<?php } ?>
+  
 </footer>
 
 </div> <!-- end page wrap -->

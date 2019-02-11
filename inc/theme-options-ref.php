@@ -176,6 +176,16 @@ function site_ops_page_head_img($echo = true, $id = false){
 	}
 }
 
+function site_ops_side_tabs_active($echo = true){
+	$option = get_option('appearance_info'); 
+	if(!empty($option['side_tabs_active'])){if($echo){echo $option['side_tabs_active'];}else{return $option['side_tabs_active'];}}else{if($echo){echo '';}else{return '';}}
+}
+
+function site_ops_side_tabs_repeat($echo = true){
+	$option = get_option('appearance_info'); 
+	if(!empty($option['social_side_tabs'])){if($echo){echo $option['social_side_tabs'];}else{return $option['social_side_tabs'];}}else{if($echo){echo '';}else{return '';}}
+}
+
 function site_ops_headline_style($echo = true){
 	$option = get_option('appearance_info'); 
 	if(!empty($option['headline_style'])){if($echo){echo $option['headline_style'];}else{return $option['headline_style'];}}else{if($echo){echo '';}else{return '';}}
