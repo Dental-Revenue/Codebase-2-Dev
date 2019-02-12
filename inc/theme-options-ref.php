@@ -196,6 +196,11 @@ function site_ops_headline_case($echo = true){
 	if(!empty($option['headline_case'])){if($echo){echo $option['headline_case'];}else{return $option['headline_case'];}}else{if($echo){echo '';}else{return '';}}
 }
 
+function site_ops_notification_message($echo = true){
+	$option = get_option('appearance_info'); 
+	if(!empty($option['nav_notification'])){if($echo){echo $option['nav_notification'];}else{return $option['nav_notification'];}}else{if($echo){echo '';}else{return '';}}
+}
+
 //FORM INFO
 
 function site_ops_dashboard_account_id($echo = true){

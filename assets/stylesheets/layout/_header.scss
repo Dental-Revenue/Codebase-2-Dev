@@ -33,16 +33,19 @@ header{}
 .header-style-b {}
 
  	.header-style-b .page-wrap {margin-top:0;}
- 	.header-style-b header {box-shadow: 0 0 1.5rem rgba(0,0,0,.15); top:15px; transition: top .3s ease; width:94%; left:3%; height:auto; display: flex;}
  	
- 		.header-style-b .header-logo {left: 0;position: relative; height:60px;}
- 		.header-style-b .header-logo .logo img {max-width: 90%; transform: translate(5%,-50%);}
- 		
- 		.header-style-b .header-bottom {padding-left:20px;flex:1;}
- 		
- 		.header-style-b .large-nav .schedule {float:right; margin:10px; top:0; transform: none; }
- 	
- 	.header-style-b.scrolled header {top:0;}
+ 	.header-style-b .header-style-b-contain{ display: flex; }
+	 	
+	 	.header-style-b header {box-shadow: 0 0 1.5rem rgba(0,0,0,.15); top:15px; transition: top .3s ease; width:94%; left:3%; height:auto; }
+	 	
+	 		.header-style-b .header-logo {left: 0;position: relative; height:60px;}
+	 		.header-style-b .header-logo .logo img {max-width: 90%; transform: translate(5%,-50%);}
+	 		
+	 		.header-style-b .header-bottom {padding-left:20px;flex:1;}
+	 		
+	 		.header-style-b .large-nav .schedule {float:right; margin:10px; top:0; transform: none; }
+	 	
+	 	.header-style-b.scrolled header {top:0;}
  		
 
 /* HEADER STYLE-C */  
@@ -81,6 +84,13 @@ header.nav-down.shrink{top:-84px;box-shadow: 0 0 4px rgba(0,0,0,0.25);}
   
 /* PAGE WRAP - OFFSETS HEADER */ 
 .page-wrap{display: block;margin: 144px 0 0;padding: 0;} 
+
+/* NOTIFICATION BAR */
+header.notification-active{height:auto;}
+header.notification-active .header-logo{top:auto;}
+	.header-notification{display:block; text-align:center; background-color:$main-color;}
+	
+	.header-style-c header.notification-active+.page-wrap{margin-top:144px;}
 
 
 

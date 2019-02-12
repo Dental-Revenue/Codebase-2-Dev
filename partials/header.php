@@ -1,11 +1,20 @@
 <?php
 	$appearance_info = get_option( 'appearance_info');
 	$nav_style = $appearance_info['nav_style'];
-
+	$notification_active = !empty(site_ops_notification_message(false)) ? ' notification-active' : '' ;
 ?>
 
-<?php if ($nav_style == 'header-style-a') { ?>
-	<header class="header">  
+<header class="header<?php echo $notification_active; ?>"> 
+
+<?php if(!empty(site_ops_notification_message(false))){ ?>
+	<div class="header-notification">
+		<div class="row">
+			<p><?php site_ops_notification_message(); ?></a></p>
+		</div>
+	</div>
+<?php } ?>
+
+<?php if ($nav_style == 'header-style-a') { ?> 
 	  
 	  <div class="header-logo">
 	    <h1>    <a class="logo" href="/"><img src="<?php site_ops_logo(); ?>" alt="<?php site_ops_practice_name(); ?>" /></a>
@@ -55,37 +64,31 @@
 	  </div>
 	  
 	  
-	</header> 
 <?php } else if ($nav_style == 'header-style-b') { ?>
-<header class="header">  
 	  
-	  <div class="header-logo">
-	    <h1><a class="logo" href="/"><img src="<?php site_ops_logo(); ?>" alt="<?php site_ops_practice_name(); ?>" /></a></h1>  
-	  </div>
-	  
-	  
-	  
-	  <div class="header-bottom">
-	    
-	      <nav class="large-nav">
-	        <?php wp_nav_menu(array('container' => '')); ?>        
-					<a href="/schedule-appointment/" class="schedule btn sm outline"><?php site_ops_cta_text(); ?></a>
-	      </nav>
-	      
-	      <nav class="mobile-nav ">
-	        <a href="#" id="panel-main"><i class="fas fa-bars"></i><span>Menu</span></a>
-	                <a href="#"><i class="far fa-calendar-alt"></i><span>Schedule Appt</span></a>
-	        <a href="#" id="panel-more"><i class="fas fa-info"></i><span>More Info</span></a>
-	      </nav>
-	    
-	    </div>
-	  </div>
-	  
-	  
-	</header>
+	  <div class="header-style-b-contain">
+		  <div class="header-logo">
+		    <h1><a class="logo" href="/"><img src="<?php site_ops_logo(); ?>" alt="<?php site_ops_practice_name(); ?>" /></a></h1>  
+		  </div>
+		  
+		  <div class="header-bottom">
+		    
+		      <nav class="large-nav">
+		        <?php wp_nav_menu(array('container' => '')); ?>        
+						<a href="/schedule-appointment/" class="schedule btn sm outline"><?php site_ops_cta_text(); ?></a>
+		      </nav>
+		      
+		      <nav class="mobile-nav ">
+		        <a href="#" id="panel-main"><i class="fas fa-bars"></i><span>Menu</span></a>
+		                <a href="#"><i class="far fa-calendar-alt"></i><span>Schedule Appt</span></a>
+		        <a href="#" id="panel-more"><i class="fas fa-info"></i><span>More Info</span></a>
+		      </nav>
+		    
+		    </div>
+		  </div>
+		</div>
 	
-<?php } else if ($nav_style == 'header-style-c') { ?>	
-	<header class="header">  
+<?php } else if ($nav_style == 'header-style-c') { ?>	 
 	  
 	  <div class="header-logo">
 	    <h1>    <a class="logo" href="/"><img src="<?php site_ops_logo(); ?>" alt="<?php site_ops_practice_name(); ?>" /></a>
@@ -131,8 +134,7 @@
 	    
 	    </div>
 	  </div>
-	  
-	  
-	</header> 
 
 <?php } ?>
+
+</header> 

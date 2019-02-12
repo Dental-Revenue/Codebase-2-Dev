@@ -403,6 +403,14 @@ function cmb2_appearance_options() {
 	));
 	
 	$box->add_field( array(
+		'name' 					=> 'Notification Message',
+		'desc'					=> 'Put a phrase in to activate the notification bar.',
+		'id'   					=> 'nav_notification',
+		'type' => 'wysiwyg',
+		'options' => array('teeny' => true)
+	));
+	
+	$box->add_field( array(
 		'name' 					=> 'Module Specific',
 		'id'   					=> 'module_title',
 		'type' 					=> 'title',
