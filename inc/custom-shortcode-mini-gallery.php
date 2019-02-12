@@ -138,7 +138,7 @@ function add_my_shortcode_button_mini_gallery($atts, $content = ""){
   $output = '';
   $output.= '<div class="mini-gallery-container '.$type;
   if($has_title){ $output.= ' has_title"><h2>'.$title.'</h2>'; } else { $output.='">'; }
-  $output.= $type == 'slider' ? '<div class="slick-mini-gallery">' : '<div class="grid-mini-gallery">';
+  $output.= $type == 'slider' ? '<div class="mini-gallery-slider-contain"><div class="slick-mini-gallery">' : '<div class="grid-mini-gallery">';
   
   $gallery_items = get_post_meta($page_id,'gallery_repeat_group',true);
   if(!empty($gallery_items)){
@@ -154,8 +154,8 @@ function add_my_shortcode_button_mini_gallery($atts, $content = ""){
 			}
 			
 			if($type == 'slider'){
-				$output .= '<div class="mini-gallery-slide">';
-				$output .= '<img src="'.$gallery_img_slider[0].'">';
+				$output .= '<div class="mini-gallery-slide" style="background-image:url('.$gallery_img_slider[0].');">';
+				//$output .= '<img src="'.$gallery_img_slider[0].'">';
 				$output .= '</div>';
 		  } elseif($type =='grid'){
 			  $output .= '<a href="'.$gallery_img_gallery[0].'" class="mini-gallery-grid-item" style="background-image:url('.$gallery_img_thumb[0].');"></a>';
@@ -166,7 +166,7 @@ function add_my_shortcode_button_mini_gallery($atts, $content = ""){
 		 $count++;
 	  }
   
-  $output.= '</div></div>';
+  $output.= $type == 'slider' ? '</div></div></div>' : '</div></div>';
   return $output;
 
 } else {
