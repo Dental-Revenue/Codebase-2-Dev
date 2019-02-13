@@ -13,15 +13,21 @@ foreach($modules as $m){
 	//set up defaults
 	$classes = '';
 	$color = (get_post_meta(get_the_id(),$instance.'_bg_color',true)!='') ? get_post_meta(get_the_id(),$instance.'_bg_color',true) : '#ffffff' ;
+	$color2 = get_post_meta(get_the_id(),$instance.'_bg_color_2',true);
+	$colorCSS = !empty($color2) ? 'background:linear-gradient('.$color.', '.$color2.');' : 'background-color:'.$color.';';
 	$image = wp_get_attachment_image_src( get_post_meta(get_the_id(),$instance.'_bg_image_id',true), 'large' );
 	$image_opacity = (get_post_meta(get_the_id(),$instance.'_bg_image_opacity',true)!='') ? (get_post_meta(get_the_id(),$instance.'_bg_image_opacity',true)/100) : 1 ;
 	
 	$lightness = getColorLightness($instance.'_bg_color');
+	if(!empty($color2)){ 
+		$lightness2 = getColorLightness($instance.'_bg_color_2'); 
+		$lightness = ($lightness+$lightness2)/2;
+	}
 	
 	if($lightness<700){$classes .= 'invert';}
 	
 	//open the module container
-	echo '<div id="i'.$instance.'" class="module '.$m->module.' '.$classes.'" style="background-color:'.$color.';" >';
+	echo '<div id="i'.$instance.'" class="module '.$m->module.' '.$classes.'" style="'.$colorCSS.'" >';
 	
 		//insert a background image, if applicable
 		if(isset($image) && $image[0]!=''){

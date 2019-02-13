@@ -39,6 +39,11 @@ function homepage_meta() {
 			'type' => 'colorpicker'
 		));
 		$box->add_field( array(
+			'name' => 'Background Color 2 For Gradient',
+			'id' => $prefix.'bg_color_2',
+			'type' => 'colorpicker'
+		));
+		$box->add_field( array(
 			'name' => 'Background Image',
 			'id' => $prefix.'bg_image',
 			'type' => 'file'
