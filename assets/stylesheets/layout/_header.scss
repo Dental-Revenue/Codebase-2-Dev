@@ -32,7 +32,7 @@ header{}
 /* HEADER STYLE-B */  
 .header-style-b {}
 
- 	.header-style-b .page-wrap {margin-top:0;}
+ 	.header-style-b .page-wrap {margin-top:72px;}
  	
  	.header-style-b .header-style-b-contain{ display: flex; }
 	 	
@@ -89,6 +89,9 @@ header.nav-down.shrink{top:-84px;box-shadow: 0 0 4px rgba(0,0,0,0.25);}
 header.notification-active{height:auto;}
 header.notification-active .header-logo{top:auto;}
 	.header-notification{display:block; text-align:center; background-color:$main-color;}
+		.header-notification p{font-size:15px;}
+		.header-notification.invert p{color:$white;}
+			.header-notification p a{font-weight:bold; opacity:1; transition:opacity .3s ease; &:hover{opacity:.7;}}
 	
 	.header-style-c header.notification-active+.page-wrap{margin-top:144px;}
 

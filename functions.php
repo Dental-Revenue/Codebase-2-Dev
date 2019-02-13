@@ -175,6 +175,25 @@ function hexToHsl($hex) {
     return array($h, $s, $l);
 }
 
+function getColorLightness($color_meta_id = ''){
+	global $post;
+	$id = $post->ID;
+	
+	//if meta id is present, get that, if not get primary color
+	if(!empty($color_meta_id)){
+		$color = (get_post_meta($id,$color_meta_id,true)!='') ? get_post_meta($id,$color_meta_id,true) : '#ffffff' ;
+	} else { 
+		$color = site_ops_brand_color(false); 
+	}
+	
+	$color_nohash = str_replace('#', '', $color);
+		
+	//get background lightness
+	$hsl = hexToHsl($color_nohash);
+	$lightness = $hsl[2]*1000;
+	return $lightness;
+}
+
 // REMOVE THEME SUPPORTS BASED ON PAGES/TEMPLATES by https://gist.github.com/ramseyp/4060095
 $remove_theme_supports = true;
 if ( $remove_theme_supports ) {

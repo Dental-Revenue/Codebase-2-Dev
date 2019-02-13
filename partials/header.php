@@ -1,13 +1,16 @@
 <?php
 	$appearance_info = get_option( 'appearance_info');
 	$nav_style = $appearance_info['nav_style'];
-	$notification_active = !empty(site_ops_notification_message(false)) ? ' notification-active' : '' ;
+	$extra_header_classes = '';
+	$extra_header_classes .= !empty(site_ops_notification_message(false)) ? ' notification-active' : '' ;
 ?>
 
-<header class="header<?php echo $notification_active; ?>"> 
+<header class="header<?php echo $extra_header_classes; ?>"> 
 
-<?php if(!empty(site_ops_notification_message(false))){ ?>
-	<div class="header-notification">
+<?php if(!empty(site_ops_notification_message(false))){
+	$notification_invert_color = getColorLightness()<700 ? ' invert' : '' ;
+?>
+	<div class="header-notification<?php echo $notification_invert_color; ?>">
 		<div class="row">
 			<p><?php site_ops_notification_message(); ?></a></p>
 		</div>

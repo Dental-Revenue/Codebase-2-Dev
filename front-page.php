@@ -13,14 +13,12 @@ foreach($modules as $m){
 	//set up defaults
 	$classes = '';
 	$color = (get_post_meta(get_the_id(),$instance.'_bg_color',true)!='') ? get_post_meta(get_the_id(),$instance.'_bg_color',true) : '#ffffff' ;
-	$color_nohash = str_replace('#', '', $color);
 	$image = wp_get_attachment_image_src( get_post_meta(get_the_id(),$instance.'_bg_image_id',true), 'large' );
 	$image_opacity = (get_post_meta(get_the_id(),$instance.'_bg_image_opacity',true)!='') ? (get_post_meta(get_the_id(),$instance.'_bg_image_opacity',true)/100) : 1 ;
-		
-	//get background lightness
-	$hsl = hexToHsl($color_nohash);
-	$lightness = $hsl[2]*1000;
-	if($lightness<700){$classes .= 'invert';} //white: 529, black: 0
+	
+	$lightness = getColorLightness($instance.'_bg_color');
+	
+	if($lightness<700){$classes .= 'invert';}
 	
 	//open the module container
 	echo '<div id="i'.$instance.'" class="module '.$m->module.' '.$classes.'" style="background-color:'.$color.';" >';
