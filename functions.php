@@ -175,13 +175,15 @@ function hexToHsl($hex) {
     return array($h, $s, $l);
 }
 
-function getColorLightness($color_meta_id = ''){
+function getColorLightness($hex = 'No Color Provided'){
 	global $post;
 	$id = $post->ID;
 	
 	//if meta id is present, get that, if not get primary color
-	if(!empty($color_meta_id)){
-		$color = (get_post_meta($id,$color_meta_id,true)!='') ? get_post_meta($id,$color_meta_id,true) : '#ffffff' ;
+	if(empty($hex)){
+		$color = '#ffffff';
+	} elseif($hex != 'No Color Provided'){
+		$color = $hex;
 	} else { 
 		$color = site_ops_brand_color(false); 
 	}

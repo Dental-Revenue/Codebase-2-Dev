@@ -18,9 +18,9 @@ foreach($modules as $m){
 	$image = wp_get_attachment_image_src( get_post_meta(get_the_id(),$instance.'_bg_image_id',true), 'large' );
 	$image_opacity = (get_post_meta(get_the_id(),$instance.'_bg_image_opacity',true)!='') ? (get_post_meta(get_the_id(),$instance.'_bg_image_opacity',true)/100) : 1 ;
 	
-	$lightness = getColorLightness($instance.'_bg_color');
+	$lightness = getColorLightness($color);
 	if(!empty($color2)){ 
-		$lightness2 = getColorLightness($instance.'_bg_color_2'); 
+		$lightness2 = getColorLightness($color2); 
 		$lightness = ($lightness+$lightness2)/2;
 	}
 	
