@@ -9,17 +9,6 @@ $box->add_field( array(
  		'required'    => 'required',
  	),
 ));
-
-$box->add_field( array(
-	'name' => 'Overlay Darkness',
-	'desc' => 'Defaults to 30 (percent)',
-    'id' => $prefix . 'overlay',
-    'type' => 'text',
-    'attributes' => array(
-			'type' => 'number',
-			'pattern' => '\d*',
-		),
-));
 $group_field = $box->add_field( array(
 	'id' => $prefix.'fold_slices',
 	'type' => 'group',
@@ -69,6 +58,17 @@ $box->add_group_field( $group_field, array(
   'name' => 'Background Video (mp4)',
   'id' => 'video_mp4',
   'type' => 'file'
+));
+$box->add_group_field( $group_field, array(
+	'name' => 'Overlay Darkness',
+	'desc' => 'Defaults to 30 (percent)',
+    'id' => 'overlay_darkness',
+    'type' => 'text',
+    'attributes' => array(
+			'type' => 'number',
+			'pattern' => '\d*',
+			'default' => '30',
+		),
 ));
 
 ?>

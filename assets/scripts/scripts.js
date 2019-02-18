@@ -107,6 +107,32 @@ $(document).ready(function(){
   	});
   }
   
+  function mobileOnlySlices() {
+		$('.fold-slices').slick({
+    	infinite: true,
+			speed: 500,
+      fade: true,
+      cssEase: 'linear',
+      pauseOnHover: false,
+      autoplay: true,
+			autoplaySpeed: 5000,
+			slidesToShow: 1,
+			slidesToScroll: 1,
+			arrows: false,
+      dots:true,
+		});
+	}
+	if(window.innerWidth < 768) {
+		mobileOnlySlices();
+	}
+	$(window).on('resize', function(){
+		if(window.innerWidth < 768) {
+			mobileOnlySlices();
+		} else {
+			$('.fold-slices').slick('unslick');
+		}
+	});
+  
 	
 	//Module Carousel_1
 	$('.slick-carousel_1').slick({

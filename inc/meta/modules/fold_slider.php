@@ -70,5 +70,15 @@ $box->add_group_field( $group_field, array(
   'id' => 'video_mp4',
   'type' => 'file'
 ));
+$box->add_group_field( $group_field, array(
+	'name' => 'Background Color',
+	'id' => 'bg_color',
+	'type' => 'colorpicker'
+));
+$box->add_group_field( $group_field, array(
+	'name' => 'Background Color 2 For Gradient',
+	'id' => 'bg_color_2',
+	'type' => 'colorpicker'
+));
 
 ?>
