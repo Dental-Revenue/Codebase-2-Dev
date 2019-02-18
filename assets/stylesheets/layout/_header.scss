@@ -27,12 +27,16 @@ header{}
 
 /* HEADER STYLE-A */
 .header-style-a {}
+	.header-style-a .page-wrap{margin-top:144px; transition:margin .3s ease;}
+		.header-style-a .page-wrap.scrolled{margin-top:0;}
+			.header-style-a .page-wrap.scrolled .page-head{margin-top:0;}
+		.header-style-a .page-head{transition:margin .3s ease;}
   
 
 /* HEADER STYLE-B */  
 .header-style-b {}
 
- 	.header-style-b .page-wrap {margin-top:72px;}
+ 	.header-style-b .page-wrap .page-head {margin-top:72px;}
  	
  	.header-style-b .header-style-b-contain{ display: flex; }
 	 	
@@ -52,7 +56,10 @@ header{}
 .header-style-c {}
 
 	.header-style-c header {height:190px;}
-	.header-style-c .page-wrap {margin-top:190px;}
+		.header-style-c .page-wrap{margin-top:190px; transition:margin .3s ease;}
+			.header-style-c .page-wrap.scrolled{margin-top:0;}
+				.header-style-c .page-wrap.scrolled .page-head{margin-top:0;}
+			.header-style-c .page-wrap .page-head {margin-top:190px; transition:margin .3s ease;}
 	
 	.header-style-c.scrolled.slim header {top:-130px;}
 	
@@ -73,6 +80,8 @@ header{}
 		.header-style-c .header-bottom .large-nav ul li {float:none; display:inline-block;}
 		
 	.header-style-c header.scrolled {top:-130px;}
+	
+	.header-style-c header.notification-active+.page-wrap .page-head{margin-top:144px;}
  		
   
   
@@ -83,17 +92,16 @@ header.nav-down.shrink{top:-84px;box-shadow: 0 0 4px rgba(0,0,0,0.25);}
 
   
 /* PAGE WRAP - OFFSETS HEADER */ 
-.page-wrap{display: block;margin: 144px 0 0;padding: 0;} 
+.page-wrap .page-head{display: block;margin: 144px 0 0;padding: 0;} 
 
 /* NOTIFICATION BAR */
 header.notification-active{height:auto;}
 header.notification-active .header-logo{top:auto;}
+header.notification-active+.page-wrap, header.notification-active+.page-wrap .page-head{transition:margin .3s ease;}
 	.header-notification{display:block; text-align:center; background-color:$main-color;}
 		.header-notification p{font-size:15px;}
 		.header-notification.invert p{color:$white;}
 			.header-notification p a{font-weight:bold; opacity:1; transition:opacity .3s ease; &:hover{opacity:.7;}}
-	
-	.header-style-c header.notification-active+.page-wrap{margin-top:144px;}
 
 
 

@@ -119,27 +119,47 @@ $(document).ready(function () {
 				$('body.full').toggleClass('scrolled', $(document).scrollTop() >= 30);
 
 				if ($('header.notification-active').length > 0) {
+
+						var headerHeight = $('header.notification-active').height();
+						var navHeight = $('header.notification-active .header-bottom').height();
+						var exceptNavHeight = headerHeight - navHeight;
+
 						if ($(document).scrollTop() >= 30) {
-								var headerHeight = $('header.notification-active').height();
-								var navHeight = $('header.notification-active .header-bottom').height();
-								var exceptNavHeight = headerHeight - navHeight;
 								$('header').css('top', -exceptNavHeight);
+								$('.header-style-a .page-head, .header-style-c .page-head, .header-style-a .page-wrap, .header-style-c .page-wrap').css('margin-top', navHeight);
 						} else {
 								$('header').css('top', 0);
 								$('.header-style-a header, .header-style-c header').css('top', 0);
 								$('.header-style-b header').css('top', '15px');
+
+								$('.header-style-a .page-head, .header-style-c .page-head, .header-style-a .page-wrap, .header-style-c .page-wrap').css('margin-top', headerHeight);
+								$('.header-style-b .page-head').css('margin-top', headerHeight + 15);
 						}
+				}
+
+				if ($(document).scrollTop() >= 30) {
+						$('.header-style-a .page-wrap, .header-style-c .page-wrap').addClass('scrolled');
+				} else {
+						$('.header-style-a .page-wrap, .header-style-c .page-wrap').removeClass('scrolled');
 				}
 		});
 
 		$('body.slim').toggleClass('scrolled', $(document).scrollTop() >= 30);
 		$('body.full').toggleClass('scrolled', $(document).scrollTop() >= 30);
 
-		var headerHeight = $('header.notification-active').height();
 		if ($('header.notification-active').length > 0) {
-				$('.header-style-a header, .header-style-c .page-wrap').css('margin-top', headerHeight);
-				$('.header-style-b .page-wrap').css('margin-top', headerHeight + 15);
+				var headerHeight = $('header.notification-active').height();
+				$('.header-style-a .page-head, .header-style-c .page-head, .header-style-a .page-wrap, .header-style-c .page-wrap').css('margin-top', headerHeight);
+				$('.header-style-b .page-head').css('margin-top', headerHeight + 15);
 		}
+
+		var headerHeight = $('header.notification-active').height();
+		/*
+  	if($('header.notification-active').length > 0){ 
+  		$('.header-style-a .page-wrap, .header-style-c .page-wrap').css('margin-top', headerHeight);
+  		$('.header-style-b .page-wrap').css('margin-top', headerHeight+15);
+  	}
+  */
 
 		//MODULE SPECIFIC *********
 
