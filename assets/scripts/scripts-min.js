@@ -113,6 +113,20 @@ var imagesLoaded = require('imagesloaded');
 // Jquery here
 $(document).ready(function () {
 
+		//sidr menu
+		$('#panel-main').sidr({
+				name: 'sidr-left',
+				source: '.large-nav',
+				side: 'left',
+				renaming: false
+		});
+		$("body").on("click touchstart", function (e) {
+				$.sidr('close', 'sidr');
+		});
+		$("#sidr").on("click touchstart", function (e) {
+				e.stopPropagation();
+		});
+
 		//scroll stick
 		$(document).scroll(function () {
 				$('body.slim').toggleClass('scrolled', $(document).scrollTop() >= 30);

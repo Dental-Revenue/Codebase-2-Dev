@@ -1,0 +1,32 @@
+/* MOBILE PANEL NAVIGATION */
+$sidebar-width: 260px;
+$sidebar-width-neg: -260px;
+.sidr { display: none; position: fixed;top: 0;height: 100%;z-index: 999999;width: $sidebar-width;overflow-x: hidden;overflow-y: auto; &.right {left: auto;right: $sidebar-width-neg;} &.left {left: $sidebar-width-neg;right: auto;}}
+
+#sidr-left{background-color: $dk-grey;-webkit-overflow-scrolling: touch;}
+#sidr-left > .sidr-inner > a{display: none;} /* the schedule button */
+#sidr-left > .sidr-inner > ul{margin: 0 0 30px; padding: 0;list-style: none;}
+	#sidr-left ul a{padding: 10px;display: block;font-size: 16px;font-weight: 400;color: $white;font-family: $body-font;text-transform: uppercase;letter-spacing: .05em;font-weight: 900;}
+	#sidr-left ul ul{background-color: darken( $dk-grey, 5% );margin: 0;list-style: none;padding: 0;}
+	  #sidr-left ul ul a{font-size: 13px;padding: 6px 10px;font-family: $body-font;text-transform: none;letter-spacing: 0;font-weight: 400;}
+	#sidr-left ul ul ul{margin-left: 20px;border-left: 1px dotted rgba(255,255,255,0.4);}
+
+#sidr-right{background-color: $dk-grey;padding: 16px;box-sizing: border-box;}
+  #sidr-right .contact-option{margin-bottom: 14px;}
+    #sidr-right .contact-option i{font-size: 28px;width: 28px;}
+    #sidr-right .contact-option p{color: $accent;max-width: 180px;}
+    #sidr-right .company-hours .hour-set{clear: both;display: block;font-weight: 600;}
+      #sidr-right .company-hours .hour-set span{font-weight: 400;}
+  
+  #sidr-right .sidr-inner:nth-child(3){position: absolute;bottom:16px;left: 0;width: 100%;}
+  #sidr-right ul.social{display: block;list-style: none;text-align: center;margin: 0;padding: 0;width: 100%;}
+    #sidr-right ul.social li{display: inline-block;margin: 0 7px;}
+      #sidr-right ul.social li a{font-size: 20px;color: $white; transition:opacity .3s; &:hover{opacity:.7;}}
+  
+  #sidr-right ul.legal{display: none;}
+  
+ .sidr-open .mobile-nav .fa-bars:before {content:"\f00d";}
+  
+  @media all and (max-width: $bp-laptop) {
+		.sidr {display:block;}  
+	}

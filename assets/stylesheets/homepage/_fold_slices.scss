@@ -26,7 +26,7 @@
 }
 
 @media all and (max-width: $bp-phablet) { 
-  	.fold-slice-content{width: 90%; height:auto!important; left: 5%;top: 50%;transform: translateY(-50%);}
+  	.fold-slice-content{width: 90%; height:auto!important; left: 5%;top: 50%;transform: translateY(-50%); position: relative;}
   		.fold-slice-content h2{font-size: 36px;padding-left: 10px;}
   		.fold-slice-content p{font-size: 15px;padding-left: 10px;}
   		.fold-slice-content a{margin: 20px 0 0 5%;}
