@@ -33,7 +33,9 @@ footer{display: block;}
     .footer-bottom ul.legal{display: block;list-style: none;text-align: center;margin: 14px 0;padding: 0;}
       .footer-bottom ul.legal li{display: inline-block;margin: 0 10px;color: $md-grey;font-size: 11px;}
         .footer-bottom ul.legal li a{text-decoration: underline;transition:color .3s; &:hover{color: $white;}}
-        
+   
+   
+   .footer-info-mobile {display:none;}     
         
 /* Media Queries */
 @media all and (max-width: $bp-laptop) {

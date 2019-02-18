@@ -54,6 +54,41 @@
                     
         </div>
         
+        <div class="footer-info-mobile">
+	        
+          <div class="option">
+            <i class="fas fa-phone fa-flip-horizontal"></i>
+            <p>New Patients <span class="bold"><?php site_ops_new_patient_phone(); ?></span></p>
+          </div>
+          <div class="option">
+            <i class="fas fa-phone fa-flip-horizontal"></i>
+            <p>Current Patients <span class="bold"><?php site_ops_current_patient_phone(); ?></span></p>
+          </div>
+          <div class="option">
+            <i class="fas fa-map-marker-alt"></i>
+            <p>
+              <span itemprop="streetAddress"><?php site_ops_address(); ?></span><br />
+							<span class="bold">
+              	<span itemprop="addressLocality"><?php site_ops_city(); ?></span>,
+								<span itemprop="addressRegion"><?php site_ops_state(); ?></span>
+								<span itemprop="postalCode"><?php site_ops_zip(); ?></span>
+							</span>
+          	</p>
+          </div>
+          <div class="option">
+            <i class="far fa-clock"></i>
+						<p>
+              <?php 
+	              $hoursArray = explode("\n", site_ops_company_hours(false)); 
+	              foreach($hoursArray as $index=>$value){
+                  if($index%2!=0){echo "<span>$value</span></span>";}else{echo "<span class='hour-set'>".$value." " ;}
+              	}
+	            ?>              
+            </p>
+          </div>
+            
+        </div>
+        
       </div>
     
     </div>

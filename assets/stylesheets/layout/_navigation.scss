@@ -14,7 +14,7 @@ $sidebar-width-neg: -260px;
 #sidr-right{background-color: $dk-grey;padding: 16px;box-sizing: border-box;}
   #sidr-right .contact-option{margin-bottom: 14px;}
     #sidr-right .contact-option i{font-size: 28px;width: 28px;}
-    #sidr-right .contact-option p{color: $accent;max-width: 180px;}
+    #sidr-right .contact-option p{color: $white;max-width: 180px;}
     #sidr-right .company-hours .hour-set{clear: both;display: block;font-weight: 600;}
       #sidr-right .company-hours .hour-set span{font-weight: 400;}
   
@@ -25,8 +25,22 @@ $sidebar-width-neg: -260px;
   
   #sidr-right ul.legal{display: none;}
   
- .sidr-open .mobile-nav .fa-bars:before {content:"\f00d";}
+ .sidr-left-open .mobile-nav .fa-bars:before {content:"\f00d";}
+ .sidr-right-open .mobile-nav .fa-info:before {content:"\f00d";}
+ 
+ #sidr-right .option{color: $md-grey; display:inline-block; margin:0 0 10px; font-weight: normal; &:before {content: " ";display: table;} &:after {clear:both;} .bold {font-weight: bold;} }
+ #sidr-right .hour-set {display:block; span {font-weight: bold;}}
+ #sidr-right .option i {display: block; float:left; font-size: 28px;width: 28px;color: $main-color; margin-right: 10px;width: 36px; text-align: center;}
+ #sidr-right p {display: block;max-width:180px;margin: 2px 0 0;font-size: 14px;line-height: 130%;float: left; color:$md-grey;}
   
   @media all and (max-width: $bp-laptop) {
 		.sidr {display:block;}  
+		
+		
+		//MOVE TO HEADER LATER
+		.header-style-b header {width:100%; left:0; top:0; position: relative;}
+		.header-style-b .header-style-b-contain {display:block;}
+		.header-style-b .header-logo {margin: 0 auto;width: 500px;height: 100px; margin-top: 30px; .logo {width:auto; height:auto;}}
+		
+		
 	}

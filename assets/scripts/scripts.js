@@ -25,11 +25,19 @@ $(document).ready(function(){
     renaming: false
   });
 	$("body").on("click touchstart",function(e) {
-    $.sidr('close','sidr');
+    $.sidr('close','sidr-left');
   });
+  
   $("#sidr").on("click touchstart",function(e) {
     e.stopPropagation();
 	});
+	
+	$('#panel-more').sidr({
+    name: 'sidr-right',
+    source: '.footer-info-mobile',
+    side: 'right',
+    renaming: false
+  });
 
 	//scroll stick
 	$(document).scroll(function() {
