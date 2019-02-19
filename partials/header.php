@@ -125,7 +125,7 @@
 	    <div class="row full">
 	    
 	      <nav class="large-nav">
-	        <?php wp_nav_menu(array('container' => '')); ?>        
+	        <?php wp_nav_menu(array('container' => '', 'walker' => new Walker_Quickstart_Menu())); ?>        
 					<a href="/schedule-appointment/" class="schedule btn sm outline"><?php site_ops_cta_text(); ?></a>
 	      </nav>
 	      

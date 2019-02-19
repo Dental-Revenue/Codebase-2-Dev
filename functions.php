@@ -1048,6 +1048,177 @@ add_action( 'init', 'register_menus' );
 
 
 
+//Mega Menu
+class Walker_Quickstart_Menu extends Walker_Nav_Menu {
+
+		// Displays start of an element. E.g '<li> Item Name'
+    // @see Walker::start_el()
+    function start_el(&$output, $item, $depth=0, $args=array(), $id = 0) {
+    	$object = $item->object;
+    	$type = $item->type;
+    	$title = $item->title;
+    	$description = $item->description;
+    	$permalink = $item->url;
+    	$has_children = $args->walker->has_children;
+    	
+    	$depth = $args->depth;
+    	
+    	
+    	$output .= "<li class='" .  implode(" ", $item->classes) . "'>";
+	        
+	    //Add SPAN if no Permalink
+	    if( $permalink && $permalink != '#' ) {
+	     $output .= '<a href="' . $permalink . '">';
+	    } else {
+	     $output .= '<span>';
+	    }
+	     
+	    $output .= $title.' '. $has_children;
+	    if( $description != '' && $depth == 0 ) {
+	     $output .= '<small class="description">' . $description . '</small>';
+	    }
+	    if( $permalink && $permalink != '#' ) {
+	     $output .= '</a>';
+	    } else {
+	     $output .= '</span>';
+	    }
+    	
+    	//if has_children is true and title in array group meta field, display mega menu.
+    	
+
+    	if($has_children == true){
+	  
+		    	if($title == 'Mega Menu'){ $output .= '<div class="mega-menu-contain"><h3>Mega Menu Title</h3><p>This is a Mega Menu description.</p>'; }
+		    	$output .= '<ul class="sub-menu">';
+		    	if($title == 'Regular Dropdown'){
+			    	$output .= '<li id="menu-item-94" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-94"><a href="http://drds1.wpengine.com/dental-concerns/crooked-teeth/">Crooked Teeth</a></li>
+		<li id="menu-item-95" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-95"><a href="http://drds1.wpengine.com/dental-concerns/tooth-cavities/">Tooth Cavities</a></li>
+		<li id="menu-item-96" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-96"><a href="http://drds1.wpengine.com/dental-concerns/teeth-grinding/">Teeth Grinding</a></li>
+		<li id="menu-item-97" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-97"><a href="http://drds1.wpengine.com/dental-concerns/bleeding-gums/">Bleeding Gums</a></li>
+		<li id="menu-item-98" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-98"><a href="http://drds1.wpengine.com/dental-concerns/frequent-headaches/">Frequent Headaches</a></li>';
+	    	}
+	    	
+	    	if($title == 'Mega Menu'){
+		    	$output .= '<li id="menu-item-70" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-70"><a href="http://drds1.wpengine.com/our-services/general-dentistry/">General Dentistry</a>
+	<ul class="sub-menu">
+		<li id="menu-item-71" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-71"><a href="http://drds1.wpengine.com/our-services/general-dentistry/preventative-care/">Preventative Care</a></li>
+		<li id="menu-item-72" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-72"><a href="http://drds1.wpengine.com/our-services/general-dentistry/dental-bonding/">Dental Bonding</a></li>
+		<li id="menu-item-73" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-73"><a href="http://drds1.wpengine.com/our-services/general-dentistry/root-canals/">Root Canals</a></li>
+		<li id="menu-item-74" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-74"><a href="http://drds1.wpengine.com/our-services/general-dentistry/tooth-extractions/">Tooth Extractions</a></li>
+	</ul>
+</li>
+	<li id="menu-item-75" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-75"><a href="http://drds1.wpengine.com/our-services/cosmetic-dentistry/">Cosmetic Dentistry</a>
+	<ul class="sub-menu">
+		<li id="menu-item-76" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-76"><a href="http://drds1.wpengine.com/our-services/cosmetic-dentistry/invisible-braces/">Invisible Braces</a></li>
+		<li id="menu-item-77" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-77"><a href="http://drds1.wpengine.com/our-services/cosmetic-dentistry/porcelain-veneers/">Porcelain Veneers</a></li>
+		<li id="menu-item-78" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-78"><a href="http://drds1.wpengine.com/our-services/cosmetic-dentistry/teeth-whitening/">Teeth Whitening</a></li>
+	</ul>
+</li>
+	<li id="menu-item-79" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-79"><a href="http://drds1.wpengine.com/our-services/restorative-dentistry/">Restorative Dentistry</a>
+	<ul class="sub-menu">
+		<li id="menu-item-80" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-80"><a href="http://drds1.wpengine.com/our-services/restorative-dentistry/dental-crowns/">Dental Crowns</a></li>
+		<li id="menu-item-81" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-81"><a href="http://drds1.wpengine.com/our-services/restorative-dentistry/dental-bridges/">Dental Bridges</a></li>
+		<li id="menu-item-82" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-82"><a href="http://drds1.wpengine.com/our-services/restorative-dentistry/dental-implants/">Dental Implants</a></li>
+		<li id="menu-item-83" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-83"><a href="http://drds1.wpengine.com/our-services/restorative-dentistry/dentures-and-partials/">Dentures and Partials</a></li>
+		<li id="menu-item-84" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-84"><a href="http://drds1.wpengine.com/our-services/restorative-dentistry/tmj-therapy/">TMJ Therapy</a></li>
+	</ul>
+</li>';
+		    }
+
+	    	$output .= '</ul>';
+		    if($title == 'Mega Menu'){ $output .= '<div class="mega-menu-image"></div></div>'; }
+    	}
+			$output .= '</li>';
+    }
+
+}
+
+
+
+//Mega Menu
+class Walker_Quickstart_Menu_IN_TESTING extends Walker_Nav_Menu {
+
+		// Displays start of an element. E.g '<li> Item Name'
+    // @see Walker::start_el()
+    function start_el(&$output, $item, $depth=0, $args=array(), $id = 0) {
+    	$object = $item->object;
+    	$type = $item->type;
+    	$title = $item->title;
+    	$description = $item->description;
+    	$permalink = $item->url;
+    	$has_children = $args->walker->has_children;
+    	
+    	
+    	$output .= "<li class='" .  implode(" ", $item->classes) . "'>";
+	        
+	    //Add SPAN if no Permalink
+	    if( $permalink && $permalink != '#' ) {
+	     $output .= '<a href="' . $permalink . '">';
+	    } else {
+	     $output .= '<span>';
+	    }
+	     
+	    $output .= $title;
+	    if( $description != '' && $depth == 0 ) {
+	     $output .= '<small class="description">' . $description . '</small>';
+	    }
+	    if( $permalink && $permalink != '#' ) {
+	     $output .= '</a>';
+	    } else {
+	     $output .= '</span>';
+	    }
+    	
+    	//if has_children is true and title in array group meta field, display mega menu.
+    	
+    	if($has_children == true){
+	    	$output .= '<div class="mega-menu-contain">';
+	    	
+	    	$output .= '<ul class="sub-menu mega-menu">';
+	    	$menu_items = wp_get_nav_menu_items($args->menu->term_id);
+	    	foreach( $menu_items as $menu_item ) {
+		    	
+		    	//$menu_item_id = $menu_item->ID;
+		    	$title = $menu_item->title;
+		    	$parent = $menu_item->menu_item_parent;
+		    	$output .= "Title: ".$title.", Parent:".$parent." ";
+		    	
+/*
+		    	if(empty($parent_id)){ $parent_id = '';}
+		    	if(empty($grandparent_id)){ $grandparent_id = '';}
+		    	if ( empty($menu_item->menu_item_parent) ) { $parent_id = $menu_item->ID; } else { $grandparent_id = $menu_item->ID; }
+
+		    	if( $grandparent_id == $menu_item->menu_item_parent ){
+			    	$link = $menu_item->url;
+            $title = $menu_item->title;
+			    	$output .= '<li class="item">' ."\n";
+            $output .= '<a href="'.$link.'" class="title">'.$title.'G-CHILD</a>' ."\n";
+            $output .= '</li>' ."\n";
+		    	}
+
+		    	
+		    	if ( $parent_id == $menu_item->menu_item_parent ) {
+			    	$link = $menu_item->url;
+            $title = $menu_item->title;
+			    	$output .= '<li class="item">' ."\n";
+            $output .= '<a href="'.$link.'" class="title">'.$title.'</a>' ."\n";
+            $output .= '</li>' ."\n";
+			    }
+*/
+		    }
+		    $output .= '</ul>';
+		    
+		    $output .= '</div>';
+		    
+		    $output .= '</li>';
+		    
+    	}
+    }
+
+}
+
+
+
+
 // Add page slug to body class
 function add_slug_to_body_class($classes){
   global $post;

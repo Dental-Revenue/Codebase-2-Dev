@@ -102,7 +102,11 @@ header.notification-active+.page-wrap, header.notification-active+.page-wrap .pa
 		.header-notification p{font-size:15px;}
 		.header-notification.invert p{color:$white;}
 			.header-notification p a{font-weight:bold; opacity:1; transition:opacity .3s ease; &:hover{opacity:.7;}}
+			
+			
 
+/* MEGA MENU */
+.mega-menu-contain{background-color:$black;}
 
 
 @media all and (max-width: $bp-laptop) {
@@ -154,6 +158,8 @@ header.notification-active+.page-wrap, header.notification-active+.page-wrap .pa
 .large-nav ul ul{display:none;position: absolute;left: 0;top:200%;transition:top .3s ease; background-color: $white;margin: 0;box-shadow: 0 0 6px rgba(0,0,0,0.1);}
   .large-nav ul ul a{color: $md-grey;display: block;white-space: nowrap;padding: 0 14px;line-height: 220%;font-size: 13px;}
     .large-nav ul ul a:hover{color: $main-color;}
+    
+  .large-nav ul ul > li{display:block !important; text-align:left; border-bottom:1px solid $md-lt-grey; padding:6px 0;}
 
 	.large-nav ul li:hover ul {display:block; top:100%;}
 
@@ -161,7 +167,17 @@ header.notification-active+.page-wrap, header.notification-active+.page-wrap .pa
 .large-nav ul ul ul{display:none;margin-left: 20px;border-left: 1px dotted rgba(0,0,0,0.1);position: relative;left: auto;top:auto;box-shadow: none;display: block;}
   .large-nav ul ul ul a{font-size: 80%;line-height: 180%;text-transform: none;font-weight: 400;}
 
-
+//MEGA MENU
+.mega-menu-contain{display:none;}
+	.mega-menu-contain h3{margin:10px; color:$white;}
+	.mega-menu-contain p{color:$main-color;}
+	.large-nav ul li:hover .mega-menu-contain {display:block; top:100%; right:50%; transform:translateX(50%); position:absolute; width:500px;}
+	.large-nav ul .mega-menu-contain > ul{text-align:left !important;}
+		.large-nav ul .mega-menu-contain > ul > li{ width:33.33%; display:inline-block !important; float:left !important; border:none;}
+		.large-nav ul .mega-menu-contain > ul li{border:none;}
+		.large-nav ul .mega-menu-contain > ul ul{background-color:transparent;}
+		
+		.large-nav .mega-menu-image{width:100%; height:280px; background-image:url('http://drcodebase2.wpengine.com/wp-content/uploads/2018/10/1-1.jpg'); background-size:cover; background-position:center center;}
 
 /* MOBILE NAVIGATION BUTTONS */
 .mobile-nav{display: none; @include clearfix();overflow: hidden;}

@@ -214,7 +214,58 @@ function cmb2_tracking_options() {
 add_action( 'cmb2_admin_init', 'cmb2_tracking_options' );
 
 
+function cmb2_mega_menu_options() {
+	
+	$box = new_cmb2_box( array(
+		'id'           	=> 'mega_menu_info',
+		'title'       	=> 'Mega Menu',
+		'object_types' 	=> array( 'options-page' ),
+		'option_key'    => 'mega_menu_info',
+		'parent_slug'  	=> 'practice_info',
+	));
+	
+	//create boxes based on what is in the navigation
+	$menu_slug = 'primary-navigation';
+	if ( ( $locations = get_nav_menu_locations() ) && isset( $locations[ $menu_slug ] ) ) {
+		$menu = get_term( $locations[ $menu_slug ] );
+		$menu_items = wp_get_nav_menu_items($menu->term_id);
+		foreach( $menu_items as $menu_item ) {
+			//Need to check for has_children 
+			if ( !$menu_item->menu_item_parent ) {
+				
+				$box->add_field( array(
+					'name' 					=> 'Menu Item: '.$menu_item->title,
+					'id'   					=> 'mega-title-'.$menu_item->ID,
+					'type' 					=> 'title',
+				));
+				
+				$box->add_field( array(
+					'name' 					=> 'Headline',
+					'id'   					=> 'mega-headline-'.$menu_item->ID,
+					'type' 					=> 'text',
+				));
+				
+				$box->add_field( array(
+					'name' 					=> 'Description',
+					'id'   					=> 'mega-desc-'.$menu_item->ID,
+					'type' 					=> 'text',
+				));
+				
+				$box->add_field( array(
+					'name' 					=> 'Picture',
+					'id'   					=> 'mega-file-'.$menu_item->ID,
+					'type' 					=> 'text',
+				));
+				
+				
+			}	
+		}
+	}
+ 
+	
+}
 
+add_action( 'cmb2_admin_init', 'cmb2_mega_menu_options' );
 
 function cmb2_appearance_options() {
 	
