@@ -171,8 +171,8 @@ header.notification-active+.page-wrap, header.notification-active+.page-wrap .pa
 .mega-menu-contain{display:none;}
 	.mega-menu-contain h3{margin:10px; color:$white;}
 	.mega-menu-contain p{color:$main-color;}
-	.large-nav ul li:hover .mega-menu-contain {display:block; top:100%; right:50%; transform:translateX(50%); position:absolute; width:500px;}
-	.large-nav ul .mega-menu-contain > ul{text-align:left !important;}
+	.large-nav ul li:hover .mega-menu-contain {display:block; top:100%; right:50%; transform:translateX(50%); position:absolute; width:500px; text-align:center;}
+	.large-nav ul .mega-menu-contain > ul{text-align:left !important; width:100%;}
 		.large-nav ul .mega-menu-contain > ul > li{ width:33.33%; display:inline-block !important; float:left !important; border:none;}
 		.large-nav ul .mega-menu-contain > ul li{border:none;}
 		.large-nav ul .mega-menu-contain > ul ul{background-color:transparent;}
