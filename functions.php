@@ -245,53 +245,6 @@ add_action( 'cmb2_admin_init', 'general_meta' );
 */
 
 
-//Page Tabs Meta Box
-/*
-function tabs_meta(){
-  
-  //prep exclude ids
-  $home_page_id = get_option('page_on_front');
-  $blog_page_id = get_option('page_for_posts');
-  
-  $prefix = 'meta_';
-  $box = new_cmb2_box(array(
-    'id' => 'tabs_info',
-    'title' => __( 'Tabs', 'cmb2' ),
-    'object_types' => array( 'page', ),
-    'context' => 'normal',
-    'priority' => 'high',
-    'show_names' => true,
-    'exclude_ids' => array( $home_page_id, $blog_page_id ),
-    'show_on_cb' => 'cmb2_exclude_ids',    
-  ));
-  $tabs_group = $box->add_field(array(
-    'id' => $prefix.'tabs',
-    'type' => 'group',
-    'options'     => array(
-      'group_title'   => __( 'Tab {#}', 'cmb2' ), // since version 1.1.4, {#} gets replaced by row number
-      'add_button'    => __( 'Add Another Tab', 'cmb2' ),
-      'remove_button' => __( 'Remove Tab', 'cmb2' ),
-      'sortable'      => true, // beta
-      'closed'     => true, // true to have the groups closed by default
-    ),
-  ));
-  $box->add_group_field( $tabs_group, array(
-    'name' => 'Tab Title',
-    'id'   => 'title',
-    'type' => 'text'
-  ));
-  $box->add_group_field( $tabs_group, array(
-    'name' => 'Tab Content',
-    'id'   => 'content',
-    'type' => 'wysiwyg',
-    'sanitization_cb' => false,
-    'after' => 'cmb2_wysiwyg_word_counter',
-  ));
-}
-add_action( 'cmb2_admin_init', 'tabs_meta' );
-*/
-
-
 //Category Selector Meta Box for Blog Widget
 /*
 function taxonomy_meta(){

@@ -366,6 +366,7 @@ function cmb2_appearance_options() {
 			'add_button'        => __( 'Add Another Tab', 'cmb2' ),
 			'remove_button'     => __( 'Remove Tab', 'cmb2' ),
 			'sortable'          => true,
+			'closed'			=> true
 		),
 	) );
 	
@@ -458,7 +459,7 @@ function cmb2_appearance_options() {
 		'desc'					=> 'Put a phrase in to activate the notification bar.',
 		'id'   					=> 'nav_notification',
 		'type' => 'wysiwyg',
-		'options' => array('teeny' => true)
+		'options' => array('teeny' => true,'textarea_rows' =>4)
 	));
 	
 	$box->add_field( array(
