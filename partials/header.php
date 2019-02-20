@@ -2,12 +2,17 @@
 	$appearance_info = get_option( 'appearance_info');
 	$nav_style = $appearance_info['nav_style'];
 	$extra_header_classes = '';
-	$extra_header_classes .= !empty(site_ops_notification_message(false)) ? ' notification-active' : '' ;
+	if(!empty(site_ops_notification_message(false))){ 
+		if(empty(site_ops_notification_timestamp(false)) || site_ops_notification_timestamp(false) > time()){
+			$extra_header_classes .= ' notification-active';
+		}
+	}
 ?>
 
 <header class="header<?php echo $extra_header_classes; ?>"> 
 
 <?php if(!empty(site_ops_notification_message(false))){
+	if(empty(site_ops_notification_timestamp(false)) || site_ops_notification_timestamp(false) > time()){
 	$notification_invert_color = getColorLightness()<700 ? ' invert' : '' ;
 ?>
 	<div class="header-notification<?php echo $notification_invert_color; ?>">
@@ -15,7 +20,7 @@
 			<p><?php site_ops_notification_message(); ?></a></p>
 		</div>
 	</div>
-<?php } ?>
+<?php } } ?>
 
 <?php if ($nav_style == 'header-style-a') { ?> 
 	  

@@ -201,6 +201,11 @@ function site_ops_notification_message($echo = true){
 	if(!empty($option['nav_notification'])){if($echo){echo $option['nav_notification'];}else{return $option['nav_notification'];}}else{if($echo){echo '';}else{return '';}}
 }
 
+function site_ops_notification_timestamp($echo = true){
+	$option = get_option('appearance_info'); 
+	if(!empty($option['nav_notification_timestamp'])){if($echo){echo $option['nav_notification_timestamp'];}else{return $option['nav_notification_timestamp'];}}else{if($echo){echo '';}else{return '';}}
+}
+
 //FORM INFO
 
 function site_ops_dashboard_account_id($echo = true){

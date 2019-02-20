@@ -462,6 +462,13 @@ function cmb2_appearance_options() {
 	));
 	
 	$box->add_field( array(
+		'name' 					=> 'Notification Message End Date',
+		'desc'					=> 'When do you want the notification to end? Leave blank to have no end date.',
+		'id'   					=> 'nav_notification_timestamp',
+		'type' => 'text_date_timestamp'
+	));
+	
+	$box->add_field( array(
 		'name' 					=> 'Module Specific',
 		'id'   					=> 'module_title',
 		'type' 					=> 'title',
