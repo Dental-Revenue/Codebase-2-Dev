@@ -8,7 +8,8 @@ box-shadow: 20px 0 16px -6px rgba($black, .2); z-index:3; background-color:$whit
 
   #hp-fold.fold-panel .slick-fold .slick-list,#hp-fold.fold-panel .slick-fold .slick-track{height: 100%;}
     #hp-fold.fold-panel .fold-slide{display:block; width: 100%;height: 100%;background-size: cover;background-position: center center;position: relative;}
-      #hp-fold.fold-panel .fold-slide .hp-fold-text{position:absolute; bottom:50px; left:75px;opacity: 1; z-index: 3; margin-right:75px;}
+      #hp-fold.fold-panel .fold-slide .hp-fold-text{position:absolute; bottom:0px; left:75px;opacity: 0; z-index: 3; margin-right:75px; transition:all .3s ease;}
+      	#hp-fold.fold-panel.onScreen .fold-slide .hp-fold-text{bottom:50px; opacity:1;}
       .fold-panel .hp-fold-text h2 {font-size:40px; color:#fff;}
       .fold-panel .hp-fold-text p {font-size:20px; color:#fff;}
       
@@ -17,7 +18,11 @@ box-shadow: 20px 0 16px -6px rgba($black, .2); z-index:3; background-color:$whit
   
 		.tri-fold-block{z-index: 2;position:absolute; width:33.33%; right:0; height:33.33%;  display:block; overflow:hidden; top:0; &:nth-child(3){top:33.33%;} &:nth-child(4){top:66.66%;}}
 			.tri-fold-block .tri-block{background-size: cover;background-position: center center; position:absolute; top:0; right:0; bottom:0; left:0; width:100%; height:100%;  transition:all .5s ease;}
-			.tri-fold-block a.tri-block-link{position:absolute; bottom:30px; left:30px; color:$white;font-family: $heading-font; font-weight: 800; font-size:22px; letter-spacing:2px; text-transform:uppercase; width:370px; max-width:85%; z-index: 3; }
+			.tri-fold-block a.tri-block-link{position:absolute; bottom:-70px; opacity:0; left:30px; color:$white;font-family: $heading-font; font-weight: 800; font-size:22px; letter-spacing:2px; text-transform:uppercase; width:370px; max-width:85%; z-index: 3; transition:all .3s ease;}
+				.onScreen .tri-fold-block a.tri-block-link{bottom:30px; opacity:1;}
+					.onScreen .tri-fold-block:nth-child(2) a.tri-block-link {transition-delay: .2s;}
+					.onScreen .tri-fold-block:nth-child(3) a.tri-block-link {transition-delay: .35s;}
+					.onScreen .tri-fold-block:nth-child(4) a.tri-block-link {transition-delay: .5s;}
 			.tri-fold-block .fold-overlay { cursor: pointer;}
 			
 			.tri-fold-block:hover .tri-block{height:110%; width:110%; top:-5%; left:-5%; opacity:1;}

@@ -13,6 +13,7 @@ var magnificPopup = require('magnific-popup');
 var jQueryBridget = require('jquery-bridget');
 var Isotope = require('isotope-layout');
 var imagesLoaded = require('imagesloaded');
+var OnScreen = require('onscreen');
 
 // Jquery here
 $(document).ready(function(){
@@ -153,7 +154,15 @@ $(document).ready(function(){
 			$('.fold-slices').slick('unslick');
 		}
 	});
-  
+	
+	// module fold_boxes
+	var os = new OnScreen();
+	os.on('enter', '.fold-panel', (element, event) => {
+    element.classList.add("onScreen");
+	});
+	os.on('leave', '.fold-panel', (element, event) => {
+    element.classList.remove("onScreen");
+	});
 	
 	//Module Carousel_1
 	$('.slick-carousel_1').slick({

@@ -109,6 +109,7 @@ var magnificPopup = require('magnific-popup');
 var jQueryBridget = require('jquery-bridget');
 var Isotope = require('isotope-layout');
 var imagesLoaded = require('imagesloaded');
+var OnScreen = require('onscreen');
 
 // Jquery here
 $(document).ready(function () {
@@ -245,6 +246,15 @@ $(document).ready(function () {
 				} else {
 						$('.fold-slices').slick('unslick');
 				}
+		});
+
+		// module fold_boxes
+		var os = new OnScreen();
+		os.on('enter', '.fold-panel', function (element, event) {
+				element.classList.add("onScreen");
+		});
+		os.on('leave', '.fold-panel', function (element, event) {
+				element.classList.remove("onScreen");
 		});
 
 		//Module Carousel_1
@@ -563,7 +573,12 @@ $(document).ready(function () {
 		});
 });
 
-},{"bootstrap/js/dist/tab.js":4,"imagesloaded":10,"isotope-layout":11,"jquery":18,"jquery-bridget":17,"magnific-popup":20,"sidr/dist/jquery.sidr.js":24,"slick-carousel":25}],4:[function(require,module,exports){
+},{"bootstrap/js/dist/tab.js":4,"imagesloaded":10,"isotope-layout":11,"jquery":18,"jquery-bridget":17,"magnific-popup":20,"onscreen":22,"sidr/dist/jquery.sidr.js":25,"slick-carousel":26}],4:[function(require,module,exports){
+/*!
+  * Bootstrap tab.js v4.2.1 (https://getbootstrap.com/)
+  * Copyright 2011-2018 The Bootstrap Authors (https://github.com/twbs/bootstrap/graphs/contributors)
+  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
+  */
 (function (global, factory) {
   typeof exports === 'object' && typeof module !== 'undefined' ? module.exports = factory(require('jquery'), require('./util.js')) :
   typeof define === 'function' && define.amd ? define(['jquery', './util.js'], factory) :
@@ -590,253 +605,236 @@ $(document).ready(function () {
   }
 
   /**
-   * --------------------------------------------------------------------------
-   * Bootstrap (v4.1.3): tab.js
-   * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
-   * --------------------------------------------------------------------------
+   * ------------------------------------------------------------------------
+   * Constants
+   * ------------------------------------------------------------------------
    */
 
-  var Tab = function ($$$1) {
+  var NAME = 'tab';
+  var VERSION = '4.2.1';
+  var DATA_KEY = 'bs.tab';
+  var EVENT_KEY = "." + DATA_KEY;
+  var DATA_API_KEY = '.data-api';
+  var JQUERY_NO_CONFLICT = $.fn[NAME];
+  var Event = {
+    HIDE: "hide" + EVENT_KEY,
+    HIDDEN: "hidden" + EVENT_KEY,
+    SHOW: "show" + EVENT_KEY,
+    SHOWN: "shown" + EVENT_KEY,
+    CLICK_DATA_API: "click" + EVENT_KEY + DATA_API_KEY
+  };
+  var ClassName = {
+    DROPDOWN_MENU: 'dropdown-menu',
+    ACTIVE: 'active',
+    DISABLED: 'disabled',
+    FADE: 'fade',
+    SHOW: 'show'
+  };
+  var Selector = {
+    DROPDOWN: '.dropdown',
+    NAV_LIST_GROUP: '.nav, .list-group',
+    ACTIVE: '.active',
+    ACTIVE_UL: '> li > .active',
+    DATA_TOGGLE: '[data-toggle="tab"], [data-toggle="pill"], [data-toggle="list"]',
+    DROPDOWN_TOGGLE: '.dropdown-toggle',
+    DROPDOWN_ACTIVE_CHILD: '> .dropdown-menu .active'
     /**
      * ------------------------------------------------------------------------
-     * Constants
+     * Class Definition
      * ------------------------------------------------------------------------
      */
-    var NAME = 'tab';
-    var VERSION = '4.1.3';
-    var DATA_KEY = 'bs.tab';
-    var EVENT_KEY = "." + DATA_KEY;
-    var DATA_API_KEY = '.data-api';
-    var JQUERY_NO_CONFLICT = $$$1.fn[NAME];
-    var Event = {
-      HIDE: "hide" + EVENT_KEY,
-      HIDDEN: "hidden" + EVENT_KEY,
-      SHOW: "show" + EVENT_KEY,
-      SHOWN: "shown" + EVENT_KEY,
-      CLICK_DATA_API: "click" + EVENT_KEY + DATA_API_KEY
-    };
-    var ClassName = {
-      DROPDOWN_MENU: 'dropdown-menu',
-      ACTIVE: 'active',
-      DISABLED: 'disabled',
-      FADE: 'fade',
-      SHOW: 'show'
-    };
-    var Selector = {
-      DROPDOWN: '.dropdown',
-      NAV_LIST_GROUP: '.nav, .list-group',
-      ACTIVE: '.active',
-      ACTIVE_UL: '> li > .active',
-      DATA_TOGGLE: '[data-toggle="tab"], [data-toggle="pill"], [data-toggle="list"]',
-      DROPDOWN_TOGGLE: '.dropdown-toggle',
-      DROPDOWN_ACTIVE_CHILD: '> .dropdown-menu .active'
-      /**
-       * ------------------------------------------------------------------------
-       * Class Definition
-       * ------------------------------------------------------------------------
-       */
 
-    };
+  };
 
-    var Tab =
-    /*#__PURE__*/
-    function () {
-      function Tab(element) {
-        this._element = element;
-      } // Getters
+  var Tab =
+  /*#__PURE__*/
+  function () {
+    function Tab(element) {
+      this._element = element;
+    } // Getters
 
 
-      var _proto = Tab.prototype;
+    var _proto = Tab.prototype;
 
-      // Public
-      _proto.show = function show() {
-        var _this = this;
+    // Public
+    _proto.show = function show() {
+      var _this = this;
 
-        if (this._element.parentNode && this._element.parentNode.nodeType === Node.ELEMENT_NODE && $$$1(this._element).hasClass(ClassName.ACTIVE) || $$$1(this._element).hasClass(ClassName.DISABLED)) {
-          return;
-        }
+      if (this._element.parentNode && this._element.parentNode.nodeType === Node.ELEMENT_NODE && $(this._element).hasClass(ClassName.ACTIVE) || $(this._element).hasClass(ClassName.DISABLED)) {
+        return;
+      }
 
-        var target;
-        var previous;
-        var listElement = $$$1(this._element).closest(Selector.NAV_LIST_GROUP)[0];
-        var selector = Util.getSelectorFromElement(this._element);
+      var target;
+      var previous;
+      var listElement = $(this._element).closest(Selector.NAV_LIST_GROUP)[0];
+      var selector = Util.getSelectorFromElement(this._element);
 
-        if (listElement) {
-          var itemSelector = listElement.nodeName === 'UL' ? Selector.ACTIVE_UL : Selector.ACTIVE;
-          previous = $$$1.makeArray($$$1(listElement).find(itemSelector));
-          previous = previous[previous.length - 1];
-        }
+      if (listElement) {
+        var itemSelector = listElement.nodeName === 'UL' || listElement.nodeName === 'OL' ? Selector.ACTIVE_UL : Selector.ACTIVE;
+        previous = $.makeArray($(listElement).find(itemSelector));
+        previous = previous[previous.length - 1];
+      }
 
-        var hideEvent = $$$1.Event(Event.HIDE, {
-          relatedTarget: this._element
+      var hideEvent = $.Event(Event.HIDE, {
+        relatedTarget: this._element
+      });
+      var showEvent = $.Event(Event.SHOW, {
+        relatedTarget: previous
+      });
+
+      if (previous) {
+        $(previous).trigger(hideEvent);
+      }
+
+      $(this._element).trigger(showEvent);
+
+      if (showEvent.isDefaultPrevented() || hideEvent.isDefaultPrevented()) {
+        return;
+      }
+
+      if (selector) {
+        target = document.querySelector(selector);
+      }
+
+      this._activate(this._element, listElement);
+
+      var complete = function complete() {
+        var hiddenEvent = $.Event(Event.HIDDEN, {
+          relatedTarget: _this._element
         });
-        var showEvent = $$$1.Event(Event.SHOW, {
+        var shownEvent = $.Event(Event.SHOWN, {
           relatedTarget: previous
         });
-
-        if (previous) {
-          $$$1(previous).trigger(hideEvent);
-        }
-
-        $$$1(this._element).trigger(showEvent);
-
-        if (showEvent.isDefaultPrevented() || hideEvent.isDefaultPrevented()) {
-          return;
-        }
-
-        if (selector) {
-          target = document.querySelector(selector);
-        }
-
-        this._activate(this._element, listElement);
-
-        var complete = function complete() {
-          var hiddenEvent = $$$1.Event(Event.HIDDEN, {
-            relatedTarget: _this._element
-          });
-          var shownEvent = $$$1.Event(Event.SHOWN, {
-            relatedTarget: previous
-          });
-          $$$1(previous).trigger(hiddenEvent);
-          $$$1(_this._element).trigger(shownEvent);
-        };
-
-        if (target) {
-          this._activate(target, target.parentNode, complete);
-        } else {
-          complete();
-        }
+        $(previous).trigger(hiddenEvent);
+        $(_this._element).trigger(shownEvent);
       };
 
-      _proto.dispose = function dispose() {
-        $$$1.removeData(this._element, DATA_KEY);
-        this._element = null;
-      }; // Private
-
-
-      _proto._activate = function _activate(element, container, callback) {
-        var _this2 = this;
-
-        var activeElements;
-
-        if (container.nodeName === 'UL') {
-          activeElements = $$$1(container).find(Selector.ACTIVE_UL);
-        } else {
-          activeElements = $$$1(container).children(Selector.ACTIVE);
-        }
-
-        var active = activeElements[0];
-        var isTransitioning = callback && active && $$$1(active).hasClass(ClassName.FADE);
-
-        var complete = function complete() {
-          return _this2._transitionComplete(element, active, callback);
-        };
-
-        if (active && isTransitioning) {
-          var transitionDuration = Util.getTransitionDurationFromElement(active);
-          $$$1(active).one(Util.TRANSITION_END, complete).emulateTransitionEnd(transitionDuration);
-        } else {
-          complete();
-        }
-      };
-
-      _proto._transitionComplete = function _transitionComplete(element, active, callback) {
-        if (active) {
-          $$$1(active).removeClass(ClassName.SHOW + " " + ClassName.ACTIVE);
-          var dropdownChild = $$$1(active.parentNode).find(Selector.DROPDOWN_ACTIVE_CHILD)[0];
-
-          if (dropdownChild) {
-            $$$1(dropdownChild).removeClass(ClassName.ACTIVE);
-          }
-
-          if (active.getAttribute('role') === 'tab') {
-            active.setAttribute('aria-selected', false);
-          }
-        }
-
-        $$$1(element).addClass(ClassName.ACTIVE);
-
-        if (element.getAttribute('role') === 'tab') {
-          element.setAttribute('aria-selected', true);
-        }
-
-        Util.reflow(element);
-        $$$1(element).addClass(ClassName.SHOW);
-
-        if (element.parentNode && $$$1(element.parentNode).hasClass(ClassName.DROPDOWN_MENU)) {
-          var dropdownElement = $$$1(element).closest(Selector.DROPDOWN)[0];
-
-          if (dropdownElement) {
-            var dropdownToggleList = [].slice.call(dropdownElement.querySelectorAll(Selector.DROPDOWN_TOGGLE));
-            $$$1(dropdownToggleList).addClass(ClassName.ACTIVE);
-          }
-
-          element.setAttribute('aria-expanded', true);
-        }
-
-        if (callback) {
-          callback();
-        }
-      }; // Static
-
-
-      Tab._jQueryInterface = function _jQueryInterface(config) {
-        return this.each(function () {
-          var $this = $$$1(this);
-          var data = $this.data(DATA_KEY);
-
-          if (!data) {
-            data = new Tab(this);
-            $this.data(DATA_KEY, data);
-          }
-
-          if (typeof config === 'string') {
-            if (typeof data[config] === 'undefined') {
-              throw new TypeError("No method named \"" + config + "\"");
-            }
-
-            data[config]();
-          }
-        });
-      };
-
-      _createClass(Tab, null, [{
-        key: "VERSION",
-        get: function get() {
-          return VERSION;
-        }
-      }]);
-
-      return Tab;
-    }();
-    /**
-     * ------------------------------------------------------------------------
-     * Data Api implementation
-     * ------------------------------------------------------------------------
-     */
-
-
-    $$$1(document).on(Event.CLICK_DATA_API, Selector.DATA_TOGGLE, function (event) {
-      event.preventDefault();
-
-      Tab._jQueryInterface.call($$$1(this), 'show');
-    });
-    /**
-     * ------------------------------------------------------------------------
-     * jQuery
-     * ------------------------------------------------------------------------
-     */
-
-    $$$1.fn[NAME] = Tab._jQueryInterface;
-    $$$1.fn[NAME].Constructor = Tab;
-
-    $$$1.fn[NAME].noConflict = function () {
-      $$$1.fn[NAME] = JQUERY_NO_CONFLICT;
-      return Tab._jQueryInterface;
+      if (target) {
+        this._activate(target, target.parentNode, complete);
+      } else {
+        complete();
+      }
     };
 
+    _proto.dispose = function dispose() {
+      $.removeData(this._element, DATA_KEY);
+      this._element = null;
+    }; // Private
+
+
+    _proto._activate = function _activate(element, container, callback) {
+      var _this2 = this;
+
+      var activeElements = container && (container.nodeName === 'UL' || container.nodeName === 'OL') ? $(container).find(Selector.ACTIVE_UL) : $(container).children(Selector.ACTIVE);
+      var active = activeElements[0];
+      var isTransitioning = callback && active && $(active).hasClass(ClassName.FADE);
+
+      var complete = function complete() {
+        return _this2._transitionComplete(element, active, callback);
+      };
+
+      if (active && isTransitioning) {
+        var transitionDuration = Util.getTransitionDurationFromElement(active);
+        $(active).removeClass(ClassName.SHOW).one(Util.TRANSITION_END, complete).emulateTransitionEnd(transitionDuration);
+      } else {
+        complete();
+      }
+    };
+
+    _proto._transitionComplete = function _transitionComplete(element, active, callback) {
+      if (active) {
+        $(active).removeClass(ClassName.ACTIVE);
+        var dropdownChild = $(active.parentNode).find(Selector.DROPDOWN_ACTIVE_CHILD)[0];
+
+        if (dropdownChild) {
+          $(dropdownChild).removeClass(ClassName.ACTIVE);
+        }
+
+        if (active.getAttribute('role') === 'tab') {
+          active.setAttribute('aria-selected', false);
+        }
+      }
+
+      $(element).addClass(ClassName.ACTIVE);
+
+      if (element.getAttribute('role') === 'tab') {
+        element.setAttribute('aria-selected', true);
+      }
+
+      Util.reflow(element);
+      $(element).addClass(ClassName.SHOW);
+
+      if (element.parentNode && $(element.parentNode).hasClass(ClassName.DROPDOWN_MENU)) {
+        var dropdownElement = $(element).closest(Selector.DROPDOWN)[0];
+
+        if (dropdownElement) {
+          var dropdownToggleList = [].slice.call(dropdownElement.querySelectorAll(Selector.DROPDOWN_TOGGLE));
+          $(dropdownToggleList).addClass(ClassName.ACTIVE);
+        }
+
+        element.setAttribute('aria-expanded', true);
+      }
+
+      if (callback) {
+        callback();
+      }
+    }; // Static
+
+
+    Tab._jQueryInterface = function _jQueryInterface(config) {
+      return this.each(function () {
+        var $this = $(this);
+        var data = $this.data(DATA_KEY);
+
+        if (!data) {
+          data = new Tab(this);
+          $this.data(DATA_KEY, data);
+        }
+
+        if (typeof config === 'string') {
+          if (typeof data[config] === 'undefined') {
+            throw new TypeError("No method named \"" + config + "\"");
+          }
+
+          data[config]();
+        }
+      });
+    };
+
+    _createClass(Tab, null, [{
+      key: "VERSION",
+      get: function get() {
+        return VERSION;
+      }
+    }]);
+
     return Tab;
-  }($);
+  }();
+  /**
+   * ------------------------------------------------------------------------
+   * Data Api implementation
+   * ------------------------------------------------------------------------
+   */
+
+
+  $(document).on(Event.CLICK_DATA_API, Selector.DATA_TOGGLE, function (event) {
+    event.preventDefault();
+
+    Tab._jQueryInterface.call($(this), 'show');
+  });
+  /**
+   * ------------------------------------------------------------------------
+   * jQuery
+   * ------------------------------------------------------------------------
+   */
+
+  $.fn[NAME] = Tab._jQueryInterface;
+  $.fn[NAME].Constructor = Tab;
+
+  $.fn[NAME].noConflict = function () {
+    $.fn[NAME] = JQUERY_NO_CONFLICT;
+    return Tab._jQueryInterface;
+  };
 
   return Tab;
 
@@ -844,6 +842,11 @@ $(document).ready(function () {
 
 
 },{"./util.js":5,"jquery":18}],5:[function(require,module,exports){
+/*!
+  * Bootstrap util.js v4.2.1 (https://getbootstrap.com/)
+  * Copyright 2011-2018 The Bootstrap Authors (https://github.com/twbs/bootstrap/graphs/contributors)
+  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
+  */
 (function (global, factory) {
   typeof exports === 'object' && typeof module !== 'undefined' ? module.exports = factory(require('jquery')) :
   typeof define === 'function' && define.amd ? define(['jquery'], factory) :
@@ -854,135 +857,154 @@ $(document).ready(function () {
 
   /**
    * --------------------------------------------------------------------------
-   * Bootstrap (v4.1.3): util.js
+   * Bootstrap (v4.2.1): util.js
    * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
    * --------------------------------------------------------------------------
    */
+  /**
+   * ------------------------------------------------------------------------
+   * Private TransitionEnd Helpers
+   * ------------------------------------------------------------------------
+   */
 
-  var Util = function ($$$1) {
-    /**
-     * ------------------------------------------------------------------------
-     * Private TransitionEnd Helpers
-     * ------------------------------------------------------------------------
-     */
-    var TRANSITION_END = 'transitionend';
-    var MAX_UID = 1000000;
-    var MILLISECONDS_MULTIPLIER = 1000; // Shoutout AngusCroll (https://goo.gl/pxwQGp)
+  var TRANSITION_END = 'transitionend';
+  var MAX_UID = 1000000;
+  var MILLISECONDS_MULTIPLIER = 1000; // Shoutout AngusCroll (https://goo.gl/pxwQGp)
 
-    function toType(obj) {
-      return {}.toString.call(obj).match(/\s([a-z]+)/i)[1].toLowerCase();
-    }
+  function toType(obj) {
+    return {}.toString.call(obj).match(/\s([a-z]+)/i)[1].toLowerCase();
+  }
 
-    function getSpecialTransitionEndEvent() {
-      return {
-        bindType: TRANSITION_END,
-        delegateType: TRANSITION_END,
-        handle: function handle(event) {
-          if ($$$1(event.target).is(this)) {
-            return event.handleObj.handler.apply(this, arguments); // eslint-disable-line prefer-rest-params
-          }
-
-          return undefined; // eslint-disable-line no-undefined
-        }
-      };
-    }
-
-    function transitionEndEmulator(duration) {
-      var _this = this;
-
-      var called = false;
-      $$$1(this).one(Util.TRANSITION_END, function () {
-        called = true;
-      });
-      setTimeout(function () {
-        if (!called) {
-          Util.triggerTransitionEnd(_this);
-        }
-      }, duration);
-      return this;
-    }
-
-    function setTransitionEndSupport() {
-      $$$1.fn.emulateTransitionEnd = transitionEndEmulator;
-      $$$1.event.special[Util.TRANSITION_END] = getSpecialTransitionEndEvent();
-    }
-    /**
-     * --------------------------------------------------------------------------
-     * Public Util Api
-     * --------------------------------------------------------------------------
-     */
-
-
-    var Util = {
-      TRANSITION_END: 'bsTransitionEnd',
-      getUID: function getUID(prefix) {
-        do {
-          // eslint-disable-next-line no-bitwise
-          prefix += ~~(Math.random() * MAX_UID); // "~~" acts like a faster Math.floor() here
-        } while (document.getElementById(prefix));
-
-        return prefix;
-      },
-      getSelectorFromElement: function getSelectorFromElement(element) {
-        var selector = element.getAttribute('data-target');
-
-        if (!selector || selector === '#') {
-          selector = element.getAttribute('href') || '';
+  function getSpecialTransitionEndEvent() {
+    return {
+      bindType: TRANSITION_END,
+      delegateType: TRANSITION_END,
+      handle: function handle(event) {
+        if ($(event.target).is(this)) {
+          return event.handleObj.handler.apply(this, arguments); // eslint-disable-line prefer-rest-params
         }
 
-        try {
-          return document.querySelector(selector) ? selector : null;
-        } catch (err) {
-          return null;
-        }
-      },
-      getTransitionDurationFromElement: function getTransitionDurationFromElement(element) {
-        if (!element) {
-          return 0;
-        } // Get transition-duration of the element
+        return undefined; // eslint-disable-line no-undefined
+      }
+    };
+  }
+
+  function transitionEndEmulator(duration) {
+    var _this = this;
+
+    var called = false;
+    $(this).one(Util.TRANSITION_END, function () {
+      called = true;
+    });
+    setTimeout(function () {
+      if (!called) {
+        Util.triggerTransitionEnd(_this);
+      }
+    }, duration);
+    return this;
+  }
+
+  function setTransitionEndSupport() {
+    $.fn.emulateTransitionEnd = transitionEndEmulator;
+    $.event.special[Util.TRANSITION_END] = getSpecialTransitionEndEvent();
+  }
+  /**
+   * --------------------------------------------------------------------------
+   * Public Util Api
+   * --------------------------------------------------------------------------
+   */
 
 
-        var transitionDuration = $$$1(element).css('transition-duration');
-        var floatTransitionDuration = parseFloat(transitionDuration); // Return 0 if element or transition duration is not found
+  var Util = {
+    TRANSITION_END: 'bsTransitionEnd',
+    getUID: function getUID(prefix) {
+      do {
+        // eslint-disable-next-line no-bitwise
+        prefix += ~~(Math.random() * MAX_UID); // "~~" acts like a faster Math.floor() here
+      } while (document.getElementById(prefix));
 
-        if (!floatTransitionDuration) {
-          return 0;
-        } // If multiple durations are defined, take the first
+      return prefix;
+    },
+    getSelectorFromElement: function getSelectorFromElement(element) {
+      var selector = element.getAttribute('data-target');
+
+      if (!selector || selector === '#') {
+        var hrefAttr = element.getAttribute('href');
+        selector = hrefAttr && hrefAttr !== '#' ? hrefAttr.trim() : '';
+      }
+
+      return selector && document.querySelector(selector) ? selector : null;
+    },
+    getTransitionDurationFromElement: function getTransitionDurationFromElement(element) {
+      if (!element) {
+        return 0;
+      } // Get transition-duration of the element
 
 
-        transitionDuration = transitionDuration.split(',')[0];
-        return parseFloat(transitionDuration) * MILLISECONDS_MULTIPLIER;
-      },
-      reflow: function reflow(element) {
-        return element.offsetHeight;
-      },
-      triggerTransitionEnd: function triggerTransitionEnd(element) {
-        $$$1(element).trigger(TRANSITION_END);
-      },
-      // TODO: Remove in v5
-      supportsTransitionEnd: function supportsTransitionEnd() {
-        return Boolean(TRANSITION_END);
-      },
-      isElement: function isElement(obj) {
-        return (obj[0] || obj).nodeType;
-      },
-      typeCheckConfig: function typeCheckConfig(componentName, config, configTypes) {
-        for (var property in configTypes) {
-          if (Object.prototype.hasOwnProperty.call(configTypes, property)) {
-            var expectedTypes = configTypes[property];
-            var value = config[property];
-            var valueType = value && Util.isElement(value) ? 'element' : toType(value);
+      var transitionDuration = $(element).css('transition-duration');
+      var transitionDelay = $(element).css('transition-delay');
+      var floatTransitionDuration = parseFloat(transitionDuration);
+      var floatTransitionDelay = parseFloat(transitionDelay); // Return 0 if element or transition duration is not found
 
-            if (!new RegExp(expectedTypes).test(valueType)) {
-              throw new Error(componentName.toUpperCase() + ": " + ("Option \"" + property + "\" provided type \"" + valueType + "\" ") + ("but expected type \"" + expectedTypes + "\"."));
-            }
+      if (!floatTransitionDuration && !floatTransitionDelay) {
+        return 0;
+      } // If multiple durations are defined, take the first
+
+
+      transitionDuration = transitionDuration.split(',')[0];
+      transitionDelay = transitionDelay.split(',')[0];
+      return (parseFloat(transitionDuration) + parseFloat(transitionDelay)) * MILLISECONDS_MULTIPLIER;
+    },
+    reflow: function reflow(element) {
+      return element.offsetHeight;
+    },
+    triggerTransitionEnd: function triggerTransitionEnd(element) {
+      $(element).trigger(TRANSITION_END);
+    },
+    // TODO: Remove in v5
+    supportsTransitionEnd: function supportsTransitionEnd() {
+      return Boolean(TRANSITION_END);
+    },
+    isElement: function isElement(obj) {
+      return (obj[0] || obj).nodeType;
+    },
+    typeCheckConfig: function typeCheckConfig(componentName, config, configTypes) {
+      for (var property in configTypes) {
+        if (Object.prototype.hasOwnProperty.call(configTypes, property)) {
+          var expectedTypes = configTypes[property];
+          var value = config[property];
+          var valueType = value && Util.isElement(value) ? 'element' : toType(value);
+
+          if (!new RegExp(expectedTypes).test(valueType)) {
+            throw new Error(componentName.toUpperCase() + ": " + ("Option \"" + property + "\" provided type \"" + valueType + "\" ") + ("but expected type \"" + expectedTypes + "\"."));
           }
         }
       }
-    };
-    setTransitionEndSupport();
-    return Util;
-  }($);
+    },
+    findShadowRoot: function findShadowRoot(element) {
+      if (!document.documentElement.attachShadow) {
+        return null;
+      } // Can find the shadow root otherwise it'll return the document
+
+
+      if (typeof element.getRootNode === 'function') {
+        var root = element.getRootNode();
+        return root instanceof ShadowRoot ? root : null;
+      }
+
+      if (element instanceof ShadowRoot) {
+        return element;
+      } // when we don't find a shadow root
+
+
+      if (!element.parentNode) {
+        return null;
+      }
+
+      return Util.findShadowRoot(element.parentNode);
+    }
+  };
+  setTransitionEndSupport();
 
   return Util;
 
@@ -2612,7 +2634,7 @@ var trim = String.prototype.trim ?
 
 }));
 
-},{"./item":12,"./layout-mode":13,"./layout-modes/fit-rows":14,"./layout-modes/masonry":15,"./layout-modes/vertical":16,"desandro-matches-selector":6,"fizzy-ui-utils":8,"get-size":9,"outlayer":23}],12:[function(require,module,exports){
+},{"./item":12,"./layout-mode":13,"./layout-modes/fit-rows":14,"./layout-modes/masonry":15,"./layout-modes/vertical":16,"desandro-matches-selector":6,"fizzy-ui-utils":8,"get-size":9,"outlayer":24}],12:[function(require,module,exports){
 /**
  * Isotope Item
 **/
@@ -2691,7 +2713,7 @@ return Item;
 
 }));
 
-},{"outlayer":23}],13:[function(require,module,exports){
+},{"outlayer":24}],13:[function(require,module,exports){
 /**
  * Isotope LayoutMode
  */
@@ -2850,7 +2872,7 @@ return Item;
 
 }));
 
-},{"get-size":9,"outlayer":23}],14:[function(require,module,exports){
+},{"get-size":9,"outlayer":24}],14:[function(require,module,exports){
 /**
  * fitRows layout mode
  */
@@ -15832,7 +15854,403 @@ $.magnificPopup.registerModule(RETINA_NS, {
 
 }));
 
-},{"get-size":9,"outlayer":23}],22:[function(require,module,exports){
+},{"get-size":9,"outlayer":24}],22:[function(require,module,exports){
+(function (global, factory) {
+  typeof exports === 'object' && typeof module !== 'undefined' ? module.exports = factory() :
+  typeof define === 'function' && define.amd ? define(factory) :
+  (global.OnScreen = factory());
+}(this, function () { 'use strict';
+
+  /**
+   * Attaches the scroll event handler
+   *
+   * @return {void}
+   */
+  function attach() {
+      var container = this.options.container;
+
+      if (container instanceof HTMLElement) {
+          var style = window.getComputedStyle(container);
+
+          if (style.position === 'static') {
+              container.style.position = 'relative';
+          }
+      }
+
+      container.addEventListener('scroll', this._scroll);
+      window.addEventListener('resize', this._scroll);
+      this._scroll();
+      this.attached = true;
+  }
+
+  /**
+   * Checks an element's position in respect to the viewport
+   * and determines wether it's inside the viewport.
+   *
+   * @param {node} element The DOM node you want to check
+   * @return {boolean} A boolean value that indicates wether is on or off the viewport.
+   */
+  function inViewport(el) {
+      var options = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : { tolerance: 0 };
+
+      if (!el) {
+          throw new Error('You should specify the element you want to test');
+      }
+
+      if (typeof el === 'string') {
+          el = document.querySelector(el);
+      }
+
+      var elRect = el.getBoundingClientRect();
+
+      return (
+          // Check bottom boundary
+          elRect.bottom - options.tolerance > 0 &&
+
+          // Check right boundary
+          elRect.right - options.tolerance > 0 &&
+
+          // Check left boundary
+          elRect.left + options.tolerance < (window.innerWidth || document.documentElement.clientWidth) &&
+
+          // Check top boundary
+          elRect.top + options.tolerance < (window.innerHeight || document.documentElement.clientHeight)
+      );
+  }
+
+  /**
+   * Checks an element's position in respect to a HTMLElement
+   * and determines wether it's within its boundaries.
+   *
+   * @param {node} element The DOM node you want to check
+   * @return {boolean} A boolean value that indicates wether is on or off the container.
+   */
+  function inContainer(el) {
+      var options = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : { tolerance: 0, container: '' };
+
+      if (!el) {
+          throw new Error('You should specify the element you want to test');
+      }
+
+      if (typeof el === 'string') {
+          el = document.querySelector(el);
+      }
+      if (typeof options === 'string') {
+          options = {
+              tolerance: 0,
+              container: document.querySelector(options)
+          };
+      }
+      if (typeof options.container === 'string') {
+          options.container = document.querySelector(options.container);
+      }
+      if (options instanceof HTMLElement) {
+          options = {
+              tolerance: 0,
+              container: options
+          };
+      }
+      if (!options.container) {
+          throw new Error('You should specify a container element');
+      }
+
+      var containerRect = options.container.getBoundingClientRect();
+
+      return (
+          // // Check bottom boundary
+          el.offsetTop + el.clientHeight - options.tolerance > options.container.scrollTop &&
+
+          // Check right boundary
+          el.offsetLeft + el.clientWidth - options.tolerance > options.container.scrollLeft &&
+
+          // Check left boundary
+          el.offsetLeft + options.tolerance < containerRect.width + options.container.scrollLeft &&
+
+          // // Check top boundary
+          el.offsetTop + options.tolerance < containerRect.height + options.container.scrollTop
+      );
+  }
+
+  // TODO: Refactor this so it can be easily tested
+  /* istanbul ignore next */
+  function eventHandler() {
+      var trackedElements = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
+      var options = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : { tolerance: 0 };
+
+      var selectors = Object.keys(trackedElements);
+      var testVisibility = void 0;
+
+      if (!selectors.length) return;
+
+      if (options.container === window) {
+          testVisibility = inViewport;
+      } else {
+          testVisibility = inContainer;
+      }
+
+      selectors.forEach(function (selector) {
+          trackedElements[selector].nodes.forEach(function (item) {
+              if (testVisibility(item.node, options)) {
+                  item.wasVisible = item.isVisible;
+                  item.isVisible = true;
+              } else {
+                  item.wasVisible = item.isVisible;
+                  item.isVisible = false;
+              }
+              if (item.isVisible === true && item.wasVisible === false) {
+                  if (!trackedElements[selector].enter) return;
+
+                  Object.keys(trackedElements[selector].enter).forEach(function (callback) {
+                      if (typeof trackedElements[selector].enter[callback] === 'function') {
+                          trackedElements[selector].enter[callback](item.node, 'enter');
+                      }
+                  });
+              }
+              if (item.isVisible === false && item.wasVisible === true) {
+                  if (!trackedElements[selector].leave) return;
+
+                  Object.keys(trackedElements[selector].leave).forEach(function (callback) {
+                      if (typeof trackedElements[selector].leave[callback] === 'function') {
+                          trackedElements[selector].leave[callback](item.node, 'leave');
+                      }
+                  });
+              }
+          });
+      });
+  }
+
+  /**
+   * Debounces the scroll event to avoid performance issues
+   *
+   * @return {void}
+   */
+  function debouncedScroll() {
+      var _this = this;
+
+      var timeout = void 0;
+
+      return function () {
+          clearTimeout(timeout);
+
+          timeout = setTimeout(function () {
+              eventHandler(_this.trackedElements, _this.options);
+          }, _this.options.debounce);
+      };
+  }
+
+  /**
+   * Removes the scroll event handler
+   *
+   * @return {void}
+   */
+  function destroy() {
+    this.options.container.removeEventListener('scroll', this._scroll);
+    window.removeEventListener('resize', this._scroll);
+    this.attached = false;
+  }
+
+  /**
+   * Stops tracking elements matching a CSS selector. If a selector has no
+   * callbacks it gets removed.
+   *
+   * @param {string} event The event you want to stop tracking (enter or leave)
+   * @param {string} selector The CSS selector you want to stop tracking
+   * @return {void}
+   */
+  function off(event, selector, handler) {
+      var enterCallbacks = Object.keys(this.trackedElements[selector].enter || {});
+      var leaveCallbacks = Object.keys(this.trackedElements[selector].leave || {});
+
+      if ({}.hasOwnProperty.call(this.trackedElements, selector)) {
+          if (handler) {
+              if (this.trackedElements[selector][event]) {
+                  var callbackName = typeof handler === 'function' ? handler.name : handler;
+                  delete this.trackedElements[selector][event][callbackName];
+              }
+          } else {
+              delete this.trackedElements[selector][event];
+          }
+      }
+
+      if (!enterCallbacks.length && !leaveCallbacks.length) {
+          delete this.trackedElements[selector];
+      }
+  }
+
+  /**
+   * Starts tracking elements matching a CSS selector
+   *
+   * @param {string} event The event you want to track (enter or leave)
+   * @param {string} selector The element you want to track
+   * @param {function} callback The callback function to handle the event
+   * @return {void}
+   */
+  function on(event, selector, callback) {
+      var allowed = ['enter', 'leave'];
+
+      if (!event) throw new Error('No event given. Choose either enter or leave');
+      if (!selector) throw new Error('No selector to track');
+      if (allowed.indexOf(event) < 0) throw new Error(event + ' event is not supported');
+
+      if (!{}.hasOwnProperty.call(this.trackedElements, selector)) {
+          this.trackedElements[selector] = {};
+      }
+
+      this.trackedElements[selector].nodes = [];
+
+      for (var i = 0, elems = document.querySelectorAll(selector); i < elems.length; i++) {
+          var item = {
+              isVisible: false,
+              wasVisible: false,
+              node: elems[i]
+          };
+
+          this.trackedElements[selector].nodes.push(item);
+      }
+
+      if (typeof callback === 'function') {
+          if (!this.trackedElements[selector][event]) {
+              this.trackedElements[selector][event] = {};
+          }
+
+          this.trackedElements[selector][event][callback.name || 'anonymous'] = callback;
+      }
+  }
+
+  /**
+   * Observes DOM mutations and runs a callback function when
+   * detecting one.
+   *
+   * @param {node} obj The DOM node you want to observe
+   * @param {function} callback The callback function you want to call
+   * @return {void}
+   */
+  function observeDOM(obj, callback) {
+      var MutationObserver = window.MutationObserver || window.WebKitMutationObserver;
+
+      /* istanbul ignore else */
+      if (MutationObserver) {
+          var obs = new MutationObserver(callback);
+
+          obs.observe(obj, {
+              childList: true,
+              subtree: true
+          });
+      } else {
+          obj.addEventListener('DOMNodeInserted', callback, false);
+          obj.addEventListener('DOMNodeRemoved', callback, false);
+      }
+  }
+
+  /**
+   * Detects wether DOM nodes enter or leave the viewport
+   *
+   * @constructor
+   * @param {object} options The configuration object
+   */
+  function OnScreen() {
+      var _this = this;
+
+      var options = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : { tolerance: 0, debounce: 100, container: window };
+
+      this.options = {};
+      this.trackedElements = {};
+
+      Object.defineProperties(this.options, {
+          container: {
+              configurable: false,
+              enumerable: false,
+              get: function get() {
+                  var container = void 0;
+
+                  if (typeof options.container === 'string') {
+                      container = document.querySelector(options.container);
+                  } else if (options.container instanceof HTMLElement) {
+                      container = options.container;
+                  }
+
+                  return container || window;
+              },
+              set: function set(value) {
+                  options.container = value;
+              }
+          },
+          debounce: {
+              get: function get() {
+                  return parseInt(options.debounce, 10) || 100;
+              },
+              set: function set(value) {
+                  options.debounce = value;
+              }
+          },
+          tolerance: {
+              get: function get() {
+                  return parseInt(options.tolerance, 10) || 0;
+              },
+              set: function set(value) {
+                  options.tolerance = value;
+              }
+          }
+      });
+
+      Object.defineProperty(this, '_scroll', {
+          enumerable: false,
+          configurable: false,
+          writable: false,
+          value: this._debouncedScroll.call(this)
+      });
+
+      observeDOM(document.querySelector('body'), function () {
+          Object.keys(_this.trackedElements).forEach(function (element) {
+              _this.on('enter', element);
+              _this.on('leave', element);
+          });
+      });
+
+      this.attach();
+  }
+
+  Object.defineProperties(OnScreen.prototype, {
+      _debouncedScroll: {
+          configurable: false,
+          writable: false,
+          enumerable: false,
+          value: debouncedScroll
+      },
+      attach: {
+          configurable: false,
+          writable: false,
+          enumerable: false,
+          value: attach
+      },
+      destroy: {
+          configurable: false,
+          writable: false,
+          enumerable: false,
+          value: destroy
+      },
+      off: {
+          configurable: false,
+          writable: false,
+          enumerable: false,
+          value: off
+      },
+      on: {
+          configurable: false,
+          writable: false,
+          enumerable: false,
+          value: on
+      }
+  });
+
+  OnScreen.check = inViewport;
+
+  return OnScreen;
+
+}));
+
+
+},{}],23:[function(require,module,exports){
 /**
  * Outlayer Item
  */
@@ -16388,7 +16806,7 @@ return Item;
 
 }));
 
-},{"ev-emitter":7,"get-size":9}],23:[function(require,module,exports){
+},{"ev-emitter":7,"get-size":9}],24:[function(require,module,exports){
 /*!
  * Outlayer v2.1.1
  * the brains and guts of a layout library
@@ -17329,7 +17747,7 @@ return Outlayer;
 
 }));
 
-},{"./item":22,"ev-emitter":7,"fizzy-ui-utils":8,"get-size":9}],24:[function(require,module,exports){
+},{"./item":23,"ev-emitter":7,"fizzy-ui-utils":8,"get-size":9}],25:[function(require,module,exports){
 /*! sidr - v2.2.1 - 2016-02-17
  * http://www.berriart.com/sidr/
  * Copyright (c) 2013-2016 Alberto Varela; Licensed MIT */
@@ -17909,7 +18327,7 @@ return Outlayer;
   jQuery.fn.sidr = fnSidr;
 
 }());
-},{}],25:[function(require,module,exports){
+},{}],26:[function(require,module,exports){
 /*
      _ _      _       _
  ___| (_) ___| | __  (_)___
