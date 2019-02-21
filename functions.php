@@ -1,10 +1,4 @@
 <?php
-	
-// Disable Gutenberg
-add_filter( 'gutenberg_can_edit_post_type', '__return_false' );
-add_filter( 'use_block_editor_for_post_type', '__return_false' );
-// Disable "Try Gutenberg" panel
-remove_action( 'try_gutenberg_panel', 'wp_try_gutenberg_panel' );
 
 // ================================================ SCRIPTS	AND STYLESHEETS
 function theme_scripts_styles() {
@@ -625,7 +619,7 @@ add_action('widgets_init', 'unregister_default_widgets', 18);
 // ================================================ BUILD OUT INITIAL PAGES AUTOMATICALLY
 
 //Home Page (Front Page)
-/*
+
 if (isset($_GET['activated']) && is_admin()){
 	$new_page_title = 'Home';
 	$new_page_content = '';
@@ -643,10 +637,10 @@ if (isset($_GET['activated']) && is_admin()){
 	update_option( 'page_on_front', $homeSet->ID );
 	update_option( 'show_on_front', 'page' );
 }
-*/
+
 
 //Blog Page (Posts Page)
-/*
+
 if (isset($_GET['activated']) && is_admin()){
 	$new_page_title = 'Blog';
 	$new_page_content = '';
@@ -663,10 +657,10 @@ if (isset($_GET['activated']) && is_admin()){
 	$blogSet = get_page_by_title( 'Blog' );
 	update_option( 'page_for_posts', $blogSet->ID );
 }
-*/
+
 
 //Leave Review Page
-/*
+
 if (isset($_GET['activated']) && is_admin()){
 	$new_page_title = 'Leave a Review';
 	$new_page_content = 'THE CONTENT FOR THIS PAGE IS PROVIDED BY CODEBASE';
@@ -686,10 +680,10 @@ if (isset($_GET['activated']) && is_admin()){
 		}
 	}
 }
-*/
+
 
 //Privacy Policy Page
-/*
+
 if (isset($_GET['activated']) && is_admin()){
 	$new_page_title = 'Privacy Policy';
 	$new_page_content = 'THE CONTENT FOR THIS PAGE IS PROVIDED BY CODEBASE';
@@ -709,10 +703,10 @@ if (isset($_GET['activated']) && is_admin()){
 		}
 	}
 }
-*/
+
 
 //Terms of Use Page
-/*
+
 if (isset($_GET['activated']) && is_admin()){
 	$new_page_title = 'Terms of Use';
 	$new_page_content = 'THE CONTENT FOR THIS PAGE IS PROVIDED BY CODEBASE';
@@ -732,10 +726,10 @@ if (isset($_GET['activated']) && is_admin()){
 		}
 	}
 }
-*/
+
 
 //Sitemap Page
-/*
+
 if (isset($_GET['activated']) && is_admin()){
 	$new_page_title = 'Sitemap';
 	$new_page_content = 'THE CONTENT FOR THIS PAGE IS PROVIDED BY CODEBASE';
@@ -755,11 +749,11 @@ if (isset($_GET['activated']) && is_admin()){
 		}
 	}
 }
-*/
+
 
 
 //Accessibility Page
-/*
+
 if (is_admin()){
 	$new_page_title = 'Accessibility';
 	$page_check = get_page_by_title($new_page_title);
@@ -779,10 +773,10 @@ if (is_admin()){
 		}
 	}
 }
-*/
+
 
 //Replace the standard content for specific pages (leave review, ...)
-/*
+
 function replace_content($content){
   global $post;
   $realtemplate = get_post_meta($post->ID, '_wp_page_template', true);
@@ -806,7 +800,7 @@ function replace_content($content){
   return $content;
 }
 add_filter('the_content','replace_content');
-*/
+
 	
 	
 // ================================================ CORE FUNCTIONS
