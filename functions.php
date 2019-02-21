@@ -1149,13 +1149,17 @@ class Walker_Quickstart_Menu extends Walker_Nav_Menu {
 					
 					//$output .= 'NAME: '.$title.' | MENU ITEM PARENT: '.$menu_item->menu_item_parent.' | MENU ITEM ID: '.$menu_item->ID.' | PARENT ID: '.$parent_id.'<br/>';
 					
-					$is_gchild = 0;
-					$gchild_counter_offset = $gchild_counter;
-					if ( $grandparent_id == $menu_item->menu_item_parent ) {
+					$is_gchild = 1;
+					$gchild_counter++;
+					$output_end_ul = '';
+					if ( $grandparent_id != $menu_item->menu_item_parent ) {
 				    //$output .= 'I AM A G-CHILD<br/>';
-				    $is_gchild = 1;
-				    $gchild_counter++;
+				    $is_gchild = 0;
+				    if($gchild_counter>1){$output_end_ul = '</ul>';}
+				    $gchild_counter = 0;
 				  }
+				  
+				  if(!empty($output_end_ul)){ $output .= $output_end_ul;}
 
 					if ( $parent_id == $menu_item->menu_item_parent ) {
 						$grandparent_id = $menu_item->ID;
@@ -1174,9 +1178,8 @@ class Walker_Quickstart_Menu extends Walker_Nav_Menu {
 			    	$output .= '<li class="item">' ."\n";
             $output .= '<a href="'.$link.'" class="title">'.$title.'G-CHILD</a>' ."\n";
             $output .= '</li>' ."\n";
-            if($gchild_counter == $gchild_counter_offset){ $output .= '</ul>';  $gchild_counter = 0;}
 		    	}
-			    
+		    	
 
 		    }
 		    $output .= '</ul>';
