@@ -157,10 +157,10 @@ $(document).ready(function(){
 	
 	// module fold_boxes
 	var os = new OnScreen();
-	os.on('enter', '.fold-panel', (element, event) => {
+	os.on('enter', '.fold-panel, .fold-slice-content', (element, event) => {
     element.classList.add("onScreen");
 	});
-	os.on('leave', '.fold-panel', (element, event) => {
+	os.on('leave', '.fold-panel, .fold-slice-content', (element, event) => {
     element.classList.remove("onScreen");
 	});
 	

@@ -14,10 +14,11 @@
 		.fold-slice.active .fold-slice-content{opacity: 1;}
 	
 	// Content styling
-	.fold-slice-content{position: absolute;left: 0;bottom: 0;opacity: 0;transition: opacity .2s;width: 500px;z-index: 3;}
+	.fold-slice-content{position: absolute;left: -499px;bottom: 0%;opacity: 0;transition: all .2s ease;width: 500px;z-index: 3;}
 		.fold-slice-content h2{padding: 10px 10px 10px 60px;color: $white;display: inline-block;font-size: 40px;}
 		.fold-slice-content p{padding-left: 60px;color: $white;}
 		.fold-slice-content a{margin: 20px 0 60px 60px;}
+	.fold-slice-content.onScreen {left:0;}
 	
 @media all and (max-width: $bp-laptop) {
   .fold-slice{width: 10%;}
