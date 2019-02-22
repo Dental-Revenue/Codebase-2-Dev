@@ -273,7 +273,7 @@ add_action( 'cmb2_admin_init', 'taxonomy_meta' );
 
 
 //Meta Box for Gallery Widget
-/*
+
 function widget_gallery_meta() {
   $prefix = 'widget_';
   
@@ -296,7 +296,7 @@ function widget_gallery_meta() {
   
 }
 add_action( 'cmb2_admin_init', 'widget_gallery_meta' );
-*/
+
 
 // ********************************************** Service Template
 /*
@@ -480,7 +480,7 @@ class widget_form extends WP_Widget {
 
 
 // Gallery Widget
-/*
+
 if(!class_exists('widget_gallery')){
 class widget_gallery extends WP_Widget {
   
@@ -563,7 +563,7 @@ class widget_gallery extends WP_Widget {
 
 }
 }
-*/ //end check to see if this widget already exists 
+ //end check to see if this widget already exists 
 
 
 
