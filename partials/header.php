@@ -58,7 +58,7 @@
 	    <div class="row full">
 	    
 	      <nav class="large-nav">
-	        <?php wp_nav_menu(array('container' => '', 'walker' => new Walker_Quickstart_Menu())); ?>        
+	        <?php wp_nav_menu(array('walker' => new Walker_Quickstart_Menu())); ?>        
 					<a href="/schedule-appointment/" class="schedule btn sm outline"><?php site_ops_cta_text(); ?></a>
 	      </nav>
 	      
@@ -82,8 +82,8 @@
 		  <div class="header-bottom">
 		    
 		      <nav class="large-nav">
-		        <?php wp_nav_menu(array('container' => '', 'walker' => new Walker_Quickstart_Menu())); ?>        
-						<a href="/schedule-appointment/" class="schedule btn sm outline"><?php site_ops_cta_text(); ?></a>
+		        <?php wp_nav_menu(array('walker' => new Walker_Quickstart_Menu())); ?> 
+		        <a href="/schedule-appointment/" class="schedule btn sm outline"><?php site_ops_cta_text(); ?></a>       
 		      </nav>
 		      
 		      <nav class="mobile-nav ">
@@ -130,7 +130,7 @@
 	    <div class="row full">
 	    
 	      <nav class="large-nav">
-	        <?php wp_nav_menu(array('container' => '', 'walker' => new Walker_Quickstart_Menu())); ?>        
+	        <?php wp_nav_menu(array('walker' => new Walker_Quickstart_Menu())); ?>        
 					<a href="/schedule-appointment/" class="schedule btn sm outline"><?php site_ops_cta_text(); ?></a>
 	      </nav>
 	      

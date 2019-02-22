@@ -1001,95 +1001,120 @@ add_action( 'init', 'register_menus' );
 
 
 
+
+
+
 //Mega Menu
-class Walker_Quickstart_Menu_SAMPLE_SHOW extends Walker_Nav_Menu {
+/**
+ * Get Menu Items From Location
+ *
+ * @param $location : location slug given as key in register_nav_menus
+ */
 
-		// Displays start of an element. E.g '<li> Item Name'
-    // @see Walker::start_el()
-    function start_el(&$output, $item, $depth=0, $args=array(), $id = 0) {
-    	$object = $item->object;
-    	$type = $item->type;
-    	$title = $item->title;
-    	$description = $item->description;
-    	$permalink = $item->url;
-    	$has_children = $args->walker->has_children;
-    	
-    	$depth = $args->depth;
-    	
-    	
-    	$output .= "<li class='" .  implode(" ", $item->classes) . "'>";
-	        
-	    //Add SPAN if no Permalink
-	    if( $permalink && $permalink != '#' ) {
-	     $output .= '<a href="' . $permalink . '">';
-	    } else {
-	     $output .= '<span>';
-	    }
-	     
-	    $output .= $title.' '. $has_children;
-	    if( $description != '' && $depth == 0 ) {
-	     $output .= '<small class="description">' . $description . '</small>';
-	    }
-	    if( $permalink && $permalink != '#' ) {
-	     $output .= '</a>';
-	    } else {
-	     $output .= '</span>';
-	    }
-    	
-    	//if has_children is true and title in array group meta field, display mega menu.
-    	
-
-    	if($has_children == true){
-	  
-		    	if($title == 'Mega Menu'){ $output .= '<div class="mega-menu-contain"><h3>Mega Menu Title</h3><p>This is a Mega Menu description.</p>'; }
-		    	$output .= '<ul class="sub-menu">';
-		    	if($title == 'Regular Dropdown'){
-			    	$output .= '<li id="menu-item-94" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-94"><a href="http://drds1.wpengine.com/dental-concerns/crooked-teeth/">Crooked Teeth</a></li>
-		<li id="menu-item-95" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-95"><a href="http://drds1.wpengine.com/dental-concerns/tooth-cavities/">Tooth Cavities</a></li>
-		<li id="menu-item-96" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-96"><a href="http://drds1.wpengine.com/dental-concerns/teeth-grinding/">Teeth Grinding</a></li>
-		<li id="menu-item-97" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-97"><a href="http://drds1.wpengine.com/dental-concerns/bleeding-gums/">Bleeding Gums</a></li>
-		<li id="menu-item-98" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-98"><a href="http://drds1.wpengine.com/dental-concerns/frequent-headaches/">Frequent Headaches</a></li>';
-	    	}
-	    	
-	    	if($title == 'Mega Menu'){
-		    	$output .= '<li id="menu-item-70" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-70"><a href="http://drds1.wpengine.com/our-services/general-dentistry/">General Dentistry</a>
-	<ul class="sub-menu">
-		<li id="menu-item-71" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-71"><a href="http://drds1.wpengine.com/our-services/general-dentistry/preventative-care/">Preventative Care</a></li>
-		<li id="menu-item-72" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-72"><a href="http://drds1.wpengine.com/our-services/general-dentistry/dental-bonding/">Dental Bonding</a></li>
-		<li id="menu-item-73" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-73"><a href="http://drds1.wpengine.com/our-services/general-dentistry/root-canals/">Root Canals</a></li>
-		<li id="menu-item-74" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-74"><a href="http://drds1.wpengine.com/our-services/general-dentistry/tooth-extractions/">Tooth Extractions</a></li>
-	</ul>
-</li>
-	<li id="menu-item-75" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-75"><a href="http://drds1.wpengine.com/our-services/cosmetic-dentistry/">Cosmetic Dentistry</a>
-	<ul class="sub-menu">
-		<li id="menu-item-76" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-76"><a href="http://drds1.wpengine.com/our-services/cosmetic-dentistry/invisible-braces/">Invisible Braces</a></li>
-		<li id="menu-item-77" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-77"><a href="http://drds1.wpengine.com/our-services/cosmetic-dentistry/porcelain-veneers/">Porcelain Veneers</a></li>
-		<li id="menu-item-78" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-78"><a href="http://drds1.wpengine.com/our-services/cosmetic-dentistry/teeth-whitening/">Teeth Whitening</a></li>
-	</ul>
-</li>
-	<li id="menu-item-79" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-79"><a href="http://drds1.wpengine.com/our-services/restorative-dentistry/">Restorative Dentistry</a>
-	<ul class="sub-menu">
-		<li id="menu-item-80" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-80"><a href="http://drds1.wpengine.com/our-services/restorative-dentistry/dental-crowns/">Dental Crowns</a></li>
-		<li id="menu-item-81" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-81"><a href="http://drds1.wpengine.com/our-services/restorative-dentistry/dental-bridges/">Dental Bridges</a></li>
-		<li id="menu-item-82" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-82"><a href="http://drds1.wpengine.com/our-services/restorative-dentistry/dental-implants/">Dental Implants</a></li>
-		<li id="menu-item-83" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-83"><a href="http://drds1.wpengine.com/our-services/restorative-dentistry/dentures-and-partials/">Dentures and Partials</a></li>
-		<li id="menu-item-84" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-84"><a href="http://drds1.wpengine.com/our-services/restorative-dentistry/tmj-therapy/">TMJ Therapy</a></li>
-	</ul>
-</li>';
-		    }
-
-	    	$output .= '</ul>';
-		    if($title == 'Mega Menu'){ $output .= '<div class="mega-menu-image"></div></div>'; }
-    	}
-			$output .= '</li>';
-    }
-
+function getMenuItemsFromLocation($location) {
+	$theme_locations = get_nav_menu_locations();
+	$menu_obj = get_term( $theme_locations[$location], 'nav_menu' );
+	return is_wp_error($menu_obj) ? [] : getMenuItemsForParent($menu_obj->slug, 0);
 }
 
 
+/**
+ * Get Menu Items For Parent
+ * 
+ * @param $menuSlug : menu slug for the CMS entry (not the key in register_nav_menus)
+ * @param $parentId
+ * @return array of items formatted as objects with : name / url / children (fetched recursively)
+ */
 
-//Mega Menu
+function getMenuItemsForParent($menuSlug, $parentId) {
+	$args = [
+			'post_type' => 'nav_menu_item',
+			'meta_key' => '_menu_item_menu_item_parent',
+			'meta_value' => $parentId,
+			'tax_query' => [
+				[
+					'taxonomy' => 'nav_menu',
+					'field' => 'slug',
+					'terms' => [$menuSlug]
+				]
+			],
+			'order' => 'ASC',
+			'orderby' => 'menu_order',
+		];
+	$tmpItems = query_posts($args);
+
+	$items = [];
+	foreach ( $tmpItems as $tmpItem ) {
+		$item = new stdClass;
+		$type = get_post_meta($tmpItem->ID, '_menu_item_type', true);
+		switch($type):
+
+			case 'post_type':
+				$postId = get_post_meta($tmpItem->ID, '_menu_item_object_id', true);
+				$post = get_post($postId);
+				$item->name = $post->post_title;
+				$item->url = '/'.$post->post_type.'/'.$post->post_name;
+				$item->id = $postId;
+				break;
+
+			case 'custom':
+				$item->name = $tmpItem->post_title;
+				$item->url = get_post_meta($tmpItem->ID, '_menu_item_url', true);
+				$item->id = $tmpItem->ID;
+				
+			// note : this has to be completed with every '_menu_item_type' (could also come from plugin)
+
+		endswitch;
+		$item->children = getMenuItemsForParent($menuSlug, $tmpItem->ID);
+		$items[] = $item;
+	}
+
+	return $items;
+}
+
+//var_dump(getMenuItemsFromLocation('primary-navigation'));
+
+
+
+
+
+
+
+
+
+
+
+
 class Walker_Quickstart_Menu extends Walker_Nav_Menu {
+	
+	function display_element( $element, &$children_elements, $max_depth, $depth, $args, &$output ) {
+    if ( ! $element ) {
+        return;
+    }
+    
+    $id_field = $this->db_fields['id'];
+    $id       = $element->$id_field;
+    
+    // descend only when the depth is right and there are childrens for this element
+    if ( $max_depth>0 ) {
+	    return;
+    }
+
+    //display this element
+    $this->has_children = ! empty( $children_elements[ $id ] );
+    if ( isset( $args[0] ) && is_array( $args[0] ) ) {
+        $args[0]['has_children'] = $this->has_children; // Back-compat.
+    }
+ 
+    $cb_args = array_merge( array( &$output, $element, $depth ), $args );
+    call_user_func_array( array( $this, 'start_el' ), $cb_args );
+ 
+    //end this element
+    $cb_args = array_merge( array( &$output, $element, $depth ), $args );
+    call_user_func_array( array( $this, 'end_el' ), $cb_args );
+}
+	
+
 
 		// Displays start of an element. E.g '<li> Item Name'
     // @see Walker::start_el()
@@ -1124,12 +1149,25 @@ class Walker_Quickstart_Menu extends Walker_Nav_Menu {
     	//if has_children is true and title in array group meta field, display mega menu.
     	
     	if($has_children == true){
-	    	$output .= '<div class="mega-menu-contain">';
+	    	$mega_headline = $mega_desc = $mega_button_title = $mega_button_url = $mega_img_id = '';
+	    	$mega_option = get_option('mega_menu_info');
+	    	if(!empty($mega_option['mega-headline-'.$item->ID])){ $mega_headline = $mega_option['mega-headline-'.$item->ID]; }
+	    	if(!empty($mega_option['mega-desc-'.$item->ID])){ $mega_desc = $mega_option['mega-desc-'.$item->ID]; }
+	    	if(!empty($mega_option['mega-button-title-'.$item->ID])){ $mega_button_title = $mega_option['mega-button-title-'.$item->ID]; }
+	    	if(!empty($mega_option['mega-button-url-'.$item->ID])){ $mega_button_url = $mega_option['mega-button-url-'.$item->ID]; }
+	    	if(!empty($mega_option['mega-file-'.$item->ID])){ 
+		    	$mega_img = $mega_option['mega-file-'.$item->ID]; 
+		    	$mega_img_id = $mega_option['mega-file-'.$item->ID.'_id'];
+		    }
+	    	
+	    	if(!empty($mega_headline)){ $output .= '<span class="mega-menu-contain">'; }
 	    	
 	    	$output .= '<ul class="sub-menu mega-menu">';
 	    	$menu_items = wp_get_nav_menu_items($args->menu->term_id);
 	    	$gchild_counter = 0;
-	    	foreach( $menu_items as $menu_item ) {
+	    	foreach( $menu_items as $menu_item ){
+		    	
+		    	//</UL> AT LAST G ITEM FOR EACH PARENT
 		    	
 		    	//$menu_item_id = $menu_item->ID;
 		    	$title = $menu_item->title;
@@ -1163,7 +1201,7 @@ class Walker_Quickstart_Menu extends Walker_Nav_Menu {
             //$output .= '<a href="'.$link.'" class="title">'.$title.' | MENU ITEM PARENT: '.$menu_item->menu_item_parent.' | PARENT ID: '.$parent_id.'</a>' ."\n";
             $output .= '<a href="'.$link.'" class="title">'.$title.'</a>' ."\n";
             $output .= '</li>' ."\n";
-			    }
+			    } 
 
 		    	if( $is_gchild == 1 ){
 			    	$link = $menu_item->url;
@@ -1174,113 +1212,31 @@ class Walker_Quickstart_Menu extends Walker_Nav_Menu {
             $output .= '</li>' ."\n";
 		    	}
 		    	
-
 		    }
 		    $output .= '</ul>';
 		    
-		    $output .= '</div>';
-		    
-		    $output .= '</li>';
+		    if(!empty($mega_headline)){ 
+			    $output .= '<div class="mega-container"><div class="mega-img"></div><div class="mega-main-container"><h3></h3><p></p><a href=""></a></div>';
+			  } 
 		    
     	}
+    	
     }
-
-}
-
-
-/*
-class Walker_Quickstart_Menu_IN_TESTING extends Walker_Nav_Menu {
-	private $ID;
-private $depth;
-private $classes = array();
-private $child_count = 0;
-private $have_current = false;
-
-
-// Don't start the top level
-function start_lvl(&$output, $depth=0, $args=array()) {
-
-    if( 0 == $depth || $this->depth != $depth )
-        return;
-
-    parent::start_lvl($output, $depth,$args);
-}
-
-// Don't end the top level
-function end_lvl(&$output, $depth=0, $args=array()) {
-    if( 0 == $depth || $this->depth != $depth )
-        return;
-
-    parent::end_lvl($output, $depth,$args);
-}
-
-// Don't print top-level elements
-function start_el(&$output, $item, $depth=0, $args=array()) {
-
-    $is_current = in_array('current-menu-item', $this->classes);
-
-    if( 0 == $depth || ! $is_current )
-        return;
-
-    parent::start_el($output, $item, $depth, $args);
-}
-
-function end_el(&$output, $item, $depth=0, $args=array()) {
-    if( 0 == $depth )
-        return;
-
-    parent::end_el($output, $item, $depth, $args);
-}
-
-// Only follow down one branch
-function display_element( $element, &$children_elements, $max_depth, $depth=0, $args, &$output ) {
-
-    // Check if element is in the current tree to display
-    $current_element_markers = array( 'current-menu-item', 'current-menu-parent', 'current-menu-ancestor' );
-    $this->classes = array_intersect( $current_element_markers, $element->classes );
-
-    // If element has a 'current' class, it is an ancestor of the current element
-    $ancestor_of_current = !empty($this->classes);
-
-    // check if the element is the actual page element we are on.
-    $is_current = in_array('current-menu-item', $this->classes);
-
-    // if it is the current element
-    if($is_current) {
-
-        // set the count / ID / and depth to use in the other functions.
-        $this->child_count = ( isset($children_elements[$element->ID]) ) ? count($children_elements[$element->ID]) : 0;
-        $this->ID = $element->ID;
-        $this->depth = $depth;
-        $this->have_current = true;
-
-        if($this->child_count > 0) {
-
-            // if there are children loop through them and display the kids.
-            foreach( $children_elements[$element->ID] as $child ) {
-                parent::display_element( $child, $children_elements, $max_depth, $depth, $args, $output );
-            }
-
-        } else {
-            // no children so loop through kids of parent item.
-
-            foreach( $children_elements[$element->menu_item_parent] as $child ) {
-                parent::display_element( $child, $children_elements, $max_depth, $depth, $args, $output );
-            }
-
-        }
+    
+    function end_el(&$output, $item, $depth=0, $args=array()) {
+	    $mega_option = get_option('mega_menu_info');
+	    if(!empty($mega_option['mega-headline-'.$item->ID])){ $output .= "</div>"; }
+      $output .= "</li>\n";
     }
+   
 
-    // if depth is zero and not in current tree go to the next element
-    if ( 0 == $depth && !$ancestor_of_current)
-        return;
+}
 
-    // if we aren't on the current element proceed as normal
-    if(! $this->have_current )
-        parent::display_element( $element, $children_elements, $max_depth, $depth, $args, $output );
-}
-}
-*/
+
+
+
+
+
 
 
 

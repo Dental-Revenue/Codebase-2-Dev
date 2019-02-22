@@ -226,44 +226,57 @@ function cmb2_mega_menu_options() {
 	
 	//create boxes based on what is in the navigation
 	$menu_slug = 'primary-navigation';
-	if ( ( $locations = get_nav_menu_locations() ) && isset( $locations[ $menu_slug ] ) ) {
-		$menu = get_term( $locations[ $menu_slug ] );
-		$menu_items = wp_get_nav_menu_items($menu->term_id);
-		foreach( $menu_items as $menu_item ) {
-			//Need to check for has_children 
-			if ( !$menu_item->menu_item_parent ) {
-				
-				$box->add_field( array(
-					'name' 					=> 'Menu Item: '.$menu_item->title,
-					'id'   					=> 'mega-title-'.$menu_item->ID,
-					'type' 					=> 'title',
-				));
-				
-				$box->add_field( array(
-					'name' 					=> 'Headline',
-					'id'   					=> 'mega-headline-'.$menu_item->ID,
-					'type' 					=> 'text',
-				));
-				
-				$box->add_field( array(
-					'name' 					=> 'Description',
-					'id'   					=> 'mega-desc-'.$menu_item->ID,
-					'type' 					=> 'text',
-				));
-				
-				$box->add_field( array(
-					'name' 					=> 'Picture',
-					'id'   					=> 'mega-file-'.$menu_item->ID,
-					'type' 					=> 'text',
-				));
-				
-				
-			}	
+	$parent_children_array = getMenuItemsFromLocation($menu_slug);
+	foreach($parent_children_array as $top_level_item){
+		if(!empty($top_level_item->children)){
+			$box->add_field( array(
+				'name' 					=> 'Menu Item: '.$top_level_item->name,
+				'id'   					=> 'mega-title-'.$top_level_item->id,
+				'type' 					=> 'title',
+			));
+			
+			$box->add_field( array(
+				'name' 					=> 'Headline',
+				'id'   					=> 'mega-headline-'.$top_level_item->id,
+				'type' 					=> 'text',
+			));
+			
+			$box->add_field( array(
+				'name' 					=> 'Description',
+				'id'   					=> 'mega-desc-'.$top_level_item->id,
+				'type' 					=> 'textarea',
+			));
+			
+			$box->add_field( array(
+				'name' 					=> 'Button Title',
+				'id'   					=> 'mega-button-title-'.$top_level_item->id,
+				'type' 					=> 'text',
+			));
+			
+			$box->add_field( array(
+				'name' 					=> 'Button URL',
+				'id'   					=> 'mega-button-url-'.$top_level_item->id,
+				'type' 					=> 'text_url',
+			));
+			
+			$box->add_field( array(
+				'name' 					=> 'Picture',
+				'id'   					=> 'mega-file-'.$top_level_item->id,
+				'type' 					=> 'file',
+				'query_args' 		=> array(
+					'type' => array(
+						'image/jpeg',
+						'image/png',
+						'image/gif'
+					)
+				)
+			));
 		}
 	}
  
 	
 }
+ 
 
 add_action( 'cmb2_admin_init', 'cmb2_mega_menu_options' );
 
