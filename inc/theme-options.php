@@ -227,6 +227,7 @@ function cmb2_mega_menu_options() {
 	//create boxes based on what is in the navigation
 	$menu_slug = 'primary-navigation';
 	$parent_children_array = getMenuItemsFromLocation($menu_slug);
+
 	foreach($parent_children_array as $top_level_item){
 		if(!empty($top_level_item->children)){
 			$box->add_field( array(
@@ -273,10 +274,9 @@ function cmb2_mega_menu_options() {
 			));
 		}
 	}
- 
-	
+
 }
- 
+
 
 add_action( 'cmb2_admin_init', 'cmb2_mega_menu_options' );
 

@@ -1010,11 +1010,12 @@ add_action( 'init', 'register_menus' );
  *
  * @param $location : location slug given as key in register_nav_menus
  */
+ 
 
 function getMenuItemsFromLocation($location) {
 	$theme_locations = get_nav_menu_locations();
 	$menu_obj = get_term( $theme_locations[$location], 'nav_menu' );
-	return is_wp_error($menu_obj) ? [] : getMenuItemsForParent($menu_obj->slug, 0);
+	return is_wp_error($menu_obj) ?  array() : getMenuItemsForParent($menu_obj->slug, 0);
 }
 
 
@@ -1027,23 +1028,23 @@ function getMenuItemsFromLocation($location) {
  */
 
 function getMenuItemsForParent($menuSlug, $parentId) {
-	$args = [
+	$args = array(
 			'post_type' => 'nav_menu_item',
 			'meta_key' => '_menu_item_menu_item_parent',
 			'meta_value' => $parentId,
-			'tax_query' => [
-				[
+			'tax_query' =>  array(
+				 array(
 					'taxonomy' => 'nav_menu',
 					'field' => 'slug',
-					'terms' => [$menuSlug]
-				]
-			],
+					'terms' => array($menuSlug)
+				)
+			),
 			'order' => 'ASC',
 			'orderby' => 'menu_order',
-		];
+		);
 	$tmpItems = query_posts($args);
 
-	$items = [];
+	$items =  array();
 	foreach ( $tmpItems as $tmpItem ) {
 		$item = new stdClass;
 		$type = get_post_meta($tmpItem->ID, '_menu_item_type', true);
@@ -1068,9 +1069,12 @@ function getMenuItemsForParent($menuSlug, $parentId) {
 		$item->children = getMenuItemsForParent($menuSlug, $tmpItem->ID);
 		$items[] = $item;
 	}
+	wp_reset_query();
 
 	return $items;
 }
+
+
 
 //var_dump(getMenuItemsFromLocation('primary-navigation'));
 
