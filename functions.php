@@ -1064,7 +1064,7 @@ class Walker_Quickstart_Menu extends Walker_Nav_Menu {
     	//if has_children is true and title in array group meta field, display mega menu.
     	
     	if($has_children == true){
-	    	$mega_headline = $mega_desc = $mega_button_title = $mega_button_url = $mega_img_id = '';
+	    	$mega_headline = $mega_desc = $mega_button_title = $mega_button_url = $mega_img = $mega_img_id = $menu_orientation = '';
 	    	$mega_option = get_option('mega_menu_info');
 	    	if(!empty($mega_option['mega-headline-'.$item->ID])){ $mega_headline = $mega_option['mega-headline-'.$item->ID]; }
 	    	if(!empty($mega_option['mega-desc-'.$item->ID])){ $mega_desc = $mega_option['mega-desc-'.$item->ID]; }
@@ -1073,11 +1073,30 @@ class Walker_Quickstart_Menu extends Walker_Nav_Menu {
 	    	if(!empty($mega_option['mega-file-'.$item->ID])){ 
 		    	$mega_img = $mega_option['mega-file-'.$item->ID]; 
 		    	$mega_img_id = $mega_option['mega-file-'.$item->ID.'_id'];
+		    	$mega_img = wp_get_attachment_image_src( $mega_img_id, 'lg');
+		    }
+		    if(!empty($mega_option['mega-orientation-'.$item->ID])){ $menu_orientation = $mega_option['mega-orientation-'.$item->ID]; }
+	    	
+	    	$mega_contain_open = $mega_contain_close = $mega_section_image = $mega_section_title = '';
+	    	if(!empty($mega_headline) || !empty($mega_img_id)){ 
+		    	$mega_contain_open = '<span class="mega-menu-contain">'; 
+		    	$mega_contain_close = '</span>';
+		    	$mega_section_image = '<div class="mega-image" style="background-image:url('.$mega_img[0].');"></div>';
+		    	$mega_section_title = '<div class="mega-title-contain">';
+			    	$mega_section_title .= !empty($mega_headline) ? '<h3>'.$mega_headline.'</h3>' : '';
+			    	$mega_section_title .= !empty($mega_desc) ? '<p>'.$mega_desc.'</p>' : '';
+			    	$mega_section_title .= !empty($mega_button_url) && !empty($mega_button_title) ? '<a href="'.$mega_button_url.'">'.$mega_button_title.'</a>' : ''; 
+			    	$mega_section_title .= '</div>';
+		    }
+		    
+		    $output .= $mega_contain_open;
+		    
+		    if(!empty($menu_orientation) && $menu_orientation == 'top-bottom'){
+			    $output .= $mega_section_image;
+			    $output .= $mega_section_title;
 		    }
 	    	
-	    	if(!empty($mega_headline)){ $output .= '<span class="mega-menu-contain">'; }
-	    	
-	    	$output .= '<ul class="sub-menu mega-menu">';
+	    	$output .= '<ul class="sub-menu">';
 	    	$menu_items = wp_get_nav_menu_items($args->menu->term_id);
 	    	$gchild_counter = 0;
 	    	foreach( $menu_items as $menu_item ){
@@ -1091,7 +1110,7 @@ class Walker_Quickstart_Menu extends Walker_Nav_Menu {
 		    	
 
 		    	//if(empty($parent_id)){ $parent_id = '';}
-		    	if(empty($grandparent_id)){ $grandparent_id = '';}
+		    	if(empty($grandparent_id)){ $grandparent_id = ''; }
 		    	if ( empty($menu_item->menu_item_parent) ) { $parent_id = $item->ID; }
 					
 					//$output .= 'NAME: '.$title.' | MENU ITEM PARENT: '.$menu_item->menu_item_parent.' | MENU ITEM ID: '.$menu_item->ID.' | PARENT ID: '.$parent_id.'<br/>';
@@ -1102,7 +1121,7 @@ class Walker_Quickstart_Menu extends Walker_Nav_Menu {
 					if ( $grandparent_id != $menu_item->menu_item_parent ) {
 				    //$output .= 'I AM A G-CHILD<br/>';
 				    $is_gchild = 0;
-				    if($gchild_counter>1){$output_end_ul = '</ul>';}
+				    if($gchild_counter>1){$output_end_ul = '</ul></li>';}
 				    $gchild_counter = 0;
 				  }
 				  
@@ -1115,7 +1134,7 @@ class Walker_Quickstart_Menu extends Walker_Nav_Menu {
 			    	$output .= '<li class="item">';
             //$output .= '<a href="'.$link.'" class="title">'.$title.' | MENU ITEM PARENT: '.$menu_item->menu_item_parent.' | PARENT ID: '.$parent_id.'</a>' ."\n";
             $output .= '<a href="'.$link.'" class="title">'.$title.'</a>' ."\n";
-            $output .= '</li>' ."\n";
+            //$output .= '</li>' ."\n";
 			    } 
 
 		    	if( $is_gchild == 1 ){
@@ -1130,19 +1149,18 @@ class Walker_Quickstart_Menu extends Walker_Nav_Menu {
 		    }
 		    $output .= '</ul>';
 		    
-		    if(!empty($mega_headline)){ 
-			    $output .= '<div class="mega-container"><div class="mega-img"></div><div class="mega-main-container"><h3></h3><p></p><a href=""></a></div>';
-			  } 
+		    if(!empty($menu_orientation) && $menu_orientation == 'side'){
+			    $output .= $mega_section_title;
+			    $output .= $mega_section_image;
+		    }
 		    
+		    $output .= $mega_contain_close;
+
     	}
     	
     }
     
-    function end_el(&$output, $item, $depth=0, $args=array()) {
-	    $mega_option = get_option('mega_menu_info');
-	    if(!empty($mega_option['mega-headline-'.$item->ID])){ $output .= "</div>"; }
-      $output .= "</li>\n";
-    }
+    
    
 
 }

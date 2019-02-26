@@ -272,6 +272,18 @@ function cmb2_mega_menu_options() {
 					)
 				)
 			));
+			
+			$box->add_field( array(
+				'name' 					=> 'Menu Orientation',
+				'id'   					=> 'mega-orientation-'.$top_level_item->id,
+				'type' => 'radio_inline',
+				'options'          => array(
+					'side' => 'Side By Side',
+					'top-bottom' => 'Top and Bottom',
+				),
+				'default' => 'side'
+			));
+			
 		}
 	}
 

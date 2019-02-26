@@ -17,7 +17,7 @@
 ?>
 	<div class="header-notification<?php echo $notification_invert_color; ?>">
 		<div class="row">
-			<p><?php site_ops_notification_message(); ?></a></p>
+			<p><?php site_ops_notification_message(); ?></p>
 		</div>
 	</div>
 <?php } } ?>
