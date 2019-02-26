@@ -23,6 +23,17 @@ function standard_meta() {
 		),
 		'default' => 'on'
 	));
+	
+	
+  if(is_active_widget( false, false, 'gallery', true )){
+    $box->add_field( array(
+      'name'    => 'Hide Widget?',
+      'desc'    => 'Hide widget on this page.',
+      'id'      => 'widget_gallerynew_show',
+      'type' => 'checkbox',
+      'show_on_cb' => 'sidebar_is_on',
+    ));
+  }
 
 }
 
@@ -32,4 +43,13 @@ function show_on_defaultPages_and_allPosts( $box ){
 	$post_id = $box->object_id();
 	$post_template = get_page_template_slug( $post_id );
 	if( $post_template == ''){ return true; } else { return false; }
+}
+
+
+function sidebar_is_on( $box ) {
+	$status = get_post_meta( $box->object_id(), 'standard_sidebar', 1 );
+
+	// Only show if sidebar is 'on'
+	return 'on' === $status;
+	
 }

@@ -348,6 +348,21 @@ $(document).ready(function () {
 				});
 		}
 
+		//Gallery Widget
+		if ($('.slick-widget-gallery').length > 0) {
+				$('.slick-widget-gallery').slick({
+						infinite: true,
+						slidesToShow: 1,
+						slidesToScroll: 1,
+						speed: 300,
+						arrows: false,
+						dots: true,
+						fade: true,
+						cssEase: 'linear',
+						autoplay: true
+				});
+		}
+
 		//Module 11
 		/*if($('.slick-m11').length>0){
     var slides = $('.slick-m11').attr('data-slides');    

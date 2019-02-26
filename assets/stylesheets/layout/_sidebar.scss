@@ -41,15 +41,16 @@ aside.widget_appt{background-color: transparent;border-radius: none;padding: 0;}
 
 
 /* CUSTOM GALLERY WIDGET */
-aside.widget_gallery{}
+aside.widget_gallery{ text-align: center;}
   aside.widget_gallery .slick-dots{margin: 20px auto 0;}
     aside.widget_gallery .slick-dots li button{background-color: $main-color;height: 10px;width: 10px;}
 
   .slick-widget-gallery{}
     a.slick-widget-gallery-img{width: 100%;height: auto;}
       a.slick-widget-gallery-img img{display: block;width: 100%;height: auto;border: 5px solid $white;box-sizing: border-box;max-width: 325px;margin: 0 auto;}
+    .slick-widget-gallery .slick-dots {border-color: $white; li button {border-color: $white;}}  
       
-  aside.widget_gallery > a{@extend .widget-on-light; @extend .widget-btn-sm; display: block;margin: 20px 0 0;text-align: center;}
+  aside.widget_gallery > a{@extend .widget-on-light; @extend .widget-btn-sm; display: inline-block;margin: 15px auto 0;text-align: center;border-color:$white; color:$white; &:hover {background-color:$white;color: $main-color;}}
       
 /* Media Queries */      
 @media all and (max-width: $bp-tablet) {
