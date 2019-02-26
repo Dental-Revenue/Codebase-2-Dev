@@ -109,52 +109,44 @@ class widget_gallery extends WP_Widget {
     $queried_object = get_queried_object();
     if($queried_object){
       $post_id = $queried_object->ID;
-      $hide_widget = get_post_meta($post_id, 'widget_gallery_show', true);
+      $hide_widget = get_post_meta($post_id, 'widget_gallerynew_show', true);
       $widget_cat = get_post_meta($post_id, 'widget_gallery_cat', true);
     }
     
     if(!$hide_widget){
     
       $title = $instance['title'];
+      $src = $instance['src'];
       echo $args['before_widget'];
       if (!empty($title)){echo $args['before_title'] . $title . $args['after_title'];}      
         
       if($post_id){
         
-        echo "<div class='slick-widget-gallery'>";
         
-        $gallery_args = array( 'post_type' => 'smile_gallery', 'orderby' => 'post_date','order' => 'DESC','posts_per_page' => 8 );
-        if($widget_cat){
-          $gallery_args = array( 'post_type' => 'smile_gallery', 'orderby' => 'post_date','order' => 'DESC','posts_per_page' => 8, 'meta_query' => array(array('key' => 'meta_patient_categories','value' => $widget_cat,'compare' => 'LIKE')));
-        }
-        $loop = new WP_Query( $gallery_args );
-        while ( $loop->have_posts() ) : $loop->the_post();
+        $loop = new WP_Query( array( 'pagename' => $src ) );
+        while ( $loop->have_posts() ) : $loop->the_post(); ?>
+		        <div class='slick-widget-gallery'>
+			        
+			        <?php $gallery_items = get_post_meta(get_the_id(),'gallery_repeat_group',true);
+				      $gallery_count = 1; 
+				      foreach($gallery_items as $item){
+							$gallery_img_1 = $gallery_img_1_id = '';
+							if(isset($item['img_1'])){ 
+								$gallery_img_1_id = $item['img_1_id']; 
+								$gallery_img_1 = wp_get_attachment_image_src( $gallery_img_1_id, 'sg-stitch' );
+							} ?>
+			        	<a href='#' class='slick-widget-gallery-img'>
+			        
+			        		<img src="<?php echo $gallery_img_1[0]; ?>" alt="<?php echo 'Main Gallery Image '.$gallery_count.' | '.get_the_title(); ?>" />
+								
+								</a>
+							<?php $gallery_count++; } ?>
+							
+	          </div>
+          <a href='<?php the_permalink(); ?>' class='btn'>View Smile Gallery</a>
+        <?php endwhile;
         
-        	echo "<a href='#' class='slick-widget-gallery-img'>";
         
-        	if(!get_post_meta(get_the_ID(), 'meta_patient_primary_id', true)){
-	        	echo wp_get_attachment_image( get_post_thumbnail_id(get_the_ID()), 'md-square' );
-        	}else{
-	        	$primary_id = get_post_meta(get_the_ID(), 'meta_patient_primary_id', true);
-						$stitch_id = get_post_meta(get_the_ID(), 'meta_patient_stitch_id', true);
-	        	if($primary_id && $stitch_id){
-            	echo wp_get_attachment_image( $stitch_id, 'md-square' );
-          	}else{
-            	echo wp_get_attachment_image( $primary_id, 'md-square' );
-          	}
-        	}
-					
-					echo "</a>";
-          
-        endwhile;
-        
-        echo "</div>";
-        
-      }
-      
-      $page = get_pages(array('meta_key' => '_wp_page_template','meta_value' => 'page-templates/template-smile-gallery.php'));
-      if($page[0]->ID){
-        echo "<a href='".get_permalink($page[0]->ID)."' class='btn'>View Smile Gallery</a>";
       }
         
       echo $args['after_widget'];
@@ -172,9 +164,9 @@ class widget_gallery extends WP_Widget {
     </p>
     <p>
       <label for="">Gallery Images Source:</label> 
-      <select class="widefat" id="gallery-source" name="gallery-source" type="text"> 
+      <select class="widefat" id="<?php echo $this->get_field_id( 'src' ); ?>" name="<?php echo $this->get_field_name( 'src' ); ?>" type="text" value="<?php echo esc_attr( $src ); ?>"> 
 	      <option>Select from Gallery Pages...</option>
-	      <?php $gallery_src = array( 'post_type' => 'page', 'orderby' => 'post_date','order' => 'DESC','posts_per_page' => -1, 'meta_query' => array( array( 'key' => '_wp_page_template', 'value' => 'template-gallery-grid.php' ) ) ); 
+	      <?php $gallery_src = array( 'post_type' => 'page', 'orderby' => 'post_date','order' => 'DESC','posts_per_page' => -1, 'meta_query' => array( array( 'key' => '_wp_page_template', 'value' => array ('page-templates/template-gallery-scroll.php', 'page-templates/template-gallery-grid.php') ) ) ); 
 		    $src = new WP_Query( $gallery_src );
         while ( $src->have_posts() ) : $src->the_post(); 
         global $post; $post_slug=$post->post_name;?>
@@ -188,7 +180,8 @@ class widget_gallery extends WP_Widget {
   public function update( $new_instance, $old_instance ) {
     $instance = array();
     $instance['title'] = ( ! empty( $new_instance['title'] ) ) ? strip_tags( $new_instance['title'] ) : '';
-      return $instance;
+    $instance['src'] = ( ! empty( $new_instance['src'] ) ) ? strip_tags( $new_instance['src'] ) : '';
+    return $instance;
   }
 
 }

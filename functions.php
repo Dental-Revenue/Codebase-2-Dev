@@ -272,31 +272,6 @@ add_action( 'cmb2_admin_init', 'taxonomy_meta' );
 */
 
 
-//Meta Box for Gallery Widget
-
-function widget_gallery_meta() {
-  $prefix = 'widget_';
-  
-  $box = new_cmb2_box( array(
-    'id' => 'widget_gallery_info',
-    'title' => __( 'Smile Gallery Widget', 'cmb2' ),
-    'object_types' => array( 'page', ),
-    'context' => 'side',
-    'priority' => 'high',
-    'show_names' => true,
-  ));
-  if(is_active_widget( false, false, 'gallery', true )){
-    $box->add_field( array(
-      'name'    => 'Hide Widget?',
-      'desc'    => 'Hide widget on this page.',
-      'id'      => $prefix.'gallerynew_show',
-      'type' => 'checkbox',
-    ));
-  }  
-  
-}
-add_action( 'cmb2_admin_init', 'widget_gallery_meta' );
-
 
 // ********************************************** Service Template
 /*
