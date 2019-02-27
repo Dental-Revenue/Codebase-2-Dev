@@ -1054,13 +1054,13 @@ class Walker_Quickstart_Menu extends Walker_Nav_Menu {
 	    	
 	    	$mega_contain_open = $mega_contain_close = $mega_section_image = $mega_section_title = '';
 	    	if(!empty($mega_headline) || !empty($mega_img_id)){ 
-		    	$mega_contain_open = '<span class="mega-menu-contain">'; 
+		    	$mega_contain_open = '<span class="mega-menu-contain '.$menu_orientation.'">'; 
 		    	$mega_contain_close = '</span>';
 		    	$mega_section_image = '<div class="mega-image" style="background-image:url('.$mega_img[0].');"></div>';
 		    	$mega_section_title = '<div class="mega-title-contain">';
 			    	$mega_section_title .= !empty($mega_headline) ? '<h3>'.$mega_headline.'</h3>' : '';
 			    	$mega_section_title .= !empty($mega_desc) ? '<p>'.$mega_desc.'</p>' : '';
-			    	$mega_section_title .= !empty($mega_button_url) && !empty($mega_button_title) ? '<a href="'.$mega_button_url.'">'.$mega_button_title.'</a>' : ''; 
+			    	$mega_section_title .= !empty($mega_button_url) && !empty($mega_button_title) ? '<a class="btn solid" href="'.$mega_button_url.'">'.$mega_button_title.'</a>' : ''; 
 			    	$mega_section_title .= '</div>';
 		    }
 		    
@@ -1125,8 +1125,8 @@ class Walker_Quickstart_Menu extends Walker_Nav_Menu {
 		    $output .= '</ul>';
 		    
 		    if(!empty($menu_orientation) && $menu_orientation == 'side'){
-			    $output .= $mega_section_title;
 			    $output .= $mega_section_image;
+			    $output .= $mega_section_title;
 		    }
 		    
 		    $output .= $mega_contain_close;
