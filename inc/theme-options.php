@@ -25,7 +25,10 @@ function cmb2_practice_options() {
 		'options' => array('url' => false),
 		'query_args' => array(
 			'type' => array('image/gif','image/jpeg','image/png')
-		)
+		),
+		'attributes'  => array(
+			'required'    => 'required',
+		),
 	));
 	
 	$box->add_field( array(
@@ -75,6 +78,9 @@ function cmb2_practice_options() {
 		'name' 					=> 'New Patient Number',
 		'id'   					=> 'new_patient_phone',
 		'type' 					=> 'text',
+		'attributes'  => array(
+			'required'    => 'required',
+		),
 	));
 	
 	$box->add_field( array(
@@ -492,6 +498,19 @@ function cmb2_appearance_options() {
 		'desc'					=> 'When do you want the notification to end? Leave blank to have no end date.',
 		'id'   					=> 'nav_notification_timestamp',
 		'type' => 'text_date_timestamp'
+	));
+	
+	$box->add_field( array(
+		'name'    => 'Optional Header Items',
+		'desc'    => 'Logo, Navigation and New Patent # are required items.',
+		'id'      => 'header_items',
+		'type'    => 'multicheck_inline',
+		'options' => array(
+			'current_patient' => 'Current Patient #',
+			'social_media' => 'Social Media Icons',
+			'address' => 'Physical Address',
+			'cta' => 'CTA Button',
+		),
 	));
 	
 	$box->add_field( array(
