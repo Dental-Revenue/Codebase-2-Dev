@@ -1003,6 +1003,9 @@ class Walker_Quickstart_Menu extends Walker_Nav_Menu {
     $cb_args = array_merge( array( &$output, $element, $depth ), $args );
     call_user_func_array( array( $this, 'end_el' ), $cb_args );
 }
+
+
+
 	
 
 
@@ -1054,7 +1057,10 @@ class Walker_Quickstart_Menu extends Walker_Nav_Menu {
 	    	
 	    	$mega_contain_open = $mega_contain_close = $mega_section_image = $mega_section_title = '';
 	    	if(!empty($mega_headline) || !empty($mega_img_id)){ 
-		    	$mega_contain_open = '<span class="mega-menu-contain '.$menu_orientation.'">'; 
+		    	$brand_color_brightness = getColorLightness(site_ops_brand_color(false));
+		    	
+		    	$mega_contain_open = $brand_color_brightness > 500 ? '<span class="mega-menu-contain '.$menu_orientation.'">' : '<span class="mega-menu-contain invert '.$menu_orientation.'">'; 
+		    	//$mega_contain_open = '<span class="mega-menu-contain '.$brand_color_brightness.' '.$menu_orientation.'">';
 		    	$mega_contain_close = '</span>';
 		    	$mega_section_image = '<div class="mega-image" style="background-image:url('.$mega_img[0].');"></div>';
 		    	$mega_section_title = '<div class="mega-title-contain">';
@@ -1066,7 +1072,7 @@ class Walker_Quickstart_Menu extends Walker_Nav_Menu {
 		    
 		    $output .= $mega_contain_open;
 		    
-		    if(!empty($menu_orientation) && $menu_orientation == 'top-bottom'){
+		    if(!empty($menu_orientation)){
 			    $output .= $mega_section_image;
 			    $output .= $mega_section_title;
 		    }
@@ -1117,26 +1123,19 @@ class Walker_Quickstart_Menu extends Walker_Nav_Menu {
             $title = $menu_item->title;
             if($gchild_counter == 1){ $output .= '<ul class="sub-menu mega-menu">'; }
 			    	$output .= '<li class="item">' ."\n";
-            $output .= '<a href="'.$link.'" class="title">'.$title.'G-CHILD</a>' ."\n";
+            $output .= '<a href="'.$link.'" class="title">'.$title.'</a>' ."\n";
             $output .= '</li>' ."\n";
 		    	}
 		    	
 		    }
-		    $output .= '</ul>';
-		    
-		    if(!empty($menu_orientation) && $menu_orientation == 'side'){
-			    $output .= $mega_section_image;
-			    $output .= $mega_section_title;
-		    }
-		    
-		    $output .= $mega_contain_close;
+		    $output .= '</ul>'; 
 
     	}
     	
     }
     
-    
-   
+
+     
 
 }
 

@@ -165,34 +165,47 @@ header.notification-active+.page-wrap, header.notification-active+.page-wrap .pa
 
 //MEGA MENU
 .mega-menu-contain{display:none; background-color:$dk-grey; @include clearfix();}
+.mega-menu-contain.invert{background-color:$lt-grey;}
 	
+	//Mega Image
 	.mega-menu-contain.side .mega-image{width:50%; float:right;}
 	.mega-menu-contain.top-bottom .mega-image{width:100%;}
 	.mega-menu-contain .mega-image{height:280px; background-size:cover; background-position:center center;}
 	
+	//Mega Title Contain
 	.mega-menu-contain.side .mega-title-contain{width:50%; float:right; clear:both;}
 	.mega-menu-contain.top-bottom .mega-title-contain{width:100%;}
 	.mega-menu-contain .mega-title-contain{padding:30px; box-sizing:border-box;}
 		.mega-title-contain h3{margin:0; padding:0;}
 		.mega-title-contain p{margin:8px 0 0; padding:0; color:$white;}
+			.mega-menu-contain.invert .mega-title-contain p{color:$dk-grey;}
 		.mega-title-contain a{margin:20px 0 0; padding:10px 20px;}
 
-		@for $i from 1 through 4 {
-		  .mega-menu-contain > ul > li:first-child:nth-last-child(#{$i}),
-		  .mega-menu-contain > ul > li:first-child:nth-last-child(#{$i}) ~ li {
-		    width: 100% / $i;
-		  }
-		}
+	//Mega Columns in Menu	
+	@for $i from 1 through 4 {
+	  .mega-menu-contain.top-bottom > ul > li:first-child:nth-last-child(#{$i}),
+	  .mega-menu-contain.top-bottom > ul > li:first-child:nth-last-child(#{$i}) ~ li {
+	    width: 100% / $i !important;
+	  }
+	}
 		
-		//MM Overrides
-		.large-nav ul li:hover .mega-menu-contain {display:block; top:100%; right:50%; transform:translateX(50%); position:absolute; width:500px; text-align:center;}
-		.large-nav ul .mega-menu-contain > ul{text-align:left !important; width:100%;}
-		.large-nav ul .mega-menu-contain > ul > li{ display:inline-block !important;}
-		.large-nav ul .mega-menu-contain > ul li{border:none;}
-		.large-nav ul .mega-menu-contain > ul ul{background-color:transparent; box-sizing:border-box;}
+	//Mega Menu List Overrides
+	.large-nav ul .mega-menu-contain > ul{text-align:left !important; width:100%; padding:10px 24px 10px 10px; box-sizing:border-box;}
+	.large-nav ul .mega-menu-contain > ul > li{ display:inline-block !important;}
+	.large-nav ul .mega-menu-contain > ul li{border:none; vertical-align:top;}
+	.large-nav ul .mega-menu-contain > ul a{padding:0 0 0 14px; white-space:normal; color:$dk-grey; &:hover{ color:$main-color; }}
+	.large-nav ul .mega-menu-contain > ul ul{background-color:transparent; box-sizing:border-box;}
 		
-		.large-nav ul .mega-menu-contain.side > ul{top:0; bottom:0; width:50%;}
-			.large-nav ul .mega-menu-contain.side > ul > li{width:100%;}
+		.large-nav ul .mega-menu-contain.side > ul{top:0; bottom:0; width:50%; overflow-x:hidden;}
+		.large-nav ul .mega-menu-contain.side > ul > li{width:100%;}
+		
+		.large-nav ul .mega-menu-contain.top-bottom > ul > li{width:25%;}
+		
+		//Menu Positioning so it never falls off the side
+		.large-nav ul li:hover .mega-menu-contain {display:block; top:100%; right:0; position:absolute; width:500px; text-align:center;}
+		.large-nav ul li:first-child:hover .mega-menu-contain, .large-nav ul li:nth-child(2):hover .mega-menu-contain { right:unset; }
+		.large-nav ul li:nth-child(3):hover .mega-menu-contain, .large-nav ul li:nth-child(4):hover .mega-menu-contain { right:50%; transform:translateX(50%); }
+
 
 /* MOBILE NAVIGATION BUTTONS */
 .mobile-nav{display: none; @include clearfix();overflow: hidden;}
