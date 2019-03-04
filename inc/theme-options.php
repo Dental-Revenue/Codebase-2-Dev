@@ -335,14 +335,6 @@ function cmb2_appearance_options() {
 	));
 	
 	$box->add_field( array(
-		'name' 					=> 'CTA button text',
-		'desc'					=> 'Text in CTA buttons. Default: Schedule Appointment',
-		'id'   					=> 'cta_text',
-		'type' 					=> 'text',
-		'default'				=> 'Schedule Appointment'
-	));
-	
-	$box->add_field( array(
 		'name' 					=> 'Sidebars On or Off?',
 		'id'   					=> 'sidebars_global',
 		'type' => 'radio_inline',
@@ -473,6 +465,34 @@ function cmb2_appearance_options() {
 	));
 	
 	$box->add_field( array(
+		'name' 					=> 'CTA button text',
+		'desc'					=> 'Text in CTA buttons. Default: Schedule Appointment',
+		'id'   					=> 'cta_text',
+		'type' 					=> 'text',
+		'default'				=> 'Schedule Appointment'
+	));
+	
+	$box->add_field( array(
+		'name' 					=> 'CTA button url',
+		'desc'					=> 'URL in CTA button. Default: /schedule-appointment/',
+		'id'   					=> 'cta_url',
+		'type' 					=> 'text',
+		'default'				=> '/schedule-appointment/'
+	));
+	
+	$box->add_field( array(
+		'name'    => 'Optional Header Items',
+		'desc'    => 'Logo, Navigation and New Patent # are required items.',
+		'id'      => 'header_items',
+		'type'    => 'multicheck_inline',
+		'options' => array(
+			'current_patient' => 'Current Patient #',
+			'address' => 'Physical Address',
+			'cta' => 'CTA Button',
+		),
+	));
+	
+	$box->add_field( array(
 		'name' 					=> 'Scroll Behavior',
 		'desc'					=> 'Choose how you would like the navigation change once scrolled down the page',
 		'id'   					=> 'scroll_style',
@@ -498,19 +518,6 @@ function cmb2_appearance_options() {
 		'desc'					=> 'When do you want the notification to end? Leave blank to have no end date.',
 		'id'   					=> 'nav_notification_timestamp',
 		'type' => 'text_date_timestamp'
-	));
-	
-	$box->add_field( array(
-		'name'    => 'Optional Header Items',
-		'desc'    => 'Logo, Navigation and New Patent # are required items.',
-		'id'      => 'header_items',
-		'type'    => 'multicheck_inline',
-		'options' => array(
-			'current_patient' => 'Current Patient #',
-			'social_media' => 'Social Media Icons',
-			'address' => 'Physical Address',
-			'cta' => 'CTA Button',
-		),
 	));
 	
 	$box->add_field( array(

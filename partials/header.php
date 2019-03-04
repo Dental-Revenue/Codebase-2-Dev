@@ -1,6 +1,7 @@
 <?php
 	$appearance_info = get_option( 'appearance_info');
 	$nav_style = $appearance_info['nav_style'];
+	$header_items = $appearance_info['header_items'];
 	$extra_header_classes = '';
 	if(!empty(site_ops_notification_message(false))){ 
 		if(empty(site_ops_notification_timestamp(false)) || site_ops_notification_timestamp(false) > time()){
@@ -38,16 +39,18 @@
 	            <p>New Patients <span class="bold"><?php site_ops_new_patient_phone(); ?></span></p>
 	          </div> 
 	          <?php } ?> 
-	          <?php if(!empty(site_ops_current_patient_phone(false))){ ?>
+	          <?php if(!empty(site_ops_current_patient_phone(false)) && in_array("current_patient", $header_items)){ ?>
 	          <div class="contact-option">
 	            <i class="fas fa-phone fa-flip-horizontal"></i>
 	            <p>Current Patients <span class="bold"><?php site_ops_current_patient_phone(); ?></span></p>
 	          </div> 
 	          <?php } ?> 
+	          <?php if (!empty(site_ops_address(false)) && in_array("address", $header_items)) { ?>
 	          <div class="contact-option street-address">
 	            <i class="fas fa-map-marker-alt"></i>
 	            <p><?php site_ops_address(); ?> <span class="bold"><?php echo site_ops_city(false).', '.site_ops_state(false).' '.site_ops_zip(false); ?></span></p>
 	          </div> 
+	          <?php } ?>
 	      </div>
 	    
 	    </div>
@@ -58,13 +61,17 @@
 	    <div class="row full">
 	    
 	      <nav class="large-nav">
-	        <?php wp_nav_menu(array('walker' => new Walker_Quickstart_Menu())); ?>        
-					<a href="/schedule-appointment/" class="schedule btn sm outline"><?php site_ops_cta_text(); ?></a>
+	        <?php wp_nav_menu(array('walker' => new Walker_Quickstart_Menu())); ?> 
+	        <?php if (!empty(site_ops_cta_text(false)) && in_array("cta", $header_items)) { ?>       
+					<a href="<?php site_ops_cta_url(); ?>" class="schedule btn sm outline"><?php site_ops_cta_text(); ?></a>
+					<? } ?>
 	      </nav>
 	      
 	      <nav class="mobile-nav ">
 	        <a href="#" id="panel-main"><i class="fas fa-bars"></i><span>Menu</span></a>
-	                <a href="/schedule-appointment/"><i class="far fa-calendar-alt"></i><span>Schedule Appt</span></a>
+	        <?php if (!empty(site_ops_cta_text(false)) && in_array("cta", $header_items)) { ?> 
+	          <a href="<?php site_ops_cta_url(); ?>"><i class="far fa-calendar-alt"></i><span><?php site_ops_cta_text(); ?></span></a>
+					<? } ?>
 	        <a href="#" id="panel-more"><i class="fas fa-info"></i><span>More Info</span></a>
 	      </nav>
 	    
@@ -83,12 +90,16 @@
 		    
 		      <nav class="large-nav">
 		        <?php wp_nav_menu(array('walker' => new Walker_Quickstart_Menu())); ?> 
-		        <a href="/schedule-appointment/" class="schedule btn sm outline"><?php site_ops_cta_text(); ?></a>       
+		        <?php if (!empty(site_ops_cta_text(false)) && in_array("cta", $header_items)) { ?> 
+		        	<a href="<?php site_ops_cta_url(); ?>" class="schedule btn sm outline"><?php site_ops_cta_text(); ?></a> 
+		        <? } ?>      
 		      </nav>
 		      
 		      <nav class="mobile-nav ">
 		        <a href="#" id="panel-main"><i class="fas fa-bars"></i><span>Menu</span></a>
-		                <a href="/schedule-appointment/"><i class="far fa-calendar-alt"></i><span>Schedule Appt</span></a>
+		        <?php if (!empty(site_ops_cta_text(false)) && in_array("cta", $header_items)) { ?>
+		           <a href="<?php site_ops_cta_url(); ?>"><i class="far fa-calendar-alt"></i><span>Schedule Appt</span></a>
+		        <? } ?>
 		        <a href="#" id="panel-more"><i class="fas fa-info"></i><span>More Info</span></a>
 		      </nav>
 		    
@@ -107,9 +118,11 @@
 	      
         <div class="contact-option street-address">
           <i class="fas fa-map-marker-alt"></i>
-          <p><?php site_ops_address(); ?> <span class="bold"><?php echo site_ops_city(false).', '.site_ops_state(false).' '.site_ops_zip(false); ?></span></p>
+          <?php if (!empty(site_ops_address(false)) && in_array("address", $header_items)) { ?>
+          	<p><?php site_ops_address(); ?> <span class="bold"><?php echo site_ops_city(false).', '.site_ops_state(false).' '.site_ops_zip(false); ?></span></p>
+          <?php } ?>
         </div>
-        <?php if(!empty(site_ops_current_patient_phone(false))){ ?>
+        <?php if(!empty(site_ops_current_patient_phone(false)) && in_array("current_patient", $header_items)){ ?>
         <div class="contact-option">
           <i class="fas fa-phone fa-flip-horizontal"></i>
           <p>Current Patients <span class="bold"><?php site_ops_current_patient_phone(); ?></span></p>
@@ -130,13 +143,17 @@
 	    <div class="row full">
 	    
 	      <nav class="large-nav">
-	        <?php wp_nav_menu(array('walker' => new Walker_Quickstart_Menu())); ?>        
-					<a href="/schedule-appointment/" class="schedule btn sm outline"><?php site_ops_cta_text(); ?></a>
+	        <?php wp_nav_menu(array('walker' => new Walker_Quickstart_Menu())); ?> 
+	        <?php if (!empty(site_ops_cta_text(false)) && in_array("cta", $header_items)) { ?>       
+						<a href="<?php site_ops_cta_url(); ?>" class="schedule btn sm outline"><?php site_ops_cta_text(); ?></a>
+					<? } ?>
 	      </nav>
 	      
 	      <nav class="mobile-nav ">
 	        <a href="#" id="panel-main"><i class="fas fa-bars"></i><span>Menu</span></a>
-	                <a href="/schedule-appointment/"><i class="far fa-calendar-alt"></i><span><?php site_ops_cta_text(); ?></span></a>
+	        <?php if (!empty(site_ops_cta_text(false)) && in_array("cta", $header_items)) { ?>
+	           <a href="<?php site_ops_cta_url(); ?>"><i class="far fa-calendar-alt"></i><span><?php site_ops_cta_text(); ?></span></a>
+	         <? } ?>
 	        <a href="#" id="panel-more"><i class="fas fa-info"></i><span>More Info</span></a>
 	      </nav>
 	    

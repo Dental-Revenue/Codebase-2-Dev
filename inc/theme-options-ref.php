@@ -157,6 +157,11 @@ function site_ops_cta_text($echo = true){
 	if(!empty($option['cta_text'])){if($echo){echo $option['cta_text'];}else{return $option['cta_text'];}}else{if($echo){echo '';}else{return '';}}
 }
 
+function site_ops_cta_url($echo = true){
+	$option = get_option('appearance_info'); 
+	if(!empty($option['cta_url'])){if($echo){echo $option['cta_url'];}else{return $option['cta_url'];}}else{if($echo){echo '';}else{return '';}}
+}
+
 function site_ops_global_sidebar($echo = true){
 	$option = get_option('appearance_info'); 
 	if(!empty($option['sidebars_global'])){if($echo){echo $option['sidebars_global'];}else{return $option['sidebars_global'];}}else{if($echo){echo '';}else{return '';}}
