@@ -34,7 +34,9 @@ $sidebar-width-neg: -260px;
  #sidr-right p {display: block;max-width:180px;margin: 2px 0 0;font-size: 14px;line-height: 130%;float: left; color:$md-grey;}
   
   @media all and (max-width: $bp-laptop) {
-		.sidr {display:block;}  
+		.sidr {display:block;} 
+			.sidr .sub-menu {display:none;}
+			.sidr li.menu-item-has-children{position:relative; a:first-of-type {padding-right:30px; position: relative; &:after {content:"\f067"; font-family: $font-awesome; font-size: 12px; position: absolute; right:10px; top:50%; transform: translateY(-50%);}} &.open{.sub-menu {display:block; a:after {display:none;}} a:after{content:"\f068";}}} 
 		
 		
 		//MOVE TO HEADER LATER

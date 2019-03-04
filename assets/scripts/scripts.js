@@ -25,12 +25,17 @@ $(document).ready(function(){
     side: 'left',
     renaming: false
   });
-	$("body").on("click touchstart",function(e) {
+	$(".header, .page-wrap").on("click touchstart",function(e) {
     $.sidr('close','sidr-left');
   });
   
   $("#sidr").on("click touchstart",function(e) {
     e.stopPropagation();
+	});
+	
+	$(".sidr li.menu-item-has-children a").on("click touchstart",function(e) {
+		e.preventDefault();
+    $(this).parent().toggleClass("open");
 	});
 	
 	$('#panel-more').sidr({
