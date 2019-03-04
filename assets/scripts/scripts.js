@@ -33,9 +33,13 @@ $(document).ready(function(){
     e.stopPropagation();
 	});
 	
-	$(".sidr li.menu-item-has-children a").on("click touchstart",function(e) {
-		e.preventDefault();
-    $(this).parent().toggleClass("open");
+	$(".sidr li.menu-item-has-children a:first").on("click touchstart",function(e) {
+		if($(this).parent().hasClass("open")) {
+			$(this).parent().removeClass("open");
+		} else {
+			$(this).parent().addClass("open");
+			e.preventDefault();
+		}
 	});
 	
 	$('#panel-more').sidr({
