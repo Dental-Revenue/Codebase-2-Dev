@@ -2,13 +2,14 @@
 
   <?php wp_footer(); ?>
   
-  <!-- recaptcha v3 script -->
-  <?php if(!empty(site_ops_recaptcha(false)) && is_page_template('page-templates/template-schedule.php')){ ?>	
+  
+  <?php // recaptcha v3 script --> 
+	if(!empty(site_ops_recaptcha(false)) && is_page_template('page-templates/template-schedule.php')){ ?>	
   <script>
   grecaptcha.ready(function() {
     // do request for recaptcha token
     // response is promise with passed token
-        grecaptcha.execute('<?php echo site_ops_recaptcha(); ?>', {action:'validate_captcha'})
+        grecaptcha.execute('<?php site_ops_recaptcha(); ?>', {action:'validate_captcha'})
                   .then(function(token) {
             // add token value to form
             document.getElementById('g-recaptcha-response').value = token;
@@ -18,12 +19,12 @@
   <?php }  ?>
   
 	<?php //Thank You Conversion Code	
-  if(is_page('thank-you') && getOption('thank_you_conversion') && getOption('thank_you_conversion')!=''){
-	  showOption('thank_you_conversion');
+  if(is_page('thank-you') && !empty(site_ops_thank_you_conversion(false))){
+	  site_ops_thank_you_conversion();
   } ?>
   
 	<?php //Convirza Script
-	if(getOption('convirza_id') && getOption('convirza_id')!='' && !isset($_GET['TrackNum']) && !isset($_COOKIE['TrackNum'])){ ?>
+	if(!empty(site_ops_convirza_id(false)) && !isset($_GET['TrackNum']) && !isset($_COOKIE['TrackNum'])){ ?>
 		<script type="text/javascript">
 		$(document).ready(function(){
 			if(!Cookies.get('TrackNum') || Cookies.get('TrackNum')==''){
@@ -32,7 +33,7 @@
 				script.onload = function () {
 					function dniLoadingTimer() {
 						if(typeof(getDNIRecord) == "function"){
-							getDNIRecord("<?php echo getOption('convirza_id'); ?>", "dni.logmycalls.com");
+							getDNIRecord("<?php site_ops_convirza_id(); ?>", "dni.logmycalls.com");
 				  	}else{
 					  	setTimeout(dniLoadingTimer, 100);
 				  	}

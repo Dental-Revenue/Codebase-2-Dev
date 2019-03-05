@@ -200,7 +200,7 @@ function cmb2_tracking_options() {
 	$box->add_field( array(
 		'name' 					=> 'Thank You Page Conversion Code',
 		'id'   					=> 'thank_you_conversion',
-		'type' 					=> 'text',
+		'type' 					=> 'textarea',
 	));
 	
 	$box->add_field( array(
