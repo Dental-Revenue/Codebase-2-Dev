@@ -144,7 +144,7 @@ class widget_gallery extends WP_Widget {
 							
 	          </div>
           <a href='<?php the_permalink(); ?>' class='btn'>View Smile Gallery</a>
-        <?php endwhile;
+        <?php endwhile; wp_reset_postdata();
         
         
       }
