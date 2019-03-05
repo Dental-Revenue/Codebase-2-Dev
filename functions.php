@@ -11,8 +11,6 @@ function theme_scripts_styles() {
   
   wp_deregister_script('jquery');
   
-  //main js file
-  wp_enqueue_script('scripts', get_template_directory_uri() . '/assets/scripts/scripts-min.js', array(), null,true);
   
   //recaptcha, conditionally loaded
 	/* Recaptcha v3
@@ -99,6 +97,15 @@ if ( file_exists(  __DIR__ . '/inc/meta/meta-gallery-pages.php' ) ) {
 if ( file_exists(  __DIR__ . '/inc/custom-widgets.php' ) ) {
   require_once  __DIR__ . '/inc/custom-widgets.php';
 }
+
+//sending convirza id before enqueueing script
+function main_script(){
+	//main js file
+	wp_register_script( 'scripts', get_template_directory_uri() . '/assets/scripts/scripts-min.js', array(), null,true);
+	wp_localize_script( 'scripts', 'global', array('convirzaID' => site_ops_convirza_id(false)));
+	wp_enqueue_script('scripts');
+}
+add_action( 'wp_enqueue_scripts', 'main_script' );
 
 // MODIFIED GET TEMPLATE PART TO ACCEPT ARGUMENTS
 function get_partial( $file, $template_args = array(), $cache_args = array() ) {

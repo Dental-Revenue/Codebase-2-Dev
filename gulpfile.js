@@ -83,7 +83,7 @@ gulp.task('process_sass', function() {
 /** Browserify Bundler */
 var b = function() {
   return browserify({
-    entries: [base.scripts, enter + '/scripts/dr-cookie-track.js', enter + '/scripts/dr-form-processor.js'],
+    entries: [base.scripts, enter + '/scripts/dr-cookie-track.js', enter + '/scripts/dr-convirza.js', enter + '/scripts/dr-form-processor.js'],
     debug: true,
     cache: {},
     paths: ['./node_modules']
