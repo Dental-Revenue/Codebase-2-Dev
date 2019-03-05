@@ -3,7 +3,7 @@
   <?php wp_footer(); ?>
   
   <!-- recaptcha v3 script -->
-  <?php if(!empty(site_ops_recaptcha(false)) && is_page_template('page-templates/template-schedule.php'){ ?>	
+  <?php if(!empty(site_ops_recaptcha(false)) && is_page_template('page-templates/template-schedule.php')){ ?>	
   <script>
   grecaptcha.ready(function() {
     // do request for recaptcha token
