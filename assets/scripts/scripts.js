@@ -69,7 +69,7 @@ $(document).ready(function(){
 			  $('.header-style-b header').css('top', '15px');
 			  
 			  $('.header-style-a .page-head, .header-style-c .page-head, .header-style-a .page-wrap, .header-style-c .page-wrap').css('margin-top', headerHeight);
-				$('.header-style-b .page-head').css('margin-top', headerHeight+15);
+				$('.header-style-b .page-head').css({'padding-top': headerHeight+15, 'margin-top': 0});
 			}
 		}
 		
@@ -87,7 +87,7 @@ $(document).ready(function(){
   if($('header.notification-active').length > 0){
 	  var headerHeight = $('header.notification-active').height();
 	  $('.header-style-a .page-head, .header-style-c .page-head, .header-style-a .page-wrap, .header-style-c .page-wrap').css('margin-top', headerHeight);
-	  $('.header-style-b .page-head').css('margin-top', headerHeight+15);
+	  $('.header-style-b .page-head').css({'padding-top': headerHeight+15, 'margin-top': 0});
 	}
   
   var headerHeight = $('header.notification-active').height();

@@ -92,7 +92,7 @@ header.nav-down.shrink{top:-84px;box-shadow: 0 0 4px rgba(0,0,0,0.25);}
 
   
 /* PAGE WRAP - OFFSETS HEADER */ 
-.page-wrap .page-head{display: block;margin: 144px 0 0;padding: 0;} 
+.page-wrap .page-head{display: block;margin: 199px 0 0;padding: 0;} 
 
 /* NOTIFICATION BAR */
 header.notification-active{height:auto;}
@@ -157,7 +157,7 @@ header.notification-active+.page-wrap, header.notification-active+.page-wrap .pa
 		.large-nav > div > ul li:hover > ul {display:block; top:100%;}
 
 /* nav third tier */	
-.large-nav ul ul ul{display:none;margin: 0 0 0 20px;border-left: 1px dotted rgba(0,0,0,0.1);position: relative;left: auto;top:auto;box-shadow: none;display: block; background-color:transparent; }
+.large-nav ul ul ul{display:none;margin: 10px 0 0 20px;border-left: 1px dotted rgba(0,0,0,0.1);position: relative;left: auto;top:auto;box-shadow: none;display: block; background-color:transparent; }
 	.large-nav ul ul ul li{display:block !important; text-align:left; padding:6px 0;}
   .large-nav ul ul ul a{font-size: 80% !important;line-height: 180% !important;text-transform: none;font-weight: 400;}
 
@@ -191,14 +191,15 @@ header.notification-active+.page-wrap, header.notification-active+.page-wrap .pa
 	.large-nav ul .mega-menu-contain > ul{text-align:left !important; width:100%; padding:10px 24px 10px 10px; box-sizing:border-box; margin:0;}
 	.large-nav ul .mega-menu-contain > ul > li{ display:inline-block !important;}
 	.large-nav ul .mega-menu-contain > ul li{vertical-align:top;}
-	.large-nav ul .mega-menu-contain > ul a{padding:0 0 0 14px; white-space:normal; &:hover{ color:$main-color; }}
+	.large-nav ul .mega-menu-contain > ul a{padding:0 0 0 14px; white-space:normal; line-height:130%; &:hover{ color:$main-color; }}
 	.large-nav ul .mega-menu-contain > ul ul{background-color:transparent; box-sizing:border-box;}
 		
 		.large-nav ul .mega-menu-contain.side > ul{top:0; bottom:0; width:50%; overflow-x:hidden; position:absolute; margin:0; padding:0; background-color:$white;}
 		.large-nav ul .mega-menu-contain.side > ul > li{width:100%;}
 		
 		.large-nav ul .mega-menu-contain.top-bottom > ul{background-color:$white;}
-			.large-nav ul .mega-menu-contain.top-bottom > ul > li{width:25%; background-color:$white;}
+			.large-nav ul .mega-menu-contain.top-bottom > ul > li{width:25%; background-color:$white; padding:5px 14px; box-sizing:border-box;}
+				.large-nav ul .mega-menu-contain.top-bottom > ul > li > a{padding:0;}
 		
 		//Menu Positioning so it never falls off the side
 		.large-nav ul li:hover .mega-menu-contain {display:block; top:100%; right:0; position:absolute; width:500px; text-align:center;}
