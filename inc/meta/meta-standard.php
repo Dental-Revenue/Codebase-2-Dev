@@ -53,3 +53,22 @@ function sidebar_is_on( $box ) {
 	return 'on' === $status;
 	
 }
+
+function h1_meta() {
+	$prefix = 'h1_meta_';
+  $box = new_cmb2_box(array(
+    'id' => 'h1_info',
+    'title' => __( 'H1 Information', 'cmb2' ),
+    'object_types' => array( 'page', ),
+    'context' => 'normal',
+    'priority' => 'high',
+    'show_names' => true,
+  ));
+  $box->add_field( array(
+    'name' => __( 'H1 Tag', 'cmb2' ),
+    'id' => $prefix . 'general_h1',
+    'type' => 'text',
+    'sanitization_cb' => false
+  ));
+}
+add_action( 'cmb2_admin_init', 'h1_meta' );

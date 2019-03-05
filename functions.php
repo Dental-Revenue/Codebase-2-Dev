@@ -705,9 +705,9 @@ function get_the_h1(){
 	global $post;
   global $heading_level_one;
   if(is_home()){
-    $heading_level_one = get_post_meta(get_option( 'page_for_posts' ), 'meta_general_h1', true);
-  }else if( get_post_meta($post->ID, 'meta_general_h1', true) != '' ){
-    $heading_level_one = get_post_meta($post->ID, 'meta_general_h1', true);
+    $heading_level_one = get_post_meta(get_option( 'page_for_posts' ), 'h1_meta_general_h1', true);
+  }else if( get_post_meta($post->ID, 'h1_meta_general_h1', true) != '' ){
+    $heading_level_one = get_post_meta($post->ID, 'h1_meta_general_h1', true);
   }
   if($heading_level_one!=''){return true;}else{return false;}
 }
@@ -715,9 +715,9 @@ function the_h1(){
 	global $post;
   global $heading_level_one;
   if(is_home()){
-    $heading_level_one = get_post_meta(get_option( 'page_for_posts' ), 'meta_general_h1', true);
-  }else if( get_post_meta($post->ID, 'meta_general_h1', true) != '' ){
-    $heading_level_one = get_post_meta($post->ID, 'meta_general_h1', true);
+    $heading_level_one = get_post_meta(get_option( 'page_for_posts' ), 'h1_meta_general_h1', true);
+  }else if( get_post_meta($post->ID, 'h1_meta_general_h1', true) != '' ){
+    $heading_level_one = get_post_meta($post->ID, 'h1_meta_general_h1', true);
   }
   echo $heading_level_one;
 }
