@@ -21,7 +21,7 @@
   
   //dots
   .reviews_testimonials_fold .slick-dots, .reviews_testimonials_fold.invert .slick-dots{position: absolute;left: 670px;bottom: 50px; border-color:$main-color;}
-  .reviews_testimonials_fold.invert .slick-dots li.slick-active button {background-color: $main-color;}
+  .reviews_testimonials_fold .slick-dots li.slick-active button, .reviews_testimonials_fold.invert .slick-dots li.slick-active button {background-color: $main-color;border-color: $main-color;}
   .reviews_testimonials_fold.invert .slick-dots li button {border-color: $main-color;background-color: transparent;}
   
   

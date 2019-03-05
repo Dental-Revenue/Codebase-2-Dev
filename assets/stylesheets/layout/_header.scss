@@ -99,7 +99,7 @@ header.notification-active{height:auto;}
 header.notification-active .header-logo{top:auto;}
 header.notification-active+.page-wrap, header.notification-active+.page-wrap .page-head{transition:margin .3s ease;}
 	.header-notification{display:block; text-align:center; background-color:$main-color;}
-		.header-notification p{font-size:15px;}
+		.header-notification p{font-size:15px; line-height: 1.2;}
 		.header-notification.invert p{color:$white;}
 			.header-notification p a{font-weight:bold; opacity:1; transition:opacity .3s ease; &:hover{opacity:.7;}}
 			

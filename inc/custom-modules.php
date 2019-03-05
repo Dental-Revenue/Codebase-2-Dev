@@ -60,69 +60,42 @@ function render_modules(){ ?>
 						<label>Module #</label>
 						<select name="module_name">
 							<option value="fold_slider">Fold Slider</option>
-							<option>------------------</option>
 							<option value="fold_slices">Fold Slices</option>
-							<option>------------------</option>
 							<option value="fold_boxes">Fold Boxes</option>
 							<option>------------------</option>
 							<option value="static_mini_blocks">Static Mini Blocks</option>
-							<option>------------------</option>
 							<option value="static_big_small">Static Big/Small</option>
-							<option>------------------</option>
 							<option value="static_big_small_hover">Static Big/Small Hover</option>
-							<option>------------------</option>
 							<option value="static_big_big">Static Big/Big</option>
-							<option>------------------</option>
 							<option value="static_intro_section">Static Intro Section</option>
-							<option>------------------</option>
 							<option value="static_block_grid">Static Block Grid</option>
-							<option>------------------</option>
 							<option value="static_cta_fold">Static CTA Fold</option>
-							<option>------------------</option>
 							<option value="static_image_split">Static Image Split</option>
-							<option>------------------</option>
 							<option value="static_image_offset">Static Image Offset</option>
-							<option>------------------</option>
 							<option value="static_blocks_list">Static Blocks List</option>
-							<option>------------------</option>
 							<option value="static_photo_list">Static Photo List</option>
-							<option>------------------</option>
 							<option value="static_image_content">Static Image Content</option>
-							<option>------------------</option>
 							<option value="static_side_by_side">Static Side By Side</option>
-							<option>------------------</option>
 							<option value="static_multiple_col">Static Multiple Columns</option>
-							<option>------------------</option>
 							<option value="static_tabs">Static Tabs</option>
-							<option>------------------</option>
 							<option value="static_4_up">Static 4-Up</option>
-							<option>------------------</option>
 							<option value="static_5_up">Static 5-Up</option>
 							<option>------------------</option>
 							<option value="breaker">Breaker</option>
-							<option>------------------</option>
 							<option value="specials_breaker">Specials Breaker</option>
 							<option>------------------</option>
 							<option value="carousel_1">Carousel 1</option>
-							<option>------------------</option>
 							<option value="carousel_2">Carousel 2</option>
-							<option>------------------</option>
 							<option value="carousel_3">Carousel 3</option>
 							<option>------------------</option>
 							<option value="blog_big_small">Blog Big Small</option>
-							<option>------------------</option>
 							<option value="blog_columns">Blog Columns</option>
-							<option>------------------</option>
 							<option value="blog_full_width">Blog Full Width</option>
 							<option>------------------</option>
 							<option value="logo_scroll">Logo Scroll</option>
-							<option>------------------</option>
 							<option value="reviews_testimonials_fold">Reviews Testimonials Fold</option>
-							<option>------------------</option>
 							<option value="reviews_testimonials_carousel">Reviews Testimonials Carousel</option>
-							<option>------------------</option>
 							<option value="reviews_testimonials_grid">Reviews Testimonials Grid</option>
-							<option>------------------</option>
 							<option value="reviews_google">Reviews Google</option>
 							<option>------------------</option>
 						</select>
