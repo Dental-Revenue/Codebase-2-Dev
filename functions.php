@@ -1062,7 +1062,7 @@ class Walker_Quickstart_Menu extends Walker_Nav_Menu {
 		    	$mega_contain_open = $brand_color_brightness > 500 ? '<span class="mega-menu-contain '.$menu_orientation.'">' : '<span class="mega-menu-contain invert '.$menu_orientation.'">'; 
 		    	//$mega_contain_open = '<span class="mega-menu-contain '.$brand_color_brightness.' '.$menu_orientation.'">';
 		    	$mega_contain_close = '</span>';
-		    	$mega_section_image = '<div class="mega-image" style="background-image:url('.$mega_img[0].');"></div>';
+		    	$mega_section_image = !empty($mega_img) ? '<div class="mega-image" style="background-image:url('.$mega_img[0].');"></div>' : '';
 		    	$mega_section_title = '<div class="mega-title-contain">';
 			    	$mega_section_title .= !empty($mega_headline) ? '<h3>'.$mega_headline.'</h3>' : '';
 			    	$mega_section_title .= !empty($mega_desc) ? '<p>'.$mega_desc.'</p>' : '';
@@ -1117,7 +1117,7 @@ class Walker_Quickstart_Menu extends Walker_Nav_Menu {
             $output .= '<a href="'.$link.'" class="title">'.$title.'</a>' ."\n";
             //$output .= '</li>' ."\n";
 			    } 
-
+					
 		    	if( $is_gchild == 1 ){
 			    	$link = $menu_item->url;
             $title = $menu_item->title;
