@@ -11,8 +11,11 @@
 	.static_big_small_hover{padding-bottom: 30px;}
 	.static_big_small_hover-box{height: 0 !important;padding-bottom: 50%;}
 		.static_big_small_hover-box.hover-up-parent .hover-up-child{bottom:0;}
+		
+	.static_big_small_hover-right .static_big_small_hover-box{padding-bottom:calc(53.6% - 15px);}
 	
 } 
 
 @media all and (max-width: $bp-phone) {
+	.static_big_small_hover-left{margin-bottom:30px;}
 }
