@@ -66,8 +66,12 @@ Template Name: Schedule Appointment Form
           <br />
           
           <?php  if(!empty(site_ops_recaptcha(false))){ ?>
-            <input type="hidden" id="g-recaptcha-response" name="g-recaptcha-response">
-						<input type="hidden" name="action" value="validate_captcha">
+            <!-- recaptcha v3 stuff
+	          <input type="hidden" id="g-recaptcha-response" name="g-recaptcha-response">
+						<input type="hidden" name="action" value="validate_captcha"> -->
+						<div class="captcha-container">
+              <div class="g-recaptcha" data-sitekey="<?php site_ops_recaptcha(); ?>"></div>
+            </div>
           <?php }  ?>
                                         
           <button type="submit" class="btn solid">Submit</button>

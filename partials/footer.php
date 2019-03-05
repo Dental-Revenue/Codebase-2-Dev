@@ -27,7 +27,7 @@
           <?php if(!empty(site_ops_new_patient_phone(false))){ ?>
           <div class="contact-option">
             <i class="fas fa-phone fa-flip-horizontal"></i>
-            <p>New Patients <span class="bold"><?php site_ops_new_patient_phone(); ?></span></p>
+            <p>New Patients <span class="bold tracknum"><?php site_ops_new_patient_phone(); ?></span></p>
           </div> 
           <?php } ?>
           <?php if(!empty(site_ops_current_patient_phone(false))){ ?>

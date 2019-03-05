@@ -4,7 +4,7 @@
   
   
   <?php // recaptcha v3 script --> 
-	if(!empty(site_ops_recaptcha(false)) && is_page_template('page-templates/template-schedule.php')){ ?>	
+	/* if(!empty(site_ops_recaptcha(false)) && is_page_template('page-templates/template-schedule.php')){ ?>	
   <script>
   grecaptcha.ready(function() {
     // do request for recaptcha token
@@ -15,8 +15,8 @@
             document.getElementById('g-recaptcha-response').value = token;
         });
     });
-  </script>
-  <?php }  ?>
+  </script> 
+  <?php } */ ?>
   
 	<?php //Thank You Conversion Code	
   if(is_page('thank-you') && !empty(site_ops_thank_you_conversion(false))){

@@ -15,9 +15,10 @@ function theme_scripts_styles() {
   wp_enqueue_script('scripts', get_template_directory_uri() . '/assets/scripts/scripts-min.js', array(), null,true);
   
   //recaptcha, conditionally loaded
+	/* Recaptcha v3
 	$form_info = get_option('form_info');
-	$recaptcha = $form_info['form_recaptcha'];
-  wp_register_script('recaptcha', ("https://www.google.com/recaptcha/api.js?render=".$recaptcha.""), array(), null,true); 
+	$recaptcha = $form_info['form_recaptcha']; */
+  wp_register_script('recaptcha', ("https://www.google.com/recaptcha/api.js"), array(), null,true); 
   
 }
 add_action( 'wp_enqueue_scripts', 'theme_scripts_styles' );

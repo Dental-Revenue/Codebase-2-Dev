@@ -14,7 +14,7 @@
 
 <?php wp_head(); ?>
 
-<?php if(getOption('form_recaptcha') && getOption('form_recaptcha')!='' && is_page_template('page-templates/template-schedule.php')){
+<?php if(!empty(site_ops_recaptcha(false)) && is_page_template('page-templates/template-schedule.php')){
   wp_enqueue_script('recaptcha');
 } ?>
 
