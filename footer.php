@@ -2,6 +2,21 @@
 
   <?php wp_footer(); ?>
   
+  <!-- recaptcha v3 script -->
+  <?php if(!empty(site_ops_recaptcha(false)) && is_page_template('page-templates/template-schedule.php'){ ?>	
+  <script>
+  grecaptcha.ready(function() {
+    // do request for recaptcha token
+    // response is promise with passed token
+        grecaptcha.execute('<?php echo site_ops_recaptcha(); ?>', {action:'validate_captcha'})
+                  .then(function(token) {
+            // add token value to form
+            document.getElementById('g-recaptcha-response').value = token;
+        });
+    });
+  </script>
+  <?php }  ?>
+  
 	<?php //Thank You Conversion Code	
   if(is_page('thank-you') && getOption('thank_you_conversion') && getOption('thank_you_conversion')!=''){
 	  showOption('thank_you_conversion');
