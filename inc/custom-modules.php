@@ -97,7 +97,6 @@ function render_modules(){ ?>
 							<option value="reviews_testimonials_carousel">Reviews Testimonials Carousel</option>
 							<option value="reviews_testimonials_grid">Reviews Testimonials Grid</option>
 							<option value="reviews_google">Reviews Google</option>
-							<option>------------------</option>
 						</select>
 						<label>Module Name</label>
 						<input type="text" name="module_display_name" />

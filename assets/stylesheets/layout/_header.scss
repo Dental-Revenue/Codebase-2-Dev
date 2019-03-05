@@ -237,7 +237,7 @@ header.notification-active+.page-wrap, header.notification-active+.page-wrap .pa
 }
 
 @media all and (max-width: $bp-phablet) {
-  
+  .mobile-nav a {width: 25%;}
   .mobile-nav a span{display: none;}
   
 }
