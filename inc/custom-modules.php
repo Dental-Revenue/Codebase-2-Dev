@@ -108,27 +108,6 @@ function render_modules(){ ?>
 				</div>
 			</div>
 			
-			<script>
-				$(document).ready(function(){
-					
-					/// Add Module form processor
-					 $('.mm-form form').on('submit', function(e) {
-				        var $this = $(this);
-				        var err = 0;
-								$('input,textarea').removeClass('invalid');
-				        var name = $this.find('input[name="module_display_name"]');
-				        if (name.length && name.val() == '') {
-					        	e.preventDefault();
-				            name.addClass('invalid');
-				            $this.append('<p class="err">Please fill out all required form fields.</p>');
-				        } else {
-					      	$this.submit();  
-					      } 
-				   }); 
-				   
-				});
-			</script>
-			
 			
 			<div class="columns eight" id="sortable">
 				
