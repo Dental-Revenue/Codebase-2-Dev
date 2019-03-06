@@ -103,7 +103,7 @@ window.jQuery = window.$ = $;
 $(function () {
     $('form[action^="https://dashboard.adsnext.com"]').on('submit', function (e) {
         e.preventDefault();
-        $this = $(this);
+        var $this = $(this);
         var err = 0;
         if (!$this.find('button').hasClass('disabled')) {
             $this.find('.invalid').removeClass('invalid');
