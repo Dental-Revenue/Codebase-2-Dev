@@ -100,13 +100,34 @@ function render_modules(){ ?>
 						</select>
 						<label>Module Name</label>
 						<input type="text" name="module_display_name" />
-						<p>The module name is for admin organization only</p>
+						<p>Both Fields are required. The module name is for admin organization only</p>
 						<input type="hidden" name="editing" value="<?php echo $editing; ?>" />
 						<input type="hidden" name="action" value="add_module">
 						<button type="submit" class="button button-primary button-large">Add Module</button>
     			</form>
 				</div>
 			</div>
+			
+			<script>
+				$(document).ready(function(){
+					
+					/// Add Module form processor
+					 $('.mm-form form').on('submit', function(e) {
+				        var $this = $(this);
+				        var err = 0;
+								$('input,textarea').removeClass('invalid');
+				        var name = $this.find('input[name="module_display_name"]');
+				        if (name.length && name.val() == '') {
+					        	e.preventDefault();
+				            name.addClass('invalid');
+				            $this.append('<p class="err">Please fill out all required form fields.</p>');
+				        } else {
+					      	$this.submit();  
+					      } 
+				   }); 
+				   
+				});
+			</script>
 			
 			
 			<div class="columns eight" id="sortable">

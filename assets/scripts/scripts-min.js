@@ -1,38 +1,4 @@
 (function(){function r(e,n,t){function o(i,f){if(!n[i]){if(!e[i]){var c="function"==typeof require&&require;if(!f&&c)return c(i,!0);if(u)return u(i,!0);var a=new Error("Cannot find module '"+i+"'");throw a.code="MODULE_NOT_FOUND",a}var p=n[i]={exports:{}};e[i][0].call(p.exports,function(r){var n=e[i][1][r];return o(n||r)},p,p.exports,r,e,n,t)}return n[i].exports}for(var u="function"==typeof require&&require,i=0;i<t.length;i++)o(t[i]);return o}return r})()({1:[function(require,module,exports){
-(function (global){
-'use strict';
-
-//DR Convirza
-//v1.0
-var $ = require('jquery');
-window.jQuery = window.$ = $;
-var Cookies = require("js-cookie");
-
-$(document).ready(function () {
-	//global.convirzaID is set via wp_localize_script in PHP in functions.php
-	if (global.convirzaID.length > 0) {
-		if (!Cookies.get('TrackNum') || Cookies.get('TrackNum') == '') {
-
-			var script = document.createElement('script');
-			script.onload = function () {
-				function dniLoadingTimer() {
-					if (typeof getDNIRecord == "function") {
-						getDNIRecord(global.convirzaID, "dni.logmycalls.com");
-					} else {
-						setTimeout(dniLoadingTimer, 100);
-					}
-				}
-				setTimeout(dniLoadingTimer, 100);
-			};
-			script.src = 'https://dni.logmycalls.com/dni.js?app_id=CT';
-			document.head.appendChild(script);
-		}
-	}
-});
-
-}).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
-
-},{"jquery":19,"js-cookie":20}],2:[function(require,module,exports){
 'use strict';
 
 //DR Cookie Track
@@ -92,7 +58,7 @@ function getParameterByName(name, url) {
     return decodeURIComponent(results[2].replace(/\+/g, " "));
 }
 
-},{"jquery":19,"js-cookie":20}],3:[function(require,module,exports){
+},{"jquery":18,"js-cookie":19}],2:[function(require,module,exports){
 'use strict';
 
 //DR Form Processor
@@ -179,7 +145,7 @@ $(function () {
     });
 });
 
-},{"jquery":19}],4:[function(require,module,exports){
+},{"jquery":18}],3:[function(require,module,exports){
 'use strict';
 
 //require jQuery
@@ -685,7 +651,12 @@ $(document).ready(function () {
 		});
 });
 
-},{"bootstrap/js/dist/tab.js":5,"imagesloaded":11,"isotope-layout":12,"jquery":19,"jquery-bridget":18,"magnific-popup":21,"onscreen":23,"sidr/dist/jquery.sidr.js":26,"slick-carousel":27}],5:[function(require,module,exports){
+},{"bootstrap/js/dist/tab.js":4,"imagesloaded":10,"isotope-layout":11,"jquery":18,"jquery-bridget":17,"magnific-popup":20,"onscreen":22,"sidr/dist/jquery.sidr.js":25,"slick-carousel":26}],4:[function(require,module,exports){
+/*!
+  * Bootstrap tab.js v4.2.1 (https://getbootstrap.com/)
+  * Copyright 2011-2018 The Bootstrap Authors (https://github.com/twbs/bootstrap/graphs/contributors)
+  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
+  */
 (function (global, factory) {
   typeof exports === 'object' && typeof module !== 'undefined' ? module.exports = factory(require('jquery'), require('./util.js')) :
   typeof define === 'function' && define.amd ? define(['jquery', './util.js'], factory) :
@@ -712,260 +683,248 @@ $(document).ready(function () {
   }
 
   /**
-   * --------------------------------------------------------------------------
-   * Bootstrap (v4.1.3): tab.js
-   * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
-   * --------------------------------------------------------------------------
+   * ------------------------------------------------------------------------
+   * Constants
+   * ------------------------------------------------------------------------
    */
 
-  var Tab = function ($$$1) {
+  var NAME = 'tab';
+  var VERSION = '4.2.1';
+  var DATA_KEY = 'bs.tab';
+  var EVENT_KEY = "." + DATA_KEY;
+  var DATA_API_KEY = '.data-api';
+  var JQUERY_NO_CONFLICT = $.fn[NAME];
+  var Event = {
+    HIDE: "hide" + EVENT_KEY,
+    HIDDEN: "hidden" + EVENT_KEY,
+    SHOW: "show" + EVENT_KEY,
+    SHOWN: "shown" + EVENT_KEY,
+    CLICK_DATA_API: "click" + EVENT_KEY + DATA_API_KEY
+  };
+  var ClassName = {
+    DROPDOWN_MENU: 'dropdown-menu',
+    ACTIVE: 'active',
+    DISABLED: 'disabled',
+    FADE: 'fade',
+    SHOW: 'show'
+  };
+  var Selector = {
+    DROPDOWN: '.dropdown',
+    NAV_LIST_GROUP: '.nav, .list-group',
+    ACTIVE: '.active',
+    ACTIVE_UL: '> li > .active',
+    DATA_TOGGLE: '[data-toggle="tab"], [data-toggle="pill"], [data-toggle="list"]',
+    DROPDOWN_TOGGLE: '.dropdown-toggle',
+    DROPDOWN_ACTIVE_CHILD: '> .dropdown-menu .active'
     /**
      * ------------------------------------------------------------------------
-     * Constants
+     * Class Definition
      * ------------------------------------------------------------------------
      */
-    var NAME = 'tab';
-    var VERSION = '4.1.3';
-    var DATA_KEY = 'bs.tab';
-    var EVENT_KEY = "." + DATA_KEY;
-    var DATA_API_KEY = '.data-api';
-    var JQUERY_NO_CONFLICT = $$$1.fn[NAME];
-    var Event = {
-      HIDE: "hide" + EVENT_KEY,
-      HIDDEN: "hidden" + EVENT_KEY,
-      SHOW: "show" + EVENT_KEY,
-      SHOWN: "shown" + EVENT_KEY,
-      CLICK_DATA_API: "click" + EVENT_KEY + DATA_API_KEY
-    };
-    var ClassName = {
-      DROPDOWN_MENU: 'dropdown-menu',
-      ACTIVE: 'active',
-      DISABLED: 'disabled',
-      FADE: 'fade',
-      SHOW: 'show'
-    };
-    var Selector = {
-      DROPDOWN: '.dropdown',
-      NAV_LIST_GROUP: '.nav, .list-group',
-      ACTIVE: '.active',
-      ACTIVE_UL: '> li > .active',
-      DATA_TOGGLE: '[data-toggle="tab"], [data-toggle="pill"], [data-toggle="list"]',
-      DROPDOWN_TOGGLE: '.dropdown-toggle',
-      DROPDOWN_ACTIVE_CHILD: '> .dropdown-menu .active'
-      /**
-       * ------------------------------------------------------------------------
-       * Class Definition
-       * ------------------------------------------------------------------------
-       */
 
-    };
+  };
 
-    var Tab =
-    /*#__PURE__*/
-    function () {
-      function Tab(element) {
-        this._element = element;
-      } // Getters
+  var Tab =
+  /*#__PURE__*/
+  function () {
+    function Tab(element) {
+      this._element = element;
+    } // Getters
 
 
-      var _proto = Tab.prototype;
+    var _proto = Tab.prototype;
 
-      // Public
-      _proto.show = function show() {
-        var _this = this;
+    // Public
+    _proto.show = function show() {
+      var _this = this;
 
-        if (this._element.parentNode && this._element.parentNode.nodeType === Node.ELEMENT_NODE && $$$1(this._element).hasClass(ClassName.ACTIVE) || $$$1(this._element).hasClass(ClassName.DISABLED)) {
-          return;
-        }
+      if (this._element.parentNode && this._element.parentNode.nodeType === Node.ELEMENT_NODE && $(this._element).hasClass(ClassName.ACTIVE) || $(this._element).hasClass(ClassName.DISABLED)) {
+        return;
+      }
 
-        var target;
-        var previous;
-        var listElement = $$$1(this._element).closest(Selector.NAV_LIST_GROUP)[0];
-        var selector = Util.getSelectorFromElement(this._element);
+      var target;
+      var previous;
+      var listElement = $(this._element).closest(Selector.NAV_LIST_GROUP)[0];
+      var selector = Util.getSelectorFromElement(this._element);
 
-        if (listElement) {
-          var itemSelector = listElement.nodeName === 'UL' ? Selector.ACTIVE_UL : Selector.ACTIVE;
-          previous = $$$1.makeArray($$$1(listElement).find(itemSelector));
-          previous = previous[previous.length - 1];
-        }
+      if (listElement) {
+        var itemSelector = listElement.nodeName === 'UL' || listElement.nodeName === 'OL' ? Selector.ACTIVE_UL : Selector.ACTIVE;
+        previous = $.makeArray($(listElement).find(itemSelector));
+        previous = previous[previous.length - 1];
+      }
 
-        var hideEvent = $$$1.Event(Event.HIDE, {
-          relatedTarget: this._element
+      var hideEvent = $.Event(Event.HIDE, {
+        relatedTarget: this._element
+      });
+      var showEvent = $.Event(Event.SHOW, {
+        relatedTarget: previous
+      });
+
+      if (previous) {
+        $(previous).trigger(hideEvent);
+      }
+
+      $(this._element).trigger(showEvent);
+
+      if (showEvent.isDefaultPrevented() || hideEvent.isDefaultPrevented()) {
+        return;
+      }
+
+      if (selector) {
+        target = document.querySelector(selector);
+      }
+
+      this._activate(this._element, listElement);
+
+      var complete = function complete() {
+        var hiddenEvent = $.Event(Event.HIDDEN, {
+          relatedTarget: _this._element
         });
-        var showEvent = $$$1.Event(Event.SHOW, {
+        var shownEvent = $.Event(Event.SHOWN, {
           relatedTarget: previous
         });
-
-        if (previous) {
-          $$$1(previous).trigger(hideEvent);
-        }
-
-        $$$1(this._element).trigger(showEvent);
-
-        if (showEvent.isDefaultPrevented() || hideEvent.isDefaultPrevented()) {
-          return;
-        }
-
-        if (selector) {
-          target = document.querySelector(selector);
-        }
-
-        this._activate(this._element, listElement);
-
-        var complete = function complete() {
-          var hiddenEvent = $$$1.Event(Event.HIDDEN, {
-            relatedTarget: _this._element
-          });
-          var shownEvent = $$$1.Event(Event.SHOWN, {
-            relatedTarget: previous
-          });
-          $$$1(previous).trigger(hiddenEvent);
-          $$$1(_this._element).trigger(shownEvent);
-        };
-
-        if (target) {
-          this._activate(target, target.parentNode, complete);
-        } else {
-          complete();
-        }
+        $(previous).trigger(hiddenEvent);
+        $(_this._element).trigger(shownEvent);
       };
 
-      _proto.dispose = function dispose() {
-        $$$1.removeData(this._element, DATA_KEY);
-        this._element = null;
-      }; // Private
-
-
-      _proto._activate = function _activate(element, container, callback) {
-        var _this2 = this;
-
-        var activeElements;
-
-        if (container.nodeName === 'UL') {
-          activeElements = $$$1(container).find(Selector.ACTIVE_UL);
-        } else {
-          activeElements = $$$1(container).children(Selector.ACTIVE);
-        }
-
-        var active = activeElements[0];
-        var isTransitioning = callback && active && $$$1(active).hasClass(ClassName.FADE);
-
-        var complete = function complete() {
-          return _this2._transitionComplete(element, active, callback);
-        };
-
-        if (active && isTransitioning) {
-          var transitionDuration = Util.getTransitionDurationFromElement(active);
-          $$$1(active).one(Util.TRANSITION_END, complete).emulateTransitionEnd(transitionDuration);
-        } else {
-          complete();
-        }
-      };
-
-      _proto._transitionComplete = function _transitionComplete(element, active, callback) {
-        if (active) {
-          $$$1(active).removeClass(ClassName.SHOW + " " + ClassName.ACTIVE);
-          var dropdownChild = $$$1(active.parentNode).find(Selector.DROPDOWN_ACTIVE_CHILD)[0];
-
-          if (dropdownChild) {
-            $$$1(dropdownChild).removeClass(ClassName.ACTIVE);
-          }
-
-          if (active.getAttribute('role') === 'tab') {
-            active.setAttribute('aria-selected', false);
-          }
-        }
-
-        $$$1(element).addClass(ClassName.ACTIVE);
-
-        if (element.getAttribute('role') === 'tab') {
-          element.setAttribute('aria-selected', true);
-        }
-
-        Util.reflow(element);
-        $$$1(element).addClass(ClassName.SHOW);
-
-        if (element.parentNode && $$$1(element.parentNode).hasClass(ClassName.DROPDOWN_MENU)) {
-          var dropdownElement = $$$1(element).closest(Selector.DROPDOWN)[0];
-
-          if (dropdownElement) {
-            var dropdownToggleList = [].slice.call(dropdownElement.querySelectorAll(Selector.DROPDOWN_TOGGLE));
-            $$$1(dropdownToggleList).addClass(ClassName.ACTIVE);
-          }
-
-          element.setAttribute('aria-expanded', true);
-        }
-
-        if (callback) {
-          callback();
-        }
-      }; // Static
-
-
-      Tab._jQueryInterface = function _jQueryInterface(config) {
-        return this.each(function () {
-          var $this = $$$1(this);
-          var data = $this.data(DATA_KEY);
-
-          if (!data) {
-            data = new Tab(this);
-            $this.data(DATA_KEY, data);
-          }
-
-          if (typeof config === 'string') {
-            if (typeof data[config] === 'undefined') {
-              throw new TypeError("No method named \"" + config + "\"");
-            }
-
-            data[config]();
-          }
-        });
-      };
-
-      _createClass(Tab, null, [{
-        key: "VERSION",
-        get: function get() {
-          return VERSION;
-        }
-      }]);
-
-      return Tab;
-    }();
-    /**
-     * ------------------------------------------------------------------------
-     * Data Api implementation
-     * ------------------------------------------------------------------------
-     */
-
-
-    $$$1(document).on(Event.CLICK_DATA_API, Selector.DATA_TOGGLE, function (event) {
-      event.preventDefault();
-
-      Tab._jQueryInterface.call($$$1(this), 'show');
-    });
-    /**
-     * ------------------------------------------------------------------------
-     * jQuery
-     * ------------------------------------------------------------------------
-     */
-
-    $$$1.fn[NAME] = Tab._jQueryInterface;
-    $$$1.fn[NAME].Constructor = Tab;
-
-    $$$1.fn[NAME].noConflict = function () {
-      $$$1.fn[NAME] = JQUERY_NO_CONFLICT;
-      return Tab._jQueryInterface;
+      if (target) {
+        this._activate(target, target.parentNode, complete);
+      } else {
+        complete();
+      }
     };
 
+    _proto.dispose = function dispose() {
+      $.removeData(this._element, DATA_KEY);
+      this._element = null;
+    }; // Private
+
+
+    _proto._activate = function _activate(element, container, callback) {
+      var _this2 = this;
+
+      var activeElements = container && (container.nodeName === 'UL' || container.nodeName === 'OL') ? $(container).find(Selector.ACTIVE_UL) : $(container).children(Selector.ACTIVE);
+      var active = activeElements[0];
+      var isTransitioning = callback && active && $(active).hasClass(ClassName.FADE);
+
+      var complete = function complete() {
+        return _this2._transitionComplete(element, active, callback);
+      };
+
+      if (active && isTransitioning) {
+        var transitionDuration = Util.getTransitionDurationFromElement(active);
+        $(active).removeClass(ClassName.SHOW).one(Util.TRANSITION_END, complete).emulateTransitionEnd(transitionDuration);
+      } else {
+        complete();
+      }
+    };
+
+    _proto._transitionComplete = function _transitionComplete(element, active, callback) {
+      if (active) {
+        $(active).removeClass(ClassName.ACTIVE);
+        var dropdownChild = $(active.parentNode).find(Selector.DROPDOWN_ACTIVE_CHILD)[0];
+
+        if (dropdownChild) {
+          $(dropdownChild).removeClass(ClassName.ACTIVE);
+        }
+
+        if (active.getAttribute('role') === 'tab') {
+          active.setAttribute('aria-selected', false);
+        }
+      }
+
+      $(element).addClass(ClassName.ACTIVE);
+
+      if (element.getAttribute('role') === 'tab') {
+        element.setAttribute('aria-selected', true);
+      }
+
+      Util.reflow(element);
+      $(element).addClass(ClassName.SHOW);
+
+      if (element.parentNode && $(element.parentNode).hasClass(ClassName.DROPDOWN_MENU)) {
+        var dropdownElement = $(element).closest(Selector.DROPDOWN)[0];
+
+        if (dropdownElement) {
+          var dropdownToggleList = [].slice.call(dropdownElement.querySelectorAll(Selector.DROPDOWN_TOGGLE));
+          $(dropdownToggleList).addClass(ClassName.ACTIVE);
+        }
+
+        element.setAttribute('aria-expanded', true);
+      }
+
+      if (callback) {
+        callback();
+      }
+    }; // Static
+
+
+    Tab._jQueryInterface = function _jQueryInterface(config) {
+      return this.each(function () {
+        var $this = $(this);
+        var data = $this.data(DATA_KEY);
+
+        if (!data) {
+          data = new Tab(this);
+          $this.data(DATA_KEY, data);
+        }
+
+        if (typeof config === 'string') {
+          if (typeof data[config] === 'undefined') {
+            throw new TypeError("No method named \"" + config + "\"");
+          }
+
+          data[config]();
+        }
+      });
+    };
+
+    _createClass(Tab, null, [{
+      key: "VERSION",
+      get: function get() {
+        return VERSION;
+      }
+    }]);
+
     return Tab;
-  }($);
+  }();
+  /**
+   * ------------------------------------------------------------------------
+   * Data Api implementation
+   * ------------------------------------------------------------------------
+   */
+
+
+  $(document).on(Event.CLICK_DATA_API, Selector.DATA_TOGGLE, function (event) {
+    event.preventDefault();
+
+    Tab._jQueryInterface.call($(this), 'show');
+  });
+  /**
+   * ------------------------------------------------------------------------
+   * jQuery
+   * ------------------------------------------------------------------------
+   */
+
+  $.fn[NAME] = Tab._jQueryInterface;
+  $.fn[NAME].Constructor = Tab;
+
+  $.fn[NAME].noConflict = function () {
+    $.fn[NAME] = JQUERY_NO_CONFLICT;
+    return Tab._jQueryInterface;
+  };
 
   return Tab;
 
 })));
 
 
-},{"./util.js":6,"jquery":19}],6:[function(require,module,exports){
+},{"./util.js":5,"jquery":18}],5:[function(require,module,exports){
+/*!
+  * Bootstrap util.js v4.2.1 (https://getbootstrap.com/)
+  * Copyright 2011-2018 The Bootstrap Authors (https://github.com/twbs/bootstrap/graphs/contributors)
+  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
+  */
 (function (global, factory) {
   typeof exports === 'object' && typeof module !== 'undefined' ? module.exports = factory(require('jquery')) :
   typeof define === 'function' && define.amd ? define(['jquery'], factory) :
@@ -976,142 +935,161 @@ $(document).ready(function () {
 
   /**
    * --------------------------------------------------------------------------
-   * Bootstrap (v4.1.3): util.js
+   * Bootstrap (v4.2.1): util.js
    * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
    * --------------------------------------------------------------------------
    */
+  /**
+   * ------------------------------------------------------------------------
+   * Private TransitionEnd Helpers
+   * ------------------------------------------------------------------------
+   */
 
-  var Util = function ($$$1) {
-    /**
-     * ------------------------------------------------------------------------
-     * Private TransitionEnd Helpers
-     * ------------------------------------------------------------------------
-     */
-    var TRANSITION_END = 'transitionend';
-    var MAX_UID = 1000000;
-    var MILLISECONDS_MULTIPLIER = 1000; // Shoutout AngusCroll (https://goo.gl/pxwQGp)
+  var TRANSITION_END = 'transitionend';
+  var MAX_UID = 1000000;
+  var MILLISECONDS_MULTIPLIER = 1000; // Shoutout AngusCroll (https://goo.gl/pxwQGp)
 
-    function toType(obj) {
-      return {}.toString.call(obj).match(/\s([a-z]+)/i)[1].toLowerCase();
-    }
+  function toType(obj) {
+    return {}.toString.call(obj).match(/\s([a-z]+)/i)[1].toLowerCase();
+  }
 
-    function getSpecialTransitionEndEvent() {
-      return {
-        bindType: TRANSITION_END,
-        delegateType: TRANSITION_END,
-        handle: function handle(event) {
-          if ($$$1(event.target).is(this)) {
-            return event.handleObj.handler.apply(this, arguments); // eslint-disable-line prefer-rest-params
-          }
-
-          return undefined; // eslint-disable-line no-undefined
-        }
-      };
-    }
-
-    function transitionEndEmulator(duration) {
-      var _this = this;
-
-      var called = false;
-      $$$1(this).one(Util.TRANSITION_END, function () {
-        called = true;
-      });
-      setTimeout(function () {
-        if (!called) {
-          Util.triggerTransitionEnd(_this);
-        }
-      }, duration);
-      return this;
-    }
-
-    function setTransitionEndSupport() {
-      $$$1.fn.emulateTransitionEnd = transitionEndEmulator;
-      $$$1.event.special[Util.TRANSITION_END] = getSpecialTransitionEndEvent();
-    }
-    /**
-     * --------------------------------------------------------------------------
-     * Public Util Api
-     * --------------------------------------------------------------------------
-     */
-
-
-    var Util = {
-      TRANSITION_END: 'bsTransitionEnd',
-      getUID: function getUID(prefix) {
-        do {
-          // eslint-disable-next-line no-bitwise
-          prefix += ~~(Math.random() * MAX_UID); // "~~" acts like a faster Math.floor() here
-        } while (document.getElementById(prefix));
-
-        return prefix;
-      },
-      getSelectorFromElement: function getSelectorFromElement(element) {
-        var selector = element.getAttribute('data-target');
-
-        if (!selector || selector === '#') {
-          selector = element.getAttribute('href') || '';
+  function getSpecialTransitionEndEvent() {
+    return {
+      bindType: TRANSITION_END,
+      delegateType: TRANSITION_END,
+      handle: function handle(event) {
+        if ($(event.target).is(this)) {
+          return event.handleObj.handler.apply(this, arguments); // eslint-disable-line prefer-rest-params
         }
 
-        try {
-          return document.querySelector(selector) ? selector : null;
-        } catch (err) {
-          return null;
-        }
-      },
-      getTransitionDurationFromElement: function getTransitionDurationFromElement(element) {
-        if (!element) {
-          return 0;
-        } // Get transition-duration of the element
+        return undefined; // eslint-disable-line no-undefined
+      }
+    };
+  }
+
+  function transitionEndEmulator(duration) {
+    var _this = this;
+
+    var called = false;
+    $(this).one(Util.TRANSITION_END, function () {
+      called = true;
+    });
+    setTimeout(function () {
+      if (!called) {
+        Util.triggerTransitionEnd(_this);
+      }
+    }, duration);
+    return this;
+  }
+
+  function setTransitionEndSupport() {
+    $.fn.emulateTransitionEnd = transitionEndEmulator;
+    $.event.special[Util.TRANSITION_END] = getSpecialTransitionEndEvent();
+  }
+  /**
+   * --------------------------------------------------------------------------
+   * Public Util Api
+   * --------------------------------------------------------------------------
+   */
 
 
-        var transitionDuration = $$$1(element).css('transition-duration');
-        var floatTransitionDuration = parseFloat(transitionDuration); // Return 0 if element or transition duration is not found
+  var Util = {
+    TRANSITION_END: 'bsTransitionEnd',
+    getUID: function getUID(prefix) {
+      do {
+        // eslint-disable-next-line no-bitwise
+        prefix += ~~(Math.random() * MAX_UID); // "~~" acts like a faster Math.floor() here
+      } while (document.getElementById(prefix));
 
-        if (!floatTransitionDuration) {
-          return 0;
-        } // If multiple durations are defined, take the first
+      return prefix;
+    },
+    getSelectorFromElement: function getSelectorFromElement(element) {
+      var selector = element.getAttribute('data-target');
+
+      if (!selector || selector === '#') {
+        var hrefAttr = element.getAttribute('href');
+        selector = hrefAttr && hrefAttr !== '#' ? hrefAttr.trim() : '';
+      }
+
+      return selector && document.querySelector(selector) ? selector : null;
+    },
+    getTransitionDurationFromElement: function getTransitionDurationFromElement(element) {
+      if (!element) {
+        return 0;
+      } // Get transition-duration of the element
 
 
-        transitionDuration = transitionDuration.split(',')[0];
-        return parseFloat(transitionDuration) * MILLISECONDS_MULTIPLIER;
-      },
-      reflow: function reflow(element) {
-        return element.offsetHeight;
-      },
-      triggerTransitionEnd: function triggerTransitionEnd(element) {
-        $$$1(element).trigger(TRANSITION_END);
-      },
-      // TODO: Remove in v5
-      supportsTransitionEnd: function supportsTransitionEnd() {
-        return Boolean(TRANSITION_END);
-      },
-      isElement: function isElement(obj) {
-        return (obj[0] || obj).nodeType;
-      },
-      typeCheckConfig: function typeCheckConfig(componentName, config, configTypes) {
-        for (var property in configTypes) {
-          if (Object.prototype.hasOwnProperty.call(configTypes, property)) {
-            var expectedTypes = configTypes[property];
-            var value = config[property];
-            var valueType = value && Util.isElement(value) ? 'element' : toType(value);
+      var transitionDuration = $(element).css('transition-duration');
+      var transitionDelay = $(element).css('transition-delay');
+      var floatTransitionDuration = parseFloat(transitionDuration);
+      var floatTransitionDelay = parseFloat(transitionDelay); // Return 0 if element or transition duration is not found
 
-            if (!new RegExp(expectedTypes).test(valueType)) {
-              throw new Error(componentName.toUpperCase() + ": " + ("Option \"" + property + "\" provided type \"" + valueType + "\" ") + ("but expected type \"" + expectedTypes + "\"."));
-            }
+      if (!floatTransitionDuration && !floatTransitionDelay) {
+        return 0;
+      } // If multiple durations are defined, take the first
+
+
+      transitionDuration = transitionDuration.split(',')[0];
+      transitionDelay = transitionDelay.split(',')[0];
+      return (parseFloat(transitionDuration) + parseFloat(transitionDelay)) * MILLISECONDS_MULTIPLIER;
+    },
+    reflow: function reflow(element) {
+      return element.offsetHeight;
+    },
+    triggerTransitionEnd: function triggerTransitionEnd(element) {
+      $(element).trigger(TRANSITION_END);
+    },
+    // TODO: Remove in v5
+    supportsTransitionEnd: function supportsTransitionEnd() {
+      return Boolean(TRANSITION_END);
+    },
+    isElement: function isElement(obj) {
+      return (obj[0] || obj).nodeType;
+    },
+    typeCheckConfig: function typeCheckConfig(componentName, config, configTypes) {
+      for (var property in configTypes) {
+        if (Object.prototype.hasOwnProperty.call(configTypes, property)) {
+          var expectedTypes = configTypes[property];
+          var value = config[property];
+          var valueType = value && Util.isElement(value) ? 'element' : toType(value);
+
+          if (!new RegExp(expectedTypes).test(valueType)) {
+            throw new Error(componentName.toUpperCase() + ": " + ("Option \"" + property + "\" provided type \"" + valueType + "\" ") + ("but expected type \"" + expectedTypes + "\"."));
           }
         }
       }
-    };
-    setTransitionEndSupport();
-    return Util;
-  }($);
+    },
+    findShadowRoot: function findShadowRoot(element) {
+      if (!document.documentElement.attachShadow) {
+        return null;
+      } // Can find the shadow root otherwise it'll return the document
+
+
+      if (typeof element.getRootNode === 'function') {
+        var root = element.getRootNode();
+        return root instanceof ShadowRoot ? root : null;
+      }
+
+      if (element instanceof ShadowRoot) {
+        return element;
+      } // when we don't find a shadow root
+
+
+      if (!element.parentNode) {
+        return null;
+      }
+
+      return Util.findShadowRoot(element.parentNode);
+    }
+  };
+  setTransitionEndSupport();
 
   return Util;
 
 })));
 
 
-},{"jquery":19}],7:[function(require,module,exports){
+},{"jquery":18}],6:[function(require,module,exports){
 /**
  * matchesSelector v2.0.2
  * matchesSelector( element, '.selector' )
@@ -1166,7 +1144,7 @@ $(document).ready(function () {
 
 }));
 
-},{}],8:[function(require,module,exports){
+},{}],7:[function(require,module,exports){
 /**
  * EvEmitter v1.1.0
  * Lil' event emitter
@@ -1280,7 +1258,7 @@ return EvEmitter;
 
 }));
 
-},{}],9:[function(require,module,exports){
+},{}],8:[function(require,module,exports){
 /**
  * Fizzy UI utils v2.0.7
  * MIT license
@@ -1523,7 +1501,7 @@ return utils;
 
 }));
 
-},{"desandro-matches-selector":7}],10:[function(require,module,exports){
+},{"desandro-matches-selector":6}],9:[function(require,module,exports){
 /*!
  * getSize v2.0.3
  * measure size of elements
@@ -1732,7 +1710,7 @@ return getSize;
 
 });
 
-},{}],11:[function(require,module,exports){
+},{}],10:[function(require,module,exports){
 /*!
  * imagesLoaded v4.1.4
  * JavaScript is all like "You images are done yet or what?"
@@ -2111,7 +2089,7 @@ return ImagesLoaded;
 
 });
 
-},{"ev-emitter":8}],12:[function(require,module,exports){
+},{"ev-emitter":7}],11:[function(require,module,exports){
 /*!
  * Isotope v3.0.6
  *
@@ -2734,7 +2712,7 @@ var trim = String.prototype.trim ?
 
 }));
 
-},{"./item":13,"./layout-mode":14,"./layout-modes/fit-rows":15,"./layout-modes/masonry":16,"./layout-modes/vertical":17,"desandro-matches-selector":7,"fizzy-ui-utils":9,"get-size":10,"outlayer":25}],13:[function(require,module,exports){
+},{"./item":12,"./layout-mode":13,"./layout-modes/fit-rows":14,"./layout-modes/masonry":15,"./layout-modes/vertical":16,"desandro-matches-selector":6,"fizzy-ui-utils":8,"get-size":9,"outlayer":24}],12:[function(require,module,exports){
 /**
  * Isotope Item
 **/
@@ -2813,7 +2791,7 @@ return Item;
 
 }));
 
-},{"outlayer":25}],14:[function(require,module,exports){
+},{"outlayer":24}],13:[function(require,module,exports){
 /**
  * Isotope LayoutMode
  */
@@ -2972,7 +2950,7 @@ return Item;
 
 }));
 
-},{"get-size":10,"outlayer":25}],15:[function(require,module,exports){
+},{"get-size":9,"outlayer":24}],14:[function(require,module,exports){
 /**
  * fitRows layout mode
  */
@@ -3042,7 +3020,7 @@ return FitRows;
 
 }));
 
-},{"../layout-mode":14}],16:[function(require,module,exports){
+},{"../layout-mode":13}],15:[function(require,module,exports){
 /*!
  * Masonry layout mode
  * sub-classes Masonry
@@ -3118,7 +3096,7 @@ return FitRows;
 
 }));
 
-},{"../layout-mode":14,"masonry-layout":22}],17:[function(require,module,exports){
+},{"../layout-mode":13,"masonry-layout":21}],16:[function(require,module,exports){
 /**
  * vertical layout mode
  */
@@ -3174,7 +3152,7 @@ return Vertical;
 
 }));
 
-},{"../layout-mode":14}],18:[function(require,module,exports){
+},{"../layout-mode":13}],17:[function(require,module,exports){
 /**
  * Bridget makes jQuery widgets
  * v2.0.1
@@ -3319,7 +3297,7 @@ return jQueryBridget;
 
 }));
 
-},{"jquery":19}],19:[function(require,module,exports){
+},{"jquery":18}],18:[function(require,module,exports){
 /*!
  * jQuery JavaScript Library v3.3.1
  * https://jquery.com/
@@ -13685,7 +13663,7 @@ if ( !noGlobal ) {
 return jQuery;
 } );
 
-},{}],20:[function(require,module,exports){
+},{}],19:[function(require,module,exports){
 /*!
  * JavaScript Cookie v2.2.0
  * https://github.com/js-cookie/js-cookie
@@ -13852,7 +13830,7 @@ return jQuery;
 	return init(function () {});
 }));
 
-},{}],21:[function(require,module,exports){
+},{}],20:[function(require,module,exports){
 /*! Magnific Popup - v1.1.0 - 2016-02-20
 * http://dimsemenov.com/plugins/magnific-popup/
 * Copyright (c) 2016 Dmitry Semenov; */
@@ -15713,7 +15691,7 @@ $.magnificPopup.registerModule(RETINA_NS, {
 
 /*>>retina*/
  _checkInstance(); }));
-},{"jquery":19}],22:[function(require,module,exports){
+},{"jquery":18}],21:[function(require,module,exports){
 /*!
  * Masonry v4.2.2
  * Cascading grid layout library
@@ -15954,7 +15932,7 @@ $.magnificPopup.registerModule(RETINA_NS, {
 
 }));
 
-},{"get-size":10,"outlayer":25}],23:[function(require,module,exports){
+},{"get-size":9,"outlayer":24}],22:[function(require,module,exports){
 (function (global, factory) {
   typeof exports === 'object' && typeof module !== 'undefined' ? module.exports = factory() :
   typeof define === 'function' && define.amd ? define(factory) :
@@ -16350,7 +16328,7 @@ $.magnificPopup.registerModule(RETINA_NS, {
 }));
 
 
-},{}],24:[function(require,module,exports){
+},{}],23:[function(require,module,exports){
 /**
  * Outlayer Item
  */
@@ -16906,7 +16884,7 @@ return Item;
 
 }));
 
-},{"ev-emitter":8,"get-size":10}],25:[function(require,module,exports){
+},{"ev-emitter":7,"get-size":9}],24:[function(require,module,exports){
 /*!
  * Outlayer v2.1.1
  * the brains and guts of a layout library
@@ -17847,7 +17825,7 @@ return Outlayer;
 
 }));
 
-},{"./item":24,"ev-emitter":8,"fizzy-ui-utils":9,"get-size":10}],26:[function(require,module,exports){
+},{"./item":23,"ev-emitter":7,"fizzy-ui-utils":8,"get-size":9}],25:[function(require,module,exports){
 /*! sidr - v2.2.1 - 2016-02-17
  * http://www.berriart.com/sidr/
  * Copyright (c) 2013-2016 Alberto Varela; Licensed MIT */
@@ -18427,7 +18405,7 @@ return Outlayer;
   jQuery.fn.sidr = fnSidr;
 
 }());
-},{}],27:[function(require,module,exports){
+},{}],26:[function(require,module,exports){
 /*
      _ _      _       _
  ___| (_) ___| | __  (_)___
@@ -21440,6 +21418,6 @@ return Outlayer;
 
 }));
 
-},{"jquery":19}]},{},[4,2,1,3])
+},{"jquery":18}]},{},[3,1,2])
 
 //# sourceMappingURL=scripts-min.js.map

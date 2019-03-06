@@ -48,7 +48,10 @@
 		.mm-form h2{margin: 0 0 24px;padding-bottom: 10px;border-bottom: 1px solid rgba(0,0,0,0.1);}
 		.mm-form label{display: block;margin-bottom: 4px;font-weight: 600;}
 		.mm-form input,.mm-form select{width: 100%;box-sizing: border-box;margin: 0 0 20px;}
-		.mm-form p{font-size: 11px;font-style: italic;margin: 4px 0 0;position: relative;top:-20px;}
+			.mm-form input[name="module_display_name"] {margin-bottom: 0;}
+			.mm-form input.invalid {border-color: red;}
+		.mm-form p{font-size: 11px;font-style: italic;margin: 10px 0;position: relative;}
+		.mm-form p.err {color:red; margin-bottom:0;}
 
 	.module-manager hr{border: 0 none;height: 2px;width: 100%;background-color: rgba(0,0,0,0.1);margin: 30px 0;clear: both;display: block;}
 
