@@ -1,0 +1,8 @@
+iframe[name="__bkframe"]{display: none;}
+
+.captcha-container{position: relative;height: 54px;overflow: hidden;}
+.g-recaptcha{transform:scale(0.70) translateX(-50%);-webkit-transform:scale(0.70) translateX(-50%);position: absolute;left: 50%;transform-origin:0 0;-webkit-transform-origin:0 0;}
+#rc-imageselect{transform:scale(0.70);-webkit-transform:scale(0.70);transform-origin:0 0;-webkit-transform-origin:0 0;}
+
+.jetpack-image-container{text-align: center;}
+	.jetpack-image-container img{margin-left: 0;margin-right: 0;}

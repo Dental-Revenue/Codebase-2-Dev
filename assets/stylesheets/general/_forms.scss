@@ -1,1 +1,4 @@
 input,textarea{width: 100%;padding: 10px;margin:0 0 18px; box-sizing: border-box; border: 0 none; font-size: 14px;transition:padding-left .3s; &:focus{box-shadow: 0 0 5px rgba($black,0.16);padding-left: 15px;}} 
+
+input.invalid,textarea.invalid{border: 1px solid #a94442;box-sizing: border-box;}
+.err{color: #a94442;margin-top: 0;}

@@ -18,6 +18,13 @@
 .row .columns.one.repeat:nth-child(12n + 13), .row .columns.two.repeat:nth-child(6n + 7), .row .columns.three.repeat:nth-child(4n + 5), .row .columns.four.repeat:nth-child(3n + 4), .row .columns.six.repeat:nth-child(2n + 3){margin-left: 0px; clear:both;}
 
 
+//clearfix class
+.clearfix:before,.clearfix:after {content: " "; /* 1 */display: table; /* 2 */}
+.clearfix:after {clear: both;}
+.clearfix {*zoom: 1;}
+.row:before,.row:after {content: " "; /* 1 */display: table; /* 2 */}
+.row:after {clear: both;}
+.row {*zoom: 1;}
 
 @media all and (max-width: $bp-tablet) {
 }
