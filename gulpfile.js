@@ -13,7 +13,6 @@ var $if  = require('gulp-if');
 var sequence = require('gulp-sequence');
 var mediaQuery = require('gulp-group-css-media-queries');
 var gap = require('gulp-append-prepend');
-var sass = require('gulp-sass');
 var autoprefixer = require('gulp-autoprefixer');
 var cssnano = require('gulp-cssnano');
 var rename = require("gulp-rename");
@@ -30,7 +29,7 @@ var browserify = require('browserify');
  *
  * Run --production after any Gulp task to perform a production build
  */
-var production = argv.production;
+var dev = argv.dev;
 
 
 /**
@@ -44,37 +43,14 @@ var enter     = 'assets/';
 /** Base (entry) paths */
 var base = {
   'img':       enter + 'images_edit/**',
-  'sass':  enter + 'stylesheets/style.scss',
   'scripts': 	 enter + 'scripts/scripts.js'
   }
 
 /** Destination (to) paths */
 var dest = {
 	'img':      enter + 'images',
-  'css':      enter + 'stylesheets',
   'scripts': 	enter + 'scripts'
 };
-
-
-
-/**
- * SASS TASK
- *
- * Runs foreach on every file in 'sass/main'
- */
-gulp.task('process_sass', function() {
-	name = 'style.css';
-  gulp.src( base.sass )
-    .pipe( sass() )
-    .pipe( mediaQuery() )
-    .pipe( autoprefixer() )
-    .pipe( $if( production, cssnano({
-            autoprefixer: { add: true }
-          }) ) )
-    .pipe( rename(name) )
-    .pipe( gulp.dest( dest.css ) )                            
-});
-
 
 /**
  * BROWSERIFY
@@ -104,8 +80,8 @@ function bundle(pkg) {
   return pkg.bundle()
     .pipe( source('scripts-min.js') )
     .pipe( buffer() )
-    .pipe( $if( !production, sourcemaps.init( {loadMaps: true} ) ) )
-    .pipe( $if( production, uglify({ 
+    .pipe( $if( dev, sourcemaps.init( {loadMaps: true} ) ) )
+    .pipe( $if( !dev, uglify({ 
 	  	mangle: {reserved: ['$']},
 	  	compress:{
 		  	dead_code: false,
@@ -116,7 +92,7 @@ function bundle(pkg) {
 	  	}})
 	  	)
 	  )
-    .pipe( $if( !production, sourcemaps.write('.') ) )
+    .pipe( $if( dev, sourcemaps.write('.') ) )
     .pipe( gulp.dest(dest.scripts) );
 }
 
@@ -167,8 +143,6 @@ gulp.task('process_images', function () {
  */
 gulp.task('serve', ['watch_bundle'], function(){
   // Watch tasks
-  //gulp.watch([enter + 'stylesheets/**/*.scss', enter + 'stylesheets/*.scss'], ['process_sass']);
-  //gulp.watch([base.scripts], ['process_js']);
   gulp.watch([base.img], ['process_images']);
 });
 
