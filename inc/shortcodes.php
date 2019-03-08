@@ -2,14 +2,14 @@
 	
 
 //all theme options
-$shortcodes = array('practice_name','street_address','city','state','zip_code','new_patient_phone','current_patient_phone','google_map','company_hours','doctor_name','doctor_name_two','doctor_name_three','review_link');	
+//$shortcodes = array('practice_name','street_address','city','state','zip_code','new_patient_phone','current_patient_phone','google_map','company_hours','doctor_name','doctor_name_two','doctor_name_three','review_link');
+
+$shortcodes = array('practice_name','street_address','city','state','zip_code','new_patient_phone','current_patient_phone','google_map','company_hours','doc_name_1','doc_name_2','doc_name_3','google_review_url');
+
 function generate_shortcode( $atts, $content = '', $shortcode = '' ){ 
-  if($shortcode=='company_hours'){
-    $var = getOption($shortcode,$break=true);
-  }else{
-    $var = getOption($shortcode);
-  }
-  return $var;
+  $option = get_option('practice_info'); 
+	$var = !empty($option[$shortcode]) ? $option[$shortcode] : '';  
+	return $var;
 }
 foreach ($shortcodes as $shortcode) {
   add_shortcode( $shortcode, 'generate_shortcode' );
@@ -18,8 +18,9 @@ foreach ($shortcodes as $shortcode) {
 
 //new patient phone wrapped in tracknum
 function new_patient_phone_span_shortcode($atts){
-  $var = getOption('new_patient_phone');
-  return '<span class="tracknum">'.$var.'</span>';
+	$option = get_option('practice_info'); 
+	$var = !empty($option['new_patient_phone']) ? $option['new_patient_phone'] : '';  
+	return '<span class="tracknum">'.$var.'</span>';
 }
 add_shortcode( 'new_patient_phone_span', 'new_patient_phone_span_shortcode' );
 
@@ -36,11 +37,6 @@ function video_frame( $atts, $content = null ) {
   return '<iframe class="video-iframe" src="'.$content.'"></iframe>';
 }
 add_shortcode("video", "video_frame");
-
-
-
-
-
 
 
 function cmb2_do_frontend_form_shortcode( $atts = array() ) {
@@ -73,9 +69,5 @@ function cmb2_do_frontend_form_shortcode( $atts = array() ) {
 
 	return $form;
 }
-
-
-
-
 
 ?>

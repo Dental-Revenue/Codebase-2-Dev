@@ -109,7 +109,7 @@ Template Name: Service
         	$profile_id = get_post_meta(1, 'service_why_image_id', true);
           $profile_array = wp_get_attachment_image_src( $profile_id, 'sm-square' );
           $profile_url = $profile_array[0]; ?>
-          <img class="doctor-profile" src="<?php echo $profile_url; ?>" alt="<?php echo do_shortcode('[doctor_name]'); ?>" />
+          <img class="doctor-profile" src="<?php echo $profile_url; ?>" alt="<?php echo do_shortcode('[doc_name_1]'); ?>" />
         <?php } ?>
       	
       	<h2>Why choose <?php echo do_shortcode('[practice_name]');?>?</h2>

@@ -48,7 +48,7 @@ function site_ops_state($echo = true){
 
 function site_ops_zip($echo = true){
 	$option = get_option('practice_info'); 
-	if(!empty($option['zip'])){if($echo){echo $option['zip'];}else{return $option['zip'];}}else{if($echo){echo '';}else{return '';}}
+	if(!empty($option['zip_code'])){if($echo){echo $option['zip_code'];}else{return $option['zip_code'];}}else{if($echo){echo '';}else{return '';}}
 }
 
 function site_ops_new_patient_phone($echo = true){
