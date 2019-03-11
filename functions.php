@@ -699,26 +699,16 @@ add_filter('the_content','replace_content');
 
 //AUTO GENERATE MODULES TABLE
 function createModulesTable(){
-	global $wpdb;
-	$mytables=$wpdb->get_results("SHOW TABLES");
-	$tablesArray = array();
-	foreach ($mytables as $mytable){
-		foreach ($mytable as $t){       
-			array_push($tablesArray, $t);
-		}
-	}
-	if(!in_array('modules')){
-	  $sql =
-	      "CREATE TABLE modules (
-		      id int(32) NOT NULL auto_increment ,
-		      module varchar(100) NOT NULL,
-		      name varchar(255) NOT NULL,
-		      page int(32) NOT NULL,
-		      display_order int(32) NOT NULL,
-		      PRIMARY KEY  (id)
-	      )";
-	  dbDelta( $sql );
-	}
+	$sql =
+	    "CREATE TABLE IF NOT EXISTS modules (
+	      id int(32) NOT NULL auto_increment ,
+	      module varchar(100) NOT NULL,
+	      name varchar(255) NOT NULL,
+	      page int(32) NOT NULL,
+	      display_order int(32) NOT NULL,
+	      PRIMARY KEY  (id)
+	    )";
+	dbDelta( $sql );
 }
 
 add_action("after_switch_theme", "createModulesTable");
