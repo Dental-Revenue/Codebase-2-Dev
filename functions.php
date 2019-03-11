@@ -708,6 +708,7 @@ function createModulesTable(){
 	      display_order int(32) NOT NULL,
 	      PRIMARY KEY  (id)
 	    )";
+	require_once(ABSPATH . 'wp-admin/includes/upgrade.php');
 	dbDelta( $sql );
 }
 
