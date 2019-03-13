@@ -4,3 +4,7 @@
 		.static_4_up-box.hover-up-parent{position:relative; overflow:hidden;}
 			.static_4_up-box.hover-up-parent .hover-up-child{line-height:50px; display:block; width:100%; position:absolute; bottom:-50px; transition:bottom .3s; background-color:rgba($main-color, .8); color:$white; font-size:13px; text-transform:uppercase; font-weight:800; letter-spacing:.05em; text-align:right; padding:0 20px; box-sizing:border-box;}
 			.static_4_up-box.hover-up-parent:hover .hover-up-child{bottom:0;}
+			
+@media all and (max-width: $bp-phone) {
+	.static_4_up-column.columns:nth-last-child(2){margin-bottom:40px;}
+}
