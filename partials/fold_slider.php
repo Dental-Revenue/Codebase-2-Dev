@@ -14,18 +14,20 @@
     foreach ((array) $blocks as $key => $block ) {
 	  $image = wp_get_attachment_image_src( $block['image_id'], 'xxl' );
     ?>
-		<div class="fold-slide" style="background-image: url(<?php echo $image[0]; ?>);height:<?php echo $slider_height; ?>; <?php if(isset($block['bg_color'])) { ?>background:<?php if(isset($block['bg_color_2'])){?>linear-gradient(<?php echo $block['bg_color']; ?>,<?php echo $block['bg_color_2']; ?>)<?php } else { echo $block['bg_color']; } ?>;<?php } ?>">
-			<?php if(isset($block['video_webm']) && $block['video_webm']!='' && isset($block['video_mp4']) && $block['video_mp4']!=''){ ?>
-				<video class="fold-video" autoplay loop muted data-audio="true" poster="<?php echo $image[0]; ?>">
-					<source src="<?php echo $block['video_webm']; ?>" type="video/webm">
-					<source src="<?php echo $block['video_mp4']; ?>" type="video/mp4">
-  			</video>
-  		<?php } ?>
-  		<div class="fold-overlay" style="background-color: rgba(0,0,0,.4);"></div>
-			<div class="fold-slide-text">
-			  <h2><?php echo $block['title']; ?></h2>
-			  <?php if(isset($block['excerpt'])){ ?><p><?php echo $block['excerpt']; ?></p><?php } ?>
-			  <a class="btn solid" href="<?php echo $block['url']; ?>"><?php echo $block['cta']; ?></a>
+		<div class="fold-slide">
+			<div class="fold-slide-contain" style="background-image: url(<?php echo $image[0]; ?>);height:<?php echo $slider_height; ?>; <?php if(isset($block['bg_color'])) { ?>background:<?php if(isset($block['bg_color_2'])){?>linear-gradient(<?php echo $block['bg_color']; ?>,<?php echo $block['bg_color_2']; ?>)<?php } else { echo $block['bg_color']; } ?>;<?php } ?>">
+				<?php if(isset($block['video_webm']) && $block['video_webm']!='' && isset($block['video_mp4']) && $block['video_mp4']!=''){ ?>
+					<video class="fold-video" autoplay loop muted data-audio="true" poster="<?php echo $image[0]; ?>">
+						<source src="<?php echo $block['video_webm']; ?>" type="video/webm">
+						<source src="<?php echo $block['video_mp4']; ?>" type="video/mp4">
+	  			</video>
+	  		<?php } ?>
+	  		<div class="fold-overlay" style="background-color: rgba(0,0,0,.4);"></div>
+				<div class="fold-slide-text">
+				  <h2><?php echo $block['title']; ?></h2>
+				  <?php if(isset($block['excerpt'])){ ?><p><?php echo $block['excerpt']; ?></p><?php } ?>
+				  <a class="btn solid" href="<?php echo $block['url']; ?>"><?php echo $block['cta']; ?></a>
+				</div>
 			</div>
 		</div>
 		<?php } ?>

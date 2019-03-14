@@ -114,7 +114,7 @@ $(document).ready(function(){
       cssEase: 'linear',
       pauseOnHover: false,
       responsive: [
-        {breakpoint: 480,settings: {dots:false,}},
+        {breakpoint: 480,settings: {dots:false}},
       ]
 	});
 	

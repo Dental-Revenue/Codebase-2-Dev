@@ -111,6 +111,10 @@ header.notification-active+.page-wrap, header.notification-active+.page-wrap .pa
   .header-bottom .row.full{width: 100%;}
   .header-contact .contact-option{display: none; &:first-child{display: inline-block;}}
   
+	.header-style-b header {width:100%; left:0; top:0; position: relative;}
+	.header-style-b .header-style-b-contain {display:block;}
+	.header-style-b .header-logo {margin: 0 auto;width: 100%; max-width:500px; height: 100px; margin-top: 30px; .logo {width:auto; height:auto;}}
+  
   .header-style-c .contact-option {display: none;}
   
 }

@@ -38,11 +38,4 @@ $sidebar-width-neg: -260px;
 			.sidr .sub-menu {display:none;}
 			.sidr li.menu-item-has-children{position:relative; a:first-of-type {padding-right:30px; position: relative; &:after {content:"\f067"; font-family: $font-awesome; font-size: 12px; position: absolute; right:10px; top:50%; transform: translateY(-50%);}} &.open{.sub-menu {display:block; a:after {display:none;}} a:after{content:"\f068";}}} 
 		
-		
-		//MOVE TO HEADER LATER
-		.header-style-b header {width:100%; left:0; top:0; position: relative;}
-		.header-style-b .header-style-b-contain {display:block;}
-		.header-style-b .header-logo {margin: 0 auto;width: 500px;height: 100px; margin-top: 30px; .logo {width:auto; height:auto;}}
-		
-		
 	}
