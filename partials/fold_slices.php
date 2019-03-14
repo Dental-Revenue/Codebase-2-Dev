@@ -33,7 +33,7 @@
 				<div class="fold-slice-content">
 					<h2><?php echo $s['title']; ?></h2>
 					<?php if(isset($s['excerpt'])){ ?><p><?php echo $s['excerpt']; ?></p><?php }else{ echo "<br/>"; } ?>
-					<a class="btn solid" href="<?php echo $s['url']; ?>"><?php echo $s['cta']; ?></a>
+					<?php if(isset($s['url']) && isset($s['cta'])){ ?><a class="btn solid" href="<?php echo $s['url']; ?>"><?php echo $s['cta']; ?></a><?php } ?>
 				</div>
 			</div>
 	
