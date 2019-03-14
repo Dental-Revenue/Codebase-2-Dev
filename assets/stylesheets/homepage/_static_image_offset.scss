@@ -1,12 +1,22 @@
 .static_image_offset {padding: 0;}
 
-	.static_image_offset .module-content {display:flex; width:100%;}
+	.static_image_offset .module-content {width:100%; @include clearfix();}
 
 	.offset_left {width:50%; padding:70px 5%; box-sizing: border-box; float: left; background-color: rgba($main-color,.2); overflow: visible;}
 		.offset_left h2 {text-align: left; padding:0 0 30px; &:after {margin:14px 0 0;}}
 		.offset_left_img {width:120%; position: relative; padding-top: 70%; background-size: cover; background-position: center center;}
 		.offset_left p {margin:2em 0;}
 	
-	.offset_right {width:50%; padding:70px 10%; box-sizing: border-box; float: left; align-self: flex-end;}
-		.offset_right_img {width:100%; padding-top: 100%; margin-top: 36%; background-size: cover; background-position: center center;}
+	.offset_right {width:50%; padding:70px 10%; box-sizing: border-box; position:absolute; bottom:0; right:0; top:0; display:flex; flex-wrap:wrap; align-content:end;}
+		.offset_right_img {width:100%; background-size: cover; background-position: center center; height:68%;}
 		.offset_right p {margin:2em 0;}
+		
+@media all and (max-width: $bp-phone) {
+	.offset_left{width:100%; display:block; float:none; position:relative;}
+		.offset_left_img{width:100%;}
+		.offset_left p {margin-bottom:0;}
+	
+	.offset_right{width:100%; display:block; float:none; position:relative;}
+		.offset_right_img{padding-bottom:100%; height:0;}
+		.offset_right p {margin-bottom:0;}
+}
