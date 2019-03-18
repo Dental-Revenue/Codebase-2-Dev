@@ -6,8 +6,12 @@ function generate_block_cta( $post ) {
   <div class="block-cta postbox">
 	  <h2>DR Module Manager</h2>
 	  <div class="inside clearfix">
-	  	<p>Add and order any modules from the DR module library.</p>
-	  	<a href="/wp-admin/admin.php?page=manage-modules&editing=<?php echo $_GET['post']; ?>" class="button button-primary button-large">Manage Modules</a>
+		  <?php if(!empty($_GET['post'])){ ?>
+	  		<p>Add and order any modules from the DR module library.</p>
+				<a href="/wp-admin/admin.php?page=manage-modules&editing=<?php echo $_GET['post']; ?>" class="button button-primary button-large">Manage Modules</a>
+			<?php } else { ?>
+				<p>Please publish this post or save to a draft before adding modules.</p>
+			<?php } ?>
 	  </div>
   </div>
 <?php }
