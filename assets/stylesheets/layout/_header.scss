@@ -66,6 +66,7 @@ header{}
 	
 	.header-style-c .header-logo {height:100px; margin-top:30px; width: 500px; left:50%; transform: translateX(-50%); background-color: transparent;}
 		.header-style-c .header-logo .logo {width:500px;}
+			.header-style-c .header-logo .logo img{left:50%; transform:translate(-50%, -50%);}
 	
 	.header-style-c .header-top {height:130px;}
 		
