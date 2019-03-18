@@ -16,6 +16,7 @@ function cmb2_practice_options() {
 		'name' 					=> 'Practice Name',
 		'id'   					=> 'practice_name',
 		'type' 					=> 'text',
+		'default'				=> 'Mid-Atlantic Dental Studio'
 	));
 	
 	$box->add_field( array(
@@ -29,6 +30,7 @@ function cmb2_practice_options() {
 		'attributes'  => array(
 			'required'    => 'required',
 		),
+		'default'				=> get_template_directory_uri().'/assets/images/layout/default-logo.jpg'
 	));
 	
 	$box->add_field( array(
@@ -53,25 +55,29 @@ function cmb2_practice_options() {
 		'name' 					=> 'Street Address',
 		'id'   					=> 'street_address',
 		'type' 					=> 'text',
+		'default'				=> '3500 Boston Street Suite 421'
 	));
 	
 	$box->add_field( array(
 		'name' 					=> 'City',
 		'id'   					=> 'city',
 		'type' 					=> 'text',
+		'default'				=> 'Baltimore'
 	));
 	
 	$box->add_field( array(
 		'name' 					=> 'State',
 		'id'   					=> 'state',
 		'type' 					=> 'text',
-		'desc'					=> 'All caps, two letter abbreviation. Ex MD'
+		'desc'					=> 'All caps, two letter abbreviation. Ex MD',
+		'default'				=> 'MD'
 	));
 	
 	$box->add_field( array(
 		'name' 					=> 'Zip Code',
 		'id'   					=> 'zip_code',
 		'type' 					=> 'text',
+		'default'				=> '21224'
 	));
 	
 	$box->add_field( array(
@@ -81,12 +87,14 @@ function cmb2_practice_options() {
 		'attributes'  => array(
 			'required'    => 'required',
 		),
+		'default'				=> '555-555-5555'
 	));
 	
 	$box->add_field( array(
 		'name' 					=> 'Current Patient Number',
 		'id'   					=> 'current_patient_phone',
 		'type' 					=> 'text',
+		'default'				=> '444-444-4444'
 	));
 	
 	$box->add_field( array(
@@ -94,14 +102,27 @@ function cmb2_practice_options() {
 		'id'   					=> 'google_map',
 		'type' 					=> 'textarea',
 		'desc'					=> 'Copy/Paste Google Map embed iframe here',
-		'sanitization_cb' => false
+		'sanitization_cb' => false,
+		'default'				=> '<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3088.3671114022404!2d-76.56648874846827!3d39.279924279413095!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c803f65b93dfa5%3A0xd388a5f63fa5a04b!2sDental+Revenue+Boston+Street%2C+Baltimore%2C+MD!5e0!3m2!1sen!2sus!4v1543507717220" width="600" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>'
 	));
 	
 	$box->add_field( array(
 		'name' 					=> 'Company Hours',
 		'id'   					=> 'company_hours',
 		'type' 					=> 'textarea',
-		'desc'					=> 'Separate lines with a line break'
+		'desc'					=> 'Separate lines with a line break',
+		'default'				=> 'Monday
+9am-5pm
+Tuesday
+9am-5pm
+Wednesday
+9am-5pm
+Thursday
+9am-5pm
+Friday
+9am-5pm
+Saturday-Sunday
+Closed'
 	));
 	
 	$box->add_field( array(
@@ -318,6 +339,7 @@ function cmb2_appearance_options() {
 		'name' 					=> 'Primary Brand Color',
 		'id'   					=> 'main_color',
 		'type' 					=> 'colorpicker',
+		'default'				=> '#dd9933'
 	));
 	
 	$box->add_field( array(
@@ -325,6 +347,7 @@ function cmb2_appearance_options() {
 		'desc'					=> 'Name of a Google Font',
 		'id'   					=> 'heading_font',
 		'type' 					=> 'text',
+		'default'				=> 'Raleway'
 	));
 	
 	$box->add_field( array(
@@ -332,6 +355,7 @@ function cmb2_appearance_options() {
 		'desc'					=> 'Name of a Google Font',
 		'id'   					=> 'body_font',
 		'type' 					=> 'text',
+		'default'				=> 'Karla'
 	));
 	
 	$box->add_field( array(

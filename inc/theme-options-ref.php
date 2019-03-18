@@ -4,7 +4,7 @@
 
 function site_ops_practice_name($echo = true){
 	$option = get_option('practice_info'); 
-	if(!empty($option['practice_name'])){if($echo){echo $option['practice_name'];}else{return $option['practice_name'];}}else{if($echo){echo '';}else{return '';}}
+	if(!empty($option['practice_name'])){if($echo){echo $option['practice_name'];}else{return $option['practice_name'];}}else{if($echo){echo 'Mid-Atlantic Dental Studio';}else{return 'Mid-Atlantic Dental Studio';}}
 }
 
 function site_ops_logo($echo = true, $id = false){
@@ -12,7 +12,7 @@ function site_ops_logo($echo = true, $id = false){
 	if($id){
 		if(!empty($option['practice_img'])){if($echo){echo $option['practice_img_id'];}else{return $option['practice_img_id'];}}else{if($echo){echo '';}else{return '';}}
 	} else {
-		if(!empty($option['practice_img'])){if($echo){echo $option['practice_img'];}else{return $option['practice_img'];}}else{if($echo){echo '';}else{return '';}}
+		if(!empty($option['practice_img'])){if($echo){echo $option['practice_img'];}else{return $option['practice_img'];}}else{if($echo){echo get_template_directory_uri().'/assets/images/layout/default-logo.jpg';}else{return get_template_directory_uri().'/assets/images/layout/default-logo.jpg';}}
 	}
 }
 
@@ -33,42 +33,64 @@ function site_ops_doc_3($echo = true){
 
 function site_ops_address($echo = true){
 	$option = get_option('practice_info'); 
-	if(!empty($option['street_address'])){if($echo){echo $option['street_address'];}else{return $option['street_address'];}}else{if($echo){echo '';}else{return '';}}
+	if(!empty($option['street_address'])){if($echo){echo $option['street_address'];}else{return $option['street_address'];}}else{if($echo){echo '3500 Boston Street Suite 421';}else{return '3500 Boston Street Suite 421';}}
 }
 
 function site_ops_city($echo = true){
 	$option = get_option('practice_info'); 
-	if(!empty($option['city'])){if($echo){echo $option['city'];}else{return $option['city'];}}else{if($echo){echo '';}else{return '';}}
+	if(!empty($option['city'])){if($echo){echo $option['city'];}else{return $option['city'];}}else{if($echo){echo 'Baltimore';}else{return 'Baltimore';}}
 }
 
 function site_ops_state($echo = true){
 	$option = get_option('practice_info'); 
-	if(!empty($option['state'])){if($echo){echo $option['state'];}else{return $option['state'];}}else{if($echo){echo '';}else{return '';}}
+	if(!empty($option['state'])){if($echo){echo $option['state'];}else{return $option['state'];}}else{if($echo){echo 'MD';}else{return 'MD';}}
 }
 
 function site_ops_zip($echo = true){
 	$option = get_option('practice_info'); 
-	if(!empty($option['zip_code'])){if($echo){echo $option['zip_code'];}else{return $option['zip_code'];}}else{if($echo){echo '';}else{return '';}}
+	if(!empty($option['zip_code'])){if($echo){echo $option['zip_code'];}else{return $option['zip_code'];}}else{if($echo){echo '21224';}else{return '21224';}}
 }
 
 function site_ops_new_patient_phone($echo = true){
 	$option = get_option('practice_info'); 
-	if(!empty($option['new_patient_phone'])){if($echo){echo $option['new_patient_phone'];}else{return $option['new_patient_phone'];}}else{if($echo){echo '';}else{return '';}}
+	if(!empty($option['new_patient_phone'])){if($echo){echo $option['new_patient_phone'];}else{return $option['new_patient_phone'];}}else{if($echo){echo '555-555-5555';}else{return '555-555-5555';}}
 }
 
 function site_ops_current_patient_phone($echo = true){
 	$option = get_option('practice_info'); 
-	if(!empty($option['current_patient_phone'])){if($echo){echo $option['current_patient_phone'];}else{return $option['current_patient_phone'];}}else{if($echo){echo '';}else{return '';}}
+	if(!empty($option['current_patient_phone'])){if($echo){echo $option['current_patient_phone'];}else{return $option['current_patient_phone'];}}else{if($echo){echo '444-444-4444';}else{return '444-444-4444';}}
 }
 
 function site_ops_google_map($echo = true){
 	$option = get_option('practice_info'); 
-	if(!empty($option['google_map'])){if($echo){echo $option['google_map'];}else{return $option['google_map'];}}else{if($echo){echo '';}else{return '';}}
+	if(!empty($option['google_map'])){if($echo){echo $option['google_map'];}else{return $option['google_map'];}}else{if($echo){echo '<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3088.3671114022404!2d-76.56648874846827!3d39.279924279413095!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c803f65b93dfa5%3A0xd388a5f63fa5a04b!2sDental+Revenue+Boston+Street%2C+Baltimore%2C+MD!5e0!3m2!1sen!2sus!4v1543507717220" width="600" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>';}else{return '<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3088.3671114022404!2d-76.56648874846827!3d39.279924279413095!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c803f65b93dfa5%3A0xd388a5f63fa5a04b!2sDental+Revenue+Boston+Street%2C+Baltimore%2C+MD!5e0!3m2!1sen!2sus!4v1543507717220" width="600" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>';}}
 }
 
 function site_ops_company_hours($echo = true){
 	$option = get_option('practice_info'); 
-	if(!empty($option['company_hours'])){if($echo){echo $option['company_hours'];}else{return $option['company_hours'];}}else{if($echo){echo '';}else{return '';}}
+	if(!empty($option['company_hours'])){if($echo){echo $option['company_hours'];}else{return $option['company_hours'];}}else{if($echo){echo 'Monday
+9am-5pm
+Tuesday
+9am-5pm
+Wednesday
+9am-5pm
+Thursday
+9am-5pm
+Friday
+9am-5pm
+Saturday-Sunday
+Closed';}else{return 'Monday
+9am-5pm
+Tuesday
+9am-5pm
+Wednesday
+9am-5pm
+Thursday
+9am-5pm
+Friday
+9am-5pm
+Saturday-Sunday
+Closed';}}
 }
 
 function site_ops_google_review_url($echo = true){
@@ -139,17 +161,17 @@ function site_ops_convirza_id($echo = true){
 
 function site_ops_brand_color($echo = true){
 	$option = get_option('appearance_info'); 
-	if(!empty($option['main_color'])){if($echo){echo $option['main_color'];}else{return $option['main_color'];}}else{if($echo){echo '';}else{return '';}}
+	if(!empty($option['main_color'])){if($echo){echo $option['main_color'];}else{return $option['main_color'];}}else{if($echo){echo '#dd9933';}else{return '#dd9933';}}
 }
 
 function site_ops_heading_font($echo = true){
 	$option = get_option('appearance_info'); 
-	if(!empty($option['heading_font'])){if($echo){echo $option['heading_font'];}else{return $option['heading_font'];}}else{if($echo){echo '';}else{return '';}}
+	if(!empty($option['heading_font'])){if($echo){echo $option['heading_font'];}else{return $option['heading_font'];}}else{if($echo){echo 'Raleway';}else{return 'Raleway';}}
 }
 
 function site_ops_body_font($echo = true){
 	$option = get_option('appearance_info'); 
-	if(!empty($option['body_font'])){if($echo){echo $option['body_font'];}else{return $option['body_font'];}}else{if($echo){echo '';}else{return '';}}
+	if(!empty($option['body_font'])){if($echo){echo $option['body_font'];}else{return $option['body_font'];}}else{if($echo){echo 'Karla';}else{return 'Karla';}}
 }
 
 function site_ops_cta_text($echo = true){
@@ -164,12 +186,12 @@ function site_ops_cta_url($echo = true){
 
 function site_ops_global_sidebar($echo = true){
 	$option = get_option('appearance_info'); 
-	if(!empty($option['sidebars_global'])){if($echo){echo $option['sidebars_global'];}else{return $option['sidebars_global'];}}else{if($echo){echo '';}else{return '';}}
+	if(!empty($option['sidebars_global'])){if($echo){echo $option['sidebars_global'];}else{return $option['sidebars_global'];}}else{if($echo){echo 'on';}else{return 'on';}}
 }
 
 function site_ops_buttons_style($echo = true){
 	$option = get_option('appearance_info'); 
-	if(!empty($option['buttons_style'])){if($echo){echo $option['buttons_style'];}else{return $option['buttons_style'];}}else{if($echo){echo '';}else{return '';}}
+	if(!empty($option['buttons_style'])){if($echo){echo $option['buttons_style'];}else{return $option['buttons_style'];}}else{if($echo){echo '3px';}else{return '3px';}}
 }
 
 function site_ops_page_head_img($echo = true, $id = false){
