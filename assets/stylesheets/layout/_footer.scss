@@ -16,7 +16,7 @@ footer{display: block;}
       .footer-column .logo{max-width: 300px;max-height: 100px;display: block;margin-bottom: 20px;}
         .footer-column .logo img{width: 100%;height: auto;display: block;}
       
-      .footer-column .contact-option{display: block;margin-bottom: 6px; float:left; opacity:1; &:nth-child(2) {margin-left: 0;} p {line-height:130%;}}
+      .footer-column .contact-option{display: block;margin-bottom: 6px; float:left; opacity:1; &:nth-child(2) {margin-left: 0;} p {line-height:130%; margin:8px 0;}}
         .footer-column .contact-option.company-hours{font-weight: 600;margin-bottom: 0;}
           .footer-column .contact-option.company-hours .hour-set span{display:block;margin-bottom: 6px;font-weight: 400;}
           .footer-column .contact-option i {font-size: 25px; margin:8px 10px 0 0; width:36px;}

@@ -4,7 +4,9 @@
     <div class="row">
     
       <div class="footer-left google-map-container">
-        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d12096.416292877355!2d-73.99359366652621!3d40.7157253833263!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c25980805f939b%3A0x988ab4c5b9ea32ea!2sNew+York%2C+NY+10002!5e0!3m2!1sen!2sus!4v1457465176347" width="600" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>      </div>
+	      <?php site_ops_google_map(); ?>
+      </div>
+        
       
       <div class="footer-right" itemscope itemtype="http://schema.org/Dentist">
         
