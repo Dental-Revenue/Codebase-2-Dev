@@ -29,11 +29,11 @@
       <div class="contact-options">
           <div class="contact-option">
             <i class="icon fas fa-phone"></i>
-            <p>New Patients <span class="bold tracknum">(410) 410-4104</span></p>
+            <p>New Patients <span class="bold tracknum"><?php site_ops_new_patient_phone(); ?></span></p>
           </div> 
           <a class="contact-option street-address" href="https://maps.google.com/" target="_blank">
             <i class="icon fas fa-compass"></i>
-            <p>320 E. Towsontown Blvd. Suite 201 <span class="bold">Towson, MD 21286</span></p>
+            <p><?php site_ops_address(); ?> <span class="bold"><?php site_ops_city(); ?>, <?php site_ops_state(); ?> <?php site_ops_zip(); ?></span></p>
           </a>
       </div>
       <?php $page = get_pages(array('meta_key' => '_wp_page_template','meta_value' => 'page-templates/template-schedule.php')); ?>

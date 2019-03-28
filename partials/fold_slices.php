@@ -41,6 +41,37 @@
 	  
 	</div>
 	
+	<div id="hp-fold" class="fold-slices-mobile">
+		<div class="fold-slices-slick">"
+		<?php $counter=0;
+		$slides = get_post_meta( get_the_ID(),$instance.'_fold_slices', true );
+		foreach((array) $slides as $slide ) {
+			
+			$image = wp_get_attachment_image_src($slide['image_id'],'extra-large');
+			if (isset($slide['overlay_darkness'])) { $overlay = $slide['overlay_darkness']; } else { $overlay = 30; }
+			?>
+			
+			<div class="fold-slice" style="background-image: url(<?php echo $image[0]; ?>);height:<?php echo $slider_height; ?>">
+				
+				<?php if(isset($slide['video_webm']) && $slide['video_webm']!='' && isset($slide['video_mp4']) && $slide['video_mp4']!=''){ ?>
+					<video class="fold-video" autoplay loop muted data-audio="true" poster="<?php echo $image[0]; ?>">
+						<source src="<?php echo $slide['video_webm']; ?>" type="video/webm">
+						<source src="<?php echo $slide['video_mp4']; ?>" type="video/mp4">
+	  			</video>
+	  		<?php } ?>
+				
+				<div class="fold-overlay" style="background-color: rgba(0,0,0,<?php echo $overlay/100; ?>);"></div>
+				<div class="fold-slice-content">
+					<h2><?php echo $slide['title']; ?></h2>
+					<?php if(isset($slide['excerpt'])){ ?><p><?php echo $slide['excerpt']; ?></p><?php }else{ echo "<br/>"; } ?>
+					<?php if(isset($slide['url']) && isset($slide['cta'])){ ?><a class="btn solid" href="<?php echo $slide['url']; ?>"><?php echo $slide['cta']; ?></a><?php } ?>
+				</div>
+			</div>
+	
+		<?php $counter++; } ?>
+		</div>
+	</div>
+	
 	<?php } //end check for a minimum of 3 slides ?>
 
 

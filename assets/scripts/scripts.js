@@ -119,27 +119,26 @@ $(document).ready(function(){
 	});
 	
 	if($('.fold-slices').length>0){
-  	if($(window).width()>1100){
-		  var sliceWidth = 40/($('.fold-slice').length-1);
-		  $('.fold-slice:nth-child(n+2)').css('width',sliceWidth+'%');
+  	if($(window).width()>1199){
+		  var sliceWidth = 40/($('.fold-slices .fold-slice').length-1);
+		  $('.fold-slices .fold-slice:nth-child(n+2)').css('width',sliceWidth+'%');
 		}
-  	$('.fold-slice').on('click',function(e){
-		  if($(window).width()>1100){
-			  $('.fold-slice').removeClass('active').css('width',$(this).parent().attr('data-slice')+'%');
+  	$('.fold-slices .fold-slice').on('click',function(e){
+		  if($(window).width()>1199){
+			  $('.fold-slices .fold-slice').removeClass('active').css('width',$(this).parent().attr('data-slice')+'%');
 				$(this).addClass('active').css('width','60%');
 			}else{
 				var activeSlice = $(this).index()+1;
-				$('.fold-slice').removeClass('active').css('width','10%');
+				$('.fold-slices .fold-slice').removeClass('active').css('width','10%');
 				$(this).addClass('active').css('width','80%');
-				var offset = ( activeSlice==1 || activeSlice==$('.fold-slice').length) ? 1 : 0 ;
-				$('.fold-slice:nth-child(n+'+(activeSlice+2+offset)+')').css('width','0%');
-				$('.fold-slice:nth-child(-n+'+(activeSlice-2-offset)+')').css('width','0%');
+				var offset = ( activeSlice==1 || activeSlice==$('.fold-slices .fold-slice').length) ? 1 : 0 ;
+				$('.fold-slices .fold-slice:nth-child(n+'+(activeSlice+2+offset)+')').css('width','0%');
+				$('.fold-slices .fold-slice:nth-child(-n+'+(activeSlice-2-offset)+')').css('width','0%');
 			}
   	});
   }
   
-  function mobileOnlySlices() {
-		$('.fold-slices').slick({
+  $('.fold-slices-slick').slick({
     	infinite: true,
 			speed: 500,
       fade: true,
@@ -152,17 +151,7 @@ $(document).ready(function(){
 			arrows: false,
       dots:true,
 		});
-	}
-	if(window.innerWidth < 768) {
-		mobileOnlySlices();
-	}
-	$(window).on('resize', function(){
-		if(window.innerWidth < 768) {
-			mobileOnlySlices();
-		} else {
-			$('.fold-slices').slick('unslick');
-		}
-	});
+	
 	
 	// module fold_boxes
 	var os = new OnScreen();
