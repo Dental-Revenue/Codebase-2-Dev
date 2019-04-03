@@ -25,7 +25,7 @@
 		$item_title = $item_img = $item_darkness = $item_link = $item_link_title = $item_excerpt = ''; 
 		if(isset($item['title'])){ $item_title = $item['title']; }
 		if(isset($item['image'])){ $item_img_id = $item['image_id']; }
-		if(isset($item['image'])){ $item_img = wp_get_attachment_image_src( $item_img_id, 'lg' ); }
+		if(isset($item['image'])){ $item_img = wp_get_attachment_image_src( $item_img_id, 'xxl' ); }
 		if(isset($item['darkness'])){ $item_darkness = $item['darkness']; }
 		
 		if(isset($item['link'])){ $item_link = $item['link']; }
