@@ -134,7 +134,7 @@
 				  if(isset($side_tab['tab_link_url'])){ $side_tab_link = esc_html( $side_tab['tab_link_url'] ); }
 				  if(isset($side_tab['tab_color'])){ $side_tab_color = esc_html( $side_tab['tab_color'] ); }
 			?>
-				<?php if($side_tab_title_short != ''){ ?>
+				<?php if($side_tab_title_long != ''){ ?>
 			  <a href="<?php echo $side_tab_link; ?>" class="social-side-tab" style="background-color:<?php echo $side_tab_color; ?>;">
 					<span><i class="<?php echo $side_tab_icon; ?>"></i> <?php echo $side_tab_title_short; ?></span>
 					<span><?php echo $side_tab_title_long; ?></span>
