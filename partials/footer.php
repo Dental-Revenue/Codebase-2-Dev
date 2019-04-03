@@ -134,12 +134,12 @@
 				  if(isset($side_tab['tab_link_url'])){ $side_tab_link = esc_html( $side_tab['tab_link_url'] ); }
 				  if(isset($side_tab['tab_color'])){ $side_tab_color = esc_html( $side_tab['tab_color'] ); }
 			?>
-			
+				<?php if($side_tab_title_short != ''){ ?>
 			  <a href="<?php echo $side_tab_link; ?>" class="social-side-tab" style="background-color:<?php echo $side_tab_color; ?>;">
 					<span><i class="<?php echo $side_tab_icon; ?>"></i> <?php echo $side_tab_title_short; ?></span>
 					<span><?php echo $side_tab_title_long; ?></span>
 			  </a>
-		  
+				<?php } ?>
 		  <?php 
 			  } 
 			  
@@ -156,6 +156,12 @@
 			  <a href="<?php site_ops_google_plus(); ?>" class="social-side-tab" style="background-color:#dd4b39;">
 					<span><i class="fab fa-google-plus-g"></i> Reviews</span>
 					<span>Read Our Google Reviews</span>
+			  </a>
+			<?php } ?>
+			<?php if(!empty(site_ops_youtube(false))){ ?>
+			  <a href="<?php site_ops_youtube(); ?>" class="social-side-tab" style="background-color:#c4302b;">
+					<span><i class="fab fa-youtube"></i> Watch</span>
+					<span>Watch Our Youtube Videos</span>
 			  </a>
 			<?php } ?>
 			<?php if(!empty(site_ops_yelp(false))){ ?>
