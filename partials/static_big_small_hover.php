@@ -6,17 +6,17 @@
 	$title = get_post_meta( get_the_ID(), $instance.'_title', true ); 
 	
 	$big_img = get_post_meta( get_the_ID(), $instance.'_big_img_id', true ); 
-	$big_img = wp_get_attachment_image_src( $big_img, 'lg' ); 
+	$big_img = wp_get_attachment_image_src( $big_img, 'xl' ); 
 	$big_link_title = get_post_meta( get_the_ID(), $instance.'_big_img_link_title', true ); 
 	$big_link = get_post_meta( get_the_ID(), $instance.'_big_img_link', true );
 	
 	$sm_top_img = get_post_meta( get_the_ID(), $instance.'_small_top_img_id', true ); 
-	$sm_top_img = wp_get_attachment_image_src( $sm_top_img, 'md' ); 
+	$sm_top_img = wp_get_attachment_image_src( $sm_top_img, 'lg' ); 
 	$sm_top_link_title = get_post_meta( get_the_ID(), $instance.'_small_top_link_title', true ); 
 	$sm_top_link = get_post_meta( get_the_ID(), $instance.'_small_top_link', true );
 	
 	$sm_bottom_img = get_post_meta( get_the_ID(), $instance.'_small_bottom_img_id', true ); 
-	$sm_bottom_img = wp_get_attachment_image_src( $sm_bottom_img, 'md' ); 
+	$sm_bottom_img = wp_get_attachment_image_src( $sm_bottom_img, 'lg' ); 
 	$sm_bottom_link_title = get_post_meta( get_the_ID(), $instance.'_small_bottom_link_title', true ); 
 	$sm_bottom_link = get_post_meta( get_the_ID(), $instance.'_small_bottom_link', true ); 
 ?>
