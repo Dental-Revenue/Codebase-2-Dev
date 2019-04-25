@@ -10,6 +10,11 @@
 	}
 ?>
 
+<?php
+//action for before the header
+do_action('before_header');
+?>
+
 <header class="header<?php echo $extra_header_classes; ?>"> 
 
 <?php if(!empty(site_ops_notification_message(false))){
@@ -166,3 +171,8 @@
 <?php } ?>
 
 </header> 
+
+<?php
+//action for after the header
+do_action('after_header');
+?>
