@@ -10,11 +10,6 @@
 	}
 ?>
 
-<?php
-//action for before the header
-do_action('before_header');
-?>
-
 <header class="header<?php echo $extra_header_classes; ?>"> 
 
 <?php if(!empty(site_ops_notification_message(false))){
@@ -27,6 +22,13 @@ do_action('before_header');
 		</div>
 	</div>
 <?php } } ?>
+
+
+<?php
+//action for before the header
+do_action('before_header');
+?>
+
 
 <?php if ($nav_style == 'header-style-a') { ?> 
 	  
@@ -170,9 +172,9 @@ do_action('before_header');
 
 <?php } ?>
 
-</header> 
-
 <?php
 //action for after the header
 do_action('after_header');
 ?>
+
+</header> 
