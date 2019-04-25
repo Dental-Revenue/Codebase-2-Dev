@@ -3,7 +3,10 @@
 	$appearance_info = get_option( 'appearance_info');
 	$headline_style = $appearance_info['headline_style'];
 	
-	$title = get_post_meta( get_the_ID(), $instance.'_title', true ); 
+	//$title = get_post_meta( get_the_ID(), $instance.'_title', true );
+	
+	$raw_headline = get_post_meta(get_the_id(),$instance.'_heading',true);
+	$headline = str_replace(array('{','}'), array('<span>','</span>'),$raw_headline);
 	
 	$big_img = get_post_meta( get_the_ID(), $instance.'_big_img_id', true ); 
 	$big_img = wp_get_attachment_image_src( $big_img, 'xl' ); 
@@ -21,7 +24,7 @@
 	$sm_bottom_link = get_post_meta( get_the_ID(), $instance.'_small_bottom_link', true ); 
 ?>
   
-  <h2 class="<?php echo $headline_style; ?>"><?php echo $title; ?></h2>
+  <h2 class="<?php echo $headline_style; ?>"><?php echo $headline; ?></h2>
   
   <div class="row">
 	  
