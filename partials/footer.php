@@ -8,21 +8,21 @@
       </div>
         
       
-      <div class="footer-right" itemscope itemtype="http://schema.org/Dentist">
+      <div class="footer-right">
         
         <div class="footer-column">
-          <a href="/" class="logo"><span itemprop="name"><img src="<?php site_ops_logo(); ?>" alt="<?php site_ops_practice_name(); ?>" /></span></a>
+          <a href="/" class="logo"><spa><img src="<?php site_ops_logo(); ?>" alt="<?php site_ops_practice_name(); ?>" /></span></a>
         </div>
         
         <div class="footer-column">      
           <div class="contact-option">
             <i class="fas fa-map-marker-alt"></i>
             <p>
-              <span itemprop="streetAddress"><?php site_ops_address(); ?></span><br />
+              <span><?php site_ops_address(); ?></span><br />
               <span class="bold">
-                <span itemprop="addressLocality"><?php site_ops_city(); ?></span>,
-                <span itemprop="addressRegion"><?php site_ops_state(); ?></span>
-                <span itemprop="postalCode"><?php site_ops_zip(); ?></span>
+                <span><?php site_ops_city(); ?></span>,
+                <span><?php site_ops_state(); ?></span>
+                <span><?php site_ops_zip(); ?></span>
               </span>
             </p>
           </div>
@@ -69,11 +69,11 @@
           <div class="option">
             <i class="fas fa-map-marker-alt"></i>
             <p>
-              <span itemprop="streetAddress"><?php site_ops_address(); ?></span><br />
+              <span><?php site_ops_address(); ?></span><br />
 							<span class="bold">
-              	<span itemprop="addressLocality"><?php site_ops_city(); ?></span>,
-								<span itemprop="addressRegion"><?php site_ops_state(); ?></span>
-								<span itemprop="postalCode"><?php site_ops_zip(); ?></span>
+              	<span><?php site_ops_city(); ?></span>,
+								<span><?php site_ops_state(); ?></span>
+								<span><?php site_ops_zip(); ?></span>
 							</span>
           	</p>
           </div>
