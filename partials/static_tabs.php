@@ -28,7 +28,7 @@
 		if(isset($item['image'])){ $item_img = wp_get_attachment_image_src( $item_img_id, 'xxl' ); }
 		if(isset($item['darkness'])){ $item_darkness = $item['darkness']; }
 		
-		if(isset($item['link'])){ $item_link = $item['link']; }
+		if(isset($item['link'])){ $item_link = get_permalink($item['link']); }
 		if(isset($item['link_title'])){ $item_link_title = $item['link_title']; } 
 		if(isset($item['excerpt'])){ $item_excerpt = $item['excerpt']; }
 		 ?>
