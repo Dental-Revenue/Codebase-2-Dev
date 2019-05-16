@@ -9,6 +9,7 @@ require('slick-carousel');
 //require('jquery-sticky-kit');
 require('sidr/dist/jquery.sidr.js');
 require('bootstrap/js/dist/tab.js');
+require('covervid');
 var magnificPopup = require('magnific-popup');
 var jQueryBridget = require('jquery-bridget');
 var Isotope = require('isotope-layout');
@@ -101,22 +102,30 @@ $(document).ready(function(){
 	//MODULE SPECIFIC *********
 	
 	//Module Fold_slider
-	$('.slick-fold_slider').slick({
-    infinite: true,
-      slidesToShow: 1,
-      slidesToScroll: 1,
-      speed: 500,
-      arrows:false,
-      dots:true,
-      autoplay: true,
-      autoplaySpeed: 5000,
-      fade: true,
-      cssEase: 'linear',
-      pauseOnHover: false,
-      responsive: [
-        {breakpoint: 480,settings: {dots:false}},
-      ]
-	});
+	if($('.slick-fold_slider').length>0){
+		$('.slick-fold_slider').slick({
+	    infinite: true,
+	      slidesToShow: 1,
+	      slidesToScroll: 1,
+	      speed: 500,
+	      arrows:false,
+	      dots:true,
+	      autoplay: true,
+	      autoplaySpeed: 5000,
+	      fade: true,
+	      cssEase: 'linear',
+	      pauseOnHover: false,
+	      responsive: [
+	        {breakpoint: 480,settings: {dots:false}},
+	      ]
+		});
+	}
+	
+	if($('.fold-video').length>0){ 
+		var videoHeight = $('.fold-video').height();  
+		var videoWidth = $('.fold-video').width(); 
+		 $('.fold-video').coverVid(videoWidth, videoHeight);
+	}
 	
 	if($('.fold-slices').length>0){
   	if($(window).width()>1199){
@@ -145,7 +154,7 @@ $(document).ready(function(){
       cssEase: 'linear',
       pauseOnHover: false,
       autoplay: true,
-			autoplaySpeed: 5000,
+		  autoplaySpeed: 5000,
 			slidesToShow: 1,
 			slidesToScroll: 1,
 			arrows: false,
