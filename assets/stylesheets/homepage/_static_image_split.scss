@@ -14,8 +14,7 @@
     
     .static_image_split-contact{padding: 30px;}
       .static_image_split-contact .contact-options{display: block;}
-        .static_image_split-contact .contact-options .contact-option{margin: 0 30px 20px 0; &:last-child{margin-right: 0;}}
-        
+        .static_image_split-contact .contact-options .contact-option{margin: 0 30px 20px 0; float: none; &:last-child{margin-right: 0;}}
         
         
 @media all and (max-width: $bp-tablet) {
