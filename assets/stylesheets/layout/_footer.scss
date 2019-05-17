@@ -14,9 +14,10 @@ footer{display: block;}
     .footer-top .footer-column{width: 65%;float: left; &:first-child{width: 100%;} &:nth-child(3){width: 35%;}}
     
       .footer-column .logo{display: block;margin-bottom: 20px;}
-        .footer-column .logo img{width: auto;height: auto;max-width: 300px;max-height: 100px;display: block;}
+        .footer-column .logo img{width: auto;height: auto;max-width: 300px; width:100%; max-height: 100px;display: block;}
       
-      .footer-column .contact-option{display: block;margin-bottom: 6px; float:left; opacity:1; &:nth-child(2) {margin-left: 0;} p {line-height:130%; margin:8px 0;}}
+      .footer-column .contact-option{display: block;margin-bottom: 6px; float:none; opacity:1; &:nth-child(2) {margin-left: 0;} p {line-height:130%; margin:8px 0;}}
+      		.footer-column .contact-option p span.bold{display:block;}
         .footer-column .contact-option.company-hours{font-weight: 600;margin-bottom: 0;}
           .footer-column .contact-option.company-hours .hour-set span{display:block;margin-bottom: 6px;font-weight: 400;}
           .footer-column .contact-option i {font-size: 25px; margin:8px 10px 0 0; width:36px;}
@@ -59,7 +60,7 @@ footer{display: block;}
   
   .footer-top .footer-column{width: 100% !important;}
     
-    .footer-column .logo{margin: 0 auto;max-width: 288px;}
+    .footer-column .logo{margin: 0 auto 30px;max-width: 230px;}
     
     .footer-column a.schedule{display: none;}
     .footer-column .contact-option {width:100%;}
