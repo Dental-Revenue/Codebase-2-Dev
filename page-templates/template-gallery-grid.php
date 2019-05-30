@@ -50,24 +50,33 @@ Template Name: Gallery - Grid Style
 		    	<div class="g-grid-grid">
 					  <div class="g-grid-sizer"></div>
 					  <?php $gallery_count = 1; foreach($gallery_items as $item){
+							
 							$gallery_img_1 = $gallery_img_2 = $gallery_desc = $feat_type = $filters = '';
+							
 							if(isset($item['desc'])){ $gallery_desc = $item['desc']; }
+							
 							if(isset($item['tags'])){ $filters = $item['tags']; }
+							
 							if(isset($item['img_1'])){ 
 								$gallery_img_1_id = $item['img_1_id']; 
 								$gallery_img_1 = wp_get_attachment_image_src( $gallery_img_1_id, 'sg-stitch' ); 
 								$feat_type = 'portrait';
 							}
-							if(isset($item['img_2'])){ 
+							
+							if(isset($item['img_2']) && $item['img_2']!=''){ 
 								$gallery_img_2_id = $item['img_2_id']; 
 								$gallery_img_2 = wp_get_attachment_image_src( $gallery_img_2_id, 'sg-stitch' ); 
 								$feat_type = 'ba';
 							} ?>
 							
 							<div class="g-grid-grid-item f-all <?php echo $feat_type; if(!empty($filters)){foreach($filters as $filter){echo ' f-'.sanitize_title($filter);}} ?>">
+								
 								<a href="#" class="g-grid-patient" data-images="<?php echo '#img'.$gallery_img_1_id; ?>">
+									
 									<span class="overlay"></span>
+									
 									<img src="<?php echo $gallery_img_1[0]; ?>" alt="<?php echo 'Main Gallery Image '.$gallery_count.' | '.get_the_title(); ?>" />
+						      
 						      <?php if($feat_type=='ba'){ ?>  
 						        <img src="<?php echo $gallery_img_2[0]; ?>" alt="<?php echo 'Secondary Gallery Image '.$gallery_count.' | '.get_the_title(); ?>" />
 						      <?php } ?>
@@ -75,6 +84,7 @@ Template Name: Gallery - Grid Style
 						      <?php if(!empty($gallery_desc)){ ?>
 						        <span class="excerpt"><?php echo $gallery_desc; ?></span>
 						      <?php } ?>
+						      
 					      </a>
 					      
 					      <div class="g-grid-lightbox-images mfp-hide">
