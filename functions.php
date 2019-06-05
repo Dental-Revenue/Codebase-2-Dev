@@ -1167,7 +1167,17 @@ class Walker_Quickstart_Menu extends Walker_Nav_Menu {
 
 
 
-
+//exclude noindex pages from sitemap
+function exclude_no_indexes_from_wp_list_pages( $pages, $args ) {	
+	if( array_key_exists( 'walker', $args ) ) {
+		foreach ( $pages as $key => $item ) {
+			$_yoast_wpseo_meta_robots_noindex = get_post_meta( $item->ID, '_yoast_wpseo_meta-robots-noindex', true );
+			if( $_yoast_wpseo_meta_robots_noindex == 1 ) unset( $pages[$key] );
+		}
+	}
+	return $pages;
+}
+add_filter( 'get_pages', 'exclude_no_indexes_from_wp_list_pages', 10, 2 );
 
 
 
