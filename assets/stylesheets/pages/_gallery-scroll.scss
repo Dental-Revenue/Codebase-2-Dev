@@ -3,16 +3,25 @@
   .g-scroll-slide{@include clearfix(); margin: 0 auto; text-align: left; overflow: hidden;}
   	.g-scroll-slide h3{color: $main-color;font-size: 14px;line-height: 1.25;position: relative;text-transform: uppercase; clear: both; text-align: left; margin-top: 30px;}
     .g-scroll-slide img{display:block; width: 49%;height: auto;float: left;margin:0 0 20px 2%; &:first-child{margin-left: 0;}}
-    .g-scroll-slide p{text-align: left;}
+    .g-scroll-slide p{text-align: left; clear: left;}
+    
+  .g-scroll-slide .headshot {width:37%; display:inline-block; float: left; box-sizing: border-box; border-right: 1px solid rgba($black,.2); padding-right: 3%; margin-right: 3%; img {width:100%; margin-bottom:0;}}
+  .g-scroll-slide .headshot-content {width:60%; display:inline-block;}
     
   .g-scroll-slide.portrait{max-width:392px;}
   	.g-scroll-slide.portrait img{width:100%;}
+  	
+  .slick-g-scroll {padding-top:100px;}
+  	.slick-g-scroll .slick-dots {position: absolute;top: 20px;left: 50%; margin-top:0;transform: translateX(-50%); &:hover {transform: translateX(-50%);}}
 
 
 /* Media Queries */
 @media all and (max-width: $bp-phablet) {
   .g-scroll-slide{width: 100%;text-align: center;}
     //.g-scroll-slide img{display: inline-block;margin: 6px !important;width: 144px;height: 144px;float: none;}
+    
+  .g-scroll-slide .headshot {width: 100%;border: none;padding-right: 0;margin-right: 0; img {width: auto; max-width:100%; float: none;margin: 0 auto 20px;}}
+  .g-scroll-slide .headshot-content {width:100%;}
 }
 
 @media all and (max-width: $bp-phone) {

@@ -40,6 +40,19 @@ function gallery_grid_meta() {
 		'id' => 'img_2',
 		'type' => 'file'
 	));
+  	
+	$box->add_group_field( $group_box, array(
+  	'name' => 'Headshot (Not Required)',
+		'id' => 'headshot',
+		'type' => 'file'
+	));
+	
+	$box->add_group_field( $group_box, array(
+  	'name' => 'Name',
+		'id' => 'name',
+		'type' => 'text'
+	));
+	
 	$box->add_group_field( $group_box, array(
   	'name' => 'Description',
 		'id' => 'desc',

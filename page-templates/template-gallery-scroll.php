@@ -30,7 +30,8 @@ Template Name: Gallery - Scroll Style
         	
         		  <?php 
 	        		  foreach($gallery_items as $item){
-								$gallery_img_1 = $gallery_img_2 = $gallery_desc = $feat_type = '';
+								$gallery_img_1 = $gallery_img_2 = $gallery_desc = $feat_type = $headshot= $headshot_id = $gallery_name = '';
+								if(isset($item['name'])){ $gallery_name = $item['name']; }
 								if(isset($item['desc'])){ $gallery_desc = $item['desc']; }
 								if(!empty($item['img_1'])){ 
 									$gallery_img_1_id = $item['img_1_id']; 
@@ -42,14 +43,30 @@ Template Name: Gallery - Scroll Style
 									$gallery_img_2 = wp_get_attachment_image_src( $gallery_img_2_id, 'lg-square' ); 
 									$feat_type = 'ba';
 								} 
+								if(!empty($item['headshot'])){ 
+									$headshot_id = $item['headshot_id'];
+									$headshot = wp_get_attachment_image_src( $headshot_id, 'lg' );  
+								}
 							?>
 	        		  
         		  <div class="g-scroll-slide <?php echo $feat_type; ?>">
         					
 	      	  			<?php 
-	      	  			  echo '<img src="'.$gallery_img_1[0].'">';	
-	      	  			  if(!empty($gallery_img_2)){ echo '<img src="'.$gallery_img_2[0].'">'; }
-	      	  			  echo '<p>'.$gallery_desc.'</p>';
+	      	  			  if(!empty($headshot)){ 
+		      	  			  echo '<div class="headshot"><img src="'.$headshot[0].'"></div>';
+		      	  			  echo '<div class="headshot-content">'; 
+											if(!empty($gallery_img_2)){ echo '<img src="'.$gallery_img_2[0].'">'; }
+	      	  			  	if(!empty($gallery_img_1)){ echo '<img src="'.$gallery_img_1[0].'">';	}
+											if(!empty($gallery_name)){ echo '<h3>'.$gallery_name.'</h3>'; }
+											if(!empty($gallery_desc)){ echo '<p>'.$gallery_desc.'</p>'; }
+		      	  			  echo '</div>';
+		      	  			  
+		      	  			} else {
+											if(!empty($gallery_img_2)){ echo '<img src="'.$gallery_img_2[0].'">'; }
+	      	  			  	if(!empty($gallery_img_1)){ echo '<img src="'.$gallery_img_1[0].'">';	}
+											if(!empty($gallery_name)){ echo '<h3>'.$gallery_name.'</h3>'; }
+											if(!empty($gallery_desc)){ echo '<p>'.$gallery_desc.'</p>'; }
+										}
 	      	  			?>
 	      	  			
         		  </div>
