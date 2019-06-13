@@ -60,7 +60,7 @@
 									echo '<i class="ion-android-star-half" aria-hidden="true"></i>';
 								}
 								?>
-								<img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/layout/g-logo.png" alt="Google Logo" class="g-logo" />
+								<img src="<?php echo get_template_directory_uri(); ?>/assets/images/layout/g-logo.png" alt="Google Logo" class="g-logo" />
 								<p><?php echo $company_stars; ?> out of 5 stars</p>
 							</div>
 						</div>
