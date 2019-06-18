@@ -23,10 +23,12 @@
  <div class="offset_right">
 	 <?php
 		$right_side_img = get_post_meta(get_the_id(),$instance.'_right_side_image',true);
+		$right_side_content = get_post_meta(get_the_id(),$instance.'_right_side_content',true);
 		$right_side_cta = get_post_meta(get_the_id(),$instance.'_right_side_cta',true);
 		$right_side_url = get_post_meta(get_the_id(),$instance.'_right_side_url',true);
 	?>
 	 <div class="offset_right_img" style="background-image: url(<?php echo $right_side_img; ?>);"></div>
+	 <?php echo wpautop($right_side_content); ?>
 	 <p><a href="<?php echo $right_side_url; ?>" class="btn solid"><?php echo $right_side_cta; ?></a></p>
  </div>
  
