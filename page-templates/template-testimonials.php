@@ -21,7 +21,69 @@ Template Name: Testimonials
           endwhile; endif; ?>
 				</div>   				
 				
-				<div class="interior-testimonials"> 				
+				<div class="interior-testimonials">
+					 <?php
+						$place_id = getOption('practice_info');
+						$place_id = $place_id['google_place_id'];
+						
+						if(!$place_id || $place_id==''){
+							echo "Set Place ID in Theme Settings";
+						}else{
+						
+							$jsonurl = "https://maps.googleapis.com/maps/api/place/details/json?placeid=$place_id&key=AIzaSyD7dIa6edUzrhrYIrwXDab2B0nfF56om5w";
+							$json = file_get_contents($jsonurl);
+							$json = json_decode($json);
+							
+							//echo '<pre>'.$json.'</pre>';
+							//var_dump($json);
+							
+							$company_name = $json->result->name;
+							$company_url = $json->result->url;
+							$company_logo = $json->result->icon;
+							$company_stars = $json->result->rating;
+								$company_stars_array = explode(".", $company_stars);
+								$company_stars_full = $company_stars_array[0];
+								$company_stars_half = count($company_stars_array) > 1 ? $company_stars_array[1] : '';
+							
+							$reviews = $json->result->reviews;
+							$counter = 0;
+							
+							foreach ($reviews as $review){
+								if($review->rating>4){
+									$counter++;
+									$patient_name = $review->author_name;
+									$patient_review_url = $review->author_url;
+									$patient_image = $review->profile_photo_url;
+									$patient_stars = $review->rating;
+										$patient_stars_array = explode(".", $patient_stars);
+										$patient_stars_full = $patient_stars_array[0];
+										$patient_stars_half = count($patient_stars_array) > 1 ? $patient_stars_array[1] : '';
+									$patient_review = $review->text; ?>
+									
+									
+									<div class="testimonial">
+			              <div class="testimonial-img">
+			              <?php if($patient_image != ''){ ?>
+			                <a href="<?php echo $patient_review_url; ?>" class="g-panel-img" target="_blank"><img src="<?php echo $patient_image;?>" alt="<?php echo $patient_name; ?>" /></a>
+			              <?php }else{ ?>
+			                <i class="icon ion-ios-chatboxes-outline"></i>
+			              <?php } ?>
+			              </div>
+			              <div class="testimonial-text">
+			                <h3><a href="<?php echo $patient_review_url; ?>" target="_blank"><?php echo $patient_name; ?></a> <img src="<?php echo get_template_directory_uri(); ?>/assets/images/layout/g-logo.png" alt="Google Logo" class="g-logo" /></h3>
+			                <p><?php echo $patient_stars; ?> out of 5 stars</p>
+			                <p><?php echo wp_trim_words($patient_review,60); ?></p>
+			              </div>
+			            </div>
+									
+									
+								<?php }
+								if($counter>2){ break; }
+							}
+						} ?>
+					
+					
+					 				
   				<?php
           $args = array( 'post_type' => 'testimonials', 'order' => 'ASC', 'orderby'=> 'menu_order', 'posts_per_page' => -1 );
           $loop = new WP_Query( $args );

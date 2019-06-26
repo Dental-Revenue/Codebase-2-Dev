@@ -11,7 +11,7 @@
     .testimonial-text{overflow: hidden;text-align: left;padding: 32px;box-sizing: border-box;border-radius: 3px;border: 1px solid rgba($black,.1);list-style:none;box-shadow: 0 0 18px rgba(0,0,0,0.04); transition:transform .6s; position: relative;z-index: 1; & :last-child{margin-bottom: 0;}}
       .testimonial-text h3{font-size: 14px;font-weight: 900;font-family: $heading-font;margin-top: 0;color: $accent;}
       .testimonial-text p{font-size: 12px;}
-      .testimonial-text a{float: right;font-size: 14px; color: $accent; &:hover{text-decoration: underline;}}
+      .testimonial-text a{font-size: 14px; color: $accent; &:hover{text-decoration: underline;}}
 
 
   /* animated hover state */
