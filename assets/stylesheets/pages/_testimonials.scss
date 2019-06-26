@@ -1,0 +1,41 @@
+.interior-testimonials{}
+
+  .interior-testimonials .testimonial{margin: 20px 0;width: 100%;display: block !important;}
+  	.interior-testimonials .testimonial .testimonial-text h3 img{width: 70px;height: auto;display: inline-block;margin-left: 10px;vertical-align: middle;}
+  	.interior-testimonials .testimonial .testimonial-text span i{color:#dd4c39;font-size: 21px;}
+
+  .testimonial{display: inline-block;width: 366px;margin: 0 10px 20px;vertical-align: top;}
+    .testimonial-img{width: 66px;height: 66px;border-radius: 50%;border: 1px solid rgba($black,.1);overflow: hidden;box-shadow: 0 0 10px rgba(0,0,0,.03);float: left;background-color:$white;margin-right: 22px;transition:transform .2s, box-shadow .2s;@include prefix(transform-origin, top left);position: relative;z-index: 2;}
+      .testimonial-img img{display: block;width: 100%;height: auto;}
+      .testimonial-img i{font-size: 40px;line-height:100%;color: $accent;display: block;@include center(both);}
+    .testimonial-text{overflow: hidden;text-align: left;padding: 32px;box-sizing: border-box;border-radius: 3px;border: 1px solid rgba($black,.1);list-style:none;box-shadow: 0 0 18px rgba(0,0,0,0.04); transition:transform .6s; position: relative;z-index: 1; & :last-child{margin-bottom: 0;}}
+      .testimonial-text h3{font-size: 14px;font-weight: 900;font-family: $heading-font;margin-top: 0;color: $accent;}
+      .testimonial-text p{font-size: 12px;}
+      .testimonial-text a{float: right;font-size: 14px; color: $accent; &:hover{text-decoration: underline;}}
+
+
+  /* animated hover state */
+  .testimonial:hover .testimonial-img{@include prefix(transform, scale(1.5,1.5));box-shadow: -3px 5px 14px rgba(0,0,0,0.16);}
+  .testimonial:hover .testimonial-text{@include prefix(transform, scale(1.03,1.03));}
+  
+  
+@media all and (max-width: $bp-row) {
+  
+  .testimonial:nth-child(3){display: none;}
+  
+}
+
+@media all and (max-width: $bp-tablet) {
+  
+  .testimonial{width: 100%;margin: 0 0 20px 0;}
+  
+}
+
+@media all and (max-width: $bp-phone) {
+  
+  .testimonial:nth-child(2){display: none;}
+    .testimonial-img{width: 50px;height: 50px;margin-right: 18px;}
+      .testimonial-img i{font-size: 30px;}
+    .testimonial-text{padding: 22px;}
+  
+}
