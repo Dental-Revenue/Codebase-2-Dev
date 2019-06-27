@@ -44,6 +44,13 @@ $(function() {
                 email.addClass('invalid');
                 err++;
             }
+            var patient = $this.find('select[name="AdsNext-AreYouNewPatient"]');
+            if ((patient.length) && (patient.val() == 'Select One')) {
+                patient.addClass('invalid');
+                patient.prev().addClass('invalid');
+                err++;
+            }
+            
             if (err > 0) {
                 $this.prepend('<p class="err">Please fill out all required form fields.</p>');
                 $this.find('button').removeClass('disabled');

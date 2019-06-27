@@ -34,7 +34,7 @@ Template Name: Schedule Appointment Form
           
           <p>Are you a new patient?</p>
           <select name="AdsNext-AreYouNewPatient">
-            <option selected value="Select One">Select One</option>
+            <option selected value="Select One">Select One*</option>
             <option value="Yes">Yes</option>
             <option value="No">No</option>
           </select>
