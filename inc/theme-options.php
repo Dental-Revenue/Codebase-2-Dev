@@ -484,6 +484,7 @@ function cmb2_appearance_options() {
 			'header-style-a' => 'Style A',
 			'header-style-b' => 'Style B',
 			'header-style-c' => 'Style C',
+			'header-style-d' => 'Style D',
 		),
 		'default' => 'header-style-a'
 	));

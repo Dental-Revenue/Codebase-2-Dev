@@ -83,6 +83,36 @@ header{}
 	.header-style-c header.scrolled {top:-130px;}
 	
 	.header-style-c header.notification-active+.page-wrap .page-head{margin-top:144px;}
+	
+	
+  
+
+/* HEADER STYLE-D */  
+.header-style-d {}
+
+ 	.header-style-d .page-wrap .page-head {margin-top:72px;}
+ 	
+ 	.header-style-d .header-logo {height:auto; min-height: 60px; .logo {height:60px;}}
+ 	
+ 	.header-style-d .header-style-d-contain{ display: flex;box-shadow: 0 0 1.5rem rgba(0,0,0,.15); }
+	 	
+	 	.header-style-d header {top:15px; transition: top .3s ease; width:94%; left:3%; height:auto; }
+	 	
+	 		.header-style-d .header-top {height:auto; background-color: transparent; margin-top:5px; .row {height:auto;}}
+	 			.header-style-d.scrolled .header-top {opacity:0;}
+	 	
+	 		.header-style-d .header-logo {left: 0;position: relative; height:60px;}
+	 		.header-style-d .header-logo .logo img {max-width: 90%; transform: translate(5%,-50%);}
+	 		
+	 		.header-style-d .header-bottom {padding-left:20px;flex:1;}
+	 		
+	 		.header-style-d .large-nav .schedule {float:right; margin:10px; top:0; transform: none; position: relative;}
+	 		
+	 		.header-style-d .large-nav > div > ul {padding-right: 20px;}
+	 	
+	 	.header-style-d.scrolled header {top:0;}
+	 	
+	 .header-style-d .contact-option {margin:0 0 0 10px; float:right; &.street-address {float:left; margin-left: 0;} i{font-size: 15px; margin: 8px 4px 0; width: 20px;}  p{ color:$white; margin-top: 7px; span.bold {display:inline-block;}}}
  		
   
   
@@ -134,6 +164,8 @@ header.notification-active+.page-wrap, header.notification-active+.page-wrap .pa
       .header-logo .logo img, .header-style-b .header-logo .logo img{max-width: 80%;@include center(both);}
   
   .header-contact .contact-option{display: none !important;}
+  
+  .header-style-d .header-top {display:none;}
   
     
 }
