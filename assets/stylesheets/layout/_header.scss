@@ -98,7 +98,7 @@ header{}
 	 	
 	 	.header-style-d header {top:15px; transition: top .3s ease; width:94%; left:3%; height:auto; }
 	 	
-	 		.header-style-d .header-top {height:auto; background-color: transparent; margin-top:5px; .row {height:auto;}}
+	 		.header-style-d .header-top {height:auto; background-color: transparent; margin-top:5px; z-index: 0; .row {height:auto;}}
 	 			.header-style-d.scrolled .header-top {opacity:0;}
 	 	
 	 		.header-style-d .header-logo {left: 0;position: relative; height:60px;}
