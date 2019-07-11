@@ -7,7 +7,8 @@ function theme_scripts_styles() {
 	$heading_font = $appearance_info['heading_font'];
 	$body_font = $appearance_info['body_font'];
 	wp_enqueue_style( 'google-fonts', '//fonts.googleapis.com/css?family='.$heading_font.':400,600,800%7C'.$body_font.':300,400,400i,600' , false, false);
-	wp_enqueue_style( 'main-styles', get_template_directory_uri() . '/assets/stylesheets/style.php/style.scss',false, false);
+	wp_enqueue_style('font-awesome', get_template_directory_uri() . '/assets/stylesheets/vendor/font-awesome/css/all.css',false, false);
+	wp_enqueue_style( 'main-styles', get_template_directory_uri() . '/assets/stylesheets/style.css',false, false);
   
   wp_deregister_script('jquery');
   
@@ -27,7 +28,6 @@ function admin_scripts_styles() {
   wp_enqueue_script('admin-scripts', get_template_directory_uri().'/admin/admin.js');
 }
 add_action('admin_enqueue_scripts', 'admin_scripts_styles');
-  
   
 // ================================================ LIBRARIES
 if ( file_exists(  __DIR__ . '/inc/libs/cmb2/init.php' ) ) {
@@ -1165,8 +1165,6 @@ class Walker_Quickstart_Menu extends Walker_Nav_Menu {
 }
 
 
-
-
 //exclude noindex pages from sitemap
 function exclude_no_indexes_from_wp_list_pages( $pages, $args ) {	
 	if( array_key_exists( 'walker', $args ) ) {
@@ -1178,8 +1176,6 @@ function exclude_no_indexes_from_wp_list_pages( $pages, $args ) {
 	return $pages;
 }
 add_filter( 'get_pages', 'exclude_no_indexes_from_wp_list_pages', 10, 2 );
-
-
 
 
 
@@ -1267,5 +1263,16 @@ add_filter( 'gutenberg_can_edit_post_type', '__return_false' );
 add_filter( 'use_block_editor_for_post_type', '__return_false' );
 // Disable "Try Gutenberg" panel
 remove_action( 'try_gutenberg_panel', 'wp_try_gutenberg_panel' );
-	
+
+// Compile CSS from SCSS Based on Variables from CMB2
+
+function scss_php_compile() {
+	include get_template_directory() . '/assets/stylesheets/style.php';
+}
+
+add_action( 'cmb2_save_options-page_fields_appearance_info', 'cmb2_save_apperance_options', 10, 3 );
+ function cmb2_save_apperance_options( string $object_id, array $updated, CMB2 $cmb )
+ {
+     scss_php_compile();
+ }
 ?>
