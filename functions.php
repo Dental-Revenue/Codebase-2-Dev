@@ -1275,4 +1275,16 @@ add_action( 'cmb2_save_options-page_fields_appearance_info', 'cmb2_save_apperanc
  {
      scss_php_compile();
  }
+ 
+   // Compile CSS one time after update of Codebase theme
+
+ function theme_updated_compile_once() {
+ 
+    if ( get_option( 'theme_updated_compile_once' ) != 'completed' ) {
+		scss_php_compile();
+        update_option( 'theme_updated_compile_once', 'completed' );
+    }
+}
+add_action( 'admin_init', 'theme_updated_compile_once' );
+
 ?>
