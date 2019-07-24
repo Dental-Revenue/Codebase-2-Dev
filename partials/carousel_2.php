@@ -20,7 +20,7 @@
   
     <div class="carousel_2-block hover-up-parent">
       <a href="<?php the_permalink($item_link_id); ?>">
-        <img src="<?php echo $item_img[0]; ?>"> 
+        <img src="<?php echo $item_img[0]; ?>" alt="<?php echo $item_title; ?>">
       </a>
       <a href="<?php the_permalink($item_link_id); ?>" class="hover-up-child"><?php echo $item_title; ?></a>
     </div>
