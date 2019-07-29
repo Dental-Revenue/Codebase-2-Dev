@@ -1,7 +1,14 @@
-<?php $instance = $template_args['instance']; ?>
-
+<?php 
+$instance = $template_args['instance'];
+$appearance_info = get_option( 'appearance_info');
+$headline_style = $appearance_info['headline_style'];
+$raw_headline = get_post_meta(get_the_id(),$instance.'_headline',true);
+$headline = str_replace(array('{','}'), array('<span>','</span>'),$raw_headline);
+?>
 
 <div class="row">
+
+<h2 class="<?php echo $headline_style; ?>"><?php echo $headline; ?></h2>
   
   <?php
 	if(get_post_meta(get_the_id(),$instance.'_category',true)!='all'){
