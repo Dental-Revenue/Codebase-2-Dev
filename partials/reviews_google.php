@@ -92,7 +92,7 @@
 		<div class="reviews_google-buttons">
 			<a href="<?php site_ops_google_review_url(); ?>" class="btn solid google" target="_blank">Leave a Google Review</a>
 			<?php $page = get_pages(array('meta_key' => '_wp_page_template','meta_value' => 'page-templates/template-testimonials.php')); ?>
-			<?php if(isset($page[0]->ID)){ ?><a href="<?php echo get_permalink($page[0]->ID); ?>" class="btn solid">View More Reviews</a><?php } ?>
+			<a href="<?php $url = null;$pages = get_pages(array('meta_key' => '_wp_page_template','meta_value' => 'page-templates/template-testimonials.php'));if(isset($pages[0])) {$url = get_page_link($pages[0]->ID);} echo $url;?>" class="btn solid">View More Reviews</a>
 		</div>
   
   </div>
