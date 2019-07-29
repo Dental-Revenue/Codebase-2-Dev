@@ -1,7 +1,8 @@
 <?php 
 	global $post;
 	$instance = $template_args['instance']; 
-	$title = get_post_meta( get_the_ID(), $instance.'_title', true );
+	$raw_headline = get_post_meta(get_the_id(),$instance.'_title',true);
+	$title = str_replace(array('{','}'), array('<span>','</span>'),$raw_headline);
 	$appearance_info = get_option( 'appearance_info');
 	$headline_style = $appearance_info['headline_style']; 
 	$color = (get_post_meta(get_the_id(),$instance.'_bg_color',true)!='') ? get_post_meta(get_the_id(),$instance.'_bg_color',true) : '#ffffff' ;
