@@ -2,7 +2,7 @@
 	$box->add_field( array(
 		'name' => 'Grid Headline',
 		'id' => $prefix.'headline',
-		'description' => 'Optional',
+		'description' => 'Optional. Supports {subhead}',
 		'type' => 'text'
 	));
 	$box->add_field( array(
