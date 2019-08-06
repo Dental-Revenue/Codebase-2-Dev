@@ -1,14 +1,16 @@
-<?php $instance = $template_args['instance'];
+<?php 
+	$instance = $template_args['instance']; 
 	$appearance_info = get_option( 'appearance_info');
-	$headline_style = $appearance_info['headline_style']; ?>
+	$headline_style = $appearance_info['headline_style'];
+	$raw_title = get_post_meta(get_the_id(),$instance.'_title',true);
+	$maintitle = str_replace(array('(',')'), array("<h2 class='$headline_style'>","</h2>"),$raw_title);
+	$subtitle = str_replace(array('{','}'), array('<h3>','</h3>'),$maintitle);
+	$title = str_replace(array('[',']'), array('<p>','</p>'),$subtitle);
+?>
+<div class="section-title"><?php echo $title; ?></div>
   
 <div class="row">
 	<div class="blog_big_small-left columns six">
-		<?php
-	  $raw_headline = get_post_meta(get_the_id(),$instance.'_headline',true);
-		$headline = str_replace(array('{','}'), array('<span>','</span>'),$raw_headline);
-		?>
-		<h2 class="<?php echo $headline_style; ?>"><?php echo $headline; ?></h2>
 		<?php
     $args = array( 'post_type' => 'post', 'orderby' => 'post_date','order' => 'DESC','posts_per_page' => 1 );
     $loop = new WP_Query( $args );
