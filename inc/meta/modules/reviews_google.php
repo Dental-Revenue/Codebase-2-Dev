@@ -4,8 +4,8 @@
 		'name' => 'Title',
 		'id' => $prefix.'title',
 		'type' => 'text',
-		'default' => 'Patient Testimonials',
-		'desc' => 'Supports {subhead}'
+		'default' => '(Patient Testimonials)',
+		'desc' => 'Supports (Title){Subtitle}[Paragraph]'
 	));
 				
 ?>
