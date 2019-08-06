@@ -3,8 +3,9 @@
 	$box->add_field( array(
 		'name' => 'Title',
 		'id' => $prefix.'title',
-		'description' => 'Supports {subhead}',
-		'type' => 'text'
+		'type' => 'textarea_small',
+		'default' => '(Title){Subtitle}[Paragraph]',
+		'desc' => 'Supports (Title){Subtitle}[Paragraph]'
 	));
-						
+				
 ?>
