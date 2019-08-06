@@ -1,10 +1,11 @@
 <?php	
 
 $box->add_field( array(
-	'name' => 'Headline',
-	'id' => $prefix.'headline',
-	'description' => 'Supports {subhead}',
-	'type' => 'text'
+	'name' => 'Title',
+	'id' => $prefix.'title',
+	'type' => 'textarea_small',
+	'default' => '(Title){Subtitle}[Paragraph]',
+	'desc' => 'Supports (Title){Subtitle}[Paragraph]'
 ));
 
 $box->add_field( array(
