@@ -1,10 +1,11 @@
 <?php
+	
 	$box->add_field( array(
 		'name' => 'Title',
 		'id' => $prefix.'title',
-		'type' => 'textarea_small',
-		'desc' => 'Supports (Title){Subtitle}[Paragraph]'
+		'type' => 'text'
 	));
+	
 	$group_field = $box->add_field( array(
 		'id' => $prefix.'carousel_items',
 		'type' => 'group',

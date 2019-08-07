@@ -1,10 +1,10 @@
 <?php
+	
 	$box->add_field( array(
 		'name' => 'Slider Headline',
 		'id' => $prefix.'headline',
-		'type' => 'textarea_small',
-		'default' => '(Title){Subtitle}[Paragraph]',
-		'desc' => 'Supports (Title){Subtitle}[Paragraph]'
+		'description' => 'Supports {bold}',
+		'type' => 'text'
 	));
 	$box->add_field( array(
 		'name'	=> 'Select Testimonials',
@@ -22,4 +22,5 @@
 			'video' => 'Show Testimonial Video Link if available',
 		),
 	));
+	
 ?>

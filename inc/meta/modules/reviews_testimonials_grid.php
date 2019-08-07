@@ -2,8 +2,13 @@
 	$box->add_field( array(
 		'name' => 'Grid Headline',
 		'id' => $prefix.'headline',
-		'default' => '(Title){Subtitle}[Paragraph]',
-		'description' => 'Optional. Supports (Title){Subtitle}[Paragraph]',
+		'description' => 'Optional',
+		'type' => 'text'
+	));
+	$box->add_field( array(
+		'name' => 'Grid Excerpt',
+		'id' => $prefix.'excerpt',
+		'description' => 'Optional',
 		'type' => 'textarea_small'
 	));
 	$box->add_field( array(
