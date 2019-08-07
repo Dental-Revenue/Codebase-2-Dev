@@ -22,7 +22,7 @@
 						<source src="<?php echo $block['video_mp4']; ?>" type="video/mp4">
 	  			</video>
 	  		<?php } ?>
-	  		<div class="fold-overlay" style="background-color: rgba(0,0,0,0.<?php echo $slider_overlay; ?>);"></div>
+	  		<div class="fold-overlay" style="background-color: rgba(0,0,0,.<?php echo $slider_overlay; ?>);"></div>
 				<div class="fold-slide-text">
 				  <h2><?php echo $block['title']; ?></h2>
 				  <?php if(isset($block['excerpt'])){ ?><p><?php echo $block['excerpt']; ?></p><?php } ?>
