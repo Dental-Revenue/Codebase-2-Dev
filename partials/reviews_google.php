@@ -2,12 +2,9 @@
 	$instance = $template_args['instance']; 
 	$appearance_info = get_option( 'appearance_info');
 	$headline_style = $appearance_info['headline_style'];
-	$raw_title = get_post_meta(get_the_id(),$instance.'_title',true);
-	$maintitle = str_replace(array('(',')'), array("<h2 class='$headline_style'>","</h2>"),$raw_title);
-	$subtitle = str_replace(array('{','}'), array('<h3>','</h3>'),$maintitle);
-	$title = str_replace(array('[',']'), array('<p>','</p>'),$subtitle);
+	$title = get_post_meta( get_the_ID(), $instance.'_title', true );
 ?>
-<div class="section-title"><?php echo $title; ?></div>
+<h2 class="<?php echo $headline_style; ?>"><?php echo $title; ?></h2>
   
   <div class="row">
 	  
@@ -95,7 +92,7 @@
 		<div class="reviews_google-buttons">
 			<a href="<?php site_ops_google_review_url(); ?>" class="btn solid google" target="_blank">Leave a Google Review</a>
 			<?php $page = get_pages(array('meta_key' => '_wp_page_template','meta_value' => 'page-templates/template-testimonials.php')); ?>
-			<a href="<?php $url = null;$pages = get_pages(array('meta_key' => '_wp_page_template','meta_value' => 'page-templates/template-testimonials.php'));if(isset($pages[0])) {$url = get_page_link($pages[0]->ID);} echo $url;?>" class="btn solid">View More Reviews</a>
+			<?php if(isset($page[0]->ID)){ ?><a href="<?php echo get_permalink($page[0]->ID); ?>" class="btn solid">View More Reviews</a><?php } ?>
 		</div>
   
   </div>
