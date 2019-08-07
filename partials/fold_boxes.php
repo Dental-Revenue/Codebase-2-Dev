@@ -19,7 +19,7 @@
 			<?php if ( $first ) { ?>
 				<div class="slick-fold">
 				  <div class="fold-slide slide-1" style="background-image: url(<?php echo $image[0]; ?>);">
-						<div class="fold-overlay" style="background-color: rgba(0,0,0,.4);"></div>
+					<div class="fold-overlay" style="background-color: rgba(0,0,0,.<?php echo $slider_overlay; ?>);"></div>
 				    <div class="hp-fold-text">
 							<h2><?php echo $p['title']; ?></h2>
 							<?php if(isset($p['excerpt'])){ ?><p><?php echo $p['excerpt']; ?></p><?php }else{ echo "<br/>"; } ?>
