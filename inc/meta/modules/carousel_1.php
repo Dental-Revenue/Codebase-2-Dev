@@ -1,5 +1,11 @@
 <?php   
-	
+
+$box->add_field( array(
+	'name' => 'Title',
+	'id' => $prefix.'title',
+	'type' => 'textarea_small',
+	'desc' => 'Supports (Title){Subtitle}[Paragraph]'
+));
 $box->add_field( array(
 	'name' => 'Carousel Items',
 	'desc' => 'Number of items visible per slide',
