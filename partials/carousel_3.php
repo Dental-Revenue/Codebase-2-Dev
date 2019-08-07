@@ -1,19 +1,16 @@
-<?php $instance = $template_args['instance']; 
-	$items = get_post_meta(get_the_id(),$instance.'_items',true);
+<?php 
+	$instance = $template_args['instance']; 
 	$appearance_info = get_option( 'appearance_info');
 	$headline_style = $appearance_info['headline_style'];
+	$items = get_post_meta(get_the_id(),$instance.'_items',true);
+	$raw_title = get_post_meta(get_the_id(),$instance.'_title',true);
+	$maintitle = str_replace(array('(',')'), array("<h2 class='$headline_style'>","</h2>"),$raw_title);
+	$subtitle = str_replace(array('{','}'), array('<h3>','</h3>'),$maintitle);
+	$title = str_replace(array('[',']'), array('<p>','</p>'),$subtitle);
 ?>
+<div class="section-title"><?php echo $title; ?></div>
 
 <?php $cpt_override =""; $num_slides = $items; ?>
-
-  
-<div class="row">
-	<?php
-  $raw_headline = get_post_meta(get_the_id(),$instance.'_headline',true);
-	$headline = str_replace(array('{','}'), array('<span>','</span>'),$raw_headline);
-	?>
-  <?php if(!empty($headline)){ ?><h2 class="<?php echo $headline_style; ?>"><?php echo $headline; ?></h2><?php } ?>
-</div>
 
 <div class="row">
 	 <?php $image_type = get_post_meta(get_the_id(),$instance.'_image_type',true); ?>
