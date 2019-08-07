@@ -2,7 +2,7 @@
 	$instance = $template_args['instance']; 
 	$appearance_info = get_option( 'appearance_info');
 	$headline_style = $appearance_info['headline_style'];
-
+	$slider_overlay = get_post_meta(get_the_id(),$instance.'_overlay',true);
 	$boxes = get_post_meta( get_the_ID(),$instance.'_fold_boxes', true );
 	if(sizeof($boxes)<4){ echo "<p>The slice style ATF requires a minimum of 4 slides</p>"; } else {
 	$slider_height = get_post_meta(get_the_id(),$instance.'_height',true);
@@ -30,7 +30,7 @@
 		  <?php $first = false; } else { ?>
 	  
 			<div class="tri-fold-block">
-				<div class="fold-overlay" style="background-color: rgba(0,0,0,.4);"></div>
+			<div class="fold-overlay" style="background-color: rgba(0,0,0,.<?php echo $slider_overlay; ?>);"></div>
 				<a href="<?php echo $p['url']; ?>" class="tri-block" style="background-image: url(<?php echo $image[0]; ?>);"></a>
 				<a href="<?php echo $p['url']; ?>" class="tri-block-link"><?php echo $p['cta']; ?></a>
 		  </div>
