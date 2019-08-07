@@ -10,8 +10,6 @@
     .blog_columns-post span.meta{color: $main-color;font-size: 12px;text-align: center;width: 100%;display: block;}
     .blog_columns-post hr{width: 40px;height: 3px;background-color: $main-color;margin: 20px auto;border: 0 none;}
     .blog_columns-post p{height: 67.2px;overflow: hidden;margin-bottom: 0;}
-
-    .blog_columns h2.headline-bold {padding: 0px 0% 40px;}
     
 //INVERT COLOR SCHEME
 .blog_columns.invert .blog_columns-post h3{color: $white;}
@@ -38,4 +36,3 @@
   .blog_columns-post{width: 288px;margin: 0;}
   
 }
-
