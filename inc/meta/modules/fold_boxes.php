@@ -13,6 +13,7 @@ $box->add_field( array(
 $box->add_field( array(
 	'name' => 'Overlay Darkness',
 	'desc' => 'Defaults to 30 (percent)',
+	'default' => '30',
     'id' => $prefix . 'overlay',
     'type' => 'text',
     'attributes' => array(
