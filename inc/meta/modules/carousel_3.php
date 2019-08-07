@@ -1,10 +1,10 @@
 <?php   
-	
-$box->add_field( array(
+
+				$box->add_field( array(
 					'name' => 'Carousel Headline',
-					'id' => $prefix.'headline',
-					'description' => 'Optional',
-					'type' => 'text'
+					'id' => $prefix.'title',
+					'type' => 'textarea_small',
+					'desc' => 'Optional. Supports (Title){Subtitle}[Paragraph]'
 				));
 				$box->add_field( array(
 					'name' => 'Carousel Items',
