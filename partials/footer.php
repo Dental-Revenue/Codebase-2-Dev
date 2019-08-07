@@ -112,7 +112,7 @@
 			<ul class="legal">
         <li>Dental Website by <a href="http://dentalrevenue.com">Dental Revenue</a></li>
         <li><a href="/sitemap">Sitemap</a></li>
-        <li><a href="/privacy">Privacy Policy</a></li>
+        <li><a href="/privacy-policy">Privacy Policy</a></li>
         <li><a href="/terms">Terms of Use</a></li>
         <li><a href="/accessibility">Accessibility</a></li>
       </ul>
