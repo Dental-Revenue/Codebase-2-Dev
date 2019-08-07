@@ -2,7 +2,7 @@
 	$instance = $template_args['instance']; 
 	$appearance_info = get_option( 'appearance_info');
 	$headline_style = $appearance_info['headline_style'];
-	
+	$slider_overlay = get_post_meta(get_the_id(),$instance.'_overlay',true);
 	$slider_type = get_post_meta(get_the_id(),$instance.'_type',true);
 	$slider_height = get_post_meta(get_the_id(),$instance.'_height',true);
 ?>
@@ -22,7 +22,7 @@
 						<source src="<?php echo $block['video_mp4']; ?>" type="video/mp4">
 	  			</video>
 	  		<?php } ?>
-	  		<div class="fold-overlay" style="background-color: rgba(0,0,0,.4);"></div>
+	  		<div class="fold-overlay" style="background-color: rgba(0,0,0,0.<?php echo $slider_overlay; ?>);"></div>
 				<div class="fold-slide-text">
 				  <h2><?php echo $block['title']; ?></h2>
 				  <?php if(isset($block['excerpt'])){ ?><p><?php echo $block['excerpt']; ?></p><?php } ?>
