@@ -100,13 +100,13 @@
     <div class="row">
      
       <ul class="social">
-				<?php if(!empty(site_ops_facebook(false))){ ?><li><a href='<?php site_ops_facebook(); ?>'><i class='fab fa-facebook-f'></i></a></li><?php } ?>
-				<?php if(!empty(site_ops_twitter(false))){ ?><li><a href='<?php site_ops_twitter(); ?>'><i class='fab fa-twitter'></i></a></li><?php } ?>
-				<?php if(!empty(site_ops_linkedin(false))){ ?><li><a href='<?php site_ops_linkedin(); ?>'><i class='fab fa-linkedin-in'></i></a></li><?php } ?>
-				<?php if(!empty(site_ops_google_plus(false))){ ?><li><a href='<?php site_ops_google_plus(); ?>'><i class='fab fa-google-plus-g'></i></a></li><?php } ?>
-				<?php if(!empty(site_ops_youtube(false))){ ?><li><a href='<?php site_ops_youtube(); ?>'><i class='fab fa-youtube'></i></a></li><?php } ?>
-				<?php if(!empty(site_ops_instagram(false))){ ?><li><a href='<?php site_ops_instagram(); ?>'><i class='fab fa-instagram'></i></a></li><?php } ?>
-				<?php if(!empty(site_ops_yelp(false))){ ?><li><a href='<?php site_ops_yelp(); ?>'><i class='fab fa-yelp'></i></a></li><?php } ?>
+				<?php if(!empty(site_ops_facebook(false))){ ?><li><a href='<?php site_ops_facebook(); ?>' target='_blank'><i class='fab fa-facebook-f'></i></a></li><?php } ?>
+				<?php if(!empty(site_ops_twitter(false))){ ?><li><a href='<?php site_ops_twitter(); ?>' target='_blank'><i class='fab fa-twitter'></i></a></li><?php } ?>
+				<?php if(!empty(site_ops_linkedin(false))){ ?><li><a href='<?php site_ops_linkedin(); ?>' target='_blank'><i class='fab fa-linkedin-in'></i></a></li><?php } ?>
+				<?php if(!empty(site_ops_google_plus(false))){ ?><li><a href='<?php site_ops_google_plus(); ?>' target='_blank'><i class='fab fa-google-plus-g'></i></a></li><?php } ?>
+				<?php if(!empty(site_ops_youtube(false))){ ?><li><a href='<?php site_ops_youtube(); ?>' target='_blank'><i class='fab fa-youtube'></i></a></li><?php } ?>
+				<?php if(!empty(site_ops_instagram(false))){ ?><li><a href='<?php site_ops_instagram(); ?>' target='_blank'><i class='fab fa-instagram'></i></a></li><?php } ?>
+				<?php if(!empty(site_ops_yelp(false))){ ?><li><a href='<?php site_ops_yelp(); ?>' target='_blank'><i class='fab fa-yelp'></i></a></li><?php } ?>
 			</ul>      
 			
 			<ul class="legal">
@@ -147,25 +147,25 @@
 			?>
 		  
 		  <?php if(!empty(site_ops_facebook(false))){ ?>
-			  <a href="<?php site_ops_facebook(); ?>" class="social-side-tab" style="background-color:#3b5998;">
+			  <a href="<?php site_ops_facebook(); ?>" class="social-side-tab" style="background-color:#3b5998;" target="_blank">
 					<span><i class="fab fa-facebook-f"></i> Like Us</span>
 					<span>Like Us On Facebook</span>
 			  </a>
 			<?php } ?>
 			<?php if(!empty(site_ops_google_plus(false))){ ?>
-			  <a href="<?php site_ops_google_plus(); ?>" class="social-side-tab" style="background-color:#dd4b39;">
+			  <a href="<?php site_ops_google_plus(); ?>" class="social-side-tab" style="background-color:#dd4b39;" target="_blank">
 					<span><i class="fab fa-google-plus-g"></i> Reviews</span>
 					<span>Read Our Google Reviews</span>
 			  </a>
 			<?php } ?>
 			<?php if(!empty(site_ops_youtube(false))){ ?>
-			  <a href="<?php site_ops_youtube(); ?>" class="social-side-tab" style="background-color:#c4302b;">
+			  <a href="<?php site_ops_youtube(); ?>" class="social-side-tab" style="background-color:#c4302b;" target="_blank">
 					<span><i class="fab fa-youtube"></i> Watch</span>
 					<span>Watch Our Youtube Videos</span>
 			  </a>
 			<?php } ?>
 			<?php if(!empty(site_ops_yelp(false))){ ?>
-			  <a href="<?php site_ops_yelp(); ?>" class="social-side-tab" style="background-color:#b62717;">
+			  <a href="<?php site_ops_yelp(); ?>" class="social-side-tab" style="background-color:#b62717;" target="_blank">
 					<span><i class="fab fa-yelp"></i> Reviews</span>
 					<span>Read Our Yelp Reviews</span>
 			  </a>
