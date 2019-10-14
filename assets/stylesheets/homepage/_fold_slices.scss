@@ -2,7 +2,8 @@
 
 .fold-slices{overflow: hidden;background-color: $black; height:100%; &:after{content:"";position: absolute;top:0;left: 0;width: 100%;height: 200px;background-image: -webkit-gradient(linear,left top,left bottom,color-stop(0, rgba($black,.7)),color-stop(1, rgba($black,0)));background-image: -o-linear-gradient(bottom, rgba($black,.7) 0%, rgba($black,0) 100%);background-image: -moz-linear-gradient(bottom, rgba($black,.7) 0%, rgba($black,0) 100%);background-image: -webkit-linear-gradient(bottom, rgba($black,.7) 0%, rgba($black,0) 100%);background-image: -ms-linear-gradient(bottom, rgba($black,.7) 0%, rgba($black,0) 100%);background-image: linear-gradient(to bottom, rgba($black,.7) 0%, rgba($black,0) 100%);z-index: 3;}}
 
-.fold-slice{width: 20%;height:100%;background-size: cover;background-position: center center;float: left;position: relative;transition:width .4s;}
+.fold-slice{width: 20%;height:100%;float: left;position: relative;transition:width .4s;}
+	.fold-slice img {height:100%; width:100%; object-fit:cover; position: absolute; top:0; left:0; right:0; bottom:0;}
 	.fold-slice .fold-overlay{opacity: 0;position: absolute;left: 0;top:0;width: 100%;height: 100%;transition: opacity .4s;z-index: 2;}
 	.fold-slice:after{content:"";display: block;position: absolute;top:0;left:0;width: 100%;height: 100%;background-color: rgba($black,.8);transition: background .4s ease-in-out;z-index: 1;}
 	.fold-slice:hover:after{background-color: rgba($black,.3);}

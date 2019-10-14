@@ -872,6 +872,7 @@ remove_action('wp_head', 'wp_generator');
 // Standard thumb generation   
 add_theme_support( 'post-thumbnails' ); 
 
+add_image_size('atf', 1800, '', true);
 add_image_size('xxl', 1300, '', true);
 add_image_size('xl', 700, '', true);
 add_image_size('lg', 500, '', true);

@@ -33,6 +33,11 @@ $box->add_group_field($group_field, array(
     'required' => 'required',
   ),
 ));
+$box->add_group_field( $group_field, array(
+	'name' => 'Background Image Alt',
+	'id'   => 'alt',
+	'type' => 'text',
+));
 $box->add_group_field($group_field, array(
   'name' => 'Item Background Darkness',
   'description' => 'From 0 (no added darkness) to 100 (completely black)',

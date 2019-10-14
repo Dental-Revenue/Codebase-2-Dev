@@ -20,9 +20,14 @@
   <?php 
 	$attachment_id = get_post_meta(get_the_id(),$instance.'_left_image_id',true);
 	$image = wp_get_attachment_image_src( $attachment_id, 'lg' );
+  $image_xxl = wp_get_attachment_image_src( get_post_meta(get_the_id(),$instance.'_left_image_id',true), 'xxl' );
+  $image_xl = wp_get_attachment_image_src( get_post_meta(get_the_id(),$instance.'_left_image_id',true), 'xl' );
+  $image_lg = wp_get_attachment_image_src( get_post_meta(get_the_id(),$instance.'_left_image_id',true), 'lg' );
+  $image_alt = get_post_meta(get_the_id(),$instance.'_left_alt',true);
+	
 	?>
   <div class="static_photo_list-left">
-    <img src="<?php echo $image[0]; ?>" alt="module image" />
+    <img alt="<?php if (isset($image_alt) && $image_alt!=''){ echo $image_alt; } else { echo 'Module Image'; } ?>" src="<?php echo $image_xxl[0]; ?>" srcset="<?php echo $image_lg[0]; ?> 500w, <?php echo $image_xl[0]; ?>700w, <?php echo $image_xxl[0]; ?> 3000w" sizes="100vw,(min-width: 300px) 700px,(min-width: 700px) 1300px" />
   </div> 
   
   

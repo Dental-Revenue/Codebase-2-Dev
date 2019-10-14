@@ -10,6 +10,11 @@ $box->add_field( array(
 	)
 ));
 $box->add_field( array(
+	'name' => 'Image Alt',
+	'id'   => 'alt',
+	'type' => 'text',
+));
+$box->add_field( array(
 	'name' => 'Main Headline',
 	'id' => $prefix.'headline',
 	'type' => 'text',

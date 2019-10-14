@@ -62,6 +62,11 @@ $box->add_group_field( $group_field, array(
 	)
 ));
 $box->add_group_field( $group_field, array(
+	'name' => 'Slide Image Alt',
+	'id'   => 'alt',
+	'type' => 'text',
+));
+$box->add_group_field( $group_field, array(
 	'name' => 'Background Video (webm)',
 	'id' => 'video_webm',
 	'type' => 'file'

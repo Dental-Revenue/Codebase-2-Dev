@@ -12,15 +12,20 @@
 	  <?php
     $blocks = get_post_meta(get_the_id(),$instance.'_fold_slides',true);
     foreach ((array) $blocks as $key => $block ) {
-	  $image = wp_get_attachment_image_src( $block['image_id'], 'xxl' );
+	  $image_atf = wp_get_attachment_image_src( $block['image_id'], 'xxl' );
+	  $image_xxl = wp_get_attachment_image_src( $block['image_id'], 'xxl' );
+	  $image_xl = wp_get_attachment_image_src( $block['image_id'], 'xl' );
+	  $image_lg = wp_get_attachment_image_src( $block['image_id'], 'lg' );
     ?>
 		<div class="fold-slide">
-			<div class="fold-slide-contain" style="background-image: url(<?php echo $image[0]; ?>);height:<?php echo $slider_height; ?>; <?php if(isset($block['bg_color'])) { ?>background:<?php if(isset($block['bg_color_2'])){?>linear-gradient(<?php echo $block['bg_color']; ?>,<?php echo $block['bg_color_2']; ?>)<?php } else { echo $block['bg_color']; } ?>;<?php } ?>">
+			<div class="fold-slide-contain" style="height:<?php echo $slider_height; ?>; <?php if(isset($block['bg_color'])) { ?>background:<?php if(isset($block['bg_color_2'])){?>linear-gradient(<?php echo $block['bg_color']; ?>,<?php echo $block['bg_color_2']; ?>)<?php } else { echo $block['bg_color']; } ?>;<?php } ?>">
 				<?php if(isset($block['video_webm']) && $block['video_webm']!='' && isset($block['video_mp4']) && $block['video_mp4']!=''){ ?>
 					<video class="fold-video" autoplay loop muted data-audio="true" poster="<?php echo $image[0]; ?>">
 						<source src="<?php echo $block['video_webm']; ?>" type="video/webm">
 						<source src="<?php echo $block['video_mp4']; ?>" type="video/mp4">
 	  			</video>
+	  		<?php } else { ?>
+	  		<img alt="<?php if (isset($block['alt'])){ echo $block['alt']; } else { echo 'Slideshow Image'; } ?>" src="<?php echo $image_atf[0]; ?>" srcset="<?php echo $image_lg[0]; ?> 500w, <?php echo $image_xl[0]; ?>700w, <?php echo $image_xxl[0]; ?> 1300w, <?php echo $image_atf[0]; ?> 3000w" sizes="100vw,(min-width: 300px) 700px,(min-width: 700px) 1300px,(min-width: 1300px) 1800px" />
 	  		<?php } ?>
 	  		<div class="fold-overlay" style="background-color: rgba(0,0,0,.<?php echo $slider_overlay; ?>);"></div>
 				<div class="fold-slide-text">

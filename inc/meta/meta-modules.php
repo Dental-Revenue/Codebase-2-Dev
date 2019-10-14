@@ -49,6 +49,11 @@ function homepage_meta() {
 			'type' => 'file'
 		));
 		$box->add_field( array(
+			'name' => 'Background Image Alt',
+			'id' => $prefix.'alt',
+			'type' => 'text'
+		));
+		$box->add_field( array(
 			'name' => 'Background Image Opacity',
 			'desc' => '1-100',
 			'classes' => 'double-rule',

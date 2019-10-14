@@ -15,18 +15,22 @@
 		
 		<?php $counter=0;
 		foreach((array) $slices as $s ) {
-			
-			$image = wp_get_attachment_image_src($s['image_id'],'extra-large');
 			if (isset($s['overlay_darkness'])) { $overlay = $s['overlay_darkness']; } else { $overlay = 30; }
+			$image_atf = wp_get_attachment_image_src( $s['image_id'], 'xxl' );
+		  $image_xxl = wp_get_attachment_image_src( $s['image_id'], 'xxl' );
+		  $image_xl = wp_get_attachment_image_src( $s['image_id'], 'xl' );
+		  $image_lg = wp_get_attachment_image_src( $s['image_id'], 'lg' );
 			?>
 			
-			<div class="fold-slice <?php if($counter==0){ echo 'active'; } ?>" style="background-image: url(<?php echo $image[0]; ?>);height:<?php echo $slider_height; ?>">
+			<div class="fold-slice <?php if($counter==0){ echo 'active'; } ?>" style="height:<?php echo $slider_height; ?>">
 				
 				<?php if(isset($s['video_webm']) && $s['video_webm']!='' && isset($s['video_mp4']) && $s['video_mp4']!=''){ ?>
 					<video class="fold-video" autoplay loop muted data-audio="true" poster="<?php echo $image[0]; ?>">
 						<source src="<?php echo $s['video_webm']; ?>" type="video/webm">
 						<source src="<?php echo $s['video_mp4']; ?>" type="video/mp4">
 	  			</video>
+	  		<?php } else { ?>
+	  			<img alt="<?php if (isset($s['alt'])){ echo $s['alt']; } else { echo 'Slideshow Image'; } ?>" src="<?php echo $image_atf[0]; ?>" srcset="<?php echo $image_lg[0]; ?> 500w, <?php echo $image_xl[0]; ?>700w, <?php echo $image_xxl[0]; ?> 1300w, <?php echo $image_atf[0]; ?> 3000w" sizes="100vw,(min-width: 300px) 700px,(min-width: 700px) 1300px,(min-width: 1300px) 1800px" />
 	  		<?php } ?>
 				
 				<div class="fold-overlay" style="background-color: rgba(0,0,0,<?php echo $overlay/100; ?>);"></div>
@@ -46,9 +50,11 @@
 		<?php $counter=0;
 		$slides = get_post_meta( get_the_ID(),$instance.'_fold_slices', true );
 		foreach((array) $slides as $slide ) {
-			
-			$image = wp_get_attachment_image_src($slide['image_id'],'extra-large');
 			if (isset($slide['overlay_darkness'])) { $overlay = $slide['overlay_darkness']; } else { $overlay = 30; }
+			$image_atf = wp_get_attachment_image_src( $slide['image_id'], 'xxl' );
+		  $image_xxl = wp_get_attachment_image_src( $slide['image_id'], 'xxl' );
+		  $image_xl = wp_get_attachment_image_src( $slide['image_id'], 'xl' );
+		  $image_lg = wp_get_attachment_image_src( $slide['image_id'], 'lg' );
 			?>
 			
 			<div class="fold-slice" style="background-image: url(<?php echo $image[0]; ?>);height:<?php echo $slider_height; ?>">
@@ -58,7 +64,9 @@
 						<source src="<?php echo $slide['video_webm']; ?>" type="video/webm">
 						<source src="<?php echo $slide['video_mp4']; ?>" type="video/mp4">
 	  			</video>
-	  		<?php } ?>
+	  		<?php } else { ?>
+	  			<img alt="<?php if (isset($slide['alt'])){ echo $s['alt']; } else { echo 'Slideshow Image'; } ?>" src="<?php echo $image_atf[0]; ?>" srcset="<?php echo $image_lg[0]; ?> 500w, <?php echo $image_xl[0]; ?>700w, <?php echo $image_xxl[0]; ?> 1300w, <?php echo $image_atf[0]; ?> 3000w" sizes="100vw,(min-width: 300px) 700px,(min-width: 700px) 1300px,(min-width: 1300px) 1800px" />
+				<?php  } ?>
 				
 				<div class="fold-overlay" style="background-color: rgba(0,0,0,<?php echo $overlay/100; ?>);"></div>
 				<div class="fold-slice-content">

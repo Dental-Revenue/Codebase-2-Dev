@@ -14,12 +14,18 @@
 	  <?php $first = true;
 		foreach((array) $boxes as $p ) {
 		$image = wp_get_attachment_image_src($p['image_id'],'xxl');
+		
+		$image_atf = wp_get_attachment_image_src( $p['image_id'], 'xxl' );
+	  $image_xxl = wp_get_attachment_image_src( $p['image_id'], 'xxl' );
+	  $image_xl = wp_get_attachment_image_src( $p['image_id'], 'xl' );
+	  $image_lg = wp_get_attachment_image_src( $p['image_id'], 'lg' );
 		?>
 		
 			<?php if ( $first ) { ?>
 				<div class="slick-fold">
-				  <div class="fold-slide slide-1" style="background-image: url(<?php echo $image[0]; ?>);">
-					<div class="fold-overlay" style="background-color: rgba(0,0,0,.<?php echo $slider_overlay; ?>);"></div>
+				  <div class="fold-slide slide-1">
+					  <img alt="<?php if (isset($p['alt'])){ echo $p['alt']; } else { echo 'Slideshow Image'; } ?>" src="<?php echo $image_atf[0]; ?>" srcset="<?php echo $image_lg[0]; ?> 500w, <?php echo $image_xl[0]; ?>700w, <?php echo $image_xxl[0]; ?> 1300w, <?php echo $image_atf[0]; ?> 3000w" sizes="100vw,(min-width: 300px) 700px,(min-width: 700px) 1300px,(min-width: 1300px) 1800px" />
+						<div class="fold-overlay" style="background-color: rgba(0,0,0,.<?php echo $slider_overlay; ?>);"></div>
 				    <div class="hp-fold-text">
 							<h2><?php echo $p['title']; ?></h2>
 							<?php if(isset($p['excerpt'])){ ?><p><?php echo $p['excerpt']; ?></p><?php }else{ echo "<br/>"; } ?>
@@ -31,7 +37,9 @@
 	  
 			<div class="tri-fold-block">
 			<div class="fold-overlay" style="background-color: rgba(0,0,0,.<?php echo $slider_overlay; ?>);"></div>
-				<a href="<?php echo $p['url']; ?>" class="tri-block" style="background-image: url(<?php echo $image[0]; ?>);"></a>
+				<a href="<?php echo $p['url']; ?>" class="tri-block">
+					<img alt="<?php if (isset($p['alt'])){ echo $p['alt']; } else { echo 'Slideshow Image'; } ?>" src="<?php echo $image_lg[0]; ?>" />
+				</a>
 				<a href="<?php echo $p['url']; ?>" class="tri-block-link"><?php echo $p['cta']; ?></a>
 		  </div>
 		  

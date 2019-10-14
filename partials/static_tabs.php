@@ -31,9 +31,16 @@
 		if(isset($item['link'])){ $item_link = get_permalink($item['link']); }
 		if(isset($item['link_title'])){ $item_link_title = $item['link_title']; } 
 		if(isset($item['excerpt'])){ $item_excerpt = $item['excerpt']; }
+		
+		
+		if(isset($item['image'])){ $image_atf = wp_get_attachment_image_src( $item['image_id'], 'xxl' ); }
+		if(isset($item['image'])){ $image_xxl = wp_get_attachment_image_src( $item['image_id'], 'xxl' ); }
+		if(isset($item['image'])){ $image_xl = wp_get_attachment_image_src( $item['image_id'], 'xl' ); }
+		if(isset($item['image'])){ $image_lg = wp_get_attachment_image_src( $item['image_id'], 'lg' ); }
 		 ?>
 		
-		<div style="background-image:url(<?php echo $item_img[0]; ?>)" id="tab<?php echo $counter; ?>-<?php echo $instance; ?>" class="tab-pane fade <?php if($counter==1){ echo 'show active'; } ?>">
+		<div id="tab<?php echo $counter; ?>-<?php echo $instance; ?>" class="tab-pane fade <?php if($counter==1){ echo 'show active'; } ?>">
+			<img alt="<?php if (isset($item['alt'])){ echo $item['alt']; } else { echo 'Slideshow Image'; } ?>" src="<?php echo $image_atf[0]; ?>" srcset="<?php echo $image_lg[0]; ?> 500w, <?php echo $image_xl[0]; ?>700w, <?php echo $image_xxl[0]; ?> 1300w, <?php echo $image_atf[0]; ?> 3000w" sizes="100vw,(min-width: 300px) 700px,(min-width: 700px) 1300px,(min-width: 1300px) 2300px" />
 		
 			<?php if($item_darkness!=''){
 				$darkness = $item_darkness/100; ?>

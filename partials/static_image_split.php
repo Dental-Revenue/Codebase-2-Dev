@@ -9,6 +9,11 @@
 	
 	<?php
 	$image = get_post_meta(get_the_id(),$instance.'_image',true);
+  $image_xxl = wp_get_attachment_image_src( get_post_meta(get_the_id(),$instance.'_image_id',true), 'xxl' );
+  $image_xl = wp_get_attachment_image_src( get_post_meta(get_the_id(),$instance.'_image_id',true), 'xl' );
+  $image_lg = wp_get_attachment_image_src( get_post_meta(get_the_id(),$instance.'_image_id',true), 'lg' );
+  $image_alt = get_post_meta(get_the_id(),$instance.'_alt',true);
+	
 	$color = (get_post_meta(get_the_id(),$instance.'_bg_color',true)!='') ? get_post_meta(get_the_id(),$instance.'_bg_color',true) : '#ffffff' ;	
   $raw_headline = get_post_meta(get_the_id(),$instance.'_headline',true);
 	$headline = str_replace(array('{','}'), array('<span>','</span>'),$raw_headline);
@@ -16,7 +21,9 @@
 	$content = get_post_meta(get_the_id(),$instance.'_content',true);
 	?>
 
-  <div class="static_image_split-img" style="background-image: url(<?php echo $image; ?>); border-right:10px solid <?php echo $color; ?>"></div>
+  <div class="static_image_split-img" style="border-right:10px solid <?php echo $color; ?>">
+	  <img alt="<?php if (isset($image_alt) && $image_alt!=''){ echo $image_alt; } else { echo 'Background Image'; } ?>" src="<?php echo $image_xxl[0]; ?>" srcset="<?php echo $image_lg[0]; ?> 500w, <?php echo $image_xl[0]; ?>700w, <?php echo $image_xxl[0]; ?> 3000w" sizes="100vw,(min-width: 300px) 700px,(min-width: 700px) 1300px" />
+  </div>
   
   <div class="static_image_split-right">
     
