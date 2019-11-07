@@ -11,7 +11,7 @@
       <div class="footer-right">
         
         <div class="footer-column">
-          <a href="/" class="logo"><spa><img src="<?php site_ops_logo(); ?>" alt="<?php site_ops_practice_name(); ?>" /></span></a>
+          <a href="/" class="logo"><span><img src="<?php site_ops_logo(); ?>" alt="<?php site_ops_practice_name(); ?>" /></span></a>
         </div>
         
         <div class="footer-column">      
