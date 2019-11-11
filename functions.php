@@ -1059,9 +1059,11 @@ class Walker_Quickstart_Menu extends Walker_Nav_Menu {
 	    if( $description != '' && $depth == 0 ) {
 	     $output .= '<small class="description">' . $description . '</small>';
 	    }
-	    if( $permalink && $permalink != '#' ) {
+	    if( $permalink && $permalink != '#' && $has_children != true ) {
 	     $output .= '</a>';
-	    } else {
+	    } else if ($permalink && $permalink != '#' && $has_children == true ) {
+		   $output .= '<span></span></a>';
+		  } else {
 	     $output .= '</span>';
 	    }
     	
@@ -1138,9 +1140,13 @@ class Walker_Quickstart_Menu extends Walker_Nav_Menu {
 						$grandparent_id = $menu_item->ID;
 			    	$link = $menu_item->url;
             $title = $menu_item->title;
-			    	$output .= '<li class="item">';
+            if ($is_gchild == 1 ) {
+			    		$output .= '<li class="item menu-item-has-children">';
+			    	} else {
+				    	$output .= '<li class="item">';
+			    	}
             //$output .= '<a href="'.$link.'" class="title">'.$title.' | MENU ITEM PARENT: '.$menu_item->menu_item_parent.' | PARENT ID: '.$parent_id.'</a>' ."\n";
-            $output .= '<a href="'.$link.'" class="title">'.$title.'</a>' ."\n";
+            $output .= '<a href="'.$link.'" class="title">'.$title.'<span></span></a>' ."\n";
             //$output .= '</li>' ."\n";
 			    } 
 					
@@ -1149,7 +1155,7 @@ class Walker_Quickstart_Menu extends Walker_Nav_Menu {
             $title = $menu_item->title;
             if($gchild_counter == 1){ $output .= '<ul class="sub-menu mega-menu">'; }
 			    	$output .= '<li class="item">' ."\n";
-            $output .= '<a href="'.$link.'" class="title">'.$title.'</a>' ."\n";
+            $output .= '<a href="'.$link.'" class="title">'.$title.'<span></span></a>' ."\n";
             $output .= '</li>' ."\n";
 		    	}
 		    	

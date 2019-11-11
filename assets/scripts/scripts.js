@@ -40,6 +40,23 @@ $(document).ready(function(){
     side: 'right',
     renaming: false
   });
+  
+  $("#sidr-left li.menu-item-has-children > a").on("click touchstart",function(e) {
+    
+    if ($(this).parent().hasClass("open")) {
+	    
+    } else {
+	    e.preventDefault();
+	    $(this).parent().addClass("open");
+    }
+    
+	});
+	
+	$(".sidr-open #panel-main").on("click touchstart",function(e) {
+    
+    $("#sidr-left li.menu-item-has-children > a").parent().removeClass("open");
+    
+	});
 
 	//scroll stick
 	$(document).scroll(function() {

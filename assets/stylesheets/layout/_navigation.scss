@@ -1,15 +1,21 @@
 /* MOBILE PANEL NAVIGATION */
-$sidebar-width: 260px;
-$sidebar-width-neg: -260px;
+$sidebar-width: 290px;
+$sidebar-width-neg: -290px;
 .sidr { display: none; position: fixed;top: 0;height: 100%;z-index: 999999;width: $sidebar-width;overflow-x: hidden;overflow-y: auto; &.right {left: auto;right: $sidebar-width-neg;} &.left {left: $sidebar-width-neg;right: auto;}}
+	.sidr #menu-primary-navigation {margin:0;}
 
 #sidr-left{background-color: $dk-grey;-webkit-overflow-scrolling: touch;}
 #sidr-left > .sidr-inner > a{display: none;} /* the schedule button */
 #sidr-left > .sidr-inner > ul{margin: 0 0 30px; padding: 0;list-style: none;}
-	#sidr-left ul a{padding: 10px;display: block;font-size: 16px;font-weight: 400;color: $white;font-family: $body-font;text-transform: uppercase;letter-spacing: .05em;font-weight: 900;}
-	#sidr-left ul ul{background-color: darken( $dk-grey, 5% );margin: 0;list-style: none;padding: 0;}
-	  #sidr-left ul ul a{font-size: 13px;padding: 6px 10px;font-family: $body-font;text-transform: none;letter-spacing: 0;font-weight: 400;}
-	#sidr-left ul ul ul{margin-left: 20px;border-left: 1px dotted rgba(255,255,255,0.4);}
+	#sidr-left ul a{padding:0 5px 0 15px;display: block;font-size: 16px; line-height:56px;color: $white;font-family: $body-font;text-transform: uppercase;letter-spacing: .05em;font-weight: 900; border-bottom:1px solid rgba($white,0.2);}
+	#sidr-left ul ul{display:none;list-style: none;margin:0;padding: 0 0 15px 15px; }
+	  #sidr-left ul ul a{font-size:15px; text-transform: none; line-height: 40px;}
+	#sidr-left ul li:last-child a {border-bottom:none;}
+	#sidr-left ul.open > ul {display: block;}
+	#sidr-left li.menu-item-has-children > a {padding:0 50px 0 15px; position:relative; &:before{content:''; width:1px; border-right:1px solid rgba($white,0.2); height:100%; position:absolute; top:0; right:50px;} &:after {content:"\f067"; font-family: $font-awesome; color:$white; font-size: 13px; position: absolute; right:16px; top:50%; transform: translateY(-50%);}}
+		#sidr-left li.menu-item-has-children.open {background:rgba($white,.2); a {border-bottom: none; &:before {display: none;}} > ul {display: block; margin-top:-8px;}}
+			#sidr-left li.menu-item-has-children.open li.menu-item-has-children.open {background:none; ul {margin:0; padding:0 0 0 15px; a {font-size: 14px; font-weight:400;}}}
+		#sidr-left li.menu-item-has-children.open > a:after {content:"\f068";}
 
 #sidr-right{background-color: $dk-grey;padding: 16px;box-sizing: border-box;}
   #sidr-right .contact-option{margin-bottom: 14px;}
