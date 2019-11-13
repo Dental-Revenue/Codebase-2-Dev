@@ -21,7 +21,7 @@ Template Name: Testimonials
 		
 <div class="interior-testimonials">
 <?php
-  $args = array( 'post_type' => 'testimonials', 'order' => 'ASC', 'orderby'=> 'menu_order', 'posts_per_page' => -1 );
+  $args = array( 'post_type' => 'testimonials', 'order' => 'DESC', 'orderby'=> 'post_date', 'posts_per_page' => -1 );
   $loop = new WP_Query( $args );
   while ( $loop->have_posts() ) : $loop->the_post();
   $thumb_array = wp_get_attachment_image_src( get_post_thumbnail_id($post->ID), 'thumbnail' );
