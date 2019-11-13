@@ -9,7 +9,7 @@
   <div class="row">
 	  
 			<?php
-			$args = array( 'post_type' => 'testimonials', 'order' => 'ASC', 'orderby'=> 'menu_order', 'posts_per_page' => -1 );
+			$args = array( 'post_type' => 'testimonials', 'order' => 'DESC', 'orderby'=> 'post_date', 'posts_per_page' => -1 );
 		  $loop = new WP_Query( $args );
 		  $i = 1;
 		  while ( $loop->have_posts() && $i < 4) : $loop->the_post();
