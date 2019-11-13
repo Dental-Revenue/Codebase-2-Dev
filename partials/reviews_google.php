@@ -37,7 +37,7 @@
 				</div>
 			</div>
 			
-			<?php $i++; endwhile; ?>
+			<?php $i++; endwhile; wp_reset_postdata();?>
 			
 			<div class="reviews_google-buttons">
 			<a href="<?php site_ops_google_review_url(); ?>" class="btn solid google" target="_blank">Leave a Google Review</a>
