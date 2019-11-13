@@ -42,7 +42,7 @@ Template Name: Testimonials
       <?php } ?>
     </div>
   </div>
-<?php endwhile; ?>
+<?php endwhile; wp_reset_postdata();?>
 </div>
 
 <div class="reviews_google-buttons" style="text-align: center;">
