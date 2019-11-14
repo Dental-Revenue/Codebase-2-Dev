@@ -20,6 +20,8 @@
 		  $image_xxl = wp_get_attachment_image_src( $s['image_id'], 'xxl' );
 		  $image_xl = wp_get_attachment_image_src( $s['image_id'], 'xl' );
 		  $image_lg = wp_get_attachment_image_src( $s['image_id'], 'lg' );
+		  
+			$alignment = $s['alignment'];
 			?>
 			
 			<div class="fold-slice <?php if($counter==0){ echo 'active'; } ?>" style="height:<?php echo $slider_height; ?>">
@@ -34,7 +36,7 @@
 	  		<?php } ?>
 				
 				<div class="fold-overlay" style="background-color: rgba(0,0,0,<?php echo $overlay/100; ?>);"></div>
-				<div class="fold-slice-content">
+				<div class="fold-slice-content <?php if($alignment != '') { echo $alignment; } ?>">
 					<h2><?php echo $s['title']; ?></h2>
 					<?php if(isset($s['excerpt'])){ ?><p><?php echo $s['excerpt']; ?></p><?php }else{ echo "<br/>"; } ?>
 					<?php if(isset($s['url']) && isset($s['cta'])){ ?><a class="btn solid" href="<?php echo $s['url']; ?>"><?php echo $s['cta']; ?></a><?php } ?>
@@ -55,6 +57,8 @@
 		  $image_xxl = wp_get_attachment_image_src( $slide['image_id'], 'xxl' );
 		  $image_xl = wp_get_attachment_image_src( $slide['image_id'], 'xl' );
 		  $image_lg = wp_get_attachment_image_src( $slide['image_id'], 'lg' );
+		  
+			$alignment = $slide['alignment'];
 			?>
 			
 			<div class="fold-slice" style="background-image: url(<?php echo $image[0]; ?>);height:<?php echo $slider_height; ?>">
@@ -69,7 +73,7 @@
 				<?php  } ?>
 				
 				<div class="fold-overlay" style="background-color: rgba(0,0,0,<?php echo $overlay/100; ?>);"></div>
-				<div class="fold-slice-content">
+				<div class="fold-slice-content <?php if($alignment != '') { echo $alignment; } ?>">
 					<h2><?php echo $slide['title']; ?></h2>
 					<?php if(isset($slide['excerpt'])){ ?><p><?php echo $slide['excerpt']; ?></p><?php }else{ echo "<br/>"; } ?>
 					<?php if(isset($slide['url']) && isset($slide['cta'])){ ?><a class="btn solid" href="<?php echo $slide['url']; ?>"><?php echo $slide['cta']; ?></a><?php } ?>
