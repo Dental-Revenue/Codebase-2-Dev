@@ -41,12 +41,11 @@ $(document).ready(function(){
     renaming: false
   });
   
-  $("#sidr-left li.menu-item-has-children > a").on("click touchstart",function(e) {
-    
+  $("#sidr-left li.menu-item-has-children > span").on("click touchstart",function(e) {
+    e.preventDefault();
     if ($(this).parent().hasClass("open")) {
-	    
+	    $(this).parent().removeClass("open");
     } else {
-	    e.preventDefault();
 	    $(this).parent().addClass("open");
     }
     

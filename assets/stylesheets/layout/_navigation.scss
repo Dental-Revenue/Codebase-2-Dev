@@ -12,10 +12,15 @@ $sidebar-width-neg: -290px;
 	  #sidr-left ul ul a{font-size:15px; text-transform: none; line-height: 40px;}
 	#sidr-left ul li:last-child a {border-bottom:none;}
 	#sidr-left ul.open > ul {display: block;}
-	#sidr-left li.menu-item-has-children > a {padding:0 50px 0 15px; position:relative; &:before{content:''; width:1px; border-right:1px solid rgba($white,0.2); height:100%; position:absolute; top:0; right:50px;} &:after {content:"\f067"; font-family: $font-awesome; color:$white; font-size: 13px; position: absolute; right:16px; top:50%; transform: translateY(-50%);}}
-		#sidr-left li.menu-item-has-children.open {background:rgba($white,.2); a {border-bottom: none; &:before {display: none;}} > ul {display: block; margin-top:-8px;}}
-			#sidr-left li.menu-item-has-children.open li.menu-item-has-children.open {background:none; ul {margin:0; padding:0 0 0 15px; a {font-size: 14px; font-weight:400;}}}
-		#sidr-left li.menu-item-has-children.open > a:after {content:"\f068";}
+	#sidr-left li.menu-item-has-children > a {padding:0 50px 0 15px; position:relative; &:before{content:''; width:1px; border-right:1px solid rgba($white,0.2); height:100%; position:absolute; top:0; right:50px;}}
+	
+	#sidr-left li.menu-item-has-children {position: relative;}
+	#sidr-left li.menu-item-has-children > span {position: absolute; right:0px; top:0; height:56px; width: 50px; &:after {content:"\f067"; font-family: $font-awesome; color:$white; font-size: 13px; font-weight: 800; position: absolute; top:50%; left:50%; transform: translate(-50%,-50%);}}
+		#sidr-left li.menu-item-has-children.open > span:after {content:"\f068";}
+		#sidr-left ul ul li.menu-item-has-children > span {height:40px;}
+		
+	#sidr-left li.menu-item-has-children.open {background:rgba($white,.2); a {border-bottom: none; &:before {display: none;}} > ul {display: block; margin-top:-8px;}}
+		#sidr-left li.menu-item-has-children.open li.menu-item-has-children.open {background:none; ul {margin:0; padding:0 0 0 15px; a {font-size: 14px; font-weight:400;}}}
 
 #sidr-right{background-color: $dk-grey;padding: 16px;box-sizing: border-box;}
   #sidr-right .contact-option{margin-bottom: 14px;}

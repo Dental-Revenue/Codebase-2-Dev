@@ -6,7 +6,7 @@ function theme_scripts_styles() {
 	$appearance_info = get_option('appearance_info');
 	$heading_font = $appearance_info['heading_font'];
 	$body_font = $appearance_info['body_font'];
-	wp_enqueue_style( 'google-fonts', '//fonts.googleapis.com/css?family='.$heading_font.':400,600,800&display=swap%7C'.$body_font.':300,400,400i,600&display=swap' , false, false);
+	wp_enqueue_style( 'google-fonts', 'https://fonts.googleapis.com/css?family='.$heading_font.':400,600,800|'.$body_font.':400,400i,700&display=swap' , false, false);
 	wp_enqueue_style('font-awesome', get_template_directory_uri() . '/assets/stylesheets/vendor/font-awesome/css/all.css',false, false);
 	wp_enqueue_style( 'main-styles', get_template_directory_uri() . '/assets/stylesheets/style.css',false, false);
   
@@ -1062,7 +1062,7 @@ class Walker_Quickstart_Menu extends Walker_Nav_Menu {
 	    if( $permalink && $permalink != '#' && $has_children != true ) {
 	     $output .= '</a>';
 	    } else if ($permalink && $permalink != '#' && $has_children == true ) {
-		   $output .= '<span></span></a>';
+		   $output .= '</a><span></span>';
 		  } else {
 	     $output .= '</span>';
 	    }
@@ -1130,7 +1130,7 @@ class Walker_Quickstart_Menu extends Walker_Nav_Menu {
 					if ( $grandparent_id != $menu_item->menu_item_parent ) {
 				    //$output .= 'I AM A G-CHILD<br/>';
 				    $is_gchild = 0;
-				    if($gchild_counter>1){$output_end_ul = '</ul></li>';}
+				    if($gchild_counter>1){$output_end_ul = '</ul><span></span></li>';}
 				    $gchild_counter = 0;
 				  }
 				  
@@ -1143,7 +1143,7 @@ class Walker_Quickstart_Menu extends Walker_Nav_Menu {
             if ($is_gchild == 1 ) {
 			    		$output .= '<li class="item menu-item-has-children">';
 			    	} else {
-				    	$output .= '<li class="item">';
+				    	$output .= '<li class="item menu-item-has-children">';
 			    	}
             //$output .= '<a href="'.$link.'" class="title">'.$title.' | MENU ITEM PARENT: '.$menu_item->menu_item_parent.' | PARENT ID: '.$parent_id.'</a>' ."\n";
             $output .= '<a href="'.$link.'" class="title">'.$title.'<span></span></a>' ."\n";
