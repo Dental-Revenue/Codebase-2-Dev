@@ -43,6 +43,17 @@ $box->add_group_field( $group_field, array(
 	'type' => 'textarea_small',
 ));
 $box->add_group_field( $group_field, array(
+	'name' => 'Slide Alignment',
+	'id'   => 'alignment',
+	'type' => 'select',
+	'options'          => array(
+		'align-left' => 'Left',
+		'align-right' => 'Right',
+		'align-center' => 'Center',
+	),
+	'default' => 'align-center',
+));
+$box->add_group_field( $group_field, array(
 	'name' => 'Button Text',
 	'id'   => 'cta',
 	'type' => 'text',

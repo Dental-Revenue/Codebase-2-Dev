@@ -25,6 +25,17 @@ $box->add_group_field($group_field, array(
   'id' => 'excerpt',
   'type' => 'textarea_small',
 ));
+$box->add_group_field( $group_field, array(
+	'name' => 'Item Alignment',
+	'id'   => 'alignment',
+	'type' => 'select',
+	'options'          => array(
+		'align-left' => 'Left',
+		'align-right' => 'Right',
+		'align-center' => 'Center',
+	),
+	'default' => 'align-center',
+));
 $box->add_group_field($group_field, array(
   'name' => 'Item Background Image*',
   'id' => 'image',

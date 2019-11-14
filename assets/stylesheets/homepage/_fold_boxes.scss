@@ -9,7 +9,7 @@ box-shadow: 20px 0 16px -6px rgba($black, .2); z-index:3; background-color:$whit
   #hp-fold.fold-panel .slick-fold .slick-list,#hp-fold.fold-panel .slick-fold .slick-track{height: 100%;}
     #hp-fold.fold-panel .fold-slide{display:block; width: 100%;height: 100%;position: relative;}
     	#hp-fold.fold-panel .fold-slide img {height:100%; width:100%; object-fit:cover; position: absolute; top:0; left:0; right:0; bottom:0;}
-      #hp-fold.fold-panel .fold-slide .hp-fold-text{position:absolute; bottom:0px; left:75px;opacity: 0; z-index: 3; margin-right:75px; transition:all .3s ease;}
+      #hp-fold.fold-panel .fold-slide .hp-fold-text{position:absolute; bottom:0px; left:75px;opacity: 0; z-index: 3; margin-right:75px; transition:all .3s ease; &.align-center {text-align: center;} &.align-right{text-align: right;}}
       	#hp-fold.fold-panel.onScreen .fold-slide .hp-fold-text{bottom:50px; opacity:1;}
       .fold-panel .hp-fold-text h2 {font-size:40px; color:#fff;}
       .fold-panel .hp-fold-text p {font-size:20px; color:#fff;}
@@ -36,7 +36,7 @@ box-shadow: 20px 0 16px -6px rgba($black, .2); z-index:3; background-color:$whit
 .tri-fold-block{display:none;}
 
 #hp-fold.fold-panel .slick-fold {width:100%;}
-#hp-fold.fold-panel .fold-slide .hp-fold-text {width:90%; left:5%; right:5%;}
+#hp-fold.fold-panel .fold-slide .hp-fold-text, #hp-fold.fold-panel.onScreen .fold-slide .hp-fold-text {width:90%; left:5%; right:5%; bottom:initial; top:50%; transform:translateY(-50%);}
 
 }     
       
