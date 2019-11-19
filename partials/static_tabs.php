@@ -31,7 +31,7 @@
 		if(isset($item['link'])){ $item_link = get_permalink($item['link']); }
 		if(isset($item['link_title'])){ $item_link_title = $item['link_title']; } 
 		if(isset($item['excerpt'])){ $item_excerpt = $item['excerpt']; }
-		
+		if(isset($item['alignment'])){ $alignment = $item['alignment']; }
 		
 		if(isset($item['image'])){ $image_atf = wp_get_attachment_image_src( $item['image_id'], 'xxl' ); }
 		if(isset($item['image'])){ $image_xxl = wp_get_attachment_image_src( $item['image_id'], 'xxl' ); }
@@ -47,7 +47,7 @@
 				<div class="static_tabs-overlay" style="background-color:rgba(0,0,0,<?php echo $darkness; ?>);"></div>
 			<?php } ?>
 		
-			<div class='static_tabs-text'>
+			<div class="static_tabs-text <?php if($alignment != '') { echo $alignment; } ?>">
 				<h3><?php echo $item_title; ?></h3>
 				<?php if($item_excerpt != ''){ echo "<p>".$item_excerpt."</p>"; } ?>
 				<a href="<?php echo $item_link; ?>" class="btn solid"><?php echo $item_link_title; ?></a>

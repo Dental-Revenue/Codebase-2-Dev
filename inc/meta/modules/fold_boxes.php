@@ -77,4 +77,16 @@ $box->add_group_field( $group_field, array(
   'type' => 'file'
 ));
 
+$box->add_field( array(
+	'name' => 'Main Slide Alignment',
+	'id'   => $prefix.'alignment',
+	'type' => 'select',
+	'options'          => array(
+		'align-left' => 'Left',
+		'align-right' => 'Right',
+		'align-center' => 'Center',
+	),
+	'default' => 'align-left',
+));
+
 ?>

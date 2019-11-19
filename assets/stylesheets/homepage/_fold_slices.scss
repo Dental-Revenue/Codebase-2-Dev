@@ -19,23 +19,27 @@
 		.fold-slice-content h2{padding: 10px 10px 10px 60px;color: $white;display: inline-block;font-size: 40px;}
 		.fold-slice-content p{padding-left: 60px;color: $white;}
 		.fold-slice-content a{margin: 20px 0 60px 60px;}
+		.fold-slice-content.align-center {text-align: center; h2 {padding:10px 30px;} p {padding: 0 30px;} a {margin:20px 0 60px;}}
+		.fold-slice-content.align-right {text-align: right; h2 {padding:10px 60px 10px 10px;} p {padding: 0 60px 0 0;} a {margin:20px 60px 60px 0;}}
 	.fold-slice-content.onScreen {left:0;}
+		.fold-slice-content.onScreen.align-center {left:50%; transform: translate(-50%,0);}
+		.fold-slice-content.onScreen.align-right {left:initial; right:0;}
 	
 .fold-slices-mobile{display:none;}	
 
 @media all and (max-width: $bp-laptop) {
   .fold-slice{width: 10%;}
   .fold-slice.active{width: 80%;}
-  	.fold-slice-content{width: 400px;}      
+  .fold-slice-content{width: 400px; left:0; }      
 }
 
 @media all and (max-width: $bp-phablet) { 
 	.fold-slices {display:none;}
 	.fold-slices-mobile{display:block;}
-  	.fold-slice-content{width: 90%; height:auto!important; left: 5%;top: 50%;transform: translateY(-50%); position: relative;}
-  		.fold-slice-content h2{font-size: 36px;padding-left: 10px;}
-  		.fold-slice-content p{font-size: 15px;padding-left: 10px;}
-  		.fold-slice-content a{margin: 20px 0 0 5%;}
+  	.fold-slice-content, .fold-slice-content.onScreen{width: 90%; height:auto!important; left: 5%; right:initial; top: 50%;transform: translateY(-50%); position: relative; &.align-right {left:5%; right:initial;} &.align-center {transform: translate(-50%, -50%);}}
+  		.fold-slice-content h2{font-size: 36px;padding: 10px!important;}
+  		.fold-slice-content p{font-size: 15px;padding: 0 10px!important;}
+  		.fold-slice-content a{margin: 20px 0 0 0!important;}
   		
   .fold-slice.active{width: 100%;}
   .fold-slice {width:100%!important; &:after {opacity:0;}}
