@@ -12,6 +12,13 @@
 		'type' => 'textarea_small'
 	));
 	$box->add_field( array(
+		'name' => 'Grid Link Text',
+		'id' => $prefix.'url_text',
+		'description' => 'Optional. Text for View Testimonials Link.',
+		'type' => 'text',
+		'default' => 'View Testimonials'
+	));
+	$box->add_field( array(
 		'name' => 'Grid URL',
 		'id' => $prefix.'url',
 		'description' => 'Optional. URL for View Testimonials Link.',
@@ -39,7 +46,13 @@
 		'type' => 'textarea_small',
 	));
 	$box->add_group_field( $group_field, array(
-		'name' => 'YouTube Video URL',
+		'name' => 'CTA Text',
+		'id'   => 'url_text',
+		'type' => 'text',
+		'default' => 'Watch Video'
+	));
+	$box->add_group_field( $group_field, array(
+		'name' => 'CTA URL',
 		'id'   => 'url',
 		'type' => 'text',
 	));
