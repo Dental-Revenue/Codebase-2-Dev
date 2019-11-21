@@ -20,7 +20,7 @@
 			
 			<div class="g-box">
 				<div class="g-panel g-client">
-					<a href="<?php echo site_url(); ?>" class="g-panel-img" target="_blank"><img src="<?php site_ops_logo(); ?>" alt="<?php echo $option['practice_name']; ?>" /></a>
+					<a href="<?php echo site_url(); ?>" class="g-panel-img" target="_blank"><img src="https://maps.gstatic.com/mapfiles/place_api/icons/generic_business-71.png" alt="<?php echo $option['practice_name']; ?>" /></a>
 					<div class="g-panel-detail">
 						<h3><a href="<?php echo site_url(); ?>" target="_blank"><?php echo $option['practice_name']; ?></a></h3>
 						<img src="<?php echo get_template_directory_uri(); ?>/assets/images/layout/g-logo.png" alt="Google Logo" class="g-logo" />
