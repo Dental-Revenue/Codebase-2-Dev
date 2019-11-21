@@ -223,6 +223,41 @@ do_action('before_header');
 	    
 	  </div>
 	
+<?php } else if ($nav_style == 'header-style-e') { ?>
+	  
+	<div class="header-logo">
+	<h1><a class="logo" href="/"><img src="<?php site_ops_logo(); ?>" alt="<?php site_ops_practice_name(); ?>" /></a></h1>
+  <a href="#" id="panel-main"><i class="fas fa-bars"></i><span>Menu</span></a>
+  </div>
+
+	<div class="header-top">
+		<ul class="">
+		<li class="new-phone">New Patients Call <span class="tracknum"><?php site_ops_new_patient_phone(); ?></span></li>
+		<li><a href="<?php site_ops_cta_url(); ?>" class="schedule"><?php site_ops_cta_text(); ?></a></li>
+		<?php if(!empty(site_ops_facebook(false))){ ?><li><a href="<?php site_ops_facebook(); ?>" target="_blank"><i class="fab fa-facebook-f"></i></a></li><?php } ?>
+		<?php if(!empty(site_ops_twitter(false))){ ?><li><a href="<?php site_ops_twitter(); ?>" target="_blank"><i class="fab fa-twitter"></i></a></li><?php } ?>
+		<?php if(!empty(site_ops_linkedin(false))){ ?><li><a href="<?php site_ops_linkedin(); ?>" target="_blank"><i class="fab fa-linkedin-in"></i></a></li><?php } ?>
+		<?php if(!empty(site_ops_instagram(false))){ ?><li><a href="<?php site_ops_instagram(); ?>" target="_blank"><i class="fab fa-instagram"></i></a></li><?php } ?>
+		<?php if(!empty(site_ops_google_plus(false))){ ?><li><a href="<?php site_ops_google_plus(); ?>" target="_blank"><i class="fab fa-google-plus-g"></i></a></li><?php } ?>
+		<?php if(!empty(site_ops_youtube(false))){ ?><li><a href="<?php site_ops_youtube(); ?>" target="_blank"><i class="fab fa-youtube"></i></a></li><?php } ?>
+		<?php if(!empty(site_ops_yelp(false))){ ?><li><a href="<?php site_ops_yelp(); ?>" target="_blank"><i class="fab fa-yelp"></i></a></li><?php } ?>
+		</ul>
+	</div>
+	
+	<div class="header-bottom">
+		<nav class="large-nav"><?php wp_nav_menu(array('walker' => new Walker_Quickstart_Menu())); ?> </nav>
+		<nav class="mobile-nav ">
+			<div class="contact-dropdown">
+				<a class="drop-link" href="">New Patients <span class="tracknum"><?php site_ops_new_patient_phone(); ?></span> <i class="fa fa-caret-down"></i></a>
+				<div class="drop-content" style="display: none;">
+					<p>Current Patients <span><?php site_ops_current_patient_phone(); ?></span></p>
+					<a href="<?php site_ops_cta_url(); ?>"><?php site_ops_cta_text(); ?></a>
+					<a href="/leave-a-review/">Leave a Review</a>
+				</div>
+			</div>
+		</nav>
+	</div>
+	  
 <?php } ?>
 
 <?php
