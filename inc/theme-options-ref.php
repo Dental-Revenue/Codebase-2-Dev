@@ -164,6 +164,11 @@ function site_ops_brand_color($echo = true){
 	if(!empty($option['main_color'])){if($echo){echo $option['main_color'];}else{return $option['main_color'];}}else{if($echo){echo '#dd9933';}else{return '#dd9933';}}
 }
 
+function site_ops_nav_color($echo = true){
+	$option = get_option('appearance_info'); 
+	if(!empty($option['nav_color'])){if($echo){echo $option['nav_color'];}else{return $option['nav_color'];}}else{if($echo){echo '#000000';}else{return '#000000';}}
+}
+
 function site_ops_heading_font($echo = true){
 	$option = get_option('appearance_info'); 
 	if(!empty($option['heading_font'])){if($echo){echo $option['heading_font'];}else{return $option['heading_font'];}}else{if($echo){echo 'Raleway';}else{return 'Raleway';}}
