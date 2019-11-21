@@ -16,18 +16,21 @@
 		  $thumb_array = wp_get_attachment_image_src( get_post_thumbnail_id($post->ID), 'thumbnail' );
 		  $thumb_url = $thumb_array['0'];
 		  $option = get_option('practice_info');
-		  ?>
+			?>
 			
 			<div class="g-box">
 				<div class="g-panel g-client">
-					<a href="<?php echo site_url(); ?>" class="g-panel-img" target="_blank"><img src="https://maps.gstatic.com/mapfiles/place_api/icons/generic_business-71.png" alt="<?php echo $option['practice_name']; ?>" /></a>
+					<a href="<?php echo site_url(); ?>" class="g-panel-img" target="_blank"><img src="<?php site_ops_logo(); ?>" alt="<?php echo $option['practice_name']; ?>" /></a>
 					<div class="g-panel-detail">
 						<h3><a href="<?php echo site_url(); ?>" target="_blank"><?php echo $option['practice_name']; ?></a></h3>
 						<img src="<?php echo get_template_directory_uri(); ?>/assets/images/layout/g-logo.png" alt="Google Logo" class="g-logo" />
 					</div>
 				</div>
 				<div class="g-panel g-customer">
-					<a href="<?php echo site_url(); ?>" class="g-panel-img" target="_blank"><img style="border-radius:300%;" src="<?php if(has_post_thumbnail()){the_post_thumbnail( 'sm-square',array('alt' => get_post_meta(get_post_thumbnail_id($post->ID), '_wp_attachment_image_alt', true) ) );}else{ ?>https://lh5.ggpht.com/-CFYUaGYh6Y8/AAAAAAAAAAI/AAAAAAAAAAA/MWWT48ek100/s128-c0x00000000-cc-rp-mo/photo.jpg<?php } ?>" alt="<?php the_title(); ?>" /></a>
+					<a href="<?php echo site_url(); ?>" class="g-panel-img" target="_blank">
+					<?php if(has_post_thumbnail()){the_post_thumbnail( 'sm-square',array('alt' => get_post_meta(get_post_thumbnail_id($post->ID), '_wp_attachment_image_alt', true) ) );}
+      else { ?><img width="120" height="120" src="https://lh5.ggpht.com/-CFYUaGYh6Y8/AAAAAAAAAAI/AAAAAAAAAAA/MWWT48ek100/s128-c0x00000000-cc-rp-mo/photo.jpg" class="attachment-sm-square size-sm-square wp-post-image" alt="<?php the_title(); ?>" /><?php } ?>
+					</a>
 					<div class="g-panel-detail">
 						<h3><a href="<?php echo site_url(); ?>" target="_blank"><?php the_title(); ?></a></h3>
 						<i class="fa fa-star" aria-hidden="true"></i><i class="fa fa-star" aria-hidden="true"></i><i class="fa fa-star" aria-hidden="true"></i><i class="fa fa-star" aria-hidden="true"></i><i class="fa fa-star" aria-hidden="true"></i>
