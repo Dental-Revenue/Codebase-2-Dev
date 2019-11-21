@@ -502,7 +502,9 @@ if($('.slick_shortcode_testimonials').length>0 && $('.slick_slide_shortcode_test
 	  });
 	
 	$('.slick-g-scroll').slick({dots:true,arrows:false,infinite:false,speed:200});
-	
+
+	$('.drop-link').removeClass('open').next().hide();
+  $('.drop-link').on('click',function(t){t.preventDefault(),$(this).toggleClass('open').next().slideToggle()});
 	
   //Youtube Popups
   $('.popup-youtube').magnificPopup({
