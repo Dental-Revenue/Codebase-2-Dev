@@ -21,6 +21,8 @@
 	$headline = str_replace(array('{','}'), array('<span>','</span>'),$raw_headline);
 	
 	$excerpt = get_post_meta(get_the_id(),$instance.'_excerpt',true);
+	$url = get_post_meta(get_the_id(),$instance.'_url',true);
+	$url_text = get_post_meta(get_the_id(),$instance.'_url_text',true);
 ?>
 
 <div class="custom-video-testimonials">
@@ -28,20 +30,22 @@
 	<div class="cvt-block static">
 	  <?php if(!empty($headline)){ ?><h2 class="<?php echo $headline_style; ?>"><?php echo $headline; ?></h2><?php } ?>
 		<?php if(!empty($excerpt)){ ?><p><?php echo $excerpt; ?></p><?php } ?>
-		<a href="/testimonials/">View Testimonials</a>
+		<?php if(!empty($url)){ ?><a href="<?php echo $url; ?>"><?php echo $url_text; ?></a><?php } ?>
 	</div>
 	
 	<?php
     $blocks = get_post_meta(get_the_id(),$instance.'_blocks',true);
     foreach ((array) $blocks as $key => $block ) {
 	  $image = wp_get_attachment_image_src( $block['image_id'], 'lg' );
+	  $url = $block['url'];
+	  $url_text = $block['url_text'];
     ?>
       
       <div class="cvt-block" style="background-image: url(<?php echo $image[0]; ?>);">
 				<div class="cvt-content" style="background-color: rgba(<?php echo $r; ?>,<?php echo $g; ?>,<?php echo $b; ?>,.5);">
 					<h3><?php echo $block['name']; ?></h3>
 					<p><?php echo $block['excerpt']; ?></p>
-					<a href="<?php echo $block['url']; ?>" class="popup-youtube">Watch Video</a>
+					<?php if(!empty($url)){ ?><a href="<?php echo $url; ?>" <?php if (strpos($url, 'youtube') !== false) { ?>class="popup-youtube"<?php } ?>><?php echo $url_text; ?></a><?php } ?>
 				</div>
 				<span style="background-color: rgba(<?php echo $r; ?>,<?php echo $g; ?>,<?php echo $b; ?>,.5);"><?php echo $block['name']; ?></span>
 			</div>
