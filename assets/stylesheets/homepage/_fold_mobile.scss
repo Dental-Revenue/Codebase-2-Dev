@@ -8,6 +8,10 @@
 			.fold-mobile-slide-text p{font-size: 18px;line-height:24px; color: $white; width:80%; margin:0 auto 20px;}
 		.fold-mobile-slide .btn {width:100%; box-sizing: border-box; margin-bottom: 10px;}
   
+  .fold_mobile .module-img img {position: relative; transform: none; top: 0; left: 0; min-height: auto;}
+  
+  .fold_mobile .static-module-image {display: block; width: 100%; height: auto;}
+  
 
 @media all and (max-width: $bp-tablet) {
 	.fold_mobile {display:block;}

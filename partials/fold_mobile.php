@@ -3,6 +3,8 @@
 	$appearance_info = get_option( 'appearance_info');
 	$headline_style = $appearance_info['headline_style'];
 
+	$fold_image = get_post_meta(get_the_id(),$instance.'_static_bg_image',true);
+	$fold_image_alt = get_post_meta(get_the_id(),$instance.'_static_image_alt',true);
 	$fold_overlay = get_post_meta(get_the_id(),$instance.'_overlay',true);
 	$fold_height = get_post_meta(get_the_id(),$instance.'_height',true);
 	$fold_title = get_post_meta(get_the_id(),$instance.'_title',true);
@@ -13,8 +15,8 @@
 	$cta_url_2 = get_post_meta(get_the_id(),$instance.'_url_2',true);
 ?>
 
-  <div style="height:<?php echo $fold_height; ?>">
-	  
+  <div>
+	  <?php if($fold_image != '') {?><img src="<?php echo $fold_image; ?>" alt="<?php if($fold_image_alt !=''){ echo $fold_image_alt; } else {?>Background Image<?php } ?>" class="static-module-image" /><?php } ?>
 		<div class="fold-mobile-slide">
   		<div class="fold-overlay" style="background-color: rgba(0,0,0,.<?php echo $fold_overlay; ?>);"></div>
 			<div class="fold-mobile-slide-text">

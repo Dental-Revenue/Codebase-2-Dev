@@ -1,13 +1,15 @@
 <?php 
 
 $box->add_field( array(
-	'name' => 'Height',
-	'desc' => 'include measurement (i.e. px, % or vh)',
-	'id' => $prefix.'height',
+	'name' => 'Static Background Image',
+	'id' => $prefix.'static_bg_image',
+	'type' => 'file',
+	'desc' => '375px min recommended image width. Image is set to 100% width and Module Height is set based on the images aspect ratio.',
+));
+$box->add_field( array(
+	'name' => 'Background Image Alt',
+	'id' => $prefix.'static_image_alt',
 	'type' => 'text',
-	'attributes'  => array(
- 		'required'    => 'required',
- 	),
 ));
 $box->add_field( array(
 	'name' => 'Overlay Color',
