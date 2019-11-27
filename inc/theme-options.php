@@ -485,8 +485,17 @@ function cmb2_appearance_options() {
 			'header-style-b' => 'Style B',
 			'header-style-c' => 'Style C',
 			'header-style-d' => 'Style D',
+			'header-style-e' => 'Style E',
 		),
 		'default' => 'header-style-a'
+	));
+
+	$box->add_field( array(
+		'name' 					=> 'Navigation Color',
+		'id'   					=> 'nav_color',
+		'type' 					=> 'colorpicker',
+		'default'				=> '#000000',
+		'options' => array('alpha' => true),
 	));
 	
 	$box->add_field( array(

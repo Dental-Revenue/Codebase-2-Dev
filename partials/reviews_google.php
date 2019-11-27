@@ -8,91 +8,44 @@
   
   <div class="row">
 	  
-	  <?php
-		$place_id = getOption('practice_info');
-		$place_id = $place_id['google_place_id'];
-		
-		if(!$place_id || $place_id==''){
-			echo "Set Place ID in Theme Settings";
-		}else{
-		
-			$jsonurl = "https://maps.googleapis.com/maps/api/place/details/json?placeid=$place_id&key=AIzaSyD7dIa6edUzrhrYIrwXDab2B0nfF56om5w";
-			$json = file_get_contents($jsonurl);
-			$json = json_decode($json);
+			<?php
+			$args = array( 'post_type' => 'testimonials', 'order' => 'DESC', 'orderby'=> 'post_date', 'posts_per_page' => -1 );
+		  $loop = new WP_Query( $args );
+		  $i = 1;
+		  while ( $loop->have_posts() && $i < 4) : $loop->the_post();
+		  $thumb_array = wp_get_attachment_image_src( get_post_thumbnail_id($post->ID), 'thumbnail' );
+		  $thumb_url = $thumb_array['0'];
+		  $option = get_option('practice_info');
+			?>
 			
-			//echo '<pre>'.$json.'</pre>';
-			//var_dump($json);
-			
-			$company_name = $json->result->name;
-			$company_url = $json->result->url;
-			$company_logo = $json->result->icon;
-			$company_stars = $json->result->rating;
-				$company_stars_array = explode(".", $company_stars);
-				$company_stars_full = $company_stars_array[0];
-				$company_stars_half = count($company_stars_array) > 1 ? $company_stars_array[1] : '';
-			
-			$reviews = $json->result->reviews;
-			$counter = 0;
-			
-			foreach ($reviews as $review){
-				if($review->rating>4){
-					$counter++;
-					$patient_name = $review->author_name;
-					$patient_review_url = $review->author_url;
-					$patient_image = $review->profile_photo_url;
-					$patient_stars = $review->rating;
-						$patient_stars_array = explode(".", $patient_stars);
-						$patient_stars_full = $patient_stars_array[0];
-						$patient_stars_half = count($patient_stars_array) > 1 ? $patient_stars_array[1] : '';
-					$patient_review = $review->text; ?>
-					
-					<div class="g-box">
-				
-						<div class="g-panel g-client">
-							<a href="<?php echo $company_url; ?>" class="g-panel-img" target="_blank"><img src="<?php echo $company_logo; ?>" alt="<?php echo $company_name; ?>" /></a>
-							<div class="g-panel-detail">
-								<h3><a href="<?php echo $company_url; ?>" target="_blank"><?php echo $company_name; ?></a></h3>
-								<?php
-								for ($x = 0; $x < $company_stars_full; $x++) {
-									echo '<i class="ion-android-star" aria-hidden="true"></i>';
-								} 
-								if($company_stars_half!=''){
-									echo '<i class="ion-android-star-half" aria-hidden="true"></i>';
-								}
-								?>
-								<img src="<?php echo get_template_directory_uri(); ?>/assets/images/layout/g-logo.png" alt="Google Logo" class="g-logo" />
-								<p><?php echo $company_stars; ?> out of 5 stars</p>
-							</div>
-						</div>
-						
-						<div class="g-panel g-customer">
-							<a href="<?php echo $patient_review_url; ?>" class="g-panel-img" target="_blank"><img src="<?php echo $patient_image;?>" alt="<?php echo $patient_name; ?>" /></a>
-							<div class="g-panel-detail">
-								<h3><a href="<?php echo $patient_review_url; ?>" target="_blank"><?php echo $patient_name; ?></a></h3>
-								<?php
-								for ($x = 0; $x < $patient_stars_full; $x++) {
-									echo '<i class="ion-android-star" aria-hidden="true"></i>';
-								} 
-								if($patient_stars_half!=''){
-									echo '<i class="ion-android-star-half" aria-hidden="true"></i>';
-								}
-								?>
-								<p><?php echo $patient_stars; ?> out of 5 stars</p>
-							</div>
-							<p class="g-customer-excerpt"><?php echo wp_trim_words($patient_review,60); ?></p>
-						</div>
-				
+			<div class="g-box">
+				<div class="g-panel g-client">
+					<div class="g-panel-img" target="_blank"><img src="https://maps.gstatic.com/mapfiles/place_api/icons/generic_business-71.png" alt="<?php echo $option['practice_name']; ?>" /></div>
+					<div class="g-panel-detail">
+						<h3><?php echo $option['practice_name']; ?></h3>
+						<img src="<?php echo get_template_directory_uri(); ?>/assets/images/layout/g-logo.png" alt="Google Logo" class="g-logo" />
 					</div>
-					
-				<?php }
-				if($counter>2){ break; }
-			}
-		} ?>
-		
-		<div class="reviews_google-buttons">
+				</div>
+				<div class="g-panel g-customer">
+					<div class="g-panel-img">
+					<?php if(has_post_thumbnail()){the_post_thumbnail( 'sm-square',array('alt' => get_post_meta(get_post_thumbnail_id($post->ID), '_wp_attachment_image_alt', true) ) );}
+      else { ?><img width="120" height="120" src="https://lh5.ggpht.com/-CFYUaGYh6Y8/AAAAAAAAAAI/AAAAAAAAAAA/MWWT48ek100/s128-c0x00000000-cc-rp-mo/photo.jpg" class="attachment-sm-square size-sm-square wp-post-image" alt="<?php the_title(); ?>" /><?php } ?>
+					</div>
+					<div class="g-panel-detail">
+						<h3><?php the_title(); ?></h3>
+						<i class="fa fa-star" aria-hidden="true"></i><i class="fa fa-star" aria-hidden="true"></i><i class="fa fa-star" aria-hidden="true"></i><i class="fa fa-star" aria-hidden="true"></i><i class="fa fa-star" aria-hidden="true"></i>
+						<p>5 out of 5 stars</p>
+					</div>
+					<p class="g-customer-excerpt"><?php echo wp_trim_words(get_the_content(),60); ?></p>
+				</div>
+			</div>
+			
+			<?php $i++; endwhile; wp_reset_postdata();?>
+			
+			<div class="reviews_google-buttons">
 			<a href="<?php site_ops_google_review_url(); ?>" class="btn solid google" target="_blank">Leave a Google Review</a>
 			<?php $page = get_pages(array('meta_key' => '_wp_page_template','meta_value' => 'page-templates/template-testimonials.php')); ?>
 			<?php if(isset($page[0]->ID)){ ?><a href="<?php echo get_permalink($page[0]->ID); ?>" class="btn solid">View More Reviews</a><?php } ?>
-		</div>
+			</div>
   
   </div>
