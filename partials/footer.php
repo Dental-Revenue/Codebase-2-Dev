@@ -60,33 +60,47 @@
 	        
           <div class="option">
             <i class="fas fa-phone fa-flip-horizontal"></i>
-            <p>New Patients <span class="bold"><?php site_ops_new_patient_phone(); ?></span></p>
+            <div>
+	            <span class="bold">New Patients</span><br>
+	            <?php site_ops_new_patient_phone(); ?>
+	          </div>
           </div>
           <div class="option">
             <i class="fas fa-phone fa-flip-horizontal"></i>
-            <p>Current Patients <span class="bold"><?php site_ops_current_patient_phone(); ?></span></p>
+            <div>
+	            <span class="bold">Current Patients</span><br>
+	            <?php site_ops_current_patient_phone(); ?>
+	          </div>
           </div>
           <div class="option">
             <i class="fas fa-map-marker-alt"></i>
-            <p>
-              <span><?php site_ops_address(); ?></span><br />
-							<span class="bold">
-              	<span><?php site_ops_city(); ?></span>,
-								<span><?php site_ops_state(); ?></span>
-								<span><?php site_ops_zip(); ?></span>
-							</span>
-          	</p>
+            <div>
+              <span class="bold">Address</span><br />
+              <?php site_ops_address(); ?><br />
+							<?php site_ops_city(); ?>, <?php site_ops_state(); ?> <?php site_ops_zip(); ?>
+          	</div>
           </div>
           <div class="option">
             <i class="far fa-clock"></i>
-						<p>
+						<div>
+							<span class="bold">Hours</span><br>
               <?php 
 	              $hoursArray = explode("\n", site_ops_company_hours(false)); 
 	              foreach($hoursArray as $index=>$value){
                   if($index%2!=0){echo "<span>$value</span></span>";}else{echo "<span class='hour-set'>".$value." " ;}
               	}
 	            ?>              
-            </p>
+            </div>
+          </div>
+          
+          <div class="mobile-info-social">
+	          <?php if(!empty(site_ops_facebook(false))){ ?><span><a href='<?php site_ops_facebook(); ?>' target='_blank'><i class='fab fa-facebook-f'></i></a></span><?php } ?>
+				<?php if(!empty(site_ops_twitter(false))){ ?><span><a href='<?php site_ops_twitter(); ?>' target='_blank'><i class='fab fa-twitter'></i></a></span><?php } ?>
+				<?php if(!empty(site_ops_linkedin(false))){ ?><span><a href='<?php site_ops_linkedin(); ?>' target='_blank'><i class='fab fa-linkedin-in'></i></a></span><?php } ?>
+				<?php if(!empty(site_ops_google_plus(false))){ ?><span><a href='<?php site_ops_google_plus(); ?>' target='_blank'><i class='fab fa-google-plus-g'></i></a></span><?php } ?>
+				<?php if(!empty(site_ops_youtube(false))){ ?><span><a href='<?php site_ops_youtube(); ?>' target='_blank'><i class='fab fa-youtube'></i></a></span><?php } ?>
+				<?php if(!empty(site_ops_instagram(false))){ ?><span><a href='<?php site_ops_instagram(); ?>' target='_blank'><i class='fab fa-instagram'></i></a></span><?php } ?>
+				<?php if(!empty(site_ops_yelp(false))){ ?><span><a href='<?php site_ops_yelp(); ?>' target='_blank'><i class='fab fa-yelp'></i></a></span><?php } ?>
           </div>
             
         </div>

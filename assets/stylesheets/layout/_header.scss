@@ -247,7 +247,7 @@ header.notification-active+.page-wrap, header.notification-active+.page-wrap .pa
 
 /* MOBILE NAVIGATION BUTTONS */
 .mobile-nav{display: none; @include clearfix();overflow: hidden;}
-  .mobile-nav a{width: 33.333%;float: left;display:block;border-left: 1px solid darken( $dk-grey, 10% );border-right: 1px solid lighten($dk-grey,10%);line-height: 61px; height:61px; overflow:hidden;box-sizing: border-box; text-align: center; font-size: 26px; color: $lt-grey; position: relative; &:first-child{border-left: 0 none;} &:last-child{border-right: 0 none;} &:hover{color: $main-color;}}
+  .mobile-nav a{width: auto; flex:1; text-transform:uppercase; border-left: 1px solid darken( $dk-grey, 10% );border-right: 1px solid lighten($dk-grey,10%);line-height: 61px; height:61px; overflow:hidden;box-sizing: border-box; text-align: center; font-size: 26px; color: $lt-grey; position: relative; &:first-child{border-left: 0 none;} &:last-child{border-right: 0 none;} &:hover{color: $main-color;}}
   .mobile-nav.call-enabled a{width: 25%;}
     .mobile-nav a i{vertical-align: middle; font-size:17px;}
     .mobile-nav a span{font-size: 12px;margin-left: 8px;vertical-align: middle;}
@@ -268,7 +268,7 @@ header.notification-active+.page-wrap, header.notification-active+.page-wrap .pa
 @media all and (max-width: $bp-laptop) {
   
   .large-nav{display: none;}
-  .mobile-nav{display: block;height: 60px;}
+  .mobile-nav{display: flex; justify-content:center; height: 60px;}
   
   .large-nav > ul > li > a {font-size: 12px;}
   
