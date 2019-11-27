@@ -76,11 +76,11 @@ do_action('before_header');
 	      
 	      <nav class="mobile-nav ">
 	        <a href="#" id="panel-main"><i class="fas fa-bars"></i><span>Menu</span></a>
-	        <?php if(wp_is_mobile()){ ?><a href="tel:<?php site_ops_new_patient_phone(); ?>"><i class="fas fa-phone"></i><span>Call Now</span></a><?php } ?>
+	        <?php if(wp_is_mobile()){ ?><a href="tel:<?php site_ops_new_patient_phone(); ?>"><i class="fas fa-phone"></i><span>Call</span></a><?php } ?>
 	        <?php if (!empty(site_ops_cta_text(false)) && in_array("cta", $header_items)) { ?> 
-	          <a href="<?php site_ops_cta_url(); ?>"><i class="far fa-calendar-alt"></i><span><?php site_ops_cta_text(); ?></span></a>
+	          <a href="<?php site_ops_cta_url(); ?>"><i class="far fa-calendar-alt"></i><span>Book</span></a>
 					<? } ?>
-	        <a href="#" id="panel-more"><i class="fas fa-info"></i><span>More Info</span></a>
+	        <a href="#" id="panel-more"><i class="fas fa-info"></i><span>Contact</span></a>
 	      </nav>
 	    
 	    </div>
@@ -105,11 +105,11 @@ do_action('before_header');
 		      
 		      <nav class="mobile-nav ">
 		        <a href="#" id="panel-main"><i class="fas fa-bars"></i><span>Menu</span></a>
-						<?php if(wp_is_mobile()){ ?><a href="tel:<?php site_ops_new_patient_phone(); ?>"><i class="fas fa-phone"></i><span>Call Now</span></a><?php } ?>
+						<?php if(wp_is_mobile()){ ?><a href="tel:<?php site_ops_new_patient_phone(); ?>"><i class="fas fa-phone"></i><span>Call</span></a><?php } ?>
 		        <?php if (!empty(site_ops_cta_text(false)) && in_array("cta", $header_items)) { ?>
-		           <a href="<?php site_ops_cta_url(); ?>"><i class="far fa-calendar-alt"></i><span>Schedule Appt</span></a>
+		           <a href="<?php site_ops_cta_url(); ?>"><i class="far fa-calendar-alt"></i><span>Book</span></a>
 		        <? } ?>
-		        <a href="#" id="panel-more"><i class="fas fa-info"></i><span>More Info</span></a>
+		        <a href="#" id="panel-more"><i class="fas fa-info"></i><span>Contact</span></a>
 		      </nav>
 		    
 		    </div>
@@ -160,11 +160,11 @@ do_action('before_header');
 	      
 	      <nav class="mobile-nav ">
 	        <a href="#" id="panel-main"><i class="fas fa-bars"></i><span>Menu</span></a>
-	        <?php if(wp_is_mobile()){ ?><a href="tel:<?php site_ops_new_patient_phone(); ?>"><i class="fas fa-phone"></i><span>Call Now</span></a><?php } ?>
+	        <?php if(wp_is_mobile()){ ?><a href="tel:<?php site_ops_new_patient_phone(); ?>"><i class="fas fa-phone"></i><span>Call</span></a><?php } ?>
 	        <?php if (!empty(site_ops_cta_text(false)) && in_array("cta", $header_items)) { ?>
-	           <a href="<?php site_ops_cta_url(); ?>"><i class="far fa-calendar-alt"></i><span><?php site_ops_cta_text(); ?></span></a>
+	           <a href="<?php site_ops_cta_url(); ?>"><i class="far fa-calendar-alt"></i><span>Book</span></a>
 	         <? } ?>
-	        <a href="#" id="panel-more"><i class="fas fa-info"></i><span>More Info</span></a>
+	        <a href="#" id="panel-more"><i class="fas fa-info"></i><span>Contact</span></a>
 	      </nav>
 	    
 	    </div>
@@ -189,11 +189,11 @@ do_action('before_header');
 		      
 		      <nav class="mobile-nav ">
 		        <a href="#" id="panel-main"><i class="fas fa-bars"></i><span>Menu</span></a>
-						<?php if(wp_is_mobile()){ ?><a href="tel:<?php site_ops_new_patient_phone(); ?>"><i class="fas fa-phone"></i><span>Call Now</span></a><?php } ?>
+						<?php if(wp_is_mobile()){ ?><a href="tel:<?php site_ops_new_patient_phone(); ?>"><i class="fas fa-phone"></i><span>Call</span></a><?php } ?>
 		        <?php if (!empty(site_ops_cta_text(false)) && in_array("cta", $header_items)) { ?>
-		           <a href="<?php site_ops_cta_url(); ?>"><i class="far fa-calendar-alt"></i><span>Schedule Appt</span></a>
+		           <a href="<?php site_ops_cta_url(); ?>"><i class="far fa-calendar-alt"></i><span>Book</span></a>
 		        <? } ?>
-		        <a href="#" id="panel-more"><i class="fas fa-info"></i><span>More Info</span></a>
+		        <a href="#" id="panel-more"><i class="fas fa-info"></i><span>Contact</span></a>
 		      </nav>
 		    
 		    </div>

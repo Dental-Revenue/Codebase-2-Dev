@@ -13,12 +13,9 @@
   .fold_mobile .static-module-image {display: block; width: 100%; height: auto;}
   
 
-@media all and (max-width: $bp-tablet) {
+@media all and (max-width: $bp-phablet) {
 	.fold_mobile {display:block;}
 	.fold_mobile + div {display:none;}
-}
-
-@media all and (max-width: $bp-phablet) {
 }
 
 @media all and (max-width: $bp-phone) {

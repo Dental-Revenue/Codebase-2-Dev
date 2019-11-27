@@ -32,6 +32,7 @@ function homepage_meta() {
 		));
 		
 		//for all blocks
+		if ($m->module != "fold_mobile") {
 		
 		$box->add_field( array(
 			'name' => 'Background Color',
@@ -60,6 +61,8 @@ function homepage_meta() {
 			'id' => $prefix.'bg_image_opacity',
 			'type' => 'text'
 		));
+		
+		}
 		
 		switch ($m->module) {
 			

@@ -5,7 +5,13 @@
 
 	$fold_image = get_post_meta(get_the_id(),$instance.'_static_bg_image',true);
 	$fold_image_alt = get_post_meta(get_the_id(),$instance.'_static_image_alt',true);
-	$fold_overlay = get_post_meta(get_the_id(),$instance.'_overlay',true);
+	
+	$color = (get_post_meta(get_the_id(),$instance.'_overlay_color',true)!='') ? get_post_meta(get_the_id(),$instance.'_overlay_color',true) : '#ffffff' ;
+	$color2 = get_post_meta(get_the_id(),$instance.'_overlay_color_2',true);
+	$colorCSS = !empty($color2) ? 'background:linear-gradient('.$color.', '.$color2.');' : 'background-color:'.$color.';';
+	$fold_overlay = get_post_meta(get_the_id(),$instance.'_overlay',true)/100;
+	$colorDarkness = 'opacity:'.$fold_overlay.';';
+	
 	$fold_height = get_post_meta(get_the_id(),$instance.'_height',true);
 	$fold_title = get_post_meta(get_the_id(),$instance.'_title',true);
 	$fold_excerpt = get_post_meta(get_the_id(),$instance.'_excerpt',true);
@@ -17,8 +23,9 @@
 
   <div>
 	  <?php if($fold_image != '') {?><img src="<?php echo $fold_image; ?>" alt="<?php if($fold_image_alt !=''){ echo $fold_image_alt; } else {?>Background Image<?php } ?>" class="static-module-image" /><?php } ?>
+	  <?php if($color != '') {?><span class="fold-mobile-color-overlay" style="<?php echo $colorCSS; ?>"></span><?php } ?>
 		<div class="fold-mobile-slide">
-  		<div class="fold-overlay" style="background-color: rgba(0,0,0,.<?php echo $fold_overlay; ?>);"></div>
+  		<div class="fold-overlay" style="<?php if($color != '') { echo $colorCSS; } ?> <?php echo $colorDarkness; ?>"></div>
 			<div class="fold-mobile-slide-text">
 			  <h2><?php echo $fold_title; ?></h2>
 			  <?php if(isset($fold_excerpt) && $fold_excerpt != ''){ ?><p><?php echo $fold_excerpt; ?></p><?php } ?>

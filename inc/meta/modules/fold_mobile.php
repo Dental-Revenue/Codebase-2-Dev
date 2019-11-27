@@ -13,12 +13,13 @@ $box->add_field( array(
 ));
 $box->add_field( array(
 	'name' => 'Overlay Color',
-	'id' => $prefix.'bg_color',
-	'type' => 'colorpicker'
+	'id' => $prefix.'overlay_color',
+	'type' => 'colorpicker',
+	'default' => '#000000',
 ));
 $box->add_field( array(
 	'name' => 'Overlay Color 2 (Gradient)',
-	'id' => $prefix.'bg_color_2',
+	'id' => $prefix.'overlay_color_2',
 	'type' => 'colorpicker'
 ));
 $box->add_field( array(
