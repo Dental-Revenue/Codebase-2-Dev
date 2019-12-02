@@ -42,6 +42,7 @@ Template Name: Schedule Appointment Form
           <p>I would like to schedule a visit:</p>
           <select name="AdsNext-ScheduleRange">
             <option selected value="Select One">Select One</option>
+            <option value="Less than 1 month">Less than 1 month</option>
             <option value="1 - 3 months">in 1 - 3 months</option>
             <option value="3 - 6 months">in 3 - 6 months</option>
             <option value="6 - 12 months">in 6 - 12 months</option>
