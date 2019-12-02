@@ -32,7 +32,7 @@
 						<source src="<?php echo $s['video_mp4']; ?>" type="video/mp4">
 	  			</video>
 	  		<?php } else { ?>
-	  			<img alt="<?php if (isset($s['alt'])){ echo $s['alt']; } else { echo 'Slideshow Image'; } ?>" src="<?php echo $image_atf[0]; ?>" srcset="<?php echo $image_lg[0]; ?> 500w, <?php echo $image_xl[0]; ?>700w, <?php echo $image_xxl[0]; ?> 1300w, <?php echo $image_atf[0]; ?> 3000w" sizes="100vw,(min-width: 300px) 700px,(min-width: 700px) 1300px,(min-width: 1300px) 1800px" />
+	  			<img alt="<?php if (isset($s['alt'])){ echo $s['alt']; } else { echo 'Slideshow Image'; } ?>" src="<?php echo $image_atf[0]; ?>" srcset="<?php echo $image_lg[0]; ?> 500w, <?php echo $image_xl[0]; ?> 700w, <?php echo $image_xxl[0]; ?> 1300w, <?php echo $image_atf[0]; ?> 3000w" sizes="100vw,(min-width: 300px) 700px,(min-width: 700px) 1300px,(min-width: 1300px) 1800px" />
 	  		<?php } ?>
 				
 				<div class="fold-overlay" style="background-color: rgba(0,0,0,<?php echo $overlay/100; ?>);"></div>
@@ -69,7 +69,7 @@
 						<source src="<?php echo $slide['video_mp4']; ?>" type="video/mp4">
 	  			</video>
 	  		<?php } else { ?>
-	  			<img alt="<?php if (isset($slide['alt'])){ echo $s['alt']; } else { echo 'Slideshow Image'; } ?>" src="<?php echo $image_atf[0]; ?>" srcset="<?php echo $image_lg[0]; ?> 500w, <?php echo $image_xl[0]; ?>700w, <?php echo $image_xxl[0]; ?> 1300w, <?php echo $image_atf[0]; ?> 3000w" sizes="100vw,(min-width: 300px) 700px,(min-width: 700px) 1300px,(min-width: 1300px) 1800px" />
+	  			<img alt="<?php if (isset($slide['alt'])){ echo $s['alt']; } else { echo 'Slideshow Image'; } ?>" src="<?php echo $image_atf[0]; ?>" srcset="<?php echo $image_lg[0]; ?> 500w, <?php echo $image_xl[0]; ?> 700w, <?php echo $image_xxl[0]; ?> 1300w, <?php echo $image_atf[0]; ?> 3000w" sizes="100vw,(min-width: 300px) 700px,(min-width: 700px) 1300px,(min-width: 1300px) 1800px" />
 				<?php  } ?>
 				
 				<div class="fold-overlay" style="background-color: rgba(0,0,0,<?php echo $overlay/100; ?>);"></div>
