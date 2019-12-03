@@ -26,9 +26,6 @@ $(document).ready(function(){
     side: 'left',
     renaming: false
   });
-	$(".header, .page-wrap").on("click touchstart",function(e) {
-    $.sidr('close','sidr-left');
-  });
   
   $("#sidr").on("click touchstart",function(e) {
     e.stopPropagation();
@@ -39,6 +36,11 @@ $(document).ready(function(){
     source: '.footer-info-mobile',
     side: 'right',
     renaming: false
+  });
+  
+	$(".header, .page-wrap").on("click touchstart",function(e) {
+    $.sidr('close','sidr-left');
+    $.sidr('close','sidr-right');
   });
   
   $("#sidr-left li.menu-item-has-children > span").on("click touchstart",function(e) {
