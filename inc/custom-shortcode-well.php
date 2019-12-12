@@ -56,7 +56,7 @@ function add_my_shortcode_button_well($atts, $content = ""){
 	//return '<div class="well">'.$title_input.''.preg_replace('/\<p\>\<\/p\>/', '', $content).'</div>';
 	//return preg_replace('/\<p\>/', '', $content);
 	//return $content;
-	$content = preg_replace(array('/\<p\>/','/\<\/p\>/'),array("",""),$content);
+	//$content = preg_replace(array('/\<p\>/','/\<\/p\>/'),array("",""),$content);
 	return '<div class="well">'.$title_input.''.wpautop($content).'</div>';
 	//return wpautop($content);
 }
