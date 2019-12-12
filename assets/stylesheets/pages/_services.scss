@@ -1,0 +1,40 @@
+/* Page Template Services */
+.page-template-template-service {}
+	.page-template-template-service div[role="main"] {padding: 46px 0;}
+	.page-template-template-service .page-head.no-img-bg h1 {margin:0; padding:40px 0;}
+
+/* 16:9 video iframe */
+.video-sixteen-nine{width: 100%;height: 0;padding-bottom: 56.25%;position:relative;}
+  .video-sixteen-nine iframe{position: absolute;top:0;right:0;bottom:0;left:0;width: 100%;height: 100%;}
+      
+
+/* why choose us */
+.service-why{background-color: $md-lt-grey;padding: 40px 0;text-align: center;margin: 0;}
+  .service-why img.doctor-profile{border-radius: 50%;border: 4px solid $white;box-shadow: 0 0 6px rgba($black,.1);}
+  .service-why h2{margin-top: 20px; &:after{display: none;}}
+  
+  .slick-service-associations{background-color: $white;border-radius: 4px;width: 100%;max-width: 700px;padding: 30px;margin: 30px auto 0;}
+    .slick-service-associations .slick-slide{height:100px;padding: 20px;box-sizing: border-box;}
+      .slick-service-associations .slick-slide div{background-size: contain;background-position: center center;background-repeat: no-repeat;width: 100%;height: 100%;}
+      
+
+/* related services */
+.service-related{background-color: darken($md-lt-grey,3%);margin: 0;padding: 40px 0;text-align: center;}
+  .service-related h2{margin-bottom: 20px; }
+  .service-related a{margin: 4px 3px;}
+
+@media all and (max-width: $bp-phablet) {
+  
+  /* why choose us */
+  .slick-service-associations{padding: 14px;}
+    .slick-service-associations .slick-slide{border-right: 0;border-left: 0;}
+  
+}
+
+@media all and (max-width: $bp-phone) {
+  
+  /* related services */
+  .service-related a{width:100%;margin: 4px 0;display: block;box-sizing: border-box;}
+  
+}
+  

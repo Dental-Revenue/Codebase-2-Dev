@@ -6,7 +6,7 @@ function theme_scripts_styles() {
 	$appearance_info = get_option('appearance_info');
 	$heading_font = $appearance_info['heading_font'];
 	$body_font = $appearance_info['body_font'];
-	wp_enqueue_style( 'google-fonts', 'https://fonts.googleapis.com/css?family='.$heading_font.':400,600,800|'.$body_font.':400,400i,700&display=swap' , false, false);
+	wp_enqueue_style( 'google-fonts', '//fonts.googleapis.com/css?family='.$heading_font.':400,600,800|'.$body_font.':300,400,400i,600&display=swap' , false, false);
 	wp_enqueue_style('font-awesome', get_template_directory_uri() . '/assets/stylesheets/vendor/font-awesome/css/all.css',false, false);
 	wp_enqueue_style( 'main-styles', get_template_directory_uri() . '/assets/stylesheets/style.css',false, false);
   
@@ -91,6 +91,11 @@ if ( file_exists(  __DIR__ . '/inc/cpts/cpt-testimonials.php' ) ) {
 // ================================================ GALLERIES META
 if ( file_exists(  __DIR__ . '/inc/meta/meta-gallery-pages.php' ) ) {
   require_once  __DIR__ . '/inc/meta/meta-gallery-pages.php';
+}
+
+// ================================================ SERVICES META
+if ( file_exists(  __DIR__ . '/inc/meta/service-template-meta.php' ) ) {
+  require_once  __DIR__ . '/inc/meta/service-template-meta.php';
 }
 
 // ================================================ WIDGETS
@@ -283,13 +288,6 @@ add_action( 'cmb2_admin_init', 'taxonomy_meta' );
 
 
 
-// ********************************************** Service Template
-/*
-if ( file_exists(  __DIR__ . '/inc/service-template-meta.php' ) ) {
-  require_once  __DIR__ . '/inc/service-template-meta.php';
-}	
-*/
-// ********************************************** End Service Template
 
 // ================================================ META FUNCTIONS
 //Pages to exclude for metabox

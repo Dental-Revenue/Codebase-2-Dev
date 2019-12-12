@@ -415,6 +415,24 @@ if($('.slick_shortcode_testimonials').length>0 && $('.slick_slide_shortcode_test
       });
     });   
   }
+  
+//SERVICES SPECIFIC *********	
+  //Service Page Associations (if applicable)
+  if($('.slick-service-associations').length>0){
+    $('.slick-service-associations').slick({
+      speed: 500,
+      arrows:false,
+      dots:false,
+      autoplay: true,
+      autoplaySpeed: 2000,
+      slidesToShow: 3,
+      slidesToScroll: 1,
+      responsive: [
+        {breakpoint: 1100,settings:{slidesToScroll:2,slidesToShow: 2}},
+        {breakpoint: 600,settings:{slidesToScroll:1,slidesToShow: 1}}
+      ]
+    });
+  }
 
 //GALLERY SPECIFIC *********
 
