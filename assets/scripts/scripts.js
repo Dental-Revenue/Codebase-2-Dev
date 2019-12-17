@@ -433,6 +433,39 @@ if($('.slick_shortcode_testimonials').length>0 && $('.slick_slide_shortcode_test
       ]
     });
   }
+  
+  //Service Page Testimonials (if applicable)
+  if($('.slick-service-testimonials').length>0){
+    $('.slick-service-testimonials').slick({
+      infinite: true,
+      slidesToShow: 1,
+      slidesToScroll: 1,
+      speed: 300,
+      arrows:false,
+      dots:true,
+      fade: true,
+      cssEase: 'linear',
+      autoPlay:true
+    });
+  }
+  
+	//Service Page FAQs (if applicable)
+  if($('.service-faqs').length>0){
+    var loadAccordian = function(){
+      var allTriggers = $('.faq-accordion > dt > a');
+      var allPanels = $('.faq-accordion > dd').hide();
+      $('.faq-accordion > dt > a').on('click',function(){
+          if(!$(this).parent().next().hasClass('active')){
+             allPanels.removeClass('active').slideUp();
+             $(this).parent().next().addClass('active').slideDown();
+             allTriggers.removeClass('active');
+             $(this).addClass('active');
+          }
+        return false;
+      });
+    }
+    loadAccordian();
+  }
 
 //GALLERY SPECIFIC *********
 

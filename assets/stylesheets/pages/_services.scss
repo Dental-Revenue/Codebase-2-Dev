@@ -6,6 +6,46 @@
 /* 16:9 video iframe */
 .video-sixteen-nine{width: 100%;height: 0;padding-bottom: 56.25%;position:relative;}
   .video-sixteen-nine iframe{position: absolute;top:0;right:0;bottom:0;left:0;width: 100%;height: 100%;}
+  
+/* general service page module styles */
+.service-module{margin-top: 30px;border-radius: 5px;padding: 30px; &:first-child{margin-top: 0;}}
+  .service-module h2{color:$main-color;font-weight: 400; }
+    .service-module h2 span{font-weight: 600;}
+
+
+/* overview */
+.service-overview{background-color: $md-lt-grey;}
+
+
+/* testimonials */
+.service-testimonials{background-color: $main-color;}
+  .service-testimonial{color: $white;display: none;text-align: center;font-size: 20px;font-weight: 300;line-height:160%;font-family: $heading-font;}
+    .service-testimonial span{display: block;margin: 20px auto;text-transform: uppercase;font-family:$body-font;font-weight: 600;font-size: 14px;letter-spacing: .02em;}
+    
+  .service-testimonials .slick-dots{border: none;border-radius: none;padding: 0;margin: 0 auto;box-shadow: none;}
+    .service-testimonials .slick-dots li button{border-color: $white;}
+    
+    
+/* expectations */
+.service-expectations{background-color: $md-lt-grey;}
+
+
+/* faqs */
+.service-faqs{background-color: $md-lt-grey;}
+  .faq-accordion{margin: 0;display: block;}
+    .faq-accordion dt{padding: 8px 0;border-top: 1px solid rgba($black,.1); &:first-child{margin-top: 0;border-top:0;}}
+      .faq-accordion dt a{font-size: 17px;font-weight: 400;color: $black;padding-left:20px;position:relative;display:block; &:hover{text-decoration: none;} &:before{content:"\f067";display: inline-block;margin-right: 10px;font-family: $font-awesome;font-weight:800;color: $main-color;position: absolute;display: block;left: 0;top:2px;}}
+      .faq-accordion dt a.active:before{content:"\f068";}
+    .faq-accordion dd{display: none;margin-left: 20px;padding-bottom: 10px;}
+  
+
+/* cost */    
+.service-cost{background-color: $md-lt-grey;}
+  .service-cost h2{color: $black;}
+    
+  .cost-list{margin: 0;list-style: none;padding: 0;}
+    .cost-list li{border-bottom: 1px solid rgba($black,.1);letter-spacing: .01em;color: $black;padding: 4px 0;@include clearfix(); &:last-child{border-bottom: 0;padding-bottom: 0;}}
+      .cost-list li span{float: right;width: 30%;text-align: left;}
       
 
 /* why choose us */
@@ -23,7 +63,25 @@
   .service-related h2{margin-bottom: 20px; }
   .service-related a{margin: 4px 3px;}
 
+@media all and (max-width: $bp-tablet) {
+  
+  /* hide the sidebar */
+  .service-template .four{display: none;}
+  
+}
+
 @media all and (max-width: $bp-phablet) {
+  
+  /* general service page module styles */
+  .service-module{padding: 18px;}
+    .service-module h2{font-size: 24px;}
+      .service-module h2 span{display: block;}
+  
+  /* testimonials */
+    .service-testimonial{font-size: 16px;}
+    
+  /* cost */ 
+  .cost-list li span{font-size: 10px;width: 36%;}
   
   /* why choose us */
   .slick-service-associations{padding: 14px;}

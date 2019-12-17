@@ -16,7 +16,80 @@ Template Name: Service
 		
 			<div class="columns eight">
 				  
-				<?php $postID = get_the_ID(); ?>
+				<?php //pull general info and setup reusable functions
+  			  
+  			  $longname = get_post_meta(get_the_ID(), 'service_general_longname', true);
+  			  if(get_post_meta(get_the_ID(), 'service_general_shortname', true)){
+    		    $shortname =get_post_meta(get_the_ID(), 'service_general_shortname', true);
+  			  }else{
+    		    $shortname = $longname;
+  			  }
+  			  
+  			  $postID = get_the_ID();
+  			  
+  			?>
+				
+				
+				<?php if(get_post_meta(get_the_ID(), 'service_overview_hidden', true)=='false'){ ?>
+				  <div class="service-overview service-module main-content">
+  			    <h2><span><?php echo $shortname; ?></span> An Overview</h2>
+  			    <?php echo apply_filters('the_content',get_post_meta(get_the_ID(), 'service_overview_content', true)); ?>
+				  </div>
+				<?php } ?>
+				
+				
+				<?php if(get_post_meta(get_the_ID(), 'service_testimonials_hidden', true)=='false'){ ?>
+				  <div class="service-testimonials service-module slick-service-testimonials">
+  			    <?php $testimonials = get_post_meta(get_the_ID(), 'service_testimonials', true);
+    		  	foreach($testimonials as $id){
+              $testimonial = get_post($id); ?>
+              <div class="service-testimonial"><?php echo apply_filters('get_the_content', $testimonial->post_content); ?><span><?php echo get_the_title($id); ?></span></div>
+      	  	<?php } ?>
+				  </div>
+				<?php } ?>
+				
+				
+				<?php if(get_post_meta(get_the_ID(), 'service_expectations_hidden', true)=='false'){ ?>
+				  <div class="service-expectations service-module main-content">
+  			    <h2><span><?php echo $longname; ?></span> What to Expect</h2>
+  			    <?php echo apply_filters('the_content',get_post_meta(get_the_ID(), 'service_expectations_content', true)); ?>
+  			    <?php if(get_post_meta(get_the_ID(), 'service_expectations_video', true)){ ?>
+    			    <div class="video-sixteen-nine">
+    			      <?php echo get_post_meta(get_the_ID(), 'service_expectations_video', true); ?>
+    			    </div>
+    			  <?php } ?>
+				  </div>
+				<?php } ?>
+				
+				
+				<?php if(get_post_meta(get_the_ID(), 'service_faqs_hidden', true)=='false'){ ?>
+				  <div class="service-faqs service-module">
+  			    <h2><span><?php echo $longname; ?></span> FAQs</h2>
+  			    <dl class="faq-accordion">
+    			    <?php $entries = get_post_meta( get_the_ID(), 'service_faqs_group', true );
+      			    foreach ((array)$entries as $key => $entry ) {
+        			    echo '<dt><a href="#">'.$entry['question'].'</a></dt>';
+        			    echo '<dd class="main-content">'.apply_filters('the_content',$entry['answer']).'</dd>';
+      			    }
+              ?>
+            </dl>
+				  </div>
+				<?php } ?>
+				
+				
+				<?php if(get_post_meta(get_the_ID(), 'service_cost_hidden', true)=='false'){ ?>
+				  <div class="service-cost service-module">
+  			    <h2><span>Cost of</span> <?php echo $shortname; ?></h2>
+  			    <ul class="cost-list">
+    			    <?php $entries = get_post_meta( get_the_ID(), 'service_cost_group', true );
+      			    foreach ((array)$entries as $key => $entry ) {
+        			    echo '<li>'.$entry['item'].'<span>'.$entry['cost'].'</span></li>';
+      			    }
+              ?>
+  			    </ul>
+				  </div>
+				<?php } ?>
+
   			
   			 <?php if (have_posts()) : while (have_posts()) : the_post();
 					  the_content();
