@@ -1285,7 +1285,11 @@ add_action( 'cmb2_save_options-page_fields_appearance_info', 'cmb2_save_apperanc
 add_action('after_setup_theme', 'compile_after_update');
 function compile_after_update() {
 
-    scss_php_compile();
+    if ( get_option( 'theme_updated_compile_once' ) !== 'completed' ) {
+			scss_php_compile();
+      update_option( 'theme_updated_compile_once', 'completed' );
+    }
+    
 }
 
 ?>
