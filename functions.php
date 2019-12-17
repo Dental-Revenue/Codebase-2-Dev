@@ -1284,12 +1284,21 @@ add_action( 'cmb2_save_options-page_fields_appearance_info', 'cmb2_save_apperanc
 // Compile CSS after update of Codebase theme
 add_action('after_setup_theme', 'compile_after_update');
 function compile_after_update() {
+		
+	$current_version = wp_get_theme()->get('Version');
+  $old_version = get_option( 'PREFIX_theme_version' );
 
-    if ( get_option( 'theme_updated_compile_once' ) !== 'completed' ) {
-			scss_php_compile();
-      update_option( 'theme_updated_compile_once', 'completed' );
-    }
+  if ($old_version !== $current_version) {
+		scss_php_compile();
+		
+    update_option('PREFIX_theme_version', $current_version);
+  }
     
+}
+
+add_action('switch_theme', 'PREFIX_options_removal');
+function PREFIX_options_removal () {
+  delete_option('PREFIX_theme_version');
 }
 
 ?>
