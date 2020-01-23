@@ -26,7 +26,7 @@
 	$bottom_right_link_url = get_post_meta( get_the_ID(), $instance.'_bottom_right_link_url', true );
 	
 	$middle_img = get_post_meta( get_the_ID(), $instance.'_middle_img_id', true ); 
-	$middle_img = wp_get_attachment_image_src( $middle_img, 'lg' ); 
+	$middle_img = wp_get_attachment_image_src( $middle_img, 'full' ); 
 	$middle_link_title = get_post_meta( get_the_ID(), $instance.'_middle_link_title', true ); 
 	$middle_link_url = get_post_meta( get_the_ID(), $instance.'_middle_link_url', true );
 	 
