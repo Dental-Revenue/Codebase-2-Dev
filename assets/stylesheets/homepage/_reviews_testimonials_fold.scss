@@ -1,6 +1,6 @@
 .reviews_testimonials_fold{padding: 0;position: relative;@include clearfix();background-color: $white;}
 
-	.reviews_testimonials_fold h2{position: absolute;top:0;left: 0;z-index: 2;width: 90%;}
+	.reviews_testimonials_fold h2{position: absolute;top:0;left: 0;z-index: 2;width: 100%;}
 	
 	.reviews_testimonials_fold-item{display: none;position: relative;z-index: 1;background-color: $white;height: 750px;}
 	
