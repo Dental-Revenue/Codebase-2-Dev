@@ -19,8 +19,7 @@ $(function() {
     var CampaignCookie = Cookies.get('DRcampaign');
     if (CampaignCookie) {
         $("input[name='Campaign']").each(function() {
-            $this = $(this);
-            $("<input type='hidden' />").attr('name', 'DRcampaign').val(CampaignCookie).insertAfter($this);
+            $("<input type='hidden' />").attr('name', 'DRcampaign').val(CampaignCookie).insertAfter($(this));
         });
     }
 });
@@ -48,7 +47,7 @@ function getParameterByName(name, url) {
         url = window.location.href;
     }
     name = name.replace(/[\[\]]/g, "\\$&");
-    var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
+    var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)", "i"),
         results = regex.exec(url);
     if (!results) return null;
     if (!results[2]) return '';
