@@ -4,7 +4,7 @@ var $ = require('jquery');
 window.jQuery = window.$ = $;
 
 $(function() {
-    $('form[action^="https://dashboard.adsnext.com"]').on('submit', function(e) {
+    $('form[action^="https://dash7.dentalrevenue.com"]').on('submit', function(e) {
         e.preventDefault();
         var $this = $(this);
         var err = 0;
@@ -62,7 +62,7 @@ $(function() {
                 }
                 $.ajax({
                     type: "POST",
-                    url: 'https://dashboard.adsnext.com/dashboard/modules/ws/postLead.aspx',
+                    url: 'https://dash7.dentalrevenue.com/ws/postLead',
                     cache: false,
                     data: formData,
                     crossDomain: true,
