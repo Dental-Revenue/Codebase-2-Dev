@@ -4,7 +4,7 @@ var $ = require('jquery');
 window.jQuery = window.$ = $;
 
 $(function() {
-    $('form[action^="https://dash7.dentalrevenue.com"]').on('submit', function(e) {
+    $('form[action^="https://ws.dentalrevenue.com"]').on('submit', function(e) {
         e.preventDefault();
         var $this = $(this);
         var err = 0;
@@ -62,7 +62,7 @@ $(function() {
                 }
                 $.ajax({
                     type: "POST",
-                    url: 'https://dash7.dentalrevenue.com/ws/postLead',
+                    url: 'https://ws.dentalrevenue.com/ws/forms/postLead.aspx',
                     cache: false,
                     data: formData,
                     crossDomain: true,
