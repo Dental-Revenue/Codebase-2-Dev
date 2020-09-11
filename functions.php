@@ -228,7 +228,7 @@ if ( $remove_theme_supports ) {
 
 // ================================================ GLOBAL VARS
 function get_form_processor(){
-  $form_processor = 'https://dash7.dentalrevenue.com/ws/forms/ProcessLeadCertV5';
+  $form_processor = 'https://ws.dentalrevenue.com/ws/forms/ProcessLeadCertV5.aspx';
   return $form_processor;
 }
 
