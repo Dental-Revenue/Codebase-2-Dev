@@ -494,7 +494,7 @@ function cmb2_appearance_options() {
 		'name' 					=> 'Navigation Color',
 		'id'   					=> 'nav_color',
 		'type' 					=> 'colorpicker',
-		'default'				=> '#000000',
+		'default'				=> '#ffffff',
 		'options' => array('alpha' => true),
 	));
 	
