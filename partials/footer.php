@@ -2,12 +2,13 @@
   
   <div class="footer-top">
     <div class="row">
-    
+
+      <?php if(!wp_is_mobile()){ ?>   
       <div class="footer-left google-map-container">
 	      <?php site_ops_google_map(); ?>
       </div>
-        
-      
+      <?php } ?>
+
       <div class="footer-right">
         
         <div class="footer-column">
