@@ -36,7 +36,9 @@ background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox=
 /* INTERIOR PAGE SIDEBAR */  
 .sidebar{}
 
-    
+/* BLOG PAGE */
+article.hentry {padding-bottom: 50px;}
+
 /* Media Queries */
 
 @media all and (max-width: $bp-tablet) {
