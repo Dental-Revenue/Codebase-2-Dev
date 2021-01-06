@@ -25,3 +25,23 @@
   .hp-post-date{width: auto;margin-right: 14px;padding-right: 14px;border-right: 1px solid rgba($black,.1);}
   
 }
+
+
+@media (min-width:480px) and (max-width:1199px) {
+.blog_big_small .hp-post:last-child {
+  display: block!important;
+  width: 100%!important;
+}
+.blog_big_small .row .columns.six {
+  width: 100%!important;
+}
+}
+@media (min-width:1px) and (max-width:479px) {
+.blog_big_small .hp-post:last-child {
+  display: block!important;
+  width: 100%!important;
+}
+.blog_big_small .row .columns.six {
+  width: 100%!important;
+}
+}
