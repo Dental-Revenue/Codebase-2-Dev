@@ -30,7 +30,10 @@
   	.fold_slider .slick-dots li button {margin-bottom: 7px;}
   	.fold_slider .slick-dots li.slick-active button {background-color: $main-color; border-color: $main-color;}
   
-  
+.fold-video {
+    width: 100%!important;
+    object-fit: cover;
+}
 
 @media all and (max-width: $bp-laptop) {
   .fold-slide-text h2{font-size: 36px;&:after{margin: 20px auto;}}
