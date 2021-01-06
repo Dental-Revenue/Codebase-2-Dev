@@ -45,6 +45,25 @@ body:not(.home) .main-content iframe {
 /* BLOG PAGE */
 article.hentry {padding-bottom: 50px;}
 
+/* Better contrast on links */
+body:not(.home) .main-content a:hover, aside.widget_nav_menu ul li a:hover, aside.widget_blog a:hover {
+    text-decoration: underline;
+    opacity: 1;
+}
+.header-style-e .large-nav a:hover {
+    text-decoration: underline;
+}
+.carousel_1-block-text h3:hover, .static_side_by_side-block h3 a:hover, .static_side_by_side-block a.learn-more:hover, .static_multiple_col-column h3 a:hover, .static_multiple_col-column > a:hover, .blog_full_width .hp-post-content .post-title a:hover {
+    text-decoration: underline;
+}
+.cvt-content a:hover {
+    opacity: 1;
+    text-decoration: underline;
+}
+.cvt-content a:before {
+    display: inline-block;
+}
+
 /* Media Queries */
 
 @media all and (max-width: $bp-tablet) {
