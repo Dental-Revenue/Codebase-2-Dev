@@ -25,6 +25,10 @@
 .reviews_testimonials_grid.invert .cvt-content p, .reviews_testimonials_grid.invert .cvt-block.static p, .reviews_testimonials_grid.invert .cvt-block span {color:$white;}
 .reviews_testimonials_grid.invert .cvt-content a, .reviews_testimonials_grid.invert .cvt-block.static a {color:$white;}
 
+.cvt-block.static:hover span {
+    display: block;
+}
+
 
 @media all and (max-width: $bp-laptop) {  
 	
