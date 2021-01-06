@@ -25,3 +25,9 @@
  
 @media all and (max-width: $bp-phablet) {
 } 
+
+@media (max-width:1079px) and (min-width:600px){
+.static_side_by_side-block:nth-child(2) {
+    margin-top: 0px;
+}
+}
