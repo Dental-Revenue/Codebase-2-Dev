@@ -23,3 +23,13 @@
   	.static_photo_list-left {margin-bottom: 20px;}
    
 }
+
+@media (max-width:767px){
+.static_photo_list-right {
+    max-width: 100%;
+}
+.static_photo_list-right ul {
+    padding-left: 0px;
+    list-style: none;
+}
+}
