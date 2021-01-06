@@ -22,3 +22,9 @@
   .static_big_big-block{max-width: 600px;margin: 0 0 30px;}
   
 }
+
+@media (min-width:1px) and (max-width:1204px) {
+.static_big_big-block:nth-last-child(2) {
+    margin-bottom: 30px;
+}
+}
