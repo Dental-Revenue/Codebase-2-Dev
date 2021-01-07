@@ -28,8 +28,13 @@
 				</div>
 				<div class="g-panel g-customer">
 					<div class="g-panel-img">
-					<?php if(has_post_thumbnail()){the_post_thumbnail( 'sm-square',array('alt' => get_post_meta(get_post_thumbnail_id($post->ID), '_wp_attachment_image_alt', true) ) );}
-      else { ?><img width="120" height="120" src="https://lh5.ggpht.com/-CFYUaGYh6Y8/AAAAAAAAAAI/AAAAAAAAAAA/MWWT48ek100/s128-c0x00000000-cc-rp-mo/photo.jpg" class="attachment-sm-square size-sm-square wp-post-image" alt="<?php the_title(); ?>" /><?php } ?>
+					<?php if(has_post_thumbnail()){
+						the_post_thumbnail( 'sm-square',array('alt' => get_post_meta(get_post_thumbnail_id($post->ID), '_wp_attachment_image_alt', true) ) );
+						}
+						else{?>
+						<img style="border-radius:300%;" src="https://lh5.ggpht.com/-CFYUaGYh6Y8/AAAAAAAAAAI/AAAAAAAAAAA/MWWT48ek100/s128-c0x00000000-cc-rp-mo/photo.jpg" alt="<?php the_title(); ?>">
+						<?php } ?>
+					</div>
 					</div>
 					<div class="g-panel-detail">
 						<h3><?php the_title(); ?></h3>
