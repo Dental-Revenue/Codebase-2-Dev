@@ -13,7 +13,7 @@ transition: color .35s, background-color .35s, border-color .35s, opacity .35s;
 -o-transition: color .35s, background-color .35s, border-color .35s, opacity .35s;}
 	a:hover{}
 p, ul, ol, label{font-size: 16px;line-height: 1.6; color:$body-color;}
-h1,h2,h3,h4,h5,h6{color: $heading-color; font-family: $heading-font;line-height: 1.1;margin-top: 0;margin-bottom: .3em;}
+h1,h2,h3,h4,h5,h6{color: $heading-color; font-family: $heading-font;line-height: 1.1;margin-top: 0;margin-bottom: 0;}
 p+h2,p+h3,p+h4,p+h5,p+h6{margin-top: 1.5em;}
 hr{padding-bottom:1px; background-color:$md-lt-grey; border:none;}
 
