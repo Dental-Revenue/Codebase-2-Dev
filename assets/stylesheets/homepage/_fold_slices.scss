@@ -20,7 +20,7 @@
 		.fold-slice-content p{padding-left: 60px;color: $white;}
 		.fold-slice-content a{margin: 20px 0 60px 60px;}
 		.fold-slice-content.align-center {text-align: center; h2 {padding:10px 30px;} p {padding: 0 30px;} a {margin:20px 0 60px;}}
-		.fold-slice-content.align-right {text-align: right; h2 {padding:10px 60px 10px 10px;} p {padding: 0 60px 0 0;} a {margin:20px 60px 60px 0;}}
+		.fold-slice-content.align-right {text-align: right; h2 {padding:10px 60px 0px 10px;} p {padding: 0 60px 0 0;margin: 0 0 1.5em 0;} a {margin:20px 60px 60px 0;}}
 	.fold-slice-content.onScreen {left:0;}
 		.fold-slice-content.onScreen.align-center {left:50%; transform: translate(-50%,0);}
 		.fold-slice-content.onScreen.align-right {left:initial; right:0;}
