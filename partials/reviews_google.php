@@ -9,6 +9,7 @@
   <div class="row">
 	  
 			<?php
+			global $post;
 			$args = array( 'post_type' => 'testimonials', 'order' => 'DESC', 'orderby'=> 'post_date', 'posts_per_page' => -1 );
 		  $loop = new WP_Query( $args );
 		  $i = 1;
