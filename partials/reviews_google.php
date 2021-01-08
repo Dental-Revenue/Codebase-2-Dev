@@ -44,7 +44,7 @@
 					</div>
 					<p class="g-customer-excerpt"><?php echo wp_trim_words(get_the_content(),60); ?></p>
 				</div>
-			</div>
+
 			
 			<?php $i++; endwhile; wp_reset_postdata();?>
 			
