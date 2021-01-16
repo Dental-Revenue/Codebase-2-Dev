@@ -47,7 +47,7 @@
 				
 				<?php } ?>
 					
-				<hr />
+				
 					
 			  <?php //include (TEMPLATEPATH . '/inc/pagination.php' ); ?>          
 				
