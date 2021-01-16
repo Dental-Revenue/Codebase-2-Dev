@@ -320,3 +320,25 @@ h2.headline-bold:after {
         padding-bottom: 30px;
     }
 }
+
+.page-numbers.current {
+    background-color: transparent;
+    border: 2px solid $main-color;
+    color: $main-color;
+}
+.page-numbers:hover {
+    background-color: transparent;
+    border: 2px solid $main-color;
+    color: $main-color;
+}
+.page-numbers {
+    background-color: $main-color;
+    color: #ffffff;
+    border-radius: 3px;
+    border: 2px solid $main-color;
+    padding: 8px 10px;
+    font-size: 14px;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
