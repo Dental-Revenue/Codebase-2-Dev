@@ -42,7 +42,8 @@
               <a href="<?php the_permalink(); ?>" class="post-more">Read More</a>
             </article>
 					
-					<?php endwhile; endif; ?>  
+					<?php endwhile; endif; ?>
+				<?php cb2_pagination(); ?>
 				
 				<?php } ?>
 					
