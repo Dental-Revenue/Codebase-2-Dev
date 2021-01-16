@@ -1301,4 +1301,9 @@ function PREFIX_options_removal () {
   delete_option('PREFIX_theme_version');
 }
 
+function cb2_pagination()){
+    global $wp_query; 
+    echo paginate_links();
+}
+
 ?>
