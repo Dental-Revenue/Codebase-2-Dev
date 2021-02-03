@@ -1296,6 +1296,9 @@ function compile_after_update() {
     
 }
 
+//force scss_php_compile after theme update
+add_action('upgrader_process_complete', 'PREFIX_options_removal');
+
 add_action('switch_theme', 'PREFIX_options_removal');
 function PREFIX_options_removal () {
   delete_option('PREFIX_theme_version');
