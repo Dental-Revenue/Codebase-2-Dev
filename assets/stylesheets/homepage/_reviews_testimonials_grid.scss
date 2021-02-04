@@ -17,8 +17,8 @@
 	//custom first static block
 	.cvt-block.static{padding: 30px;box-sizing: border-box;}
 		.cvt-block.static h2{color: $black;text-align: left; padding: 0; &:after {display: none;}}
-		.cvt-block.static p{color: $black;font-size: 15px;opacity: .8;}
-		.cvt-block.static a{color: $black;text-transform: uppercase;letter-spacing: .05em;position: absolute;left:30px;bottom:30px; &:hover{opacity: .7;}}
+		.cvt-block.static p{color: $black;font-size: 16px;opacity: .9;}
+		.cvt-block.static a{color: $black;text-transform: uppercase;letter-spacing: .05em;position: absolute;left:30px;bottom:30px; &:hover{opacity: 1;text-decoration: underline;}}
 		
 .reviews_testimonials_grid.invert .cvt-block.static h2 {color:$white;}
 .reviews_testimonials_grid.invert .cvt-content h3 {color:$white;}
