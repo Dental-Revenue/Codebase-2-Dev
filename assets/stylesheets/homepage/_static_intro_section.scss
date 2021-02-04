@@ -3,3 +3,7 @@
 //INVERT COLOR SCHEME
 .static_intro_section.invert h2{color: $white;}
 	.static_intro_section.invert p{color: rgba($white,.7);}
+
+.static_intro_section h2.headline-bold {
+    padding: 30px 5% 0px;
+}
