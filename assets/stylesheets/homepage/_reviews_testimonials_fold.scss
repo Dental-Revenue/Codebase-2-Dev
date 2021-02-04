@@ -24,8 +24,7 @@
   .reviews_testimonials_fold .slick-dots li.slick-active button, .reviews_testimonials_fold.invert .slick-dots li.slick-active button {background-color: $main-color;border-color: $main-color;}
   .reviews_testimonials_fold.invert .slick-dots li button {border-color: $main-color;background-color: transparent;}
   
-  
-  
+ 
         
 /* Media Queries */
 @media all and (max-width: $bp-laptop) { 
@@ -40,6 +39,9 @@
 	
 	.reviews_testimonials_fold .slick-dots{left: 70px;}	
 	.reviews_testimonials_fold-view-all{}
+	    .reviews_testimonials_fold .slick-dots {
+        display:none!important;
+    }
 	
 } 
  
