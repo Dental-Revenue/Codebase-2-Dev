@@ -1,19 +1,19 @@
-.static_photo_list{padding:0 0 70px;background-color: rgba($main-color,.3);}
+.static_photo_list{padding: 0 0 50px;background-color: rgba($main-color,.3);}
 
-  .static_photo_list-text{text-align: center;margin-bottom: 60px;}
-    .static_photo_list-text h2{margin-bottom: 20px;line-height: 116%;text-align: center;color: $main-color; display: block;}
+  .static_photo_list-text{text-align: center;margin-bottom: 40px;}
+    .static_photo_list-text h2{padding: 30px 5% 0px;margin-bottom: 0px;line-height: 116%;text-align: center;color: $main-color; display: block;}
       .static_photo_list-text h2 span{display: block;font-weight: 600;}
-    .static_photo_list-text .rte{max-width: 600px;margin: 20px auto 60px;}
+    .static_photo_list-text .rte{max-width: 600px;margin: 0px auto 40px;}
   
   .static_photo_list-left{width: 66%;float: left;@include clearfix();}
 .static_photo_list .static_photo_list-left img{width: 100%;height: auto;display: block;} 
   
   .static_photo_list-right{float: right;width: 30%;max-width: 400px;@include clearfix();}
-    .static_photo_list-right h3{margin-top: 0;color: $main-color;}
+    .static_photo_list-right h3{margin-top: 0;color: $main-color;margin-bottom: 5px;}
     .static_photo_list-right p{}
     .static_photo_list-right ul{padding-left: 20px;}
       .static_photo_list-right ul li{}
-        .static_photo_list-right ul li a{color:$main-color; &:hover{color:darken( $main-color, 20% );}} //extend arrow
+        .static_photo_list-right ul li a{color:$main-color; &:hover{color:darken( $main-color, 20% );text-decoration: underline;}} //extend arrow
     .static_photo_list-right a.schedule{margin-bottom: 0; border:3px solid $main-color; color:$white; background-color: $main-color; &:hover {background-color: $white; color:$main-color;}}
     
     
