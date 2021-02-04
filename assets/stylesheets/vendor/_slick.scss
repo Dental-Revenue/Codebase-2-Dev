@@ -18,7 +18,7 @@
 .slick-arrow.slick-hidden {display: none;}
 
 /* slick styles for Codebase */
-.slick-dots{padding: 20px;border-radius: 3px;display: inline-block;border: 1px solid rgba($black,.1);list-style:none;box-shadow: 0 0 13px rgba(0,0,0,0.03);margin: 40px auto 0;transition:transform .3s ease-in-out;}
+.slick-dots{padding: 20px;border-radius: 3px;display: inline-block;border:0;box-shadow: none;list-style:none;margin: 40px auto 0;transition:transform .3s ease-in-out;}
 .slick-dots:hover{transform: scale(1.03,1.03);box-shadow: 0 0 13px rgba(0,0,0,0.06);}
   .slick-dots li{display: block;float: left;}
     .slick-dots li button{width: 14px;height: 14px;border-radius: 50%;font-size: 0;color: transparent;background-color: $white;border:2px solid $accent;opacity: .35;padding: 0;display: block;margin: 0 5px;}
