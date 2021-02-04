@@ -21,8 +21,8 @@
 @media all and (max-width: $bp-phablet) {
   
   .textslider-item img{width: 80px;height: 80px;}
-  .textslider-item p{font-size: 12px;}
-    .textslider-item div *{font-size: 12px;}
+  .textslider-item p{font-size: 16px;}
+    .textslider-item div *{font-size: 16px;}
     .textslider-item div span{margin: 0 8px;}
     .textslider-item div em{display: none;}
     .textslider-item div a{margin: 0 8px;}
@@ -31,3 +31,4 @@
     .reviews_testimonials_carousel .slick-dots li button{width: 7px;height: 7px;}
   
 }
+
