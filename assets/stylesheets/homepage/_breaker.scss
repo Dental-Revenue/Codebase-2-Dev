@@ -1,6 +1,6 @@
 .breaker {padding:35px 0;text-align:center;}
 
-	.breaker h2 {color:$dk-grey;margin:0 0 20px;font-weight: 400;font-size:2em;line-height: 1.4;}
+	.breaker h2 {color:$dk-grey;margin:0 0 0px;font-weight: 400;font-size:2em;line-height: 1.4;}
 	.breaker a.btn{background-color: $white; margin-top: 0px; color:$main-color; &:hover {background-color: $black;color: $white;}}
 	
 	.breaker .module-image:after{content:''; position:absolute;height:100%;width:100%;top:0;left:0;background-color: rgba($main-color,.85);}
