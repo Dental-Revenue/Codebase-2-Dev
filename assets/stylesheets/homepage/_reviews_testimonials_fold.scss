@@ -1,12 +1,12 @@
 .reviews_testimonials_fold{padding: 0;position: relative;@include clearfix();background-color: $white;}
 
-	.reviews_testimonials_fold h2{position: absolute;top:0;left: 0;z-index: 2;width: 100%;}
+	.reviews_testimonials_fold h2{position: absolute;top:0;left: 0;z-index: 2;width: 100%;padding: 30px 5% 30px;}
 	
 	.reviews_testimonials_fold-item{display: none;position: relative;z-index: 1;background-color: $white;height: 750px;}
 	
 		.reviews_testimonials_fold-overlay{background-size: cover;background-position: center center;z-index: 1;position: absolute;left: 0;top: 0;width: 100%;height: 100%;opacity: .15;}
 	
-		.reviews_testimonials_fold-thumb{width: 600px;height: 600px;margin-top: 150px;z-index: 2;position: relative;}
+		.reviews_testimonials_fold-thumb{z-index: 2;position: relative;width: 631px;height: 631px;margin-top: 119px;}
 			.reviews_testimonials_fold-thumb img{width: 100%;display: block;height: auto;z-index: 1;position: relative;}
 			.reviews_testimonials_fold-thumb a{@include center(both);z-index: 2;font-size: 120px;color: $white;text-shadow: 0 0 10px rgba($black,.2);opacity: .5;transition: opacity .3s; &:hover{opacity: 1;}}
 			
