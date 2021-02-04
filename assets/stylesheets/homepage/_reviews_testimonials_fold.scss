@@ -52,3 +52,14 @@
 	.reviews_testimonials_fold-view-all{right: 36px;left: 36px;text-align: center;}
 	
 } 
+
+
+@media all and (max-width: $bp-phone) {
+	
+	.reviews_testimonials_fold h2 {
+        padding: 0;
+        padding-top: 30px;
+        padding-bottom: 30px;
+    }
+	
+} 
