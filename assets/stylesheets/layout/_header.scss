@@ -212,7 +212,7 @@ header.notification-active+.page-wrap, header.notification-active+.page-wrap .pa
   
 /* nav second tier */		  
 .large-nav > div > ul > li > ul{display:none; min-width:100%; width:unset !important; position: absolute;left: 0;top:200%;transition:top .3s ease; background-color: $white;margin: 0;box-shadow: 0 0 6px rgba(0,0,0,0.1);}
-  .large-nav > div > ul > li > ul a, .large-nav > div > ul > li > span > ul a{color: #333;display: block;white-space: nowrap;padding: 0 14px;line-height: 220%;font-size: 16px; &:hover{color: $main-color;}}
+  .large-nav > div > ul > li > ul a, .large-nav > div > ul > li > span > ul a{color: #333;display: block;white-space: nowrap;padding: 0 14px;line-height: 220%;font-size: 16px; &:hover{color: $main-color;text-decoration: underline;}}
   	.large-nav > div > ul > li > ul > li, .large-nav > div > ul > li > span > ul > li {display:block !important; text-align:left; padding:5px 0 5px 0; &:nth-child(even){background-color:$md-lt-grey;}}
 		.large-nav > div > ul li:hover > ul {display:block; top:100%;}
 
