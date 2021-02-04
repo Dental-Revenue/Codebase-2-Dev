@@ -10,7 +10,7 @@
     .blog_full_width .hp-post-content{padding: 30px;box-sizing: border-box; @include clearfix();}
       .blog_full_width .hp-post-content .post-title{margin: 0 0 20px 0;line-height: 100%;white-space: nowrap;overflow:hidden;text-overflow: ellipsis;}
         .blog_full_width .hp-post-content .post-title a{color: inherit; &:hover{color: $black;}}
-      .blog_full_width .hp-post-content p{line-height: 2;height: 84px;overflow: hidden;text-overflow: ellipsis;-webkit-line-clamp: 3;-webkit-box-orient: vertical;display: -webkit-box;}
+      .blog_full_width .hp-post-content p{line-height: 2;height: 122px;overflow: hidden;text-overflow: ellipsis;-webkit-line-clamp: 3;-webkit-box-orient: vertical;display: -webkit-box;}
       .blog_full_width .hp-post-content a.btn.outline.read-more{float: right; color:$main-color; border-color:$main-color; &:hover{background-color:$main-color; color:$white;}}
       
       
