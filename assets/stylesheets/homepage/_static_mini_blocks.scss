@@ -30,3 +30,9 @@
 @media all and (max-width: $bp-phablet) {
   .m1-block{width: 100%;margin-right: 0;}
 }
+
+@media (max-width: $bp-phone){
+    .m1-block-text p {
+        height: 95px;
+    }
+}
