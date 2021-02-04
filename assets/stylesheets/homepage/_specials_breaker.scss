@@ -1,4 +1,4 @@
-.specials_breaker {padding:0 0 35px;text-align:center;}
+.specials_breaker {padding: 0 0 35px;text-align:center;}
 
 	.specials_breaker h2 {padding-bottom:0;}
 	.specials_breaker p {font-size: 18px;}
@@ -10,6 +10,9 @@
 		
 //INVERT COLOR SCHEME
 .specials_breaker.invert h2, .specials_breaker.invert p{color: $white;}
+.specials_breaker.invert p:last-child {
+    margin-bottom: 0;
+}
 
 
 
