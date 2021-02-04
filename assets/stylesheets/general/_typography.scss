@@ -19,7 +19,7 @@ hr{padding-bottom:1px; background-color:$md-lt-grey; border:none;}
 
 //headlines global styles
 h2.headline-skinny{ font-size: 44px; display: block; padding: 70px 5% 10px; box-sizing: border-box; text-align: center; line-height: 112%; font-weight: 300; color: $main-color; text-transform: $headline_case; .invert & {color:$white;} &.span{font-weight:600;}}
-h2.headline-bold{ font-size: 28px; margin: 0; text-transform: uppercase; text-transform: $headline_case; line-height: 130%; color: $black; padding: 30px 5% 10px; text-align: center; &.span{font-weight:400;} .invert & {color:$white;} &:after{ content: ''; display: block; width: 40px; height: 3px; background-color: $main-color; margin: 10px auto 0;}}
+h2.headline-bold{ font-size: 28px; margin: 0; text-transform: uppercase; text-transform: $headline_case; line-height: 130%; color: $black; padding: 30px 5% 10px; text-align: center; &.span{font-weight:400;} .invert & {color:$white;} &:after{ content: ''; display: block; width: 40px; height: 3px; background-color: $main-color; margin: 10px auto 10px auto;}}
 h2.headline-skinny span, h2.headline-bold span{display:block;padding:7px 0px 0px 0px;font-size:60%;font-style: italic;line-height:130%;position:relative;}
 .hp-headline span {
     display: block;
