@@ -1,14 +1,15 @@
-.static_big_big{padding: 70px 0;}
+.static_big_big{padding: 45px 0;}
 	.static_big_big .row{text-align:center;}
 
 .static_big_big-block{width:100%;max-width: 520px;padding: 0;margin:0 10px 30px;box-sizing: border-box;display: inline-block;vertical-align: top; &:nth-last-child(2){margin-bottom:0;} &:last-child{margin-bottom:0;}}
   .static_big_big-block img{width: 100%;margin-bottom:14px;}
 
 .static_big_big-block-text{text-align: left;}
-  .static_big_big-block-text h3{position:relative; color: $main-color;text-transform: uppercase;font-size: 14px; padding-left: 20px; line-height: 1.25; &:before{content:'';display: block;width: 14px;height: 14px;border-radius: 50%;background-color: $main-color;position: absolute;left:0;top:2px;}}
+  .static_big_big-block-text h3{position:relative; color: $main-color;text-transform: uppercase;font-size: 16px; padding-left: 20px; line-height: 1.1; &:before{content:'';display: block;width: 14px;height: 14px;border-radius: 50%;background-color: $main-color;position: absolute;left:0;top:2px;}}
     .static_big_big-block-text h3 a:hover{color: $accent;}
   .static_big_big-block-text p{}
-.static_big_big-block-text a.read-more{color: $main-color;font-size: 14px; &:hover{text-decoration: underline;}}
+.static_big_big-block-text a.read-more{color: $main-color;font-size: 16px; &:hover{text-decoration: underline;}}
+
 
 //INVERT COLOR SCHEME
 .static_big_big.invert .static_big_big-block-text h3{color: $white;}
