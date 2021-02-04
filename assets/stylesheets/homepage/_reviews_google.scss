@@ -1,4 +1,4 @@
-.reviews_google{position: relative;text-align: center;}
+.reviews_google{position: relative;text-align: center;padding-bottom: 45px;}
 
 	.g-box{border-top:3px solid $main-color; border-left:1px solid $md-lt-grey; border-right:1px solid $md-lt-grey; border-bottom:1px solid $md-lt-grey;padding: 20px;box-sizing: border-box;display: inline-block;margin: 0 20px 20px;width:100%;max-width: 350px;vertical-align: top;text-align: left; background-color:$white; }
 	
@@ -20,7 +20,7 @@
 		.g-customer-excerpt{font-size: 12px;line-height: 200%;margin: 0;clear: both;}
 	
 	//buttons
-	.reviews_google-buttons{margin-top: 30px;}
+	.reviews_google-buttons{margin-top: 10px;}
 	.reviews_google .btn{margin: 10px 4px 0;}
 	.reviews_google .btn.google{background-color: $google-red;border-color: $google-red; color:$white; }
 
