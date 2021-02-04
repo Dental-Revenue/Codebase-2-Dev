@@ -1,5 +1,5 @@
  /* Button Default Style */
-.btn {display: inline-block;margin: 0; padding: 16px 22px;border-radius: $buttons-style;font-size: 16px;text-transform: uppercase;font-family: $heading-font;font-weight: 800; @include prefix(transition,0.2s ease-in-out); text: {transform: uppercase;decoration: none;} cursor:pointer; letter-spacing: .05em;}
+.btn {display: inline-block;margin: 0; padding: 16px 22px;border-radius: $buttons-style;font-size: 14px;text-transform: uppercase;font-family: $heading-font;font-weight: 800; @include prefix(transition,0.2s ease-in-out); text: {transform: uppercase;decoration: none;} cursor:pointer; letter-spacing: .05em;}
 	.btn.btn-sm{font-size: 16px;padding: 12px 18px;}
 	.btn.btn-lg{font-size: 16px;padding: 20px 29px;}
 	
