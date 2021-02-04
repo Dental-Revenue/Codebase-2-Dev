@@ -8,7 +8,7 @@
 	
 	.static_5_up-box{width: 100%;height: auto; padding-top:100%;margin: 0;display: block;background-size: cover;background-position: center center;}
 		.static_5_up-box.hover-up-parent{position:relative; overflow:hidden;}
-			.static_5_up-box.hover-up-parent .hover-up-child{line-height:50px; display:block; width:100%; position:absolute; bottom:-50px; transition:bottom .3s; background-color:rgba($main-color, .8); color:$white; font-size:13px; text-transform:uppercase; font-weight:800; letter-spacing:.05em; text-align:right; padding:0 20px; box-sizing:border-box;}
+			.static_5_up-box.hover-up-parent .hover-up-child{line-height:50px; display:block; width:100%; position:absolute; bottom:-50px; transition:bottom .3s; background-color:rgba($main-color, .8); color:$white; font-size:16px; text-transform:uppercase; font-weight:800; letter-spacing:.05em; text-align:right; padding:0 20px; box-sizing:border-box;}
 			.static_5_up-box.hover-up-parent:hover .hover-up-child{bottom:0;}
 			
 		.static_5_up_left_column .static_5_up-box:first-child, .static_5_up_right_column .static_5_up-box:first-child {margin-bottom:10px;}
