@@ -1,13 +1,13 @@
-.carousel_3{padding: 0 0 70px;background-size: cover;background-position: center center center;}
+.carousel_3{padding-bottom: 40px;background-size: cover;background-position: center center center;}
 
 	.carousel_3 h2{margin-bottom: 0px;color: $white;line-height: 116%;text-align: center; display: block;}
 
   .carousel-item{text-align: center;}
     .carousel-item img{border: 3px solid $white; width: 80%;min-width: 160px;max-width: 250px;height: auto;display: block;margin: 0 auto;}
     .carousel-item h3{font-size: 18px;color: $main-color;margin:22px 0 14px;}
-      .carousel-item h3 a:hover{opacity: .7;}
+      .carousel-item h3 a:hover{opacity: 1;text-decoration: underline;}
     .carousel-item p{font-size: 14px; margin: 14px 0; color: $white;}
-    .carousel-item a.read-more{margin: 0;color: $main-color; &:hover{opacity: .7;}}
+    .carousel-item a.read-more{margin: 0;color: $main-color; &:hover{opacity: 1;text-decoration:underline;}}
     
   .slick-carousel_3 .slick-next, .slick-carousel_3 .slick-prev {transform: translateY(-50%);}
   .slick-carousel_3 .slick-next:before, .slick-carousel_3 .slick-prev:before {font-family: "Font Awesome 5 Free"; font-weight: 900; font-size: 40px;}
