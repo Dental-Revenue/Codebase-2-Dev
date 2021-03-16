@@ -28,7 +28,7 @@ function readTrackNum() {
     var TrackNum = getParameterByName('TrackNum');
     if (TrackNum) {
         Cookies.set('TrackNum', TrackNum, {
-            expires: 3
+            expires: 7
         });
     }
 }
@@ -37,7 +37,7 @@ function readCampaign() {
     var Campaign = getParameterByName('DRcampaign');
     if (Campaign) {
         Cookies.set('DRcampaign', Campaign, {
-            expires: 3
+            expires: 7
         });
     }
 }
