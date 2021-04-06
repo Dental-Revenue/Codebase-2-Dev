@@ -1,5 +1,14 @@
 <?php
-	
+	$box->add_field( array(
+		'name' => 'Text bars stick up?',
+		'id'   => $prefix.'text_bars',
+		'type' => 'select',
+		'options'          => array(
+			'text_bar_up' => 'Yes',
+			'text_bar_down' => 'No',
+		),
+		'default' => 'text_bar_down',
+	));
 	$box->add_field( array(
 		'name' => 'Title',
 		'id' => $prefix.'title',

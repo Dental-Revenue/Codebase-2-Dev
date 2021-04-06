@@ -21,6 +21,19 @@ $box->add_field( array(
 			'pattern' => '\d*',
 		),
 ));
+$box->add_field( array(
+	'name' => 'Import Font Family #1',
+	'desc' => "Find fonts on https://fonts.google.com. Please only use font families not used in Practice Info -> Appearances. You will only need to import a font family only once. Example: @import url('https://fonts.googleapis.com/css2?family=Work+Sans:wght@100&display=swap');",
+    'id' => $prefix . 'import_title_font_family',
+    'type' => 'text',
+));
+$box->add_field( array(
+	'name' => 'Import Font Family #2',
+	'desc' => "Find fonts on https://fonts.google.com. Please only use font families not used in Practice Info -> Appearances. You will only need to import a font family only once. Example: @import url('https://fonts.googleapis.com/css2?family=Work+Sans:wght@100&display=swap');",
+    'id' => $prefix . 'import_title_font_family_2',
+    'type' => 'text',
+));
+
 $group_field = $box->add_field( array(
 	'id' => $prefix.'fold_slides',
 	'type' => 'group',
@@ -32,15 +45,92 @@ $group_field = $box->add_field( array(
 		'closed'    		=> true
 	),
 ));
+
+$box->add_group_field( $group_field, array(
+	'name' => 'Slide Subtitle',
+	'id'   => 'subtitle',
+	'type' => 'text',
+));
+$box->add_group_field( $group_field, array(
+	'name' => 'Font Styling',
+	'id'   => 'subtitle_styling',
+	'type' => 'textarea_small',
+	'desc' => "Adjust as needed. Example: font-family: 'Work Sans', sans-serif;font-weight:100;font-size:56px;line-height:90%;text-transform:uppercase;color:#fff;",
+));
+$box->add_group_field( $group_field, array(
+	'name' => 'Font Styling (Mobile)',
+	'id'   => 'subtitle_styling_mobile',
+	'type' => 'textarea_small',
+	'desc' => "Adjust as needed. Example: font-family: 'Work Sans', sans-serif;font-weight:100;font-size:30px;line-height:90%;text-transform:uppercase;color:#fff;",
+));
+$box->add_group_field( $group_field, array(
+	'name' => 'Decorative Horizontal Line?',
+	'id'   => 'subtitle_line',
+		'type' => 'select',
+		'options'          => array(
+			'Yes' => 'Yes',
+			'No' => 'No',
+		),
+		'default' => 'Yes',
+));
+$box->add_group_field( $group_field, array(
+	'name' => 'Decorative Line Styling',
+	'id'   => 'subtitle_line_style',
+	'type' => 'textarea_small',
+	'desc' => 'Adjust as needed',
+	'default' => 'width:100px;height:4px;background-color:#fff;margin:30px auto 30px auto;',
+));
+
 $box->add_group_field( $group_field, array(
 	'name' => 'Slide Title',
 	'id'   => 'title',
 	'type' => 'text',
 ));
 $box->add_group_field( $group_field, array(
+	'name' => 'Font Styling',
+	'id'   => 'title_styling',
+	'type' => 'textarea_small',
+	'desc' => "Adjust as needed. Example: font-family: 'Work Sans', sans-serif;font-weight:100;font-size:56px;line-height:90%;text-transform:uppercase;color:#fff;",
+));
+$box->add_group_field( $group_field, array(
+	'name' => 'Font Styling (Mobile)',
+	'id'   => 'title_styling_mobile',
+	'type' => 'textarea_small',
+	'desc' => "Adjust as needed. Example: font-family: 'Work Sans', sans-serif;font-weight:100;font-size:30px;line-height:90%;text-transform:uppercase;color:#fff;",
+));
+$box->add_group_field( $group_field, array(
+	'name' => 'Decorative Horizontal Line?',
+	'id'   => 'line',
+		'type' => 'select',
+		'options'          => array(
+			'Yes' => 'Yes',
+			'No' => 'No',
+		),
+		'default' => 'Yes',
+));
+$box->add_group_field( $group_field, array(
+	'name' => 'Decorative Line Styling',
+	'id'   => 'line_style',
+	'type' => 'textarea_small',
+	'desc' => 'Adjust as needed',
+	'default' => 'width:100px;height:4px;background-color:#fff;margin:30px auto 30px auto;',
+));
+$box->add_group_field( $group_field, array(
 	'name' => 'Slide Excerpt',
 	'id'   => 'excerpt',
 	'type' => 'textarea_small',
+));
+$box->add_group_field( $group_field, array(
+	'name' => 'Font Styling',
+	'id'   => 'excerpt_styling',
+	'type' => 'textarea_small',
+	'desc' => "Adjust as needed. Example: font-family: 'Work Sans', sans-serif;font-weight:100;font-size:56px;line-height:90%;text-transform:uppercase;color:#fff;",
+));
+$box->add_group_field( $group_field, array(
+	'name' => 'Font Styling (Mobile)',
+	'id'   => 'excerpt_styling_mobile',
+	'type' => 'textarea_small',
+	'desc' => "Adjust as needed. Example: font-family: 'Work Sans', sans-serif;font-weight:100;font-size:30px;line-height:90%;text-transform:uppercase;color:#fff;",
 ));
 $box->add_group_field( $group_field, array(
 	'name' => 'Slide Alignment',
