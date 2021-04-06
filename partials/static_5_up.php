@@ -3,6 +3,7 @@
 	$appearance_info = get_option( 'appearance_info');
 	$headline_style = $appearance_info['headline_style'];
 	
+	$text_bars = get_post_meta(get_the_id(),$instance.'_text_bars',true);
 	$title = get_post_meta( get_the_ID(), $instance.'_title', true );
 	
 	$top_left_img = get_post_meta( get_the_ID(), $instance.'_top_left_img_id', true ); 
@@ -34,7 +35,8 @@
   
   <h2 class="<?php echo $headline_style; ?>"><?php echo $title; ?></h2>
   
-  <div class="row">
+  <div class="row <?php echo $text_bars; ?>">
+  
 	  <div class="static_5_up_left_column">
 		  
 		  <a href="<?php echo $top_left_link_url; ?>" class="static_5_up-box hover-up-parent" style="background-image:url(<?php echo $top_left_img[0]; ?>);"><span class="hover-up-child"><?php echo $top_left_link_title; ?></span></a>

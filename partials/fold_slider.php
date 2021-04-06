@@ -3,9 +3,13 @@
 	$appearance_info = get_option( 'appearance_info');
 	$headline_style = $appearance_info['headline_style'];
 	$slider_overlay = get_post_meta(get_the_id(),$instance.'_overlay',true);
+	$font_family = get_post_meta(get_the_id(),$instance.'_import_title_font_family',true);
+	$font_family_2 = get_post_meta(get_the_id(),$instance.'_import_title_font_family_2',true);
 	$slider_type = get_post_meta(get_the_id(),$instance.'_type',true);
 	$slider_height = get_post_meta(get_the_id(),$instance.'_height',true);
 ?>
+<?php if(!empty($font_family)){ ?><style><?php echo $font_family; ?></style><?php } ?>
+<?php if(!empty($font_family_2)){ ?><style><?php echo $font_family_2; ?></style><?php } ?>
 
   <div class="slick-init slick-fold_slider" style="height:<?php echo $slider_height; ?>">
 	  
@@ -29,10 +33,8 @@
 	  		<img alt="<?php if (isset($block['alt'])){ echo $block['alt']; } else { echo 'Slideshow Image'; } ?>" src="<?php echo $image_atf[0]; ?>" srcset="<?php echo $image_lg[0]; ?> 500w, <?php echo $image_xl[0]; ?> 700w, <?php echo $image_xxl[0]; ?> 1300w, <?php echo $image_atf[0]; ?> 3000w" sizes="100vw,(min-width: 300px) 700px,(min-width: 700px) 1300px,(min-width: 1300px) 1800px" />
 	  		<?php } ?>
 	  		<div class="fold-overlay" style="background-color: rgba(0,0,0,.<?php echo $slider_overlay; ?>);"></div>
-				<div class="fold-slide-text <?php if($alignment != '') { echo $alignment; } ?>">
-				  <h2><?php echo $block['title']; ?></h2>
-				  <?php if(isset($block['excerpt'])){ ?><p><?php echo $block['excerpt']; ?></p><?php } ?>
-				  <a class="btn solid" href="<?php echo $block['url']; ?>"><?php echo $block['cta']; ?></a>
+				<div class="fold-slide-text <?php if($alignment != '') { echo $alignment; } ?>"><?php if(!empty($block['subtitle'])){ ?><h2 style="<?php if(!wp_is_mobile()){ ?><?php echo $block['subtitle_styling']; ?><?php } else {?><?php echo $block['subtitle_styling_mobile']; ?><?php } ?>"><?php echo $block['subtitle']; ?></h2><?php } ?><?php if($block['subtitle_line'] === 'Yes'){ ?><hr style="<?php echo $block['subtitle_line_style']; ?>"><?php } ?><?php if(!empty($block['title'])){ ?><h2 class="<?php if(!empty($block['subtitle'])&&$block['subtitle_line'] === 'No'){ ?>single_title<?php } ?>" style="<?php if(!wp_is_mobile()){ ?><?php echo $block['title_styling']; ?><?php } else {?><?php echo $block['title_styling_mobile']; ?><?php } ?>"><?php echo $block['title']; ?></h2><?php } ?><?php if($block['line'] === 'Yes'){ ?><hr style="<?php echo $block['line_style']; ?>"><?php } ?><?php if(!empty($block['excerpt'])){ ?><p style="<?php if(!wp_is_mobile()){ ?><?php echo $block['excerpt_styling']; ?><?php } else {?><?php echo $block['excerpt_styling_mobile']; ?><?php } ?>" class="<?php if(!empty($block['title'])&&$block['line'] === 'No'){ ?>single_excerpt<?php } ?>"><?php echo $block['excerpt']; ?></p><?php } ?>
+				  <?php if(!empty($block['url'])){ ?><a class="<?php if(empty($block['excerpt'])&&!empty($block['title'])){ ?>single_btn<?php } ?> btn solid" href="<?php echo $block['url']; ?>"><?php echo $block['cta']; ?></a><?php } ?>
 				</div>
 			</div>
 		</div>

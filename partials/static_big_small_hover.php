@@ -3,6 +3,7 @@
 	$appearance_info = get_option( 'appearance_info');
 	$headline_style = $appearance_info['headline_style'];
 	
+	$text_bars = get_post_meta(get_the_id(),$instance.'_text_bars',true);
 	//$title = get_post_meta( get_the_ID(), $instance.'_title', true );
 	
 	$raw_headline = get_post_meta(get_the_id(),$instance.'_title',true);
@@ -26,7 +27,7 @@
   
   <h2 class="<?php echo $headline_style; ?>"><?php echo $headline; ?></h2>
   
-  <div class="row">
+  <div class="row <?php echo $text_bars; ?>">
 	  
 	  <div class="columns eight static_big_small_hover-left">
 		  

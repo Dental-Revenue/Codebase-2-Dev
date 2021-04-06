@@ -1,13 +1,14 @@
 <?php 
 	$instance = $template_args['instance']; 
 	$title = get_post_meta( get_the_ID(), $instance.'_title', true );
+	$text_bars = get_post_meta(get_the_id(),$instance.'_text_bars',true);
 	$appearance_info = get_option( 'appearance_info');
 	$headline_style = $appearance_info['headline_style'];
 ?>
 
 <h2 class="<?php echo $headline_style; ?>"><?php echo $title; ?></h2>
 
-<div class="slick-init slick-carousel_2">
+<div class="slick-init slick-carousel_2 <?php echo $text_bars; ?>">
     
   <?php
 	$items = get_post_meta( get_the_ID(), $instance.'_carousel_items', true );

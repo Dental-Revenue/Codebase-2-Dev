@@ -3,13 +3,14 @@
 	$appearance_info = get_option( 'appearance_info');
 	$headline_style = $appearance_info['headline_style'];
 	
+	$text_bars = get_post_meta(get_the_id(),$instance.'_text_bars',true);
 	$title = get_post_meta( get_the_ID(), $instance.'_title', true ); 
 	 
 ?>
   
   <h2 class="<?php echo $headline_style; ?>"><?php echo $title; ?></h2>
   
-  <div class="row">
+  <div class="row <?php echo $text_bars; ?>">
 	  <?php 
 		 $columns = get_post_meta(get_the_id(),$instance.'_images',true);
 		 foreach ((array) $columns as $key => $column ) {
