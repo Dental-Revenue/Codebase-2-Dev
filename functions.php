@@ -1269,6 +1269,177 @@ add_filter( 'use_block_editor_for_post_type', '__return_false' );
 // Disable "Try Gutenberg" panel
 remove_action( 'try_gutenberg_panel', 'wp_try_gutenberg_panel' );
 
+/* Add Column Button and Column Shortcodes to Classic Editor
+Code modified to fit into Codebase 2 Theme. Credit goes to
+=== Lightweight Grid Columns ===
+Contributors: edge22
+Donate link: https://generatepress.com/ongoing-development
+Requires at least: 4.5
+Tested up to: 5.1
+Stable tag: 1.0
+License: GPLv2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
+Lightweight Grid Columns uses jQuery matchHeight to improve the responsive functionality of the columns.
+http://brm.io/jquery-match-height/
+jquery.matchHeight.js is licensed under The MIT License (MIT) 
+Copyright (c) 2014 liabru
+-START-
+*/
+if ( ! function_exists( 'column_shortcodes_register_shortcode' ) ) {
+	add_action( 'init', 'column_shortcodes_register_shortcode' );
+	/*
+	 * Declare our shortcode
+	 */
+	function column_shortcodes_register_shortcode() {
+		add_shortcode( 'column', 'columns_shortcode' );
+	}
+}
+if ( ! function_exists( 'column_add_shortcode_button' ) ) {
+	add_action( 'admin_init', 'column_add_shortcode_button' );
+	/*
+	 * Set it up so we can register our TinyMCE button
+	 */
+	function column_add_shortcode_button() {
+		// check user permissions
+		if ( ! current_user_can( 'edit_posts' ) && ! current_user_can( 'edit_pages' ) ) {
+			return;
+		}
+
+		// check if WYSIWYG is enabled
+		if ( get_user_option( 'rich_editing' ) == 'true') {
+			add_filter( 'mce_external_plugins', 'column_shortcodes_add_tinymce_plugin' );
+			add_filter( 'mce_buttons', 'column_shortcodes_register_button' );
+		}
+	}
+}
+if ( ! function_exists( 'column_shortcodes_add_tinymce_plugin' ) ) {
+	/*
+	 * Register our tinyMCE button javascript
+	 */
+	function column_shortcodes_add_tinymce_plugin( $plugin_array ) {
+		$plugin_array['column_shortcodes_button'] = get_template_directory_uri() . '/assets/scripts/column-button.js';
+		return $plugin_array;
+	}
+}
+if ( ! function_exists( 'column_shortcodes_register_button' ) ) {
+	/*
+	 * Register our TinyMCE button
+	 */
+	function column_shortcodes_register_button( $buttons ) {
+		array_push( $buttons, 'column_shortcodes_button' );
+		return $buttons;
+	}
+}
+if ( ! function_exists( 'column_translatable_strings' ) ) {
+	add_action( 'admin_head','column_translatable_strings', 0 );
+	/*
+	 * Add translatable strings.
+	 */
+	function column_translatable_strings() {
+		?>
+		<script type="text/javascript">
+			var column_add_columns = '<?php esc_html_e( 'Add columns', 'lightweight-grid-columns' ); ?>';
+			var column_columns = '<?php esc_html_e( 'Add Column', 'lightweight-grid-columns' ); ?>';
+			var column_desktop = '<?php esc_html_e( 'Desktop grid percentage', 'lightweight-grid-columns' ); ?>';
+			var column_tablet = '<?php esc_html_e( 'Tablet grid percentage', 'lightweight-grid-columns' ); ?>';
+			var column_mobile = '<?php esc_html_e( 'Mobile grid percentage', 'lightweight-grid-columns' ); ?>';
+			var column_content = '<?php esc_html_e( 'Content', 'lightweight-grid-columns' ); ?>';
+			var column_last = '<?php esc_html_e( 'Last column in row?', 'lightweight-grid-columns' ); ?>';
+		</script>
+		<?php
+	}
+}
+if ( ! function_exists( 'column_shortcodes_admin_css' ) ) {
+	add_action( 'admin_enqueue_scripts', 'column_shortcodes_admin_css' );
+	/*
+	 * Add our admin CSS
+	 */
+	function column_shortcodes_admin_css() {
+		wp_enqueue_style( 'column-columns-admin', get_template_directory_uri() . '/assets/stylesheets/general/column-admin.css' );
+	}
+}
+if ( ! function_exists( 'column_shortcodes_css' ) ) {
+	add_action( 'wp_enqueue_scripts', 'column_shortcodes_css', 99 );
+	/*
+	 * Add the unsemantic framework
+	 */
+	function column_shortcodes_css() {
+		wp_enqueue_style( 'column-unsemantic-grid-responsive-tablet', get_template_directory_uri() . '/assets/stylesheets/general/column-unsemantic-grid-responsive-tablet.css', array(), 1.0, 'all' );
+		wp_register_script( 'column-matchHeight', get_template_directory_uri() . '/assets/scripts/column-jquery.matchHeight-min.js', array( 'jquery' ), 1.0, true );
+	}
+}
+if ( ! function_exists( 'columns_shortcode' ) ) {
+	/*
+	 * Create the output of the columns shortcode
+	 */
+	function columns_shortcode( $atts , $content = null ) {
+		extract( shortcode_atts(
+			array(
+				'grid' => '50',
+				'tablet_grid' => '50',
+				'mobile_grid' => '100',
+				'last' => '',
+				'class' => '',
+				'style' => '',
+				'equal_heights' => 'true',
+				'id' => ''
+			), $atts )
+		);
+
+		if ( 'true' == $equal_heights ) {
+			wp_enqueue_script( 'column-matchHeight' );
+		}
+
+		$content = sprintf(
+			'<div %9$s class="column-column column-grid-parent %1$s %2$s %3$s %4$s %5$s"><div %6$s class="inside-grid-column">%7$s</div></div>%8$s',
+			'column-grid-' . intval( $grid ),
+			'column-tablet-grid-' . intval( $tablet_grid ),
+			'column-mobile-grid-' . intval( $mobile_grid ),
+			( 'true' == $equal_heights ) ? 'column-equal-heights' : '',
+			esc_attr( $class ),
+			( '' !== $style ) ? ' style="' . esc_attr( $style ) . '"' : '',
+			do_shortcode( $content ),
+			( 'true' == $last ) ? '<div class="column-clear"></div>' : '',
+			( '' !== $id ) ? 'id="' . esc_attr( $id ) . '"' : ''
+		);
+
+		return force_balance_tags( $content );
+	}
+}
+if ( ! function_exists( 'columns_helper' ) ) {
+	add_filter( 'the_content', 'columns_helper' );
+	/*
+	 * Fix the WP paragraph and <br /> issue with shortcodes
+	 */
+	function columns_helper( $content ) {
+	    $array = array (
+	        '<p>[column' => '[column',
+	        'column]</p>' => 'column]',
+			'<br />[column' => '[column',
+	        'column]<br />' => 'column]'
+	    );
+
+	    return strtr( $content, $array );
+	}
+}
+if ( ! function_exists( 'column_ie_compatibility' ) ) {
+	add_action( 'wp_head', 'column_ie_compatibility' );
+	/**
+	 * Add compatibility for IE8 and lower
+	 * @since 0.3
+	 */
+	function column_ie_compatibility() {
+	?>
+		<!--[if lt IE 9]>
+			<link rel="stylesheet" href="<?php echo get_template_directory_uri() . '/assets/stylesheets/general/column-ie.min.css'; ?>" />
+		<![endif]-->
+	<?php
+	}
+}
+/* Add Column Button and Column Shortcodes to Classic Editor
+-END-
+*/
+
 // Compile CSS from SCSS Based on Variables from CMB2
 
 function scss_php_compile() {
