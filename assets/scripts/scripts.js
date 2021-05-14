@@ -575,7 +575,6 @@ if($('.slick_shortcode_testimonials').length>0 && $('.slick_slide_shortcode_test
 	$('.drop-link').removeClass('open').next().hide();
   $('.drop-link').on('click',function(t){t.preventDefault(),$(this).toggleClass('open').next().slideToggle()});
 	
-  //Youtube Popups
   $('.popup-youtube').magnificPopup({
 		type: 'iframe',
 		mainClass: 'mfp-fade',
@@ -583,7 +582,21 @@ if($('.slick_shortcode_testimonials').length>0 && $('.slick_slide_shortcode_test
 		preloader: false,
 		fixedContentPos: false
 	});
-	
-	
-	    	
+
+	$('.popup-iframe').magnificPopup({
+        type: 'iframe',
+        mainClass: 'mfp-fade',
+        removalDelay: 160,
+        preloader: false,
+        fixedContentPos: false
+    });
+
+    $('.popup-image').magnificPopup({
+        type: 'image',
+        mainClass: 'mfp-fade',
+        removalDelay: 160,
+        preloader: false,
+        fixedContentPos: false
+    });
+	   	
 });
