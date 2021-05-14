@@ -1,0 +1,112 @@
+.embed-button-play::before {
+    content: '\f167';
+    z-index: 5;
+    position: absolute;
+    left: 50%;
+    top: 50%; 
+    transform: translate( -50%, -50% );
+    color: #404040;
+    font-family: 'Font Awesome 5 Brands';
+    font-size: 70px;
+}
+.embed-button-plus::before {
+    content: '\f055';
+    z-index: 5;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate( -50%, -50% );
+    color: #404040;
+    font-family: 'Font Awesome 5 Free';
+    font-weight: 900;
+    font-size: 60px;
+}
+.embed-button-none::before {
+    display:none;
+}
+.embed-button-plus:hover::before {
+    color: $main-color!important;
+}
+.embed-button-play:hover::before {
+    color: #ff0001!important;
+}
+.embed-button-none.embed-button-bg::after {
+    display:none;
+}
+.embed-button-bg::after {
+    position: absolute;
+    content: '';
+    background: #fff;
+    top: 44%;
+    left: 47%;
+    width: 35px;
+    height: 35px;
+}
+.embed-container img {
+    width: 560px;
+    max-width: 100%;
+    height: 315px;
+    max-height: auto;
+}
+.embed-container { 
+    text-align:center; 
+}
+.static_embed {
+    padding-bottom: 40px;
+    padding-top:40px;
+    line-height: 0;
+    text-align: center;
+    margin: auto;
+}
+.static_embed p, .static_embed h2  {
+    max-width: 800px;
+    margin: auto;
+}
+.static_embed p {
+    margin: 17px auto 0px auto;
+    font-size: 80%;
+}
+.static_embed .btn {
+    margin: 17px auto 0px auto;
+    padding: 20px 22px;
+}
+.static_embed .popup-youtube {
+    display: inline-block;
+}
+.static_embed.invert p {
+    color: #fff;
+}
+.static_embed h2:after {
+    display:none;
+}
+.static_embed h2 {
+    padding: 0px 5% 17px;
+    margin-top: -10px;
+}
+.mfp-content {
+    text-align: center!important;
+}
+.mfp-content iframe {
+    width: 560px;
+    max-width: 100%;
+}
+@media (min-width:651px) {
+    .embed-button-overlay {
+      position: relative;
+      display: inline-block;
+    }
+    .embed-button-bg{
+        position: relative;
+    }
+}
+@media (max-width:650px) {
+    .embed-container { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%; }
+    .embed-container img, .embed-container object, .embed-container embed { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }    
+    .static_embed .module-content {
+        width: 90%;
+        margin: auto;
+    }
+    .embed-button-overlay::before {
+        font-size: 60px!important;
+    }
+}

@@ -10,3 +10,13 @@
 	
 	//hover state
 .carousel_2-block:hover a.read-more{bottom: 0;}
+
+.text_bar_up .hover-up-child {
+    bottom: 0!important;
+}
+.text_bar_up a:hover .hover-up-child {
+    text-decoration: underline;
+}
+.text_bar_up .slick-slide:hover .hover-up-child {
+    text-decoration: underline;
+}
