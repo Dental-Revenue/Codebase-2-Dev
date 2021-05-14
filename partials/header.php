@@ -8,9 +8,15 @@
 			$extra_header_classes .= ' notification-active';
 		}
 	}
+
+	//set up defaults
+	$option = get_option( 'appearance_info');
+	$color = $option['nav_color'];
+	$lightness = getColorLightness($color);
+
 ?>
 
-<header class="header<?php echo $extra_header_classes; ?>"> 
+<header class="header<?php echo $extra_header_classes; ?> <?php if($lightness<700){echo "invert";} ?>"> 
 
 <?php if(!empty(site_ops_notification_message(false))){
 	if(empty(site_ops_notification_timestamp(false)) || site_ops_notification_timestamp(false) > time()){
