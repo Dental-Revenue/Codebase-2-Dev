@@ -85,6 +85,7 @@ function render_modules(){ ?>
 							<option value="static_tabs">Static Tabs</option>
 							<option value="static_4_up">Static 4-Up</option>
 							<option value="static_5_up">Static 5-Up</option>
+							<option value="static_embed">Static Embed</option>
 							<option>------------------</option>
 							<option value="breaker">Breaker</option>
 							<option value="specials_breaker">Specials Breaker</option>
