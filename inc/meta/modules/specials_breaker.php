@@ -9,12 +9,22 @@ $box->add_field( array(
  	),
 ));
 $box->add_field( array(
-	'name' => 'Specials Breaker Text',
+	'name' => 'Paragraph',
 	'id' => $prefix.'specials_breaker_text',
 	'type' => 'textarea_small',
 	'attributes'  => array(
  		'required'    => 'required',
  	),
+));
+$box->add_field( array(
+	'name' => 'Display Paragraph on Mobile?',
+	'id'   => $prefix.'paragraph_mobile',
+	'type' => 'select',
+	'options'          => array(
+		'yes' => 'Yes',
+		'no' => 'No',
+	),
+	'default' => 'yes',
 ));
 $box->add_field( array(
 	'name' => 'Specials Breaker Button Text',
