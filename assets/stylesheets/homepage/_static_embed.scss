@@ -90,6 +90,9 @@
     width: 560px;
     max-width: 100%;
 }
+.embed-button-overlay:hover {
+    cursor: pointer;
+}
 @media (min-width:651px) {
     .embed-button-overlay {
       position: relative;
