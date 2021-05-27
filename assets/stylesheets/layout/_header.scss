@@ -253,6 +253,27 @@ header{}
 .scrolled.header-style-e header {
     top: 0px;
 }
+.header-style-e .mobile-nav .contact-dropdown {
+    width: 100%;
+}
+.header-style-e .mobile-nav a, .header-style-e .drop-content p {
+    color: #fff;
+}
+.header-style-e .mobile-nav a:hover {
+    color: #fff;
+}
+.header-style-e #sidr-left ul a {
+    font-family: inherit;
+}
+.header-style-e #sidr-left li.menu-item-has-children.open li.menu-item-has-children.open ul a {
+    font-size: 13px;
+}
+.header-style-e #sidr-left li.menu-item-has-children.open > ul {
+    margin-top: 0px;
+}
+.header-style-e #sidr-left ul ul {
+    padding: 15px 0 15px 15px;
+}		
 }
 @media (min-width:1200px){
 	.header-style-e.scrolled .page-wrap {
