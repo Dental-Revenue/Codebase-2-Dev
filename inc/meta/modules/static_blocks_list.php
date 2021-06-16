@@ -1,10 +1,9 @@
 <?php
-	
-	
+
 $box->add_field( array(
 	'name' => 'Main Headline',
 	'id' => $prefix.'headline',
-	'description' => 'Optional',
+	'description' => 'Optional. Supports {subhead}',
 	'type' => 'text'
 ));
 $box->add_field( array(
@@ -17,7 +16,6 @@ $box->add_field( array(
 	    'textarea_rows' => get_option('default_post_edit_rows', 5)
 	)
 ));
-
 $group_field = $box->add_field( array(
 	'id' => $prefix.'grid_blocks',
 	'type' => 'group',
@@ -54,12 +52,20 @@ $box->add_group_field( $group_field, array(
 	)
 ));
 $box->add_field( array(
+	'name' => 'Display List Block?',
+	'id'   => $prefix.'display_list_block',
+	'type' => 'select',
+	'options'          => array(
+		'yes' => 'Yes',
+		'no' => 'No',
+	),
+	'default' => 'yes',
+));
+$box->add_field( array(
 	'name' => 'List Headline',
 	'id' => $prefix.'list_headline',
 	'type' => 'text',
-	'attributes'  => array(
- 		'required'    => 'required',
- 	),
+	'description' => 'Optional. Supports {subhead}',
 ));
 $box->add_field( array(
 	'name' => 'List Content',
@@ -69,9 +75,6 @@ $box->add_field( array(
 	    'wpautop' => false, // use wpautop?
 	    'textarea_rows' => get_option('default_post_edit_rows', 5)
 	),
-	'attributes' => array(
- 		'required' => 'required',
- 	),
 ));
 $group_field = $box->add_field( array(
 	'id' => $prefix.'list_items',
@@ -95,6 +98,5 @@ $box->add_group_field( $group_field, array(
 	'id'   => 'list_item_url',
 	'type' => 'text'
 ));
-
 
 ?>

@@ -1,28 +1,63 @@
 <?php
 	$box->add_field( array(
-		'name' => 'Grid Headline',
+		'name' => 'Static Block Headline',
 		'id' => $prefix.'headline',
-		'description' => 'Optional',
+		'description' => 'Optional. Supports {subhead}',
 		'type' => 'text'
 	));
 	$box->add_field( array(
-		'name' => 'Grid Excerpt',
+		'name' => 'Static Block Excerpt',
 		'id' => $prefix.'excerpt',
 		'description' => 'Optional',
 		'type' => 'textarea_small'
 	));
 	$box->add_field( array(
-		'name' => 'Grid Link Text',
+		'name' => 'Static Block Link Text',
 		'id' => $prefix.'url_text',
 		'description' => 'Optional. Text for View Testimonials Link.',
 		'type' => 'text',
 		'default' => 'View Testimonials'
 	));
 	$box->add_field( array(
-		'name' => 'Grid URL',
+		'name' => 'Static Block URL',
 		'id' => $prefix.'url',
 		'description' => 'Optional. URL for View Testimonials Link.',
 		'type' => 'text'
+	));
+	$box->add_field( array(
+		'name' => 'Display Static Block Above?',
+		'id'   => $prefix.'display_static_block',
+		'type' => 'select',
+		'options'          => array(
+			'yes' => 'Yes',
+			'no' => 'No',
+		),
+		'default' => 'yes',
+	));
+	$box->add_field( array(
+		'name' => 'Block Background Color',
+		'id' => $prefix.'grid_bg_color',
+		'type' => 'colorpicker'
+	));
+	$box->add_field( array(
+		'name' => 'Display Blocks as Rectangle or Square?',
+		'id'   => $prefix.'display_rectangle_or_square',
+		'type' => 'select',
+		'options'          => array(
+			'rectangle' => 'Rectangle',
+			'square' => 'Square',
+		),
+		'default' => 'rectangle',
+	));
+	$box->add_field( array(
+		'name' => 'Add Spacing Around Blocks?',
+		'id'   => $prefix.'add_spacing',
+		'type' => 'select',
+		'options'          => array(
+			'yes' => 'Yes',
+			'no' => 'No',
+		),
+		'default' => 'no',
 	));
 	$group_field = $box->add_field( array(
 		'id' => $prefix.'blocks',
