@@ -1,9 +1,16 @@
 .reviews_testimonials_grid{padding:0;}
+.custom-video-testimonials.grid-padding {padding: 90px 130px;overflow: hidden;}
+.custom-video-testimonials.grid-padding-rect {overflow: hidden;}
 
 	//general blocks
-	.cvt-block{width: 33.333%;float: left;height: 350px;background-size: cover;background-position: right center;position: relative;overflow: hidden;}
+	.cvt-block{width: 33.333%;float: left;height: 350px;background-size: cover;background-position: center center;position: relative;overflow: hidden;}
+	.cvt-block-square {
+		width: 16.66%;
+		height: 370px;
+	}
 		.cvt-block span{display: block;width: 100%;padding: 20px;box-sizing:border-box;color: $black;text-transform: uppercase;letter-spacing: .05em;font-size: 16px;@include center(bottom);font-weight: 600;}
-		
+		.cvt-block-square {width: 25%;}
+
 		.cvt-content{position: absolute;left:0;top:0;width: 100%;height: 100%;padding: 30px;box-sizing: border-box;transform: translateY(-100%);transition: transform .3s;}
 			.cvt-content h3{color: $black;text-transform: uppercase;font-weight: 400;letter-spacing: .05em;}
 			.cvt-content p{color: $black;font-size: 15px;opacity: .8;}
@@ -25,25 +32,76 @@
 .reviews_testimonials_grid.invert .cvt-content p, .reviews_testimonials_grid.invert .cvt-block.static p, .reviews_testimonials_grid.invert .cvt-block span {color:$white;}
 .reviews_testimonials_grid.invert .cvt-content a, .reviews_testimonials_grid.invert .cvt-block.static a {color:$white;}
 
-.cvt-block.static:hover span {
-    display: block;
+.cvt-block.static:hover span {display: block;}
+
+.cvt-content a.icon-arrow:before {content: "\f061";}
+
+@media (min-width:1250px) and (max-width:1620px){
+.cvt-block-square {
+    width: 25%;
+    height: 283px;
 }
-
-
-@media all and (max-width: $bp-laptop) {  
-	
-	.cvt-block{width: 50%;}
-	
-} 
-
-
+.grid-padding .cvt-block-rect {
+    width: 50%;
+    height: 300px;
+}
+.custom-video-testimonials.grid-padding-rect {
+    padding: 90px 300px;
+}
+.custom-video-testimonials.grid-padding .cvt-block-square p {
+    font-size: 13px;
+}
+}
+@media (min-width:975px) and (max-width:1249px){
+.cvt-block-square {
+    width: 33.33%;
+    height: 283px;
+}
+.grid-padding .cvt-block-rect {
+    width: 50%;
+    height: 290px;
+}
+.custom-video-testimonials .cvt-block-square p {
+    font-size: 13px;
+}
+}
+@media (min-width:768px) and (max-width:974px){
+ .cvt-block-square {
+    width: 50%;
+    height: 293px;
+}
+.grid-padding .cvt-block-rect {
+    width: 50%;
+    height: 290px;
+}
+.custom-video-testimonials.grid-padding {
+	padding: 80px;
+}
+.cvt-content p {
+    font-size: 13px;
+}
+}
 @media all and (max-width: $bp-phablet) {
-	
-	.cvt-block{width: 100%;height: 250px;}
-		.cvt-block span{display: none;}
-		.cvt-content{transform: translateY(0);background-color: rgba($main-color,.5);}
-	
-	.cvt-block.static{height: auto;}
-		.cvt-block.static a{position: relative;left: auto;bottom: auto;}
-	
+.cvt-block{width: 100%;height: 250px;}
+.cvt-block-square{height: 375px;}
+.cvt-block span{display: none;}
+.cvt-content{transform: translateY(0);background-color: rgba($main-color,.5);}
+.cvt-block.static{height: auto;}
+.cvt-block.static a{position: relative;left: auto;bottom: auto;}
+}
+@media (min-width:500px) and (max-width:767px){
+	.custom-video-testimonials.grid-padding {
+	padding: 80px;
+}
+.cvt-content p {
+    font-size: 13px;
+}
+}
+@media (min-width:1px) and (max-width:499px){
+	.custom-video-testimonials.grid-padding {
+	padding: 0px;
+}
+.cvt-content p {
+    font-size: 13px;
+}
 }
