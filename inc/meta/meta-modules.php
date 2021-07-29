@@ -230,15 +230,6 @@ function homepage_meta() {
 				require  __DIR__ . '/modules/static_blocks_list.php';
 				
 			break;
-
-
-// ===============================================================================
-
-			case "static_header":
-			
-				require  __DIR__ . '/modules/static_header.php';
-				
-			break;
 			
 
 // ===============================================================================
