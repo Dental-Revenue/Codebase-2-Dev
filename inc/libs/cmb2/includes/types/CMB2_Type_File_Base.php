@@ -74,7 +74,7 @@ class CMB2_Type_File_Base extends CMB2_Type_Text {
 	 * @return string       File wrap output
 	 */
 	public function file_status_output( $args ) {
-		return sprintf( '<%1$s class="file-status cmb2-media-item"><span>%2$s <strong>%3$s</strong></span>&nbsp;&nbsp; (<a href="%4$s" target="_blank" rel="external">%5$s</a> / <a href="#" class="cmb2-remove-file-button"%6$s>%7$s</a>)%8$s</%1$s>',
+		return sprintf( '<%1$s class="file-status cmb2-media-item"><span>%2$s <strong>%3$s</strong></span>&nbsp;&nbsp; (<a href="%4$s" target="_blank" rel="nofollow noopener external">%5$s</a> / <a href="#" class="cmb2-remove-file-button"%6$s>%7$s</a>)%8$s</%1$s>',
 			$args['tag'],
 			esc_html( $this->_text( 'file_text', esc_html__( 'File:', 'cmb2' ) ) ),
 			CMB2_Utils::get_file_name_from_path( $args['value'] ),
@@ -102,7 +102,7 @@ class CMB2_Type_File_Base extends CMB2_Type_Text {
 		</script>
 		<script type="text/html" id="tmpl-cmb2-single-file">
 			<div class="file-status cmb2-media-item">
-				<span>{{ data.stringFile }} <strong>{{ data.filename }}</strong></span>&nbsp;&nbsp; (<a href="{{ data.url }}" target="_blank" rel="external">{{ data.stringDownload }}</a> / <a href="#" class="cmb2-remove-file-button" rel="{{ data.mediaField }}">{{ data.stringRemoveFile }}</a>)
+				<span>{{ data.stringFile }} <strong>{{ data.filename }}</strong></span>&nbsp;&nbsp; (<a href="{{ data.url }}" target="_blank" rel="nofollow noopener external">{{ data.stringDownload }}</a> / <a href="#" class="cmb2-remove-file-button" rel="{{ data.mediaField }}">{{ data.stringRemoveFile }}</a>)
 			</div>
 		</script>
 		<script type="text/html" id="tmpl-cmb2-list-image">
@@ -114,7 +114,7 @@ class CMB2_Type_File_Base extends CMB2_Type_Text {
 		</script>
 		<script type="text/html" id="tmpl-cmb2-list-file">
 			<li class="file-status cmb2-media-item">
-				<span>{{ data.stringFile }} <strong>{{ data.filename }}</strong></span>&nbsp;&nbsp; (<a href="{{ data.url }}" target="_blank" rel="external">{{ data.stringDownload }}</a> / <a href="#" class="cmb2-remove-file-button" rel="{{ data.mediaField }}[{{ data.id }}]">{{ data.stringRemoveFile }}</a>)
+				<span>{{ data.stringFile }} <strong>{{ data.filename }}</strong></span>&nbsp;&nbsp; (<a href="{{ data.url }}" target="_blank" rel="nofollow noopener external">{{ data.stringDownload }}</a> / <a href="#" class="cmb2-remove-file-button" rel="{{ data.mediaField }}[{{ data.id }}]">{{ data.stringRemoveFile }}</a>)
 				<input type="hidden" id="filelist-{{ data.id }}" data-id="{{ data.id }}" name="{{ data.mediaFieldName }}[{{ data.id }}]" value="{{ data.url }}">
 			</li>
 		</script>

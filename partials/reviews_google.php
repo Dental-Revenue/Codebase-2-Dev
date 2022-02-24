@@ -21,7 +21,7 @@
 			
 			<div class="g-box">
 				<div class="g-panel g-client">
-					<div class="g-panel-img" target="_blank"><img src="https://maps.gstatic.com/mapfiles/place_api/icons/generic_business-71.png" alt="<?php echo $option['practice_name']; ?>" /></div>
+					<div class="g-panel-img" target="_blank" rel="noopener"><img src="https://maps.gstatic.com/mapfiles/place_api/icons/generic_business-71.png" alt="<?php echo $option['practice_name']; ?>" /></div>
 					<div class="g-panel-detail">
 						<h3><?php echo $option['practice_name']; ?></h3>
 						<img src="<?php echo get_template_directory_uri(); ?>/assets/images/layout/g-logo.png" alt="Google Logo" class="g-logo" />
@@ -49,7 +49,7 @@
 			<?php $i++; endwhile; wp_reset_postdata();?>
 			
 			<div class="reviews_google-buttons">
-			<a href="<?php site_ops_google_review_url(); ?>" class="btn solid google" target="_blank">Leave a Google Review</a>
+			<a href="<?php site_ops_google_review_url(); ?>" class="btn solid google" target="_blank" rel="nofollow noopener">Leave a Google Review</a>
 			<?php $page = get_pages(array('meta_key' => '_wp_page_template','meta_value' => 'page-templates/template-testimonials.php')); ?>
 			<?php if(isset($page[0]->ID)){ ?><a href="<?php echo get_permalink($page[0]->ID); ?>" class="btn solid">View More Reviews</a><?php } ?>
 			</div>
