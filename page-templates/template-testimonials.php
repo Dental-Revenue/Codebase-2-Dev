@@ -46,7 +46,7 @@ Template Name: Testimonials
 </div>
 
 <div class="reviews_google-buttons" style="text-align: center;">
-<a href="<?php site_ops_google_review_url(); ?>" class="btn solid google" target="_blank" rel="nofollow noopener">Leave a Google Review</a>
+<a href="<?php site_ops_google_review_url(); ?>" class="btn solid google" target="_blank" rel="noopener">Leave a Google Review</a>
 </div>
 
 </div> 
