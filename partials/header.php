@@ -13,7 +13,7 @@
 	$option = get_option( 'appearance_info');
 	$color = $option['nav_color'];
 	$lightness = getColorLightness($color);
-
+	$popup = $option['cta_popup'];
 ?>
 
 <header class="header<?php echo $extra_header_classes; ?> <?php if($lightness<700){echo "invert";} ?>"> 
@@ -256,8 +256,8 @@ do_action('before_header');
 			<div class="contact-dropdown">
 				<a class="drop-link" href="">Contact Us <i class="fa fa-caret-down"></i></a>
 				<div class="drop-content" style="display: none;">
+          <a href="tel:<?php site_ops_new_patient_phone(); ?>"><i class="fas fa-phone"></i><span>New Patients </span><span class="bold"><?php site_ops_new_patient_phone(); ?></span></a>
 					<a href="tel:<?php site_ops_current_patient_phone(); ?>"><i class="fas fa-phone"></i><span>Current Patients </span><span class="bold"><?php site_ops_current_patient_phone(); ?></span></a>
-					<a href="tel:<?php site_ops_new_patient_phone(); ?>"><i class="fas fa-phone"></i><span>New Patients </span><span class="bold"><?php site_ops_new_patient_phone(); ?></span></a>
 					<a href="<?php site_ops_cta_url(); ?>"><?php site_ops_cta_text(); ?></a>
 					<a href="/leave-a-review/">Leave a Review</a>
 				</div>

@@ -71,6 +71,15 @@
 		),
 	));
 	$box->add_group_field( $group_field, array(
+		'name' => 'Block Background Color',
+		'id'   => 'bg_color',
+		'type' => 'colorpicker',
+		'options' => array(
+			'alpha' => true,
+		),
+		'default' => 'rgba(221,153,51,.5)'
+	));
+	$box->add_group_field( $group_field, array(
 		'name' => 'Block Name',
 		'id'   => 'name',
 		'type' => 'text',
@@ -84,7 +93,7 @@
 		'name' => 'CTA Text',
 		'id'   => 'url_text',
 		'type' => 'text',
-		'default' => 'Watch Video'
+		'default' => 'Watch Video',
 	));
 	$box->add_group_field( $group_field, array(
 		'name' => 'CTA URL',

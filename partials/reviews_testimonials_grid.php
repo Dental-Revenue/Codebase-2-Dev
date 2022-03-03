@@ -47,15 +47,16 @@
 	  $image = wp_get_attachment_image_src( $block['image_id'], 'lg' );
 	  $url = $block['url'];
 	  $url_text = $block['url_text'];
+		$bg_color = $block['bg_color'];
     ?>
       
     <div class="cvt-block <?php if($display_rectangle_or_square === 'square'){ ?>cvt-block-square<?php } else { echo "cvt-block-rect";} ?>" style="background-image: url(<?php echo $image[0]; ?>);">
-		<div class="cvt-content" style="background-color: rgba(<?php echo $r; ?>,<?php echo $g; ?>,<?php echo $b; ?>,.5);">
+		<div class="cvt-content" style="background-color:<?php echo $bg_color; ?>;">
 			<h3><?php echo $block['name']; ?></h3>
 			<p><?php echo $block['excerpt']; ?></p>
 			<?php if(!empty($url)){ ?><a href="<?php echo $url; ?>" class="<?php if(strpos($url,'youtube') !== false || strpos($url,'vimeo') !== false){ ?>popup-youtube<?php } else { ?>icon-arrow<?php } ?>"><?php echo $url_text; ?></a><?php } ?>
 		</div>
-		<span style="background-color: rgba(<?php echo $r; ?>,<?php echo $g; ?>,<?php echo $b; ?>,.5);"><?php echo $block['name']; ?></span>
+		<span style="background-color:<?php echo $bg_color; ?>;"><?php echo $block['name']; ?></span>
 	</div>
       	
     <?php } ?>
