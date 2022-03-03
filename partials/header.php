@@ -13,7 +13,7 @@
 	$option = get_option( 'appearance_info');
 	$color = $option['nav_color'];
 	$lightness = getColorLightness($color);
-
+	$popup = $option['cta_popup'];
 ?>
 
 <header class="header<?php echo $extra_header_classes; ?> <?php if($lightness<700){echo "invert";} ?>"> 

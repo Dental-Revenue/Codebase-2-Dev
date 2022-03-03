@@ -28,6 +28,13 @@
 							<?php the_content(); ?>
 					  </article>	
 					<?php endwhile; endif;
+
+						the_post_navigation(
+							array(
+							'next_text' => '<p class="meta-nav">Next post<svg class="svg-icon" width="24" height="24" aria-hidden="true" role="img" focusable="false" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="m4 13v-2h12l-4-4 1-2 7 7-7 7-1-2 4-4z" fill="currentColor"></path></svg></p>' . '<p class="post-title">%title</p>',
+							'prev_text' => '<p class="meta-nav"><svg class="svg-icon" width="24" height="24" aria-hidden="true" role="img" focusable="false" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M20 13v-2H8l4-4-1-2-7 7 7 7 1-2-4-4z" fill="currentColor"></path></svg>Previous post</p>' . '<p class="post-title">%title</p>',
+							)
+							);
 					
 				}else{
 					if (have_posts()) : while (have_posts()) : the_post(); ?>
