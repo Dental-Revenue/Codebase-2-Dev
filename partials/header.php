@@ -254,9 +254,10 @@ do_action('before_header');
 		<nav class="large-nav"><?php wp_nav_menu(array('walker' => new Walker_Quickstart_Menu())); ?> </nav>
 		<nav class="mobile-nav ">
 			<div class="contact-dropdown">
-				<a class="drop-link" href="">New Patients <span class="tracknum"><?php site_ops_new_patient_phone(); ?></span> <i class="fa fa-caret-down"></i></a>
+			<a class="drop-link" href="">Contact Us <i class="fa fa-caret-down"></i></a>
 				<div class="drop-content" style="display: none;">
-					<p>Current Patients <span><?php site_ops_current_patient_phone(); ?></span></p>
+				<a href="tel:<?php site_ops_new_patient_phone();?>"><p>New Patients <span class="tracknum"><?php site_ops_new_patient_phone(); ?></span></p></a>
+				<a href="tel:<?php site_ops_current_patient_phone();?>"><p>Current Patients <span ><?php site_ops_current_patient_phone(); ?></span></p></a>
 					<a href="<?php site_ops_cta_url(); ?>"><?php site_ops_cta_text(); ?></a>
 					<a href="/leave-a-review/">Leave a Review</a>
 				</div>
