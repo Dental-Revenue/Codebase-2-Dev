@@ -34,8 +34,8 @@
 .block-set{}
   .block{display:block;position:relative;width: 32%;height:0;padding-bottom:26%;margin: 0 2% 2% 0;background-size:cover;background-position:center center;float: left;text-align: center;background-size: cover; &:nth-child(3n+3){margin-right: 0;}}
     .block p{color: $white;text-shadow: 0 0 5px rgba($black,.2);transition:opacity .4s;}
-    .block p:nth-child(2){text-shadow: 2px 2px 25px rgb(0 0 0 / 70%);position: absolute;bottom:0;left: 0;width: 100%;padding: 20px;box-sizing: border-box;margin: 0;font-size: 22px; line-height: 24px; & i{display: block;font-size: 100%;margin-top: 10px;}}
-    .block p:last-child{opacity:0;@include center(both);width: 90%;width: calc(100% - 40px);margin: 0;font-size: 18px;line-height: 180%;text-shadow: 2px 2px 25px rgb(0 0 0 / 70%);}
+    .block p:nth-child(2){text-shadow: 2px 2px 25px rgba(0,0,0,70%);position: absolute;bottom:0;left: 0;width: 100%;padding: 20px;box-sizing: border-box;margin: 0;font-size: 22px; line-height: 24px; & i{display: block;font-size: 100%;margin-top: 10px;}}
+    .block p:last-child{opacity:0;@include center(both);width: 90%;width: calc(100% - 40px);margin: 0;font-size: 18px;line-height: 180%;text-shadow: 2px 2px 25px rgba(0,0,0,70%);}
         
     /* hover state */
     .block:hover p:nth-child(2){opacity:0;}
@@ -66,4 +66,19 @@
 
 @media all and (max-width: $bp-phone) {  
   .block{width: 100%;margin: 0 0 20px;padding-bottom: 55%;}
+  .block p:last-child {
+    opacity: 1;
+    top: 75%;
+  }
+  .block p:nth-child(2) i {
+    visibility: hidden;
+  }
+  .block p:nth-child(2) {
+  bottom: unset;
+  top: 42%;
+  font-weight: 600;
+  }
+  .block:hover p:nth-child(2) {
+    opacity: 1;
+  }
 }

@@ -44,6 +44,43 @@ body:not(.home) .main-content iframe {
 
 /* BLOG PAGE */
 article.hentry {padding-bottom: 50px;}
+.post-navigation .screen-reader-text{position:absolute;left:-1000em;}
+.post-navigation .nav-links .nav-previous a{display:flex;flex-direction:column;}
+.post-navigation .nav-links .nav-next a{display:flex;flex-direction:column;}
+.post-navigation .nav-links .dots{text-align:center;}
+.post-navigation .svg-icon{display:inline-block;fill:currentColor;vertical-align:middle;position:relative;}
+.post-navigation .nav-previous .svg-icon,
+.post-navigation .prev .svg-icon{top:-2px;margin-right:calc(0.25 * 20);}
+.post-navigation .nav-next .svg-icon,
+.post-navigation .next .svg-icon{top:-1px;margin-left:calc(0.25 * 20);}
+.post-navigation{margin:0px auto 30px auto;}
+.post-navigation .meta-nav{line-height:1.7;margin:0;color:$main-color;}
+.post-navigation .post-title {
+    display: inline-block;
+    font-size: 1.5rem;
+    font-weight: 600;
+    line-height: 1.3;
+    margin: 0px 0px;
+    color: $main-color;
+}
+.post-navigation a {color: $main-color;}
+.post-navigation a:hover {
+  text-decoration: underline;
+}
+.post-navigation .nav-next,
+.post-navigation .nav-previous{margin-top:30px;margin-bottom:30px;}
+.post-navigation .nav-next:first-child,
+.post-navigation .nav-previous:first-child{margin-top:0;}
+.post-navigation .nav-next:last-child,
+.post-navigation .nav-previous:last-child{margin-bottom:0;}
+@media only screen and (min-width:592px){
+  .post-navigation .nav-links{display:flex;justify-content:space-between;flex-wrap:wrap;}
+  .post-navigation .nav-links .nav-next,	.post-navigation .nav-links .nav-previous{flex:0 1 auto;margin-bottom:inherit;margin-top:inherit;max-width:calc(50% - (0.5 * 20));}
+  .post-navigation .nav-links .nav-next{text-align:right;}
+}
+@media only screen and (min-width:482px){
+    .post-navigation .nav-links{justify-content:space-between;}
+}
 
 /* Better contrast on links */
 body:not(.home) .main-content a:hover, aside.widget_nav_menu ul li a:hover, aside.widget_blog a:hover {

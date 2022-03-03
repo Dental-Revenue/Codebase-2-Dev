@@ -57,7 +57,7 @@
     <p>New Patients <span class="bold tracknum"><?php site_ops_new_patient_phone(); ?></span></p>
     <?php } ?>
     <?php if ($display_address === 'yes') {?>
-    <a class="contact-option street-address" <?php $option = get_option('practice_info'); if (!empty($option['google_place_id'])) { echo 'href="https://www.google.com/maps/search/?api=1&query=Google&query_place_id=' . $option['google_place_id'] . '" target="_blank"'; } ?>>
+    <a class="contact-option street-address" <?php $option = get_option('practice_info'); if (!empty($option['google_place_id'])) { echo 'href="https://www.google.com/maps/search/?api=1&query=Google&query_place_id=' . $option['google_place_id'] . '" target="_blank" rel="nofollow"'; } ?>>
     <i class="icon fas fa-compass"></i>
     <p><?php site_ops_address(); ?>  <span class="bold"><?php site_ops_city(); ?>, <?php site_ops_state(); ?> <?php site_ops_zip(); ?></span></p>
     </a>

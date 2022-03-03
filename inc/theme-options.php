@@ -103,7 +103,15 @@ function cmb2_practice_options() {
 		'type' 					=> 'textarea',
 		'desc'					=> 'Copy/Paste Google Map embed iframe here',
 		'sanitization_cb' => false,
-		'default'				=> '<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3088.3671114022404!2d-76.56648874846827!3d39.279924279413095!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c803f65b93dfa5%3A0xd388a5f63fa5a04b!2sDental+Revenue+Boston+Street%2C+Baltimore%2C+MD!5e0!3m2!1sen!2sus!4v1543507717220" width="600" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>'
+		'default'				=> '<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3101.855715091177!2d-76.48322958464746!3d38.97296247955894!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c803f40fba8ec9%3A0xed2615b8c0e64e5f!2sDental%20Revenue!5e0!3m2!1sen!2sus!4v1625243096578!5m2!1sen!2sus" width="600" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>'
+		));
+	
+		$box->add_field( array(
+			'name' 					=> 'Google Map (Embed URL)',
+			'id'   					=> 'google_map_embed_url',
+			'type' 					=> 'textarea',
+			'desc'					=> 'Copy/Paste Google Map embed url here',
+			'default'				=> 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3101.855715091177!2d-76.48322958464746!3d38.97296247955894!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c803f40fba8ec9%3A0xed2615b8c0e64e5f!2sDental%20Revenue!5e0!3m2!1sen!2sus!4v1625243096578!5m2!1sen!2sus'
 	));
 	
 	$box->add_field( array(
@@ -514,6 +522,18 @@ function cmb2_appearance_options() {
 		'default'				=> '/schedule-appointment/'
 	));
 	
+	$box->add_field( array(
+		'name' 					=> 'CTA button popup',
+		'desc'					=> 'Instead of CTA button url, open as a popup form? Note: Only works on Navigation Style F (for now)',
+		'id'   					=> 'cta_popup',
+		'type' => 'select',
+		'options'          => array(
+			'popup' => 'Yes, open as a popup form',
+			'no' => 'No, use CTA button url instead',
+		),
+		'default' => 'popup'
+	));
+
 	$box->add_field( array(
 		'name'    => 'Optional Header Items',
 		'desc'    => 'Logo, Navigation and New Patent # are required items.',
