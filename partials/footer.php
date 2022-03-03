@@ -9,18 +9,6 @@
 	$facebook_link = $option3['facebook_link'];
 	$instagram_link = $option3['instagram_link'];
 	
-	if ($nav_style == 'header-style-f') { ?>
-
-
-	<footer class="footer">
-   <div class="footer__top">
-   <img src="<?php site_ops_logo(); ?>" alt="<?php site_ops_practice_name(); ?>" class="footer__logo" />
-<?php
-wp_nav_menu( array(
-    'menu'           => 'footer', 
-    'fallback_cb'    => false,
-    'container_class' => 'footer__menu'
-) );
 ?>    
 
       <div class="footer__map">
@@ -257,3 +245,4 @@ wp_nav_menu( array(
 </footer>
 
 </div> <!-- end page wrap -->
+<?php } ?>
