@@ -12,7 +12,10 @@
   $raw_headline = get_post_meta(get_the_id(),$instance.'_headline',true);
 	$headline = str_replace(array('{','}'), array('<span>','</span>'),$raw_headline);
 	?>
-  <?php if(!empty($headline)){ ?><h2 class="<?php echo $headline_style; ?>"><?php echo $headline; ?></h2><?php } ?>
+  <?php if(!empty($headline)){ ?><h2 class="<?php echo $headline_style; ?>"><?php echo $headline; ?></h2><?php 
+        } else { ?>
+        <div class="spacer">&nbsp;</div>
+        <?php } ?>
 </div>
 
 <div class="row">
