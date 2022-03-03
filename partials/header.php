@@ -140,13 +140,13 @@ do_action('before_header');
         <?php if(!empty(site_ops_current_patient_phone(false)) && in_array("current_patient", $header_items)){ ?>
         <div class="contact-option">
           <i class="fas fa-phone fa-flip-horizontal"></i>
-          <p>Current Patients <span class="bold"><?php site_ops_current_patient_phone(); ?></span></p>
+          <a href="tel:<?php site_ops_current_patient_phone(); ?>"><i class="fas fa-phone"></i><span>Current Patients </span><span class="bold"><?php site_ops_current_patient_phone(); ?></span></a>
         </div> 
         <?php } ?> 
 	      <?php if(!empty(site_ops_new_patient_phone(false))){ ?>
         <div class="contact-option">
           <i class="fas fa-phone fa-flip-horizontal"></i>
-          <p>New Patients <span class="bold tracknum"><?php site_ops_new_patient_phone(); ?></span></p>
+          <a href="tel:<?php site_ops_new_patient_phone(); ?>"><i class="fas fa-phone"></i><span>New Patients </span><span class="bold"><?php site_ops_new_patient_phone(); ?></span></a>
         </div> 
         <?php } ?>  
 	    
@@ -217,13 +217,13 @@ do_action('before_header');
         <?php if(!empty(site_ops_current_patient_phone(false)) && in_array("current_patient", $header_items)){ ?>
         <div class="contact-option">
           <i class="fas fa-phone fa-flip-horizontal"></i>
-          <p>Current Patients <span class="bold"><?php site_ops_current_patient_phone(); ?></span></p>
+          <a href="tel:<?php site_ops_current_patient_phone(); ?>"><i class="fas fa-phone"></i><span>Current Patients </span><span class="bold"><?php site_ops_current_patient_phone(); ?></span></a>
         </div> 
         <?php } ?> 
 	      <?php if(!empty(site_ops_new_patient_phone(false))){ ?>
         <div class="contact-option">
           <i class="fas fa-phone fa-flip-horizontal"></i>
-          <p>New Patients <span class="bold tracknum"><?php site_ops_new_patient_phone(); ?></span></p>
+          <a href="tel:<?php site_ops_new_patient_phone(); ?>"><i class="fas fa-phone"></i><span>New Patients </span><span class="bold"><?php site_ops_new_patient_phone(); ?></span></a>
         </div> 
         <?php } ?>  
 	    
@@ -254,10 +254,10 @@ do_action('before_header');
 		<nav class="large-nav"><?php wp_nav_menu(array('walker' => new Walker_Quickstart_Menu())); ?> </nav>
 		<nav class="mobile-nav ">
 			<div class="contact-dropdown">
-			<a class="drop-link" href="">Contact Us <i class="fa fa-caret-down"></i></a>
+				<a class="drop-link" href="">Contact Us <i class="fa fa-caret-down"></i></a>
 				<div class="drop-content" style="display: none;">
-				<a href="tel:<?php site_ops_new_patient_phone();?>"><p>New Patients <span class="tracknum"><?php site_ops_new_patient_phone(); ?></span></p></a>
-				<a href="tel:<?php site_ops_current_patient_phone();?>"><p>Current Patients <span ><?php site_ops_current_patient_phone(); ?></span></p></a>
+          <a href="tel:<?php site_ops_new_patient_phone(); ?>"><i class="fas fa-phone"></i><span>New Patients </span><span class="bold"><?php site_ops_new_patient_phone(); ?></span></a>
+					<a href="tel:<?php site_ops_current_patient_phone(); ?>"><i class="fas fa-phone"></i><span>Current Patients </span><span class="bold"><?php site_ops_current_patient_phone(); ?></span></a>
 					<a href="<?php site_ops_cta_url(); ?>"><?php site_ops_cta_text(); ?></a>
 					<a href="/leave-a-review/">Leave a Review</a>
 				</div>
