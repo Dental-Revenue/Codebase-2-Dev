@@ -2,9 +2,9 @@
 We're looking at a few minor patches and bug fixes in this release that have been a long time coming!
 The dev team would like to thank everyone that helped us move this along, and give ourselves a pat on
 the back as well. We're testing out the waters with this release, but there will be a major release
-within the next month that will implement a new gallery that will give our clients a more modern,
-responsive experience. More on that in the next release notes though, for now let's talk about changes
-to this one:
+within the next month that will implement a new gallery. This gallery will give our clients a more modern,
+responsive experience, and it will change the way we present images on our websites moving forward!
+More on that in the next release notes though, for now let's talk about changes to this one:
 ## Bug Fixes
 ### Carousel-3 Module
 **Problem** - When there is no title on this module, there is no space between the content and the top
