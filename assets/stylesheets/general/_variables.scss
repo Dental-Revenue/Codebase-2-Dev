@@ -1,13 +1,5 @@
-/* FONTS */
-$special-font: 'Raleway', serif;
-$heading-font: 'Raleway', serif;
-$body-font: 'Montserrat', sans-serif;
-
 /* FONT ICONS */
 $font-awesome: 'Font Awesome 5 Free';
-
-/* TYPOGRAPHY */
-$headline_case: 'uppercase';
 
 /* BASIC COLORS */
 $white:#fff;
@@ -18,9 +10,6 @@ $md-dk-grey:#4C4C4C; //rgba($black,.7);
 $dk-grey:#333333; //rgba($black,.8);
 $black:#000;
 $google-red:#dd4c39;
-$main-color:#fc8e16;
-$dk-blue:#1f67a1;
-$lt-blue:#367fb2;
 
 /* BRAND COLORS */
 //$main-color; THIS IS SET IN SETTINGS
@@ -30,7 +19,6 @@ $cta-color: $accent;
 /* TEXT COLORS */
 $body-color: $dk-grey;
 $heading-color: $main-color;
-$nav-color: $dk-blue;
 
 /* BREAKPOINTS */
 $bp-desktop: 1600px;
@@ -40,6 +28,3 @@ $bp-tablet: 1079px;
 $bp-phablet: 767px;
 $bp-phone: 599px;
 $bp-sm-phone: 479px;
-
-/* BUTTONS */
-$buttons-style: '3px';
