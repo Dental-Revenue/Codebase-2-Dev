@@ -8,47 +8,10 @@
 	$option3 = get_option('social_info'); 
 	$facebook_link = $option3['facebook_link'];
 	$instagram_link = $option3['instagram_link'];
-	
-?>    
-
-      <div class="footer__map">
-         <iframe src="<?php echo $google_map_embed_url; ?>" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" class="footer__map-canvas"></iframe>
-      </div>
-      <ul class="footer__contact">
-        
 
 
+?>
 
-         <li><?php site_ops_address(); ?></li>
-         <li><?php site_ops_city(); ?>, <?php site_ops_state(); ?> <?php site_ops_zip(); ?></li>
-         <li><a href="tel:+<?php site_ops_new_patient_phone(); ?>" class="plain-link">New Patients: <span class="tracknum"><?php site_ops_new_patient_phone(); ?></span></a></li><li><a href="tel:+<?php site_ops_current_patient_phone(); ?>" class="plain-link">Current Patients: <span class="tracknum"><?php site_ops_current_patient_phone(); ?></span></a></li>
-      </ul>
-      <div class="footer__social-icons">
-         <a href="<?php echo $facebook_link; ?>">
-            <img src="/wp-content/themes/codebase-2/assets/images/layout/facebook.svg" alt="Facebook Icon">
-
-
-            
-         </a>
-         <a href="<?php echo $instagram_link; ?>" target="_blank">
-            <img src="/wp-content/themes/codebase-2/assets/images/layout/instagram.svg" alt="Instagram Icon">
-         </a>
-      </div>
-   </div>
-   <div class="footer__bottom">
-        <span>
-<a href="/sitemap/">Sitemap</a> | 
-<a href="/privacy-policy/">Privacy Policy</a> | 
-<a href="/terms-of-use/">Terms of Use</a> | 
-<a href="/accessibility/">Accessibility</a>
-</span>
-        <a href="https://www.dentalrevenue.com" rel="nofollow" class="plain-link">
-            DENTAL WEBSITE BY DENTAL REVENUE
-        </a>
-    </div>
-</footer>
-
-<?php } else { ?>
 <footer>
   
   <div class="footer-top">
@@ -243,6 +206,5 @@
 	<?php } ?>
   
 </footer>
-
 </div> <!-- end page wrap -->
 <?php } ?>
