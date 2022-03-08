@@ -1,5 +1,5 @@
-.static_image_split {position: relative; padding: 0;}
-.static_image_split-img{position: absolute;top:0;bottom:0;left:0;height: 100%;width: 50%;box-sizing: border-box;border-color: transparent!important;}
+.static_image_split {position: relative; padding: 0; display: flex;}
+.static_image_split-img{top:0;bottom:0;left:0;height: 100%;width: 50%;box-sizing: border-box;border-color: transparent!important;}
 .static_image_split-img img {height:100%; width:100%; object-fit:cover;}
 .static_image_split-right{width: 50%;position: relative;}
 
@@ -21,6 +21,7 @@
 
 .static_image_split-contact .contact-options{display: block; padding-top: 15px;}
 .static_image_split-contact .contact-options .contact-option{margin: 0 0px 20px 30px; float: none; &:last-child{margin-right: 0;}}
+.static_image_split-contact a {margin-left: 2em;}
 
 .static_image_split form .btn {
     width: 100%;
