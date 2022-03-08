@@ -8,8 +8,10 @@
 	$option3 = get_option('social_info'); 
 	$facebook_link = $option3['facebook_link'];
 	$instagram_link = $option3['instagram_link'];
-	
+
+
 ?>
+
 <footer>
   
   <div class="footer-top">
@@ -204,5 +206,5 @@
 	<?php } ?>
   
 </footer>
-
 </div> <!-- end page wrap -->
+<?php } ?>
