@@ -13,6 +13,7 @@ GENERAL ========================================================================
 @import 'general/mixins';
 @import 'general/utility';
 @import 'general/typography';
+@import 'general/keyframes';
 @import 'general/grid';
 @import 'general/rte';
 @import 'general/buttons';
@@ -84,6 +85,7 @@ INTERIOR PAGES =================================================================
 @import 'pages/_gallery-scroll';
 @import 'pages/_testimonials';
 @import 'pages/_services';
+@import 'pages/smart-gallery';
 
 
 /*==========================================================================================================================

@@ -40,3 +40,18 @@
     
   }
 }
+
+@mixin maxSize() {
+  height: 100%;
+  width: 100%;
+  max-height: 100%;
+  max-width: 100%;
+}
+
+@mixin slider() {
+  width: 2em;
+  height: 2em;
+  background: url('/wp-content/themes/codebase-2-child/assets/images/Slider.png');
+  background-size: contain;
+  cursor: pointer;
+}
