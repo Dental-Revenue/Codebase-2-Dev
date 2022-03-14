@@ -502,3 +502,93 @@ input {
         @extend .two-column-grid.deluxe-grid.headshot-grid.before-grid.before-grid.excerpt-grid;
     }
 }
+@media screen and (min-width: 768px) {
+    .two-column-grid {
+        .grid-patient {
+            width: 43vw;
+        }
+    }
+    .three-column-grid {
+        grid-template-columns: repeat(3, 1fr);
+        
+        .grid-patient {
+            width: 27vw;
+        }
+    }
+    .four-column-grid {
+        grid-template-columns: repeat(4, 1fr);
+
+        .grid-patient {
+            width: 19vw;
+        }
+    }
+    .six-column-grid.headshot-grid,
+    .nine-column-grid.headshot-grid,
+    .six-column-grid.before-grid,
+    .nine-column-grid.before-grid,
+    .six-column-grid.deluxe-grid.headshot-grid,
+    .nine-column-grid.deluxe-grid.headshot-grid {
+        @extend .four-column-grid;
+    }
+    .four-column-grid.headshot-grid.before-grid,
+    .six-column-grid.headshot-grid.before-grid,
+    .nine-column-grid.headshot-grid.before-grid,
+    .four-column-grid.deluxe-grid.headshot-grid.excerpt-grid,
+    .four-column-grid.deluxe-grid.headshot-grid.spacer-grid,
+    .six-column-grid.deluxe-grid.headshot-grid.excerpt-grid,
+    .six-column-grid.deluxe-grid.headshot-grid.spacer-grid,
+    .nine-column-grid.deluxe-grid.headshot-grid.excerpt-grid,
+    .nine-column-grid.deluxe-grid.headshot-grid.spacer-grid,
+    .four-column-grid.deluxe-grid.before-grid,
+    .six-column-grid.deluxe-grid.before-grid,
+    .nine-column-grid.deluxe-grid.before-grid {
+        @extend .three-column-grid;
+    }
+    .four-column-grid.headshot-grid.before-grid,
+    .six-column-grid.headshot-grid.before-grid,
+    .nine-column-grid.headshot-grid.before-grid {
+        @extend .three-column-grid;
+    }
+    .three-column-grid.headshot-grid.before-grid.excerpt-grid {
+        .grid-patient {
+            width: 28vw;
+        }
+    }
+    .three-column-grid.headshot-grid.before-grid.spacer-grid .grid-patient,
+    .four-column-grid.headshot-grid.before-grid.excerpt-grid .grid-patient,
+    .four-column-grid.headshot-grid.before-grid.spacer-grid .grid-patient,
+    .six-column-grid.headshot-grid.before-grid.excerpt-grid .grid-patient,
+    .six-column-grid.headshot-grid.before-grid.spacer-grid .grid-patient,
+    .nine-column-grid.headshot-grid.before-grid.excerpt-grid .grid-patient,
+    .nine-column-grid.headshot-grid.before-grid.spacer-grid .grid-patient {
+        @extend .three-column-grid.headshot-grid.before-grid.excerpt-grid;
+    }
+    .deluxe-grid {
+        .grid-patient {
+            width: 82vw;
+        }
+    }
+    .two-column-grid.deluxe-grid {
+        .grid-patient {
+            width: 34vw;
+        }
+    }
+    .three-column-grid.deluxe-grid {
+        .grid-patient {
+            width: 19vw;
+            padding-bottom: 1.5em;
+        }
+    }
+    .three-column-grid.deluxe-grid.headshot-grid.before-grid.excerpt-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .three-column-grid.deluxe-grid.headshot-grid.before-grid.spacer-grid,
+    .four-column-grid.deluxe-grid.headshot-grid.before-grid.excerpt-grid,
+    .four-column-grid.deluxe-grid.headshot-grid.before-grid.spacer-grid,
+    .six-column-grid.deluxe-grid.headshot-grid.before-grid.excerpt-grid,
+    .six-column-grid.deluxe-grid.headshot-grid.before-grid.spacer-grid,
+    .nine-column-grid.deluxe-grid.headshot-grid.before-grid.excerpt-grid,
+    .nine-column-grid.deluxe-grid.headshot-grid.before-grid.spacer-grid {
+        @extend .three-column-grid.deluxe-grid.headshot-grid.before-grid.excerpt-grid;
+    }
+}
