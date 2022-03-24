@@ -71,7 +71,8 @@
     <?php } ?>
     <?php } else { ?>
     <form action="<?php echo get_form_processor(); ?>" method="post" name="form-schedule">
-      <input type="text" name="FullName" placeholder="Full Name" />
+      <input type="text" name="FirstName" placeholder="First Name" />
+      <input type="text" name="LastName" placeholder="Last Name" />
       <input type="text" name="Phone" placeholder="Phone" />
       <input type="text" name="EmailName" placeholder="Email" />
       <textarea name="Comments" placeholder="How can we help?"></textarea>
