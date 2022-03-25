@@ -101,6 +101,7 @@
       <input type="text" name="Phone" placeholder="Phone" />
       <input type="text" name="EmailName" placeholder="Email" />
       <textarea name="Comments" placeholder="How can we help?"></textarea>
+      <input type="text" name="RepeatEmailName" placeholder="Retype Email">
       <br />
             <?php if (!empty(site_ops_recaptcha(false))) {?>
             <div class="captcha-container">
