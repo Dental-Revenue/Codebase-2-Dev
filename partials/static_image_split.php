@@ -18,7 +18,7 @@
     $btn_text = get_post_meta(get_the_id(), $instance.'_btn_text', true);
     $btn_url = get_post_meta(get_the_id(), $instance.'_btn_url', true);    
     $content = get_post_meta(get_the_id(), $instance.'_content', true);
-    $side_image_left_right = get_post_meta(get_the_id(), $instance.'_side_image_left_right', true);    
+    $side_image_left_right = get_post_meta(get_the_id(), $instance.'_side_image_left_right', true);  
     $text_align = get_post_meta(get_the_id(), $instance.'_text_align', true);
     $display_form = get_post_meta(get_the_id(), $instance.'_display_form', true);
     $text_padding = get_post_meta(get_the_id(), $instance.'_text_padding', true);
