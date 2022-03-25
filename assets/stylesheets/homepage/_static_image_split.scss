@@ -1,7 +1,7 @@
 .static_image_split {position: relative; padding: 0;}
 .static_image_split-img{position: absolute;top:0;bottom:0;left:0;height: 100%;width: 50%;box-sizing: border-box;border-color: transparent!important;}
 .static_image_split-img img {height:100%; width:100%; object-fit:cover;}
-.static_image_split-right{width: 50%;position: relative;}
+.static_image_split-right{width: 50%;position: relative;margin-right:50%;}
 
 .static_image_split-content h2{color: $main-color;font-size: 28px; text-transform: uppercase; line-height: 130%; padding: 0; max-width: 100%;}
 .static_image_split-content h2 span {display: block;font-size: 50%;opacity: .7;margin: 0;}
