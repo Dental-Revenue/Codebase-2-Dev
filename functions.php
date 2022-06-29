@@ -1487,4 +1487,22 @@ function cb2_pagination(){
     echo paginate_links();
 }
 
+function dental_revenue_post_types() {
+    register_post_type('gallery', array(
+      'description' => 'Gallery of images for the gallery page template',
+      'menu_position' => 5,
+      'public' => true,
+      'menu_icon' => 'dashicons-format-gallery',
+      'has_archive' => false,
+      'supports' => array('excerpt'),
+      'labels' => array(
+        'name' => 'Gallery',
+        'add_new_item' => 'Add New Picture',
+        'edit_item' => 'Edit Picture',
+        'all_items' => 'All Pictures',
+        'singular_name' => 'Picture'
+      )
+    ));
+  }
+add_action('init', 'dental_revenue_post_types');
 ?>
