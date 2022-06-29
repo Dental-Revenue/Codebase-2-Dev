@@ -23,6 +23,7 @@ Template Name: Schedule Appointment Form
           <input type="text" name="LastName" placeholder="Last Name" />
           <input type="text" name="Phone" placeholder="Phone" />
           <input type="text" name="EmailName" placeholder="Email" />
+          <input type="text" name="RepeatEmailName" placeholder="Retype Email">
           <textarea name="Comments" placeholder="Comments"></textarea>
           
           <p>I prefer to be contacted by:</p>

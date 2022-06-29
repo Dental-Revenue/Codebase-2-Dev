@@ -92,6 +92,13 @@ if ( file_exists(  __DIR__ . '/inc/cpts/cpt-testimonials.php' ) ) {
 if ( file_exists(  __DIR__ . '/inc/meta/meta-gallery-pages.php' ) ) {
   require_once  __DIR__ . '/inc/meta/meta-gallery-pages.php';
 }
+if (file_exists(__DIR__ . '/inc/meta/meta-smart-gallery-template.php')) {
+    include_once __DIR__ . '/inc/meta/meta-smart-gallery-template.php';
+}
+// ================================================ GALLERIES CPT
+if (file_exists(__DIR__ . '/inc/cpts/cpt-smart-gallery.php')) {
+    include_once __DIR__ . '/inc/cpts/cpt-smart-gallery.php';
+}
 
 // ================================================ SERVICES META
 if ( file_exists(  __DIR__ . '/inc/meta/service-template-meta.php' ) ) {
