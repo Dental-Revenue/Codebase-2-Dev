@@ -324,6 +324,28 @@ function cmb2_mega_menu_options() {
 
 }
 
+/**
+ * This function displays the columns on the Smart Gallery page in the admin dashboard
+ *
+ * @param mixed $columns The array of columns
+ * 
+ * @return void
+ * 
+ * @since 1.1.12
+ */
+function customPostsColumns( $columns )
+{
+    $columns = array(
+        'cb' => $columns['cb'],
+        'description' => __('Description'),
+        'headshot' => __('Headshot'),
+        'before' => __('Before'),
+        'after' => __('After'),
+        'tags' => __('Tags')
+    );
+    return $columns;
+}
+add_filter('manage_gallery_posts_columns', 'customPostsColumns');
 
 add_action( 'cmb2_admin_init', 'cmb2_mega_menu_options' );
 
