@@ -4,7 +4,7 @@
  * This function creates the lightbox and options for the smart gallery template selection. This uses an in-house framework
  * that was built for us several years ago, so references to new_cmb2_box and the like are references to that.
  *
- * @since 1.1.12
+ * @since 1.2.1
  */
 
 function smartGalleryMeta()
