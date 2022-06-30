@@ -1,0 +1,4644 @@
+// This is to counteract the base styling of CB2,
+// and eventually should be phased out
+input[type=range]:focus {
+    outline: none;
+    box-shadow: none;
+}
+.page-wrap {
+    .page-head {
+        h1 {
+                margin-bottom: 0;
+        }
+    }
+
+    .row {
+            max-width: unset;
+    }
+}
+#picture-grid {
+    display: grid;
+    margin: 0 auto 2em;
+
+    .grid-patient {
+        margin: 0 auto;
+        min-width: 10%;
+    }
+}
+input {
+    padding: 0;
+    margin: 0;
+    transition: 0;
+}
+.filter-list {
+    text-align: center;
+}
+.filter {
+    margin: 0.5em;
+    padding: 0.8em;
+    box-shadow: 1px 1px 4px $black;
+    background: $main-color;
+
+    &:active,
+    &:focus {
+        background: $accent;
+        color: $white;
+    }
+}
+.headshot-grid {
+    gap: 1em;
+
+    .grid-patient {
+        aspect-ratio: 2/3;
+        width: 50%;
+    }
+}
+.before-grid,
+.two-column-grid.before-grid,
+.three-column-grid.before-grid,
+.four-column-grid.before-grid,
+.six-column-grid.before-grid {
+    gap: 1em;
+
+    .grid-patient {
+        width: 90vw;
+        aspect-ratio: 3/2;
+    }
+}
+.headshot-image {
+    @include maxSize;
+}
+.before-after-container {
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    position: relative;
+}
+.before-image {
+    clip: rect(0, 45vw, 60vw, 0);
+    z-index: 2;
+}
+.before-image,
+.after-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+}
+.slide-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    z-index: 2;
+}
+.slider {
+    @include prefix(appearance, none);
+    background: transparent;
+    outline: none;
+    z-index: 3;
+    position: absolute;
+    top: 40%;
+
+    &::-webkit-slider-thumb {
+        @include prefix(appearance, none);
+        @include slider;
+    }
+
+    &::-moz-range-thumb {
+        @include slider;
+    }
+}
+.excerpt-grid:not(.before-grid):not(.headshot-grid) {
+    .grid-patient {
+        .excerpt-container {
+            max-width: 330px;
+        }
+    }
+}
+.excerpt-grid.title-grid:not(.before-grid):not(.headshot-grid) {
+    gap: 2vh;
+}
+.gallery-excerpt {
+    margin-bottom: 1em;
+    font-family: $body-font;
+}
+.before-grid.excerpt-grid {
+    .grid-patient {
+        aspect-ratio: 1/1;
+    }
+
+    .before-after-container {
+        flex-direction: column-reverse;
+        text-align: center;
+    }
+
+    .slide-container {
+        height: 100%;
+
+        .slider {
+            top: 25%;
+        }
+    }
+}
+.headshot-grid {
+    .before-after-container {
+        width: 47.5%;
+        float: right;
+        flex-direction: column;
+        justify-content: space-between;
+
+        img {
+            position: static;
+        }
+    }
+}
+.headshot-grid.before-grid {
+    .slide-container {
+        display: none;
+    }
+}
+.before-grid .headshot-image {
+    width: 47.5%;
+    height: 100%;
+}
+.excerpt-container {
+    text-align: center;
+}
+.headshot-grid.excerpt-grid,
+.headshot-grid.spacer-grid {
+    .grid-patient {
+        width: 50vw;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        .before-after-container {
+            flex-direction: column-reverse;
+            text-align: center;
+            img {
+                position: absolute;
+            }
+        }
+
+        .gallery-excerpt {
+            font-size: 3vw;
+        }
+    }
+
+    .before-image {
+        clip: rect(0, 21.5vw, 30vw, 0);
+    }
+
+    .slider {
+        height: 100%;
+    }
+}
+.headshot-grid.excerpt-grid.title-grid,
+.headshot-grid.spacer-grid.title-grid {
+    .grid-patient {
+        width: 40vw;
+    }
+}
+.headshot-grid.before-grid.excerpt-grid,
+.headshot-grid.before-grid.spacer-grid {
+    .grid-patient {
+        aspect-ratio: 3/2;
+        display: block;
+        width: 88vw;
+
+        .headshot-image {
+            margin-bottom: 0;
+        }
+
+        .before-after-container {
+            justify-content: normal;
+
+            .slide-container {
+                height: 47%;
+                display: block;
+                position: absolute;
+                top: 0;
+            }
+
+            .slider {
+                top: 0;
+                left: 0;
+            }
+        }
+    }
+}
+.headshot-grid.title-grid {
+    .headshot-image {
+        margin-bottom: 1em;
+    }
+}
+.headshot-grid.before-grid.excerpt-grid.title-grid,
+.headshot-grid.before-grid.spacer-grid.title-grid {
+    .grid-patient {
+        aspect-ratio: 1.4/1;
+
+        .gallery-excerpt {
+            margin: 0.7em 0 0;
+        }
+    }
+}
+.before-grid.excerpt-grid {
+    .grid-patient {
+        aspect-ratio: 1.1/1;
+
+        .gallery-excerpt {
+            margin-bottom: 0;
+        }
+    }
+}
+.before-grid.excerpt-grid.title-grid,
+.before-grid.spacer-grid.title-grid {
+    .grid-patient {
+        aspect-ratio: 1/1;
+
+        .gallery-excerpt {
+            font-size: 4vw;
+            margin-top: 4px;
+        }
+
+        .gallery-title {
+            font-size: 7vw;
+        }
+    }
+}
+.deluxe-grid {
+    .grid-patient {
+        padding: 1em;
+        background: $main-color;
+        border-radius: 0.75em;
+        position: relative;
+        opacity: 1;
+        @include prefix(animation, fadeIn 4s forwards);
+
+        .headshot-image,
+        .after-image {
+            box-shadow: 2px 2px 6px $black;
+        }
+
+        .before-image {
+            box-shadow: 2px 2px 6px $black;
+            clip: rect(0, 36vw, 48vw, 0);
+        }
+        
+        .gallery-title,
+        .gallery-excerpt {
+            color: set-text-color($main-color);
+        }
+    }
+}
+.deluxe-grid.headshot-grid {
+    .excerpt-container {
+        width: 100%;
+
+        .gallery-excerpt {
+            margin-bottom: -0.5em;
+        }
+    }
+}
+.deluxe-grid.headshot-grid.before-grid {
+    .grid-patient {
+        padding: 1em;
+    }
+}
+.two-column-grid.deluxe-grid.headshot-grid.before-grid,
+.three-column-grid.deluxe-grid.headshot-grid.before-grid,
+.four-column-grid.deluxe-grid.headshot-grid.before-grid,
+.six-column-grid.deluxe-grid.headshot-grid.before-grid {
+    grid-template-columns: 1fr;
+}
+.deluxe-grid.headshot-grid.excerpt-grid,
+.deluxe-grid.headshot-grid.spacer-grid {
+    grid-template-columns: 1fr;
+
+    .grid-patient {
+        padding-bottom: 0;
+        width: 35vw;
+
+        .headshot-image {
+            margin-bottom: 1.25em;
+        }
+
+        .before-image {
+            clip: rect(0, 19.5vw, 26vw, 0);
+        }
+
+        .gallery-excerpt {
+            margin-top: -1em;
+            margin-bottom: 1em;
+        }
+    }    
+}
+.deluxe-grid.headshot-grid.before-grid.excerpt-grid,
+.deluxe-grid.headshot-grid.before-grid.spacer-grid {
+    gap: 2em;
+
+    .grid-patient {
+        padding-bottom: 0.9em;
+        width: 81vw;
+
+        .headshot-image {
+            margin-bottom: 0;
+        }
+
+        .slider {
+            top: 0;
+            left: 0;
+        }
+
+        .gallery-excerpt {
+            font-size: 2.6vw;
+        }
+    }
+}
+.deluxe-grid.headshot-grid.title-grid {
+    .grid-patient {
+        width: 35vw;
+
+        .headshot-image {
+            margin-bottom: 1em;
+        }
+
+        .gallery-title {
+            margin-bottom: 5vw;
+        }
+    }
+}
+.deluxe-grid.headshot-grid.before-grid.excerpt-grid.title-grid,
+.deluxe-grid.headshot-grid.before-grid.spacer-grid.title-grid,
+.two-column-grid.deluxe-grid.headshot-grid.before-grid.excerpt-grid.title-grid,
+.two-column-grid.deluxe-grid.headshot-grid.before-grid.spacer-grid.title-grid,
+.three-column-grid.deluxe-grid.headshot-grid.before-grid.excerpt-grid.title-grid,
+.three-column-grid.deluxe-grid.headshot-grid.before-grid.spacer-grid.title-grid,
+.four-column-grid.deluxe-grid.headshot-grid.before-grid.excerpt-grid.title-grid,
+.four-column-grid.deluxe-grid.headshot-grid.before-grid.spacer-grid.title-grid {
+    .grid-patient {
+        width: 80vw;
+
+        .gallery-title {
+            font-size: 5vw;
+            margin-bottom: 4vw;
+        }
+
+        .gallery-excerpt {
+            font-size: 3.7vw;
+            margin-top: -1em;
+        }
+    }
+}
+.deluxe-grid.before-grid {
+    .grid-patient {
+        width: 72vw;
+    }
+}
+.deluxe-grid.before-grid.excerpt-grid,
+.deluxe-grid.before-grid.spacer-grid {
+    .grid-patient {
+        .gallery-excerpt {
+            font-size: 3.6vw;
+        }
+    }
+}
+.deluxe-grid.before-grid.excerpt-grid.title-grid,
+.deluxe-grid.before-grid.spacer-grid.title-grid {
+    .grid-patient {
+        .gallery-excerpt {
+            font-size: 3vw;
+        }
+    }
+}
+.deluxe-grid.excerpt-grid:not(.before-grid):not(.headshot-grid) {
+    gap: 1vh;
+}
+@media screen and (max-width: 363px) {
+    .before-grid.excerpt-grid,
+    .before-grid.spacer-grid {
+        .grid-patient {
+            aspect-ratio: 1/1;
+        }
+    }
+}
+@media screen and (min-width: 390px) {
+    .headshot-grid.excerpt-grid,
+    .headshot-grid.spacer-grid {
+        .grid-patient {
+            width: 40vw;
+        }
+    }
+}
+@media screen and (max-height: 800px) {
+    .headshot-grid {
+        .grid-patient {
+            width: 30%;
+        }
+    }
+    .headshot-grid.before-grid {
+        .grid-patient {
+            width: 50vw;
+        }
+    }
+    .headshot-grid.excerpt-grid,
+    .headshot-grid.spacer-grid {
+        .grid-patient {
+            width: 35vw;
+
+            .gallery-excerpt {
+                font-size: 2vw;
+            }
+        }
+    }
+    .headshot-grid.excerpt-grid.title-grid,
+    .headshot-grid.spacer-grid.title-grid {
+        .grid-patient {
+            width: 20vw;
+
+            .gallery-title {
+                font-size: 3.1vw;
+            }
+
+            .gallery-excerpt {
+                font-size: 2.25vw;
+            }
+        }
+    }
+    .headshot-grid.before-grid.excerpt-grid,
+    .headshot-grid.before-grid.spacer-grid {
+        .grid-patient {
+            width: 50vw;
+
+            .before-image {
+                clip: rect(0, 12vw, 16vw, 0);
+            }
+
+            .gallery-excerpt {
+                font-size: 1.7vw;
+            }
+        }
+    }
+    .before-grid,
+    .two-column-grid.before-grid,
+    .three-column-grid.before-grid,
+    .four-column-grid.before-grid {
+        grid-template-columns: 1fr;
+
+        .grid-patient {
+            width: 50vw;
+
+            .before-image {
+                clip: rect(0, 25vw, 35vw, 0);
+            }
+        }
+    }
+    .before-grid.excerpt-grid,
+    .before-grid.spacer-grid {
+        .grid-patient {
+            .gallery-excerpt {
+                font-size: 2.6vw;
+            }
+        }
+    }
+    .before-grid.excerpt-grid.title-grid,
+    .before-grid.spacer-grid.title-grid {
+        .grid-patient {
+            .gallery-title {
+                font-size: 3.5vw;
+            }
+
+            .gallery-excerpt {
+                font-size: 2.4vw;
+            }
+        }
+    }
+    .deluxe-grid.headshot-grid.excerpt-grid,
+    .deluxe-grid.headshot-grid.spacer-grid {
+        .grid-patient {
+            width: 30vw;
+
+            .gallery-excerpt {
+                font-size: 2.5vw;
+            }
+        }
+    }
+    .deluxe-grid.headshot-grid.before-grid.excerpt-grid,
+    .deluxe-grid.headshot-grid.before-grid.spacer-grid {
+        .grid-patient {
+            width: 50vw;
+
+            .gallery-excerpt {
+                font-size: 1.7vw;
+            }
+        }
+    }
+    .deluxe-grid.headshot-grid.before-grid.excerpt-grid.title-grid,
+    .deluxe-grid.headshot-grid.before-grid.spacer-grid.title-grid,
+    .two-column-grid.deluxe-grid.headshot-grid.before-grid.excerpt-grid.title-grid,
+    .two-column-grid.deluxe-grid.headshot-grid.before-grid.spacer-grid.title-grid,
+    .three-column-grid.deluxe-grid.headshot-grid.before-grid.excerpt-grid.title-grid,
+    .three-column-grid.deluxe-grid.headshot-grid.before-grid.spacer-grid.title-grid,
+    .four-column-grid.deluxe-grid.headshot-grid.before-grid.excerpt-grid.title-grid,
+    .four-column-grid.deluxe-grid.headshot-grid.before-grid.spacer-grid.title-grid {
+        .grid-patient {
+            width: 40vw;
+
+            .before-image {
+                clip: rect(0, 9.5vw, 13vw, 0);
+            }
+
+            .gallery-title {
+                font-size: 2.4vw;
+                margin-bottom: 1.7vw;
+            }
+
+            .gallery-excerpt {
+                font-size: 1.9vw;
+            }
+        }
+    }
+    .deluxe-grid.before-grid {
+        .grid-patient {
+            width: 50vw;
+        }
+    }
+    .deluxe-grid.before-grid.excerpt-grid,
+    .deluxe-grid.before-grid.spacer-grid {
+        .grid-patient {
+            .gallery-excerpt {
+                font-size: 2.5vw;
+            }
+        }
+    }
+    .deluxe-grid.before-grid.excerpt-grid.title-grid,
+    .deluxe-grid.before-grid.spacer-grid.title-grid {
+        .grid-patient {
+            .gallery-excerpt {
+                font-size: 2vw;
+            }
+        }
+    }
+}
+@media screen and (min-width: 364px) and (max-height: 800px) { 
+    .before-grid.excerpt-grid,
+    .before-grid.spacer-grid {
+        .grid-patient {
+            aspect-ratio: 1/1;
+        }
+    }
+}
+@media screen and (min-width: 414px) {
+    .headshot-grid.excerpt-grid,
+    .headshot-grid.spacer-grid {
+        .grid-patient {
+            width: 30vw;
+
+            .gallery-excerpt {
+                font-size: 2vw;
+            }
+        }
+    }
+    .headshot-grid.excerpt-grid.title-grid,
+    .headshot-grid.spacer-grid.title-grid {
+        .grid-patient {
+            width: 30vw;
+
+            .gallery-title {
+                font-size: 4.5vw;
+            }
+
+            .gallery-excerpt {
+                font-size: 2.5vw;
+            }
+        }
+    }
+    .headshot-grid.before-grid.excerpt-grid,
+    .headshot-grid.before-grid.spacer-grid {
+        .grid-patient {
+            .gallery-excerpt {
+                font-size: 3vw;
+            }
+        }
+    }
+    .headshot-grid.before-grid.excerpt-grid.title-grid,
+    .headshot-grid.before-grid.spacer-grid.title-grid {
+        .grid-patient {
+            width: 88vw;
+        }
+    }
+    .deluxe-grid.headshot-grid.excerpt-grid,
+    .deluxe-grid.headshot-grid.spacer-grid,
+    .two-column-grid.deluxe-grid.headshot-grid.excerpt-grid,
+    .two-column-grid.deluxe-grid.headshot-grid.spacer-grid,
+    .three-column-grid.deluxe-grid.headshot-grid.excerpt-grid,
+    .three-column-grid.deluxe-grid.headshot-grid.spacer-grid,
+    .four-column-grid.deluxe-grid.headshot-grid.excerpt-grid,
+    .four-column-grid.deluxe-grid.headshot-grid.spacer-grid,
+    .six-column-grid.deluxe-grid.headshot-grid.excerpt-grid,
+    .six-column-grid.deluxe-grid.headshot-grid.spacer-grid {
+        gap: 1em;
+
+        .grid-patient {
+            .gallery-excerpt {
+                font-size: 2.5vw;
+            }
+        }
+    }
+    .two-column-grid.deluxe-grid.headshot-grid.before-grid.excerpt-grid,
+    .two-column-grid.deluxe-grid.headshot-grid.before-grid.spacer-grid,
+    .three-column-grid.deluxe-grid.headshot-grid.before-grid.excerpt-grid,
+    .three-column-grid.deluxe-grid.headshot-grid.before-grid.spacer-grid,
+    .four-column-grid.headshot-grid.deluxe-grid.before-grid.excerpt-grid,
+    .four-column-grid.headshot-grid.deluxe-grid.before-grid.spacer-grid {
+        .grid-patient {
+            .gallery-excerpt {
+                font-size: 2.6vw;
+            }
+        }
+    }
+}
+@media screen and (min-width: 414px) and (max-height: 800px) {
+    .headshot-grid.excerpt-grid.title-grid,
+    .headshot-grid.spacer-grid.title-grid {
+        .grid-patient {
+            width: 20vw;
+
+            .gallery-title {
+                font-size: 3.1vw;
+            }
+        }
+    }
+    .headshot-grid.before-grid.excerpt-grid,
+    .headshot-grid.before-grid.spacer-grid {
+        .grid-patient {
+            .gallery-excerpt {
+                font-size: 1.7vw;
+            }
+        }
+    }
+    .headshot-grid.before-grid.excerpt-grid.title-grid,
+    .headshot-grid.before-grid.spacer-grid.title-grid {
+        .grid-patient {
+            width: 50vw;
+        }
+    }
+    .before-grid.excerpt-grid,
+    .before-grid.spacer-grid {
+        .grid-patient {
+            width: 40vw;
+
+            .before-image {
+                clip: rect(0, 20vw, 27vw, 0);
+            }
+
+            .gallery-excerpt {
+                font-size: 2vw;
+            }
+        }
+    }
+    .before-grid.excerpt-grid.title-grid,
+    .before-grid.spacer-grid.title-grid {
+        .grid-patient {
+            .gallery-title {
+                font-size: 2.5vw;
+            }
+
+            .gallery-excerpt {
+                font-size: 1.9vw;
+            }
+        }
+    }
+    .deluxe-grid.headshot-grid.excerpt-grid.title-grid,
+    .deluxe-grid.headshot-grid.spacer-grid.title-grid {
+        .grid-patient {
+            .gallery-title {
+                font-size: 3vw;
+                margin-bottom: 3vw;
+            }
+
+            .gallery-excerpt {
+                font-size: 2vw;
+            }
+        }
+    }
+    .deluxe-grid.before-grid.excerpt-grid,
+    .deluxe-grid.before-grid.spacer-grid {
+        .grid-patient {
+            .gallery-excerpt {
+                font-size: 2vw;
+            }
+        }
+    }
+    .deluxe-grid.before-grid.excerpt-grid.title-grid,
+    .deluxe-grid.before-grid.spacer-grid.title-grid {
+        .grid-patient {
+            .gallery-excerpt {
+                font-size: 1.9vw;
+                margin-top: 0;
+            }
+        }
+    }
+    .two-column-grid.deluxe-grid.headshot-grid.before-grid.excerpt-grid,
+    .two-column-grid.deluxe-grid.headshot-grid.before-grid.spacer-grid,
+    .three-column-grid.deluxe-grid.headshot-grid.before-grid.excerpt-grid,
+    .three-column-grid.deluxe-grid.headshot-grid.before-grid.spacer-grid,
+    .four-column-grid.deluxe-grid.headshot-grid.before-grid.excerpt-grid,
+    .four-column-grid.deluxe-grid.headshot-grid.before-grid.spacer-grid {
+        .grid-patient {
+            .gallery-excerpt {
+                font-size: 1.7vw;
+            }
+        }
+    }
+}
+@media screen and (min-width: 450px) and (max-height: 800px) {
+    .headshot-grid {
+        .grid-patient {
+            width: 20vw;
+        }
+    }
+    .two-column-grid.deluxe-grid.headshot-grid.before-grid {
+        gap: 1em;
+        max-width: max-content;
+        grid-template-columns: repeat(2, 1fr);
+
+        .grid-patient {
+            width: 35vw;
+        }
+    }
+    .deluxe-grid.headshot-grid.excerpt-grid,
+    .deluxe-grid.headshot-grid.spacer-grid,
+    .two-column-grid.deluxe-grid.headshot-grid.excerpt-grid,
+    .two-column-grid.deluxe-grid.headshot-grid.spacer-grid,
+    .three-column-grid.deluxe-grid.headshot-grid.excerpt-grid,
+    .three-column-grid.deluxe-grid.headshot-grid.spacer-grid,
+    .four-column-grid.deluxe-grid.headshot-grid.excerpt-grid,
+    .four-column-grid.deluxe-grid.headshot-grid.spacer-grid,
+    .six-column-grid.deluxe-grid.headshot-grid.excerpt-grid,
+    .six-column-grid.deluxe-grid.headshot-grid.spacer-grid {
+        .grid-patient {
+            width: 15vw;
+
+            .gallery-excerpt {
+                font-size: 2vw;
+            }
+        }
+    }
+    .two-column-grid.deluxe-grid.headshot-grid.excerpt-grid,
+    .two-column-grid.deluxe-grid.headshot-grid.spacer-grid,
+    .three-column-grid.deluxe-grid.headshot-grid.excerpt-grid,
+    .three-column-grid.deluxe-grid.headshot-grid.spacer-grid,
+    .four-column-grid.deluxe-grid.headshot-grid.excerpt-grid,
+    .four-column-grid.deluxe-grid.headshot-grid.spacer-grid,
+    .six-column-grid.deluxe-grid.headshot-grid.excerpt-grid,
+    .six-column-grid.deluxe-grid.headshot-grid.spacer-grid {
+        grid-template-columns: repeat(2, 1fr);
+        max-width: max-content;
+    }
+    .deluxe-grid.headshot-grid.excerpt-grid.title-grid,
+    .deluxe-grid.headshot-grid.spacer-grid.title-grid {
+        .grid-patient {
+            .gallery-title {
+                font-size: 2.3vw;
+                margin-bottom: 3vw;
+            }
+
+            .gallery-excerpt {
+                font-size: 1.5vw;
+            }
+        }
+    }
+    .two-column-grid.deluxe-grid.headshot-grid.before-grid.excerpt-grid,
+    .two-column-grid.deluxe-grid.headshot-grid.before-grid.spacer-grid,
+    .three-column-grid.deluxe-grid.headshot-grid.before-grid.excerpt-grid,
+    .three-column-grid.deluxe-grid.headshot-grid.before-grid.spacer-grid,
+    .four-column-grid.deluxe-grid.headshot-grid.before-grid.excerpt-grid,
+    .four-column-grid.deluxe-grid.headshot-grid.before-grid.spacer-grid {
+        .grid-patient {
+            width: 35vw;
+            padding-bottom: 0.7em;
+
+            .before-image {
+                clip: rect(0, 8.5vw, 11.1vw, 0);
+            }
+
+            .gallery-excerpt {
+                font-size: 1.2vw;
+            }
+        }
+    }
+    .two-column-grid.deluxe-grid.headshot-grid.excerpt-grid.title-grid,
+    .two-column-grid.deluxe-grid.headshot-grid.spacer-grid.title-grid,
+    .three-column-grid.deluxe-grid.headshot-grid.excerpt-grid.title-grid,
+    .three-column-grid.deluxe-grid.headshot-grid.spacer-grid.title-grid,
+    .four-column-grid.deluxe-grid.headshot-grid.excerpt-grid.title-grid,
+    .four-column-grid.deluxe-grid.headshot-grid.spacer-grid.title-grid {
+        .grid-patient {
+            .excerpt-container .gallery-title:empty {
+                padding-top: 2.5vw;
+            }
+        }
+    }
+    .two-column-grid.deluxe-grid.headshot-grid.before-grid.excerpt-grid.title-grid,
+    .two-column-grid.deluxe-grid.headshot-grid.before-grid.spacer-grid.title-grid,
+    .three-column-grid.deluxe-grid.headshot-grid.before-grid.excerpt-grid.title-grid,
+    .three-column-grid.deluxe-grid.headshot-grid.before-grid.spacer-grid.title-grid,
+    .four-column-grid.deluxe-grid.headshot-grid.before-grid.excerpt-grid.title-grid,
+    .four-column-grid.deluxe-grid.headshot-grid.before-grid.spacer-grid.title-grid {
+        grid-template-columns: 1fr;
+    }
+}
+@media screen and (min-width: 500px) {
+    .two-column-grid.deluxe-grid.headshot-grid.excerpt-grid,
+    .two-column-grid.deluxe-grid.headshot-grid.spacer-grid,
+    .three-column-grid.deluxe-grid.headshot-grid.excerpt-grid,
+    .three-column-grid.deluxe-grid.headshot-grid.spacer-grid,
+    .four-column-grid.deluxe-grid.headshot-grid.excerpt-grid,
+    .four-column-grid.deluxe-grid.headshot-grid.spacer-grid,
+    .six-column-grid.deluxe-grid.headshot-grid.excerpt-grid,
+    .six-column-grid.deluxe-grid.headshot-grid.spacer-grid {
+        .grid-patient {
+            .gallery-excerpt {
+                font-size: 2vw;
+            }
+        }
+    }
+    .headshot-grid.excerpt-grid.title-grid,
+    .headshot-grid.spacer-grid.title-grid {
+        .grid-patient {
+            .gallery-title {
+                font-size: 4vw;
+            }
+
+            .gallery-excerpt {
+                font-size: 2vw;
+            }
+        }
+    }
+    .headshot-grid.before-grid.excerpt-grid.title-grid,
+    .headshot-grid.before-grid.spacer-grid.title-grid {
+        .grid-patient {
+            .gallery-title {
+                font-size: 4.5vw;
+            }
+
+            .gallery-excerpt {
+                font-size: 3vw;
+            }
+        }
+    }
+    .before-grid.excerpt-grid,
+    .before-grid.spacer-grid {
+        .grid-patient {
+            width: 50vw;
+
+            .before-image {
+                clip: rect(0, 25vw, 35vw, 0);
+            }
+
+            .gallery-excerpt {
+                font-size: 2.4vw;
+            }
+        }
+    }
+    .before-grid.excerpt-grid.title-grid,
+    .before-grid.spacer-grid.title-grid {
+        .grid-patient {
+            .gallery-title {
+                font-size: 5vw;
+            }
+
+            .gallery-excerpt {
+                font-size: 2vw;
+            };
+        }
+    }
+    .deluxe-grid.headshot-grid.excerpt-grid.title-grid,
+    .deluxe-grid.headshot-grid.spacer-grid.title-grid {
+        .grid-patient {
+            .gallery-title {
+                margin-bottom: 4vw;
+            }
+        }
+    }
+    .deluxe-grid.before-grid.excerpt-grid,
+    .deluxe-grid.before-grid.spacer-grid {
+        .grid-patient {
+            .gallery-excerpt {
+                font-size: 2.5vw;
+            }
+        }
+    }
+    .deluxe-grid.before-grid.excerpt-grid.title-grid,
+    .deluxe-grid.before-grid.spacer-grid.title-grid {
+        .grid-patient {
+            .gallery-title {
+                font-size: 4vw;
+            }
+
+            .gallery-excerpt {
+                font-size: 2vw;
+            }
+        }
+    }
+}
+@media screen and (min-width: 500px) and (max-height: 800px) {
+    .headshot-grid.excerpt-grid,
+    .headshot-grid.spacer-grid {
+        .grid-patient {
+            width: 20vw;
+
+            .gallery-excerpt {
+                font-size: 1.5vw;
+            }
+        }
+    }
+    .headshot-grid.excerpt-grid.title-grid,
+    .headshot-grid.spacer-grid.title-grid {
+        .grid-patient {
+            width: 15vw;
+
+            .gallery-title {
+                font-size: 2.3vw;
+            }
+
+            .gallery-excerpt {
+                font-size: 1.7vw;
+            }
+        }
+    }
+    .headshot-grid.before-grid.excerpt-grid.title-grid,
+    .headshot-grid.before-grid.spacer-grid.title-grid {
+        .grid-patient {
+            .gallery-title {
+                font-size: 3vw;
+            }
+
+            .gallery-excerpt {
+                font-size: 1.7vw;
+            }
+        }
+    }
+    .before-grid.excerpt-grid,
+    .before-grid.spacer-grid {
+        .grid-patient {
+            width: 30vw;
+
+            .before-image {
+                clip: rect(0, 15vw, 21vw, 0);
+            }
+
+            .gallery-excerpt {
+                font-size: 1.6vw;
+            }
+        }
+    }
+    .two-column-grid.before-grid.excerpt-grid,
+    .two-column-grid.before-grid.spacer-grid,
+    .three-column-grid.before-grid.excerpt-grid,
+    .three-column-grid.before-grid.spacer-grid,
+    .four-column-grid.before-grid.excerpt-grid,
+    .four-column-grid.before-grid.spacer-grid {
+        grid-template-columns: repeat(2, 1fr);
+        max-width: max-content;
+    }
+    .before-grid.excerpt-grid.title-grid,
+    .before-grid.spacer-grid.title-grid {
+        .grid-patient {
+            .gallery-title {
+                font-size: 2.5vw;
+            }
+
+            .gallery-excerpt {
+                font-size: 1.4vw;
+                margin-top: 0;
+            }
+        }
+    }
+    .deluxe-grid.before-grid.excerpt-grid,
+    .deluxe-grid.before-grid.spacer-grid {
+        .grid-patient {
+            .gallery-excerpt {
+                font-size: 1.5vw;
+            }
+        }
+    }
+    .deluxe-grid.before-grid.excerpt-grid.title-grid,
+    .deluxe-grid.before-grid.spacer-grid.title-grid {
+        .grid-patient {
+            .gallery-title {
+                font-size: 2.5vw;
+            }
+            
+            .gallery-excerpt {
+                font-size: 1.4vw;
+            }
+        }
+    }
+}
+@media screen and (min-width: 550px) and (min-height: 801px) {
+    .headshot-grid {
+        .grid-patient {
+            width: 35%;
+        }
+    }
+    .headshot-grid.excerpt-grid.title-grid,
+    .headshot-grid.spacer-grid.title-grid {
+        gap: 1em;
+
+        .grid-patient {
+            width: 25vw;
+
+            .gallery-title {
+                font-size: 3.5vw;
+            }
+
+            .gallery-excerpt {
+                font-size: 1.8vw;
+            }
+        }
+    }
+    .headshot-grid.before-grid {
+        .grid-patient {
+            width: 50vw;
+        }
+    }
+    .two-column-grid.headshot-grid.before-grid {
+        grid-template-columns: repeat(2, 1fr);
+        max-width: max-content;
+
+        .grid-patient {
+            width: 40vw;
+        }
+    }
+    .two-column-grid.headshot-grid.before-grid.excerpt-grid,
+    .two-column-grid.headshot-grid.before-grid.spacer-grid,
+    .three-column-grid.headshot-grid.before-grid.excerpt-grid,
+    .three-column-grid.headshot-grid.before-grid.spacer-grid,
+    .four-column-grid.headshot-grid.before-grid.excerpt-grid,
+    .four-column-grid.headshot-grid.before-grid.spacer-grid,
+    .six-column-grid.headshot-grid.before-grid.excerpt-grid,
+    .six-column-grid.headshot-grid.before-grid.spacer-grid {
+        .grid-patient {
+            width: 40vw;
+
+            .before-image {
+                clip: rect(0, 9.5vw, 13vw, 0);
+            }
+
+            .gallery-excerpt {
+                font-size: 1.4vw;
+            }
+        }
+    }
+    .two-column-grid.headshot-grid.before-grid.excerpt-grid.title-grid,
+    .two-column-grid.headshot-grid.before-grid.spacer-grid.title-grid,
+    .four-column-grid.headshot-grid.before-grid.excerpt-grid.title-grid,
+    .four-column-grid.headshot-grid.before-grid.spacer-grid.title-grid {
+        .grid-patient {
+            .gallery-title {
+                font-size: 2vw;
+            }
+        }
+    }
+    .two-column-grid.deluxe-grid.headshot-grid.excerpt-grid,
+    .two-column-grid.deluxe-grid.headshot-grid.spacer-grid,
+    .three-column-grid.deluxe-grid.headshot-grid.excerpt-grid,
+    .three-column-grid.deluxe-grid.headshot-grid.spacer-grid,
+    .four-column-grid.deluxe-grid.headshot-grid.excerpt-grid,
+    .four-column-grid.deluxe-grid.headshot-grid.spacer-grid,
+    .six-column-grid.deluxe-grid.headshot-grid.excerpt-grid,
+    .six-column-grid.deluxe-grid.headshot-grid.spacer-grid {
+        .grid-patient {
+            width: 30vw;
+
+            .gallery-excerpt {
+                font-size: 1.8vw;
+            }
+        }
+    }
+    .two-column-grid.deluxe-grid.headshot-grid.before-grid.excerpt-grid,
+    .two-column-grid.deluxe-grid.headshot-grid.before-grid.spacer-grid,
+    .three-column-grid.deluxe-grid.headshot-grid.before-grid.excerpt-grid,
+    .three-column-grid.deluxe-grid.headshot-grid.before-grid.spacer-grid,
+    .four-column-grid.deluxe-grid.headshot-grid.before-grid.excerpt-grid,
+    .four-column-grid.deluxe-grid.headshot-grid.before-grid.spacer-grid {
+        grid-template-columns: repeat(2, 1fr);
+        
+        .grid-patient {
+            width: 35vw;
+
+            .before-image {
+                clip: rect(0, 8.5vw, 11.3vw, 0);
+            }
+
+            .gallery-excerpt {
+                font-size: 1.2vw;
+            }
+        }
+    }
+    .two-column-grid.deluxe-grid.headshot-grid.before-grid.excerpt-grid.title-grid,
+    .two-column-grid.deluxe-grid.headshot-grid.before-grid.spacer-grid.title-grid,
+    .three-column-grid.deluxe-grid.headshot-grid.before-grid.excerpt-grid.title-grid,
+    .three-column-grid.deluxe-grid.headshot-grid.before-grid.spacer-grid.title-grid,
+    .four-column-grid.deluxe-grid.headshot-grid.before-grid.excerpt-grid.title-grid,
+    .four-column-grid.deluxe-grid.headshot-grid.before-grid.spacer-grid.title-grid {
+        grid-template-columns: repeat(1, 1fr);
+
+        .grid-patient {
+            .before-image {
+                clip: rect(0, 19vw, 25.5vw, 0);
+            }
+
+            .gallery-title {
+                font-size: 4.5vw;
+            }
+        }
+    }
+}
+@media screen and (min-width: 550px) and (max-height: 800px) {
+    .headshot-grid.before-grid {
+        .grid-patient {
+            width: 25vw;
+        }
+    }
+    .two-column-grid.headshot-grid.before-grid,
+    .three-column-grid.headshot-grid.before-grid.excerpt-grid,
+    .three-column-grid.headshot-grid.before-grid.spacer-grid,
+    .four-column-grid.headshot-grid.before-grid.excerpt-grid,
+    .four-column-grid.headshot-grid.before-grid.spacer-grid,
+    .six-column-grid.headshot-grid.before-grid.excerpt-grid,
+    .six-column-grid.headshot-grid.before-grid.spacer-grid,
+    .two-column-grid.headshot-grid.before-grid.excerpt-grid.title-grid,
+    .two-column-grid.headshot-grid.before-grid.spacer-grid.title-grid,
+    .four-column-grid.headshot-grid.before-grid.excerpt-grid.title-grid,
+    .four-column-grid.headshot-grid.before-grid.spacer-grid.title-grid {
+        grid-template-columns: repeat(2, 1fr);
+        max-width: max-content;
+
+        .grid-patient {
+            width: 40vw;
+        }
+    }
+    .two-column-grid.headshot-grid.before-grid.excerpt-grid,
+    .two-column-grid.headshot-grid.before-grid.spacer-grid,
+    .three-column-grid.headshot-grid.before-grid.excerpt-grid,
+    .three-column-grid.headshot-grid.before-grid.spacer-grid,
+    .four-column-grid.headshot-grid.before-grid.excerpt-grid,
+    .four-column-grid.headshot-grid.before-grid.spacer-grid,
+    .six-column-grid.headshot-grid.before-grid.excerpt-grid,
+    .six-column-grid.headshot-grid.before-grid.spacer-grid {
+        .grid-patient {
+            .gallery-excerpt {
+                font-size: 1.4vw;
+            }
+
+            .before-image {
+                clip: rect(0, 9.5vw, 13vw, 0);
+            }
+        }
+    }
+    .two-column-grid.headshot-grid.before-grid.excerpt-grid.title-grid,
+    .two-column-grid.headshot-grid.before-grid.spacer-grid.title-grid,
+    .four-column-grid.headshot-grid.before-grid.excerpt-grid.title-grid,
+    .four-column-grid.headshot-grid.before-grid.spacer-grid.title-grid {
+        .grid-patient {
+            .gallery-title {
+                font-size: 2.5vw;
+            }
+        }
+    }
+}
+@media screen and (min-width: 601px) and (max-height: 800px) {
+    .two-column-grid,
+    .three-column-grid,
+    .four-column-grid,
+    .six-column-grid,
+    .three-column-grid.deluxe-grid.headshot-grid.before-grid,
+    .four-column-grid.deluxe-grid.headshot-grid.before-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .two-column-grid.headshot-grid,
+    .three-column-grid.headshot-grid,
+    .four-column-grid.headshot-grid,
+    .six-column-grid.headshot-grid {
+        max-width: max-content;
+
+        .grid-patient {
+            width: 15vw;
+        }
+    }
+    .three-column-grid.headshot-grid.before-grid,
+    .four-column-grid.headshot-grid.before-grid {
+        .grid-patient {
+            width: 20vw;
+        }
+    }
+    .before-grid,
+    .two-column-grid.before-grid,
+    .three-column-grid.before-grid,
+    .four-column-grid.before-grid,
+    .six-column-grid.before-grid {
+        grid-template-columns: repeat(2, 1fr);
+        max-width: max-content;
+
+        .grid-patient {
+            width: 25vw;
+
+            .before-image {
+                clip: rect(0, 12.5vw, 17vw, 0);
+            }
+        }
+    }
+    .headshot-grid.before-grid.excerpt-grid,
+    .headshot-grid.before-grid.spacer-grid {
+        .grid-patient {
+            width: 25vw;
+
+            .before-image {
+                clip: rect(0, 6vw, 8vw, 0);
+            }
+
+            .gallery-excerpt {
+                font-size: 0.8vw;
+            }
+        }
+    }
+    .two-column-grid.headshot-grid.before-grid.excerpt-grid,
+    .two-column-grid.headshot-grid.before-grid.spacer-grid,
+    .three-column-grid.headshot-grid.before-grid.excerpt-grid,
+    .three-column-grid.headshot-grid.before-grid.spacer-grid,
+    .four-column-grid.headshot-grid.before-grid.excerpt-grid,
+    .four-column-grid.headshot-grid.before-grid.spacer-grid,
+    .six-column-grid.headshot-grid.before-grid.excerpt-grid,
+    .six-column-grid.headshot-grid.before-grid.spacer-grid {
+        .grid-patient {
+            width: 40vw;
+        }
+    }
+    .two-column-grid.before-grid.excerpt-grid,
+    .two-column-grid.before-grid.spacer-grid,
+    .three-column-grid.before-grid.excerpt-grid,
+    .three-column-grid.before-grid.spacer-grid,
+    .four-column-grid.before-grid.excerpt-grid,
+    .four-column-grid.before-grid.spacer-grid {
+        .grid-patient {
+            .gallery-excerpt {
+                font-size: 1.3vw;
+            }
+        }
+    }
+    .before-grid.excerpt-grid.title-grid,
+    .before-grid.spacer-grid.title-grid {
+        grid-template-columns: 1fr;
+
+    }
+    .two-column-grid.before-grid.excerpt-grid.title-grid,
+    .two-column-grid.before-grid.spacer-grid.title-grid,
+    .three-column-grid.before-grid.excerpt-grid.title-grid,
+    .three-column-grid.before-grid.spacer-grid.title-grid,
+    .four-column-grid.before-grid.excerpt-grid.title-grid,
+    .four-column-grid.before-grid.spacer-grid.title-grid {
+        grid-template-columns: repeat(2, 1fr);
+
+        .grid-patient {
+            .gallery-title {
+                font-size: 2.5vw;
+            }
+
+            .gallery-excerpt {
+                font-size: 1.2vw;
+            }
+        }
+    }
+    .headshot-grid.before-grid.excerpt-grid.title-grid,
+    .headshot-grid.before-grid.spacer-grid.title-grid,
+    .two-column-grid.headshot-grid.before-grid.excerpt-grid.title-grid,
+    .two-column-grid.headshot-grid.before-grid.spacer-grid.title-grid,
+    .four-column-grid.headshot-grid.before-grid.excerpt-grid.title-grid,
+    .four-column-grid.headshot-grid.before-grid.spacer-grid.title-grid {
+        .grid-patient {
+            width: 25vw;
+
+            .before-image {
+                clip: rect(0, 6vw, 8vw, 0);
+            }
+
+            .gallery-title {
+                font-size: 1.5vw;
+            }
+
+            .gallery-excerpt {
+                font-size: 0.8vw;
+                margin: 1em 0 0;
+            }
+        }
+    }
+    .deluxe-grid.before-grid {
+        grid-template-columns: 1fr;
+
+        .grid-patient {
+            width: 25vw;
+        }
+    }
+    .two-column-grid.deluxe-grid.before-grid,
+    .three-column-grid.deluxe-grid.before-grid,
+    .four-column-grid.deluxe-grid.before-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .deluxe-grid.before-grid.excerpt-grid,
+    .deluxe-grid.before-grid.spacer-grid {
+        .grid-patient {
+            width: 20vw;
+
+            .before-image {
+                clip: rect(0, 10vw, 13.5vw, 0);
+            }
+
+            .gallery-excerpt {
+                font-size: 1vw;
+            }
+        }
+    }
+    .deluxe-grid.headshot-grid.before-grid.excerpt-grid,
+    .deluxe-grid.headshot-grid.before-grid.spacer-grid {
+        .grid-patient {
+            width: 25vw;
+
+            .gallery-excerpt {
+                font-size: 0.8vw;
+            }
+        }
+    }
+    .deluxe-grid.before-grid.excerpt-grid.title-grid,
+    .deluxe-grid.before-grid.spacer-grid.title-grid {
+        .grid-patient {
+            .gallery-title {
+                font-size: 1.6vw;
+            }
+
+            .gallery-excerpt {
+                font-size: 0.9vw;
+            }
+        }
+    }
+}
+@media screen and (min-width: 601px) and (min-height: 801px) {
+    .two-column-grid,
+    .three-column-grid,
+    .four-column-grid,
+    .six-column-grid,
+    .two-column-grid.before-grid,
+    .three-column-grid.before-grid,
+    .four-column-grid.before-grid {
+        grid-template-columns: repeat(2, 1fr);
+
+        .before-image {
+            clip: rect(0, 21vw, 28vw, 0);
+        }
+    }
+    .two-column-grid.headshot-grid,
+    .three-column-grid.headshot-grid,
+    .four-column-grid.headshot-grid,
+    .six-column-grid.headshot-grid {
+        max-width: max-content;
+
+        .grid-patient {
+            width: 35vw;
+        }
+    }
+    .two-column-grid.headshot-grid.excerpt-grid,
+    .two-column-grid.headshot-grid.spacer-grid,
+    .three-column-grid.headshot-grid.excerpt-grid,
+    .three-column-grid.headshot-grid.spacer-grid,
+    .four-column-grid.headshot-grid.excerpt-grid,
+    .four-column-grid.headshot-grid.spacer-grid {
+        .before-image {
+            clip: rect(0, 10vw, 14vw, 0);
+        }
+    }
+    .before-grid {
+        grid-template-columns: 1fr;
+
+        .grid-patient {
+            width: 50vw;
+
+            .before-image {
+                clip: rect(0, 25vw, 34vw, 0);
+            }
+        }
+    }
+    .two-column-grid.before-grid,
+    .three-column-grid.before-grid,
+    .four-column-grid.before-grid {
+        .grid-patient {
+            width: 43vw;
+
+            .before-image {
+                clip: rect(0, 21.5vw, 34vw, 0);
+            }
+        }
+    }
+    .headshot-grid.before-grid.excerpt-grid,
+    .headshot-grid.before-grid.spacer-grid {
+        .slide-container {
+            height: 42%;
+        }
+    }
+    .two-column-grid.headshot-grid.before-grid.excerpt-grid,
+    .two-column-grid.headshot-grid.before-grid.spacer-grid,
+    .three-column-grid.headshot-grid.before-grid.excerpt-grid,
+    .three-column-grid.headshot-grid.before-grid.spacer-grid,
+    .four-column-grid.headshot-grid.before-grid.excerpt-grid,
+    .four-column-grid.headshot-grid.before-grid.spacer-grid,
+    .six-column-grid.headshot-grid.before-grid.excerpt-grid,
+    .six-column-grid.headshot-grid.before-grid.spacer-grid {
+        gap: 1em;
+    }
+    .two-column-grid.before-grid.excerpt-grid,
+    .two-column-grid.before-grid.spacer-grid {
+        max-width: max-content;
+
+        .grid-patient {
+            .gallery-excerpt {
+                font-size: 1.2vw;
+            }
+        }
+    }
+    .three-column-grid.before-grid.excerpt-grid,
+    .three-column-grid.before-grid.spacer-grid,
+    .four-column-grid.before-grid.excerpt-grid,
+    .four-column-grid.before-grid.spacer-grid {
+        .grid-patient {
+            .gallery-excerpt {
+                font-size: 2vw;
+            }
+        }
+    }
+    .two-column-grid.before-grid.excerpt-grid.title-grid,
+    .two-column-grid.before-grid.spacer-grid.title-grid {
+        .grid-patient {
+            .gallery-excerpt {
+                font-size: 1.6vw;
+            }
+        }
+    }
+    .three-column-grid.before-grid.excerpt-grid.title-grid,
+    .three-column-grid.before-grid.spacer-grid.title-grid,
+    .four-column-grid.before-grid.excerpt-grid.title-grid,
+    .four-column-grid.before-grid.spacer-grid.title-grid {
+        .grid-patient {
+            .gallery-title {
+                font-size: 3.5vw;
+            }
+        }
+    }
+    .two-column-grid.headshot-grid.before-grid.excerpt-grid.title-grid,
+    .two-column-grid.headshot-grid.before-grid.spacer-grid.title-grid,
+    .four-column-grid.headshot-grid.before-grid.excerpt-grid.title-grid,
+    .four-column-grid.headshot-grid.before-grid.spacer-grid.title-grid {
+        .grid-patient {
+            width: 40vw;
+
+            .gallery-excerpt {
+                font-size: 1.4vw;
+            }
+        }
+    }
+    .deluxe-grid {
+        .before-image {
+            clip: rect(0, 40vw, 54vw, 0);
+        }
+    }
+    .two-column-grid.deluxe-grid.before-grid,
+    .three-column-grid.deluxe-grid.before-grid,
+    .four-column-grid.deluxe-grid.before-grid {
+        .grid-patient {
+            width: 38vw;
+        }
+
+        .before-image {
+            clip: rect(0, 19vw, 25.5vw, 0);
+        }
+    }
+    .two-column-grid.deluxe-grid,
+    .three-column-grid.deluxe-grid,
+    .four-column-grid.deluxe-grid,
+    .six-column-grid.deluxe-grid {
+        .before-image {
+            clip: rect(0, 19vw, 25.4vw, 0);
+        }
+    }
+    .deluxe-grid.headshot-grid {
+        .gallery-excerpt {
+            margin-bottom: 0;
+        }
+    }
+    .deluxe-grid.headshot-grid.before-grid {
+        .grid-patient {
+            width: 50vw;
+        }
+
+        .gallery-excerpt {
+            margin-bottom: 4.5em;
+        }
+    }
+    .two-column-grid.deluxe-grid.headshot-grid.before-grid,
+    .three-column-grid.deluxe-grid.headshot-grid.before-grid,
+    .four-column-grid.deluxe-grid.headshot-grid.before-grid {
+        grid-template-columns: repeat(2, 1fr);
+        
+        .grid-patient {
+            width: 25vw;
+        }
+    }
+    .deluxe-grid.headshot-grid.excerpt-grid,
+    .deluxe-grid.headshot-grid.spacer-grid,
+    .two-column-grid.deluxe-grid.headshot-grid.excerpt-grid,
+    .two-column-grid.deluxe-grid.headshot-grid.spacer-grd,
+    .three-column-grid.deluxe-grid.headshot-grid.excerpt-grid,
+    .three-column-grid.deluxe-grid.headshot-grid.spacer-grid,
+    .four-column-grid.deluxe-grid.headshot-grid.excerpt-grid,
+    .four-column-grid.deluxe-grid.headshot-grid.spacer-grid,
+    .six-column-grid.deluxe-grid.headshot-grid.excerpt-grid,
+    .six-column-grid.deluxe-grid.headshot-grid.spacer-grid {
+        .grid-patient {
+            width: 20vw;
+
+            .gallery-excerpt {
+                font-size: 1.8vw;
+            }
+        }
+        .before-image {
+            clip: rect(0, 20vw, 27vw, 0);
+        }
+    }
+    .two-column-grid.deluxe-grid.headshot-grid.excerpt-grid,
+    .two-column-grid.deluxe-grid.headshot-grid.spacer-grid,
+    .three-column-grid.deluxe-grid.headshot-grid.excerpt-grid,
+    .three-column-grid.deluxe-grid.headshot-grid.spacer-grid,
+    .four-column-grid.deluxe-grid.headshot-grid.excerpt-grid,
+    .four-column-grid.deluxe-grid.headshot-grid.spacer-grid,
+    .six-column-grid.deluxe-grid.headshot-grid.excerpt-grid,
+    .six-column-grid.deluxe-grid.headshot-grid.spacer-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .deluxe-grid.headshot-grid.excerpt-grid.title-grid,
+    .deluxe-grid.headshot-grid.spacer-grid.title-grid {
+        .grid-patient {
+            .gallery-title {
+                font-size: 3vw;
+            }
+
+            .gallery-excerpt {
+                font-size: 1.5vw;
+            }
+        }
+    }
+    .two-column-grid.deluxe-grid.headshot-grid.excerpt-grid.title-grid,
+    .two-column-grid.deluxe-grid.headshot-grid.spacer-grid.title-grid,
+    .three-column-grid.deluxe-grid.headshot-grid.excerpt-grid.title-grid,
+    .three-column-grid.deluxe-grid.headshot-grid.spacer-grid.title-grid,
+    .four-column-grid.deluxe-grid.headshot-grid.excerpt-grid.title-grid,
+    .four-column-grid.deluxe-grid.headshot-grid.spacer-grid.title-grid {
+        .grid-patient {
+            .excerpt-container .gallery-title:empty {
+                padding-top: 3.3vw;
+            }
+        }
+    }
+    .deluxe-grid.before-grid {
+        gap: 1em;
+
+        .grid-patient {
+            width: 50vw;
+        }
+    }
+    .two-column-grid.deluxe-grid.before-grid.excerpt-grid.title-grid,
+    .two-column-grid.deluxe-grid.before-grid.spacer-grid.title-grid,
+    .three-column-grid.deluxe-grid.before-grid.excerpt-grid.title-grid,
+    .three-column-grid.deluxe-grid.before-grid.spacer-grid.title-grid,
+    .four-column-grid.deluxe-grid.before-grid.excerpt-grid.title-grid,
+    .four-column-grid.deluxe-grid.before-grid.spacer-grid.title-grid {
+        .grid-patient {
+            .gallery-excerpt {
+                font-size: 1.6vw;
+            }
+        }
+    }
+    .two-column-grid.deluxe-grid.headshot-grid.before-grid.excerpt-grid,
+    .two-column-grid.deluxe-grid.headshot-grid.before-grid.spacer-grid,
+    .three-column-grid.deluxe-grid.headshot-grid.before-grid.excerpt-grid,
+    .three-column-grid.deluxe-grid.headshot-grid.before-grid.spacer-grid,
+    .four-column-grid.deluxe-grid.headshot-grid.before-grid.excerpt-grid,
+    .four-column-grid.deluxe-grid.headshot-grid.before-grid.spacer-grid {
+        .grid-patient {
+            aspect-ratio: 3/2;
+        }
+    }
+    .deluxe-grid.headshot-grid.before-grid.excerpt-grid.title-grid,
+    .deluxe-grid.headshot-grid.before-grid.spacer-grid.title-grid,
+    .two-column-grid.deluxe-grid.headshot-grid.before-grid.excerpt-grid.title-grid,
+    .two-column-grid.deluxe-grid.headshot-grid.before-grid.spacer-grid.title-grid,
+    .three-column-grid.deluxe-grid.headshot-grid.before-grid.excerpt-grid.title-grid,
+    .three-column-grid.deluxe-grid.headshot-grid.before-grid.spacer-grid.title-grid,
+    .four-column-grid.deluxe-grid.headshot-grid.before-grid.excerpt-grid.title-grid,
+    .four-column-grid.deluxe-grid.headshot-grid.before-grid.spacer-grid.title-grid {
+        .grid-patient {
+            width: 40vw;
+
+            .before-image {
+                clip: rect(0, 9.5vw, 13vw, 0);
+            }
+
+            .gallery-excerpt {
+                font-size: 1.8vw;
+            }
+
+            .gallery-title {
+                font-size: 2.9vw;
+                margin-bottom: 2.5vw;
+            }
+        }
+    }
+}
+@media screen and (min-width: 600px) and (max-height: 800px) {
+    .excerpt-grid:not(.before-grid):not(.headshot-grid) {
+        max-width: max-content;
+        .grid-patient {            
+            .excerpt-container {
+                .gallery-excerpt {
+                    margin: 1em;
+                }
+            }
+        }
+    }
+}
+@media screen and (min-width: 650px) and (max-height: 800px) {
+    .headshot-grid,
+    .two-column-grid.headshot-grid,
+    .three-column-grid.headshot-grid,
+    .four-column-grid.headshot-grid,
+    .six-column-grid.headshot-grid {
+        .grid-patient {
+            width: 10vw;
+        }
+    }
+    .two-column-grid.headshot-grid.excerpt-grid,
+    .two-column-grid.headshot-grid.spacer-grid {
+        .grid-patient {
+            width: 15vw;
+        }
+    }
+    .headshot-grid.excerpt-grid.title-grid,
+    .headshot-grid.spacer-grid.title-grid {
+        .grid-patient {
+            width: 13vw;
+
+            .gallery-title {
+                font-size: 2vw;
+            }
+
+            .gallery-excerpt {
+                font-size: 1.3vw;
+            }
+        }
+    }
+    .three-column-grid.deluxe-grid.headshot-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+    .deluxe-grid.headshot-grid.excerpt-grid.title-grid,
+    .deluxe-grid.headshot-grid.spacer-grid.title-grid {
+        .grid-patient {
+            width: 10vw;
+
+            .gallery-title {
+                font-size: 1.5vw;
+                margin-bottom: 2vw;
+            }
+
+            .gallery-excerpt {
+                font-size: 1vw;
+            }
+        }
+    }
+    .two-column-grid.deluxe-grid.headshot-grid.excerpt-grid.title-grid,
+    .two-column-grid.deluxe-grid.headshot-grid.spacer-grid.title-grid,
+    .three-column-grid.deluxe-grid.headshot-grid.excerpt-grid.title-grid,
+    .three-column-grid.deluxe-grid.headshot-grid.spacer-grid.title-grid,
+    .four-column-grid.deluxe-grid.headshot-grid.excerpt-grid.title-grid,
+    .four-column-grid.deluxe-grid.headshot-grid.spacer-grid.title-grid {
+        .grid-patient {
+            .excerpt-container .gallery-title:empty {
+                padding-top: 1.65vw;
+            }
+        }
+    }
+    .two-column-grid.deluxe-grid.headshot-grid.before-grid {
+        .grid-patient {
+            width: 20vw;
+        }
+    }
+}
+@media screen and (min-width: 650px) and (min-height: 801px) {
+    .headshot-grid.excerpt-grid,
+    .headshot-grid.spacer-grid {
+        .grid-patient {
+            width: 25vw;
+
+            .gallery-excerpt {
+                font-size: 1.5vw;
+            }
+        }
+    }
+    .headshot-grid.excerpt-grid.title-grid,
+    .headshot-grid.spacer-grid.title-grid {
+        .grid-patient {
+            width: 20vw;
+
+            .gallery-title {
+                font-size: 3vw;
+            }
+
+            .gallery-excerpt {
+                font-size: 1.5vw;
+            }
+        }
+    }
+    .headshot-grid.before-grid.excerpt-grid,
+    .headshot-grid.before-grid.spacer-grid {
+        .grid-patient {
+            width: 50vw;
+
+            .before-image {
+                clip: rect(0, 12vw, 16vw, 0);
+            }
+
+            .gallery-excerpt {
+                font-size: 1.7vw;
+            }
+        }
+    }
+    .two-column-grid.headshot-grid.before-grid.excerpt-grid,
+    .two-column-grid.headshot-grid.before-grid.spacer-grid,
+    .three-column-grid.headshot-grid.before-grid.excerpt-grid,
+    .three-column-grid.headshot-grid.before-grid.spacer-grid,
+    .four-column-grid.headshot-grid.before-grid.excerpt-grid,
+    .four-column-grid.headshot-grid.before-grid.spacer-grid,
+    .six-column-grid.headshot-grid.before-grid.excerpt-grid,
+    .six-column-grid.headshot-grid.before-grid.spacer-grid {
+        .grid-patient {
+            width: 40vw;
+        }
+    }
+    .headshot-grid.before-grid.excerpt-grid.title-grid,
+    .headshot-grid.before-grid.spacer-grid.title-grid {
+        .grid-patient {
+            width: 50vw;
+
+            .gallery-title {
+                font-size: 3vw;
+            }
+
+            .gallery-excerpt {
+                font-size: 1.8vw;
+                margin: 0.5em 0 0;
+            }
+        }
+    }
+    .deluxe-grid.headshot-grid.before-grid.excerpt-grid,
+    .deluxe-grid.headshot-grid.before-grid.spacer-grid {
+        .grid-patient {
+            width: 50vw;
+
+            .gallery-excerpt {
+                font-size: 1.7vw;
+            }
+        }
+    }
+}
+@media screen and (min-width: 700px) and (min-height: 801px) {
+    .two-column-grid.headshot-grid,
+    .three-column-grid.headshot-grid,
+    .four-column-grid.headshot-grid,
+    .six-column-grid.headshot-grid {
+        .grid-patient {
+            width: 25vw;
+        }
+    }
+    .deluxe-grid.headshot-grid.excerpt-grid,
+    .deluxe-grid.headshot-grid.spacer-grid {
+        .grid-patient {
+            width: 15vw;
+
+            .gallery-excerpt {
+                font-size: 1.5vw;
+            }
+        }
+    }
+    .deluxe-grid.headshot-grid.excerpt-grid.title-grid,
+    .deluxe-grid.headshot-grid.spacer-grid.title-grid {
+        .grid-patient {
+            .gallery-title {
+                font-size: 2.3vw;
+                margin-bottom: 3vw;
+            }
+        }
+    }
+    .two-column-grid.deluxe-grid.headshot-grid.excerpt-grid.title-grid,
+    .two-column-grid.deluxe-grid.headshot-grid.spacer-grid.title-grid,
+    .three-column-grid.deluxe-grid.headshot-grid.excerpt-grid.title-grid,
+    .three-column-grid.deluxe-grid.headshot-grid.spacer-grid.title-grid,
+    .four-column-grid.deluxe-grid.headshot-grid.excerpt-grid.title-grid,
+    .four-column-grid.deluxe-grid.headshot-grid.spacer-grid.title-grid {
+        .grid-patient {
+            .excerpt-container .gallery-title:empty {
+                padding-top: 2.5vw;
+            }
+        }
+    }
+    .deluxe-grid.before-grid.excerpt-grid,
+    .deluxe-grid.before-grid.spacer-grid {
+        .grid-patient {
+            width: 40vw;
+
+            .before-image {
+                clip: rect(0, 20vw, 27vw, 0);
+            }
+
+            .gallery-excerpt {
+                font-size: 2vw;
+            }
+        }
+    }
+    .deluxe-grid.before-grid.excerpt-grid.title-grid,
+    .deluxe-grid.before-grid.spacer-grid.title-grid {
+        .grid-patient {
+            .gallery-title {
+                font-size: 2.5vw;
+            }
+
+            .gallery-excerpt {
+                font-size: 1.9vw;
+            }
+        }
+    }
+}
+@media screen and (min-width: 700px) and (max-height: 800px) {
+    .two-column-grid.headshot-grid.before-grid {
+        .grid-patient {
+            width: 20vw;
+        }
+    }
+
+    .headshot-grid.excerpt-grid,
+    .headshot-grid.spacer-grid {
+        .grid-patient {
+            width: 15vw;
+
+            .gallery-excerpt {
+                font-size: 1.1vw;
+            }
+        }
+    }
+    .before-grid.excerpt-grid,
+    .before-grid.spacer-grid {
+        grid-template-columns: 1fr;
+        .grid-patient {
+            width: 20vw;
+
+            .before-image {
+                clip: rect(0, 10vw, 14vw, 0);
+            }
+
+            .gallery-excerpt {
+                font-size: 1vw;
+            }
+        }
+    }
+    .two-column-grid.before-grid.excerpt-grid,
+    .two-column-grid.before-grid.spacer-grid {
+        grid-template-columns: repeat(2, 1fr);
+
+        .grid-patient {
+            .gallery-excerpt {
+                font-size: 1vw;
+            }
+        }
+    }
+    .three-column-grid.before-grid.excerpt-grid,
+    .three-column-grid.before-grid.spacer-grid,
+    .four-column-grid.before-grid.excerpt-grid,
+    .four-column-grid.before-grid.spacer-grid {
+        grid-template-columns: repeat(3, 1fr);
+
+        .grid-patient {
+            .gallery-excerpt {
+                font-size: 1vw;
+            }
+        }
+    }
+    .before-grid.excerpt-grid.title-grid,
+    .before-grid.spacer-grid.title-grid {
+        .grid-patient {
+            .gallery-title {
+                font-size: 2vw;
+            }
+
+            .gallery-excerpt {
+                font-size: 0.9vw;
+            }
+        }
+    }
+    .two-column-grid.before-grid.excerpt-grid.title-grid,
+    .two-column-grid.before-grid.spacer-grid.title-grid,
+    .three-column-grid.before-grid.excerpt-grid.title-grid,
+    .three-column-grid.before-grid.spacer-grid.title-grid,
+    .four-column-grid.before-grid.excerpt-grid.title-grid,
+    .four-column-grid.before-grid.spacer-grid.title-grid {
+        .grid-patient {
+            .gallery-title {
+                font-size: 1.8vw;
+            }
+
+            .gallery-excerpt {
+                font-size: 0.9vw;
+            }
+        }
+    }
+    .three-column-grid.before-grid.excerpt-grid.title-grid,
+    .three-column-grid.before-grid.spacer-grid.title-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+    .deluxe-grid.headshot-grid.excerpt-grid,
+    .deluxe-grid.headshot-grid.spacer-grid,
+    .two-column-grid.deluxe-grid.headshot-grid.excerpt-grid,
+    .two-column-grid.deluxe-grid.headshot-grid.spacer-grid,
+    .three-column-grid.deluxe-grid.headshot-grid.excerpt-grid,
+    .three-column-grid.deluxe-grid.headshot-grid.spacer-grid,
+    .four-column-grid.deluxe-grid.headshot-grid.excerpt-grid,
+    .four-column-grid.deluxe-grid.headshot-grid.spacer-grid,
+    .six-column-grid.deluxe-grid.headshot-grid.excerpt-grid,
+    .six-column-grid.deluxe-grid.headshot-grid.spacer-grid {
+        .grid-patient {
+            width: 10vw;
+
+            .gallery-excerpt {
+                font-size: 1.3vw;
+            }
+        }
+    }
+    .two-column-grid.deluxe-grid.headshot-grid.before-grid.excerpt-grid,
+    .two-column-grid.deluxe-grid.headshot-grid.before-grid.spacer-grid,
+    .three-column-grid.deluxe-grid.headshot-grid.before-grid.excerpt-grid,
+    .three-column-grid.deluxe-grid.headshot-grid.before-grid.spacer-grid,
+    .four-column-grid.deluxe-grid.headshot-grid.before-grid.excerpt-grid,
+    .four-column-grid.deluxe-grid.headshot-grid.before-grid.spacer-grid {
+        .grid-patient {
+            width: 25vw;
+
+            .before-image {
+                clip: rect(0, 6vw, 8vw, 0);
+            }
+
+            .gallery-excerpt {
+                font-size: 0.8vw;
+            }
+        }
+    }
+}
+@media screen and (min-width: 768px) and (min-height: 801px) {
+    .headshot-grid {
+        .grid-patient {
+            width: 15%;
+        }
+    }
+    .two-column-grid {
+        .grid-patient {
+            width: 43vw;
+        }
+    }
+    .three-column-grid.headshot-grid {
+        .grid-patient {
+            width: 27vw;
+        }
+    }
+    .three-column-grid,
+    .four-column-grid.headshot-grid,
+    .six-column-grid.headshot-grid {
+        grid-template-columns: repeat(3, 1fr);
+        
+        .grid-patient {
+            width: 27vw;
+        }
+
+        .before-image {
+            clip: rect(0, 13.6vw, 18vw, 0);
+        }
+    }
+    .two-column-grid.headshot-grid.before-grid {
+        .gallery-excerpt {
+            margin-bottom: 1em;
+        }
+    }
+    .headshot-grid.before-grid.excerpt-grid,
+    .headshot-grid.before-grid.spacer-grid {
+        .before-image {
+            clip: rect(0, 21vw, 30vw, 0);
+        }
+    }
+    .three-column-grid.headshot-grid.before-grid.excerpt-grid,
+    .three-column-grid.headshot-grid.before-grid.spacer-grid,
+    .four-column-grid.headshot-grid.before-grid.excerpt-grid,
+    .four-column-grid.headshot-grid.before-grid.spacer-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .headshot-grid.excerpt-grid,
+    .headshot-grid.spacer-grid {
+        .grid-patient {
+            width: 20vw;
+
+            .gallery-excerpt {
+                font-size: 1.1vw;
+            }
+        }
+    }
+    .headshot-grid.before-grid.excerpt-grid,
+    .headshot-grid.before-grid.spacer-grid {
+        .grid-patient {
+            .gallery-excerpt {
+                margin-bottom: 1em;
+            }
+        }
+    }
+    .two-column-grid.headshot-grid.before-grid.excerpt-grid,
+    .two-column-grid.headshot-grid.before-grid.spacer-grid,
+    .three-column-grid.headshot-grid.before-grid.excerpt-grid,
+    .three-column-grid.headshot-grid.before-grid.spacer-grid,
+    .four-column-grid.headshot-grid.before-grid.excerpt-grid,
+    .four-column-grid.headshot-grid.before-grid.spacer-grid,
+    .six-column-grid.headshot-grid.before-grid.excerpt-grid,
+    .six-column-grid.headshot-grid.before-grid.spacer-grid {
+        .grid-patient {
+            width: 43vw;
+
+            .before-image {
+                clip: rect(0, 10.3vw, 14vw, 0);
+            }
+        }
+    }
+    .before-grid {
+        .grid-patient {
+            width: 50vw;
+
+            .before-image {
+                clip: rect(0px, 25vw, 33.5vw, 0px);
+            }
+            
+            .gallery-excerpt {
+                margin-bottom: 2em;
+            }
+        }
+    }
+    .two-column-grid.before-grid {
+        .gallery-excerpt {
+            margin-bottom: 0;
+        }
+    }
+    .three-column-grid.before-grid,
+    .four-column-grid.before-grid,
+    .six-column-grid.before-grid {
+        grid-template-columns: repeat(3, 1fr);
+
+        .grid-patient {
+            width: 27vw;
+
+            .before-image {
+                clip: rect(0, 13.5vw, 19vw, 0);
+            }
+
+            .gallery-excerpt {
+                margin-top: 0;
+                margin-bottom: -1em;
+            }
+        }
+    }
+    .two-column-grid.excerpt-grid,
+    .two-column-grid.spacer-grid {
+        .before-image {
+            clip: rect(0, 21.4vw, 29vw, 0);
+        }
+    }
+    .four-column-grid.before-grid.excerpt-grid,
+    .four-column-grid.before-grid.spacer-grid,
+    .six-column-grid.before-grid.excerpt-grid,
+    .six-column-grid.before-grid.spacer-grid {
+        .slider {
+            margin-bottom: 0;
+        }
+    }
+    .two-column-grid.before-grid {
+        .before-image {
+            clip: rect(0, 21.5vw, 29vw, 0);
+        }
+    }
+    .before-grid.excerpt-grid,
+    .before-grid.spacer-grid {
+        .slider {
+            top: 25%;
+        }
+    }
+    .three-column-grid.before-grid.excerpt-grid,
+    .three-column-grid.before-grid.spacer-grid,
+    .four-column-grid.before-grid.excerpt-grid,
+    .four-column-grid.before-grid.spacer-grid {
+        .grid-patient {
+            .gallery-excerpt {
+                font-size: 1.3vw;
+                margin-bottom: 0;
+            }
+        }
+    }
+    .three-column-grid.before-grid.excerpt-grid.title-grid,
+    .three-column-grid.before-grid.spacer-grid.title-grid,
+    .four-column-grid.before-grid.excerpt-grid.title-grid,
+    .four-column-grid.before-grid.spacer-grid.title-grid {
+        .grid-patient {
+            .gallery-title {
+                font-size: 2.5vw;
+            }
+
+            .gallery-excerpt {
+                margin-top: 0;
+            }
+        }
+    }
+    .two-column-grid.headshot-grid.before-grid.excerpt-grid.title-grid,
+    .two-column-grid.headshot-grid.before-grid.spacer-grid.title-grid,
+    .four-column-grid.headshot-grid.before-grid.excerpt-grid.title-grid,
+    .four-column-grid.headshot-grid.before-grid.spacer-grid.title-grid {
+        .grid-patient {
+            .before-image {
+                clip: rect(0, 9.5vw, 13vw, 0);
+            }
+        }
+    }
+    .two-column-grid.deluxe-grid {
+        .before-image {
+            clip: rect(0, 20vw, 26.7vw, 0);
+        }
+    }
+    .deluxe-grid.excerpt-grid:not(.before-grid):not(.headshot-grid) {
+        .grid-patient {
+            width: unset;
+        }
+    }
+    .deluxe-grid.headshot-grid.before-grid {
+        .gallery-excerpt {
+            margin-bottom: 2em;
+        }
+    }
+    .three-column-grid.deluxe-grid.headshot-grid,
+    .four-column-grid.deluxe-grid.headshot-grid,
+    .six-column-grid.deluxe-grid.headshot-grid {
+        grid-template-columns: repeat(3, 1fr);
+
+        .grid-patient {
+            width: 23vw;
+            padding-bottom: 1em;
+        }
+
+        .gallery-excerpt {
+            margin-bottom: 2em;
+        }
+    }
+    .deluxe-grid.headshot-grid.excerpt-grid,
+    .deluxe-grid.headshot-grid.spacer-grid {
+        .before-image {
+            clip: rect(0, 20vw, 27vw, 0);
+        }
+    }
+    .two-column-grid.deluxe-grid.headshot-grid.excerpt-grid,
+    .two-column-grid.deluxe-grid.headshot-grid.spacer-grid,
+    .three-column-grid.deluxe-grid.headshot-grid.excerpt-grid,
+    .three-column-grid.deluxe-grid.headshot-grid.spacer-grid {
+        .grid-patient {
+            width: 15vw;
+
+            .before-image {
+                clip: rect(0, 20vw, 27vw, 0);
+            }
+
+            .gallery-excerpt {
+                font-size: 1.3vw;
+            }
+        }
+    }
+    .three-column-grid.deluxe-grid.headshot-grid.excerpt-grid,
+    .three-column-grid.deluxe-grid.headshot-grid.spacer-grid,
+    .four-column-grid.deluxe-grid.headshot-grid.excerpt-grid,
+    .four-column-grid.deluxe-grid.headshot-grid.spacer-grid,
+    .six-column-grid.deluxe-grid.headshot-grid.excerpt-grid,
+    .six-column-grid.deluxe-grid.headshot-grid.spacer-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+    .three-column-grid.deluxe-grid.headshot-grid.excerpt-grid,
+    .three-column-grid.deluxe-grid.headshot-grid.spacer-grid,
+    .four-column-grid.deluxe-grid.headshot-grid.excerpt-grid,
+    .four-column-grid.deluxe-grid.headshot-grid.spacer-grid,
+    .six-column-grid.deluxe-grid.headshot-grid.excerpt-grid,
+    .six-column-grid.deluxe-grid.headshot-grid.spacer-grid {
+        .grid-patient {
+            padding-bottom: 0;
+
+            .before-image {
+                clip: rect(0, 20vw, 27vw, 0);
+            }
+        }
+    }
+    .three-column-grid.deluxe-grid.before-grid,
+    .four-column-grid.deluxe-grid.before-grid {
+        grid-template-columns: repeat(2, 1fr);
+
+        .grid-patient {
+            .before-image {
+                clip: rect(0, 19vw, 25.5vw, 0);
+            }
+        }
+    }
+    .deluxe-grid.headshot-grid.before-grid.excerpt-grid,
+    .deluxe-grid.headshot-grid.before-grid.spacer-grid {
+        .grid-patient {
+            aspect-ratio: 3/2;
+            padding-bottom: 0.9em;
+        }
+    }
+    .three-column-grid.deluxe-grid.before-grid.excerpt-grid,
+    .three-column-grid.deluxe-grid.before-grid.spacer-grid,
+    .four-column-grid.deluxe-grid.before-grid.excerpt-grid,
+    .four-column-grid.deluxe-grid.before-grid.spacer-grid {
+        .grid-patient {
+            .before-image {
+                clip: rect(0, 20vw, 27vw, 0);
+            }
+
+            .gallery-excerpt {
+                font-size: 2vw;
+            }
+        }
+    }
+    .three-column-grid.deluxe-grid.headshot-grid.before-grid.excerpt-grid,
+    .three-column-grid.deluxe-grid.headshot-grid.before-grid.spacer-grid {
+        .grid-patient {
+            .headshot-image {
+                margin-bottom: 0.8em;
+            }
+
+            .gallery-excerpt {
+                margin-bottom: 1em;
+            }
+        }
+    }
+    .deluxe-grid.headshot-grid.before-grid.excerpt-grid.title-grid,
+    .deluxe-grid.headshot-grid.before-grid.spacer-grid.title-grid,
+    .two-column-grid.deluxe-grid.headshot-grid.before-grid.excerpt-grid.title-grid,
+    .two-column-grid.deluxe-grid.headshot-grid.before-grid.spacer-grid.title-grid,
+    .three-column-grid.deluxe-grid.headshot-grid.before-grid.excerpt-grid.title-grid,
+    .three-column-grid.deluxe-grid.headshot-grid.before-grid.spacer-grid.title-grid,
+    .four-column-grid.deluxe-grid.headshot-grid.before-grid.excerpt-grid.title-grid,
+    .four-column-grid.deluxe-grid.headshot-grid.before-grid.spacer-grid.title-grid {
+        .grid-patient {
+            padding-bottom: 0;
+
+            .gallery-title {
+                margin-bottom: 2.5vw;
+            }
+
+            .gallery-excerpt {
+                font-size: 1.8vw;
+                margin-bottom: 0;
+            }
+        }
+    }
+    .four-column-grid.deluxe-grid.headshot-grid.before-grid.excerpt-grid.title-grid,
+    .four-column-grid.deluxe-grid.headshot-grid.before-grid.spacer-grid.title-grid {
+        .grid-patient {
+            padding: 1em;
+        }
+    }
+}
+@media screen and (min-width: 768px) and (max-height: 800px) {
+    .two-column-grid.headshot-grid.before-grid.excerpt-grid,
+    .two-column-grid.headshot-grid.before-grid.spacer-grid,
+    .three-column-grid.headshot-grid.before-grid.excerpt-grid,
+    .three-column-grid.headshot-grid.before-grid.spacer-grid,
+    .four-column-grid.headshot-grid.before-grid.excerpt-grid,
+    .four-column-grid.headshot-grid.before-grid.spacer-grid,
+    .six-column-grid.headshot-grid.before-grid.excerpt-grid,
+    .six-column-grid.headshot-grid.before-grid.spacer-grid {
+        .grid-patient {
+            width: 20vw;
+
+            .before-image {
+                clip: rect(0, 4.8vw, 8vw, 0);
+            }
+
+            .gallery-excerpt {
+                font-size: 0.7vw;
+            }
+        }
+    }
+    .four-column-grid.headshot-grid.excerpt-grid.title-grid,
+    .three-column-grid.headshot-grid.before-grid.excerpt-grid,
+    .three-column-grid.headshot-grid.before-grid.spacer-grid,
+    .four-column-grid.headshot-grid.before-grid.excerpt-grid,
+    .four-column-grid.headshot-grid.before-grid.spacer-grid,
+    .six-column-grid.headshot-grid.before-grid.excerpt-grid,
+    .six-column-grid.headshot-grid.before-grid.spacer-grid,
+    .three-column-grid.deluxe-grid.headshot-grid.excerpt-grid,
+    .three-column-grid.deluxe-grid.headshot-grid.spacer-grid,
+    .four-column-grid.deluxe-grid.headshot-grid.excerpt-grid,
+    .four-column-grid.deluxe-grid.headshot-grid.spacer-grid,
+    .six-column-grid.deluxe-grid.headshot-grid.excerpt-grid,
+    .six-column-grid.deluxe-grid.headshot-grid.spacer-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+    .three-column-grid.headshot-grid.before-grid.excerpt-grid.title-grid,
+    .three-column-grid.headshot-grid.before-grid.spacer-grid.title-grid,
+    .four-column-grid.headshot-grid.before-grid.excerpt-grid.title-grid,
+    .four-column-grid.headshot-grid.before-grid.spacer-grid.title-grid {
+        .grid-patient {
+            .gallery-title {
+                font-size: 1vw;
+            }
+        }
+    }
+    .four-column-grid.before-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+    .three-column-grid.deluxe-grid.headshot-grid.before-grid.excerpt-grid,
+    .three-column-grid.deluxe-grid.headshot-grid.before-grid.spacer-grid,
+    .four-column-grid.deluxe-grid.headshot-grid.before-grid.excerpt-grid,
+    .four-column-grid.deluxe-grid.headshot-grid.before-grid.spacer-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .deluxe-grid.headshot-grid.before-grid.excerpt-grid.title-grid,
+    .deluxe-grid.headshot-grid.before-grid.spacer-grid.title-grid,
+    .two-column-grid.deluxe-grid.headshot-grid.before-grid.excerpt-grid.title-grid,
+    .two-column-grid.deluxe-grid.headshot-grid.before-grid.spacer-grid.title-grid,
+    .three-column-grid.deluxe-grid.headshot-grid.before-grid.excerpt-grid.title-grid,
+    .three-column-grid.deluxe-grid.headshot-grid.before-grid.spacer-grid.title-grid,
+    .four-column-grid.deluxe-grid.headshot-grid.before-grid.excerpt-grid.title-grid,
+    .four-column-grid.deluxe-grid.headshot-grid.before-grid.spacer-grid.title-grid {
+        .grid-patient {
+            width: 20vw;
+
+            .before-image {
+                clip: rect(0, 4.7vw, 6.5vw, 0);
+            }
+
+            .gallery-title {
+                font-size: 1.3vw;
+            }
+
+            .gallery-excerpt {
+                font-size: 0.9vw;
+            }
+        }
+    }
+    .two-column-grid.deluxe-grid.headshot-grid.before-grid.excerpt-grid.title-grid,
+    .two-column-grid.deluxe-grid.headshot-grid.before-grid.spacer-grid.title-grid,
+    .three-column-grid.deluxe-grid.headshot-grid.before-grid.excerpt-grid.title-grid,
+    .three-column-grid.deluxe-grid.headshot-grid.before-grid.spacer-grid.title-grid,
+    .four-column-grid.deluxe-grid.headshot-grid.before-grid.excerpt-grid.title-grid,
+    .four-column-grid.deluxe-grid.headshot-grid.before-grid.spacer-grid.title-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+@media screen and (min-width: 800px) {
+    .two-column-grid {
+        .before-image {
+            clip: rect(0, 21.5vw, 29vw, 0);
+        }
+    }
+    .headshot-grid.excerpt-grid.title-grid,
+    .headshot-grid.spacer-grid.title-grid {
+        .grid-patient {
+            .gallery-title {
+                font-size: 2.5vw;
+            }
+
+            .gallery-excerpt {
+                font-size: 1.3vw;
+            }
+        }
+    }
+    .deluxe-grid.excerpt-grid:not(.before-grid):not(.headshot-grid) {
+        max-width: max-content;
+    }
+    .deluxe-grid.headshot-grid.excerpt-grid.title-grid,
+    .deluxe-grid.headshot-grid.spacer-grid.title-grid {
+        .grid-patient {
+            .gallery-title {
+                font-size: 1.5vw;
+                margin-bottom: 2vw;
+            }
+
+            .gallery-excerpt {
+                font-size: 1vw;
+            }
+        }
+    }
+    .two-column-grid.deluxe-grid.headshot-grid.excerpt-grid.title-grid,
+    .two-column-grid.deluxe-grid.headshot-grid.spacer-grid.title-grid,
+    .three-column-grid.deluxe-grid.headshot-grid.excerpt-grid.title-grid,
+    .three-column-grid.deluxe-grid.headshot-grid.spacer-grid.title-grid,
+    .four-column-grid.deluxe-grid.headshot-grid.excerpt-grid.title-grid,
+    .four-column-grid.deluxe-grid.headshot-grid.spacer-grid.title-grid {
+        .grid-patient {
+            .excerpt-container .gallery-title:empty {
+                padding-top: 1.65vw;
+            }
+        }
+    }
+}
+@media screen and (min-width: 800px) and (max-height: 800px) {
+    .headshot-grid.excerpt-grid.title-grid,
+    .headshot-grid.spacer-grid.title-grid {
+        .grid-patient {
+            width: 10vw;
+
+            .gallery-title {
+                font-size: 1.5vw;
+            }
+
+            .gallery-excerpt {
+                font-size: 1vw;
+            }
+        }
+    }
+}
+@media screen and (min-width: 900px) {
+    .headshot-grid.excerpt-grid.title-grid,
+    .headshot-grid.spacer-grid.title-grid {
+        .grid-patient {
+            width: 15vw;
+
+            .gallery-title {
+                font-size: 2vw;
+            }
+
+            .gallery-excerpt {
+                font-size: 1.1vw;
+            }
+        }
+    }
+    .before-grid.excerpt-grid,
+    .before-grid.spacer-grid,
+    .three-column-grid.before-grid.excerpt-grid,
+    .three-column-grid.before-grid.spacer-grid,
+    .four-column-grid.before-grid.excerpt-grid,
+    .four-column-grid.before-grid.spacer-grid {
+        max-width: max-content;
+
+        .grid-patient {
+            width: 25vw;
+
+            .before-image {
+                clip: rect(0, 12.5vw, 17vw, 0);
+            }
+
+            .gallery-excerpt {
+                font-size: 1.2vw;
+            }
+        }
+    }
+    .before-grid.excerpt-grid.title-grid,
+    .before-grid.spacer-grid.title-grid {
+        .grid-patient {
+            .gallery-title {
+                font-size: 2.5vw;
+            }
+
+            .gallery-excerpt {
+                font-size: 1vw;
+            };
+        }
+    }
+    .two-column-grid.before-grid.excerpt-grid.title-grid,
+    .two-column-grid.before-grid.spacer-grid.title-grid,
+    .four-column-grid.before-grid.excerpt-grid.title-grid,
+    .four-column-grid.before-grid.spacer-grid.title-grid {
+        .grid-patient {
+            .gallery-title {
+                font-size: 2vw;
+            }
+
+            .gallery-excerpt {
+                font-size: 1.2vw;
+                margin-top: 0;
+            }
+        }
+    }
+    .deluxe-grid.before-grid.excerpt-grid,
+    .deluxe-grid.before-grid.spacer-grid,
+    .two-column-grid.deluxe-grid.before-grid.excerpt-grid,
+    .two-column-grid.deluxe-grid.before-grid.spacer-grid,
+    .three-column-grid.deluxe-grid.before-grid.excerpt-grid,
+    .three-column-grid.deluxe-grid.before-grid.spacer-grid,
+    .four-column-grid.deluxe-grid.before-grid.excerpt-grid,
+    .four-column-grid.deluxe-grid.before-grid.spacer-grid {
+        .grid-patient {
+            width: 30vw;
+
+            .before-image {
+                clip: rect(0, 15vw, 20vw, 0);
+            }
+
+            .gallery-excerpt {
+                font-size: 1.5vw;
+            }
+        }
+    }
+    .two-column-grid.deluxe-grid.before-grid.excerpt-grid,
+    .two-column-grid.deluxe-grid.before-grid.spacer-grid,
+    .three-column-grid.deluxe-grid.before-grid.excerpt-grid,
+    .three-column-grid.deluxe-grid.before-grid.spacer-grid,
+    .four-column-grid.deluxe-grid.before-grid.excerpt-grid,
+    .four-column-grid.deluxe-grid.before-grid.spacer-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .deluxe-grid.before-grid.excerpt-grid.title-grid,
+    .deluxe-grid.before-grid.spacer-grid.title-grid,
+    .two-column-grid.deluxe-grid.before-grid.excerpt-grid.title-grid,
+    .two-column-grid.deluxe-grid.before-grid.spacer-grid.title-grid,
+    .three-column-grid.deluxe-grid.before-grid.excerpt-grid.title-grid,
+    .three-column-grid.deluxe-grid.before-grid.spacer-grid.title-grid,
+    .four-column-grid.deluxe-grid.before-grid.excerpt-grid.title-grid,
+    .four-column-grid.deluxe-grid.before-grid.spacer-grid.title-grid {
+        .grid-patient {
+            .gallery-title {
+                font-size: 1.9vw;
+            }
+
+            .gallery-excerpt {
+                font-size: 1.4vw;
+            }
+        }
+    }
+}
+@media screen and (min-width: 900px) and (max-height: 800px) {
+    .headshot-grid.excerpt-grid.title-grid,
+    .headshot-grid.spacer-grid.title-grid {
+        .grid-patient {
+            width: 10vw;
+
+            .gallery-title {
+                font-size: 1.5vw;
+            }
+
+            .gallery-excerpt {
+                font-size: 1vw;
+            }
+        }
+    }
+    .before-grid.excerpt-grid,
+    .before-grid.spacer-grid,
+    .three-column-grid.before-grid.excerpt-grid,
+    .three-column-grid.before-grid.spacer-grid,
+    .four-column-grid.before-grid.excerpt-grid,
+    .four-column-grid.before-grid.spacer-grid {
+        .grid-patient {
+            width: 20vw;
+
+            .before-image {
+                clip: rect(0, 10vw, 14vw, 0);
+            }
+
+            .gallery-excerpt {
+                font-size: 1vw;
+            }
+        }
+    }
+    .before-grid.excerpt-grid.title-grid,
+    .before-grid.spacer-grid.title-grid {
+        .grid-patient {
+            .gallery-title {
+                font-size: 2vw;
+            }
+
+            .gallery-excerpt {
+                font-size: 0.9vw;
+            }
+        }
+    }
+    .two-column-grid.before-grid.excerpt-grid.title-grid,
+    .two-column-grid.before-grid.spacer-grid.title-grid,
+    .four-column-grid.before-grid.excerpt-grid.title-grid,
+    .four-column-grid.before-grid.spacer-grid.title-grid {
+        .grid-patient {
+            .gallery-title {
+                font-size: 1.8vw;
+            }
+
+            .gallery-excerpt {
+                font-size: 0.9vw;
+            }
+        }
+    }
+    .deluxe-grid.before-grid.excerpt-grid,
+    .deluxe-grid.before-grid.spacer-grid,
+    .two-column-grid.deluxe-grid.before-grid.excerpt-grid,
+    .two-column-grid.deluxe-grid.before-grid.spacer-grid {
+        .grid-patient {
+            width: 10vw;
+
+            .before-image {
+                clip: rect(0, 5vw, 6.5vw, 0);
+            }
+
+            .gallery-excerpt {
+                font-size: 0.5vw;
+            }
+        }
+    }
+    .three-column-grid.deluxe-grid.before-grid.excerpt-grid,
+    .three-column-grid.deluxe-grid.before-grid.spacer-grid,
+    .four-column-grid.deluxe-grid.before-grid.excerpt-grid,
+    .four-column-grid.deluxe-grid.before-grid.spacer-grid {
+        grid-template-columns: repeat(3, 1fr);
+
+        .grid-patient {
+            width: 20vw;
+
+            .before-image {
+                clip: rect(0, 10vw, 15vw, 0);
+            }
+
+            .gallery-excerpt {
+                font-size: 1vw;
+            }
+        }
+    }
+    .deluxe-grid.before-grid.excerpt-grid.title-grid,
+    .deluxe-grid.before-grid.spacer-grid.title-grid {
+        .grid-patient {
+            .gallery-title {
+                font-size: 1vw;
+            }
+
+            .gallery-excerpt {
+                font-size: 0.4vw;
+            }
+        }
+    }
+    .four-column-grid.deluxe-grid.before-grid.excerpt-grid.title-grid,
+    .four-column-grid.deluxe-grid.before-grid.spacer-grid.title-grid {
+        .grid-patient {
+            .gallery-title {
+                font-size: 1.5vw;
+            }
+
+            .gallery-excerpt {
+                font-size: 0.9vw;
+            }
+        }
+    }
+}
+@media screen and (min-width: 920px) and (min-height: 801px) {
+    .three-column-grid.headshot-grid,
+    .four-column-grid.headshot-grid,
+    .six-column-grid.headshot-grid {
+        .grid-patient {
+            width: 25vw;
+        }
+    }
+    .three-column-grid.headshot-grid.excerpt-grid,
+    .three-column-grid.headshot-grid.spacer-grid,
+    .four-column-grid.headshot-grid.excerpt-grid,
+    .four-column-grid.headshot-grid.spacer-grid,
+    .six-column-grid.headshot-grid.excerpt-grid,
+    .six-column-grid.headshot-grid.spacer-grid {
+        .grid-patient {
+            width: 20vw;
+        }
+    }
+    .three-column-grid.headshot-grid.before-grid.excerpt-grid,
+    .three-column-grid.headshot-grid.before-grid.spacer-grid {
+        grid-template-columns: repeat(3, 1fr);
+        
+        .grid-patient {
+            width: 28vw;
+
+            .before-image {
+                clip: rect(0, 6.7vw, 10vw, 0);
+            }
+
+            .gallery-excerpt {
+                font-size: 0.9vw;
+            }
+        }
+    }
+    .three-column-grid.headshot-grid.excerpt-grid.title-grid,
+    .three-column-grid.headshot-grid.spacer-grid.title-grid {
+        .grid-patient {
+            width: 15vw;
+        }
+    }
+    .three-column-grid.deluxe-grid.headshot-grid {
+        .grid-patient {
+            width: 23vw;
+        }
+    }
+    .deluxe-grid.headshot-grid.excerpt-grid,
+    .deluxe-grid.headshot-grid.spacer-grid {
+        .grid-patient {
+            .gallery-excerpt {
+                font-size: 1.2vw;
+            }
+        }
+    }
+    .deluxe-grid.headshot-grid.excerpt-grid.title-grid,
+    .deluxe-grid.headshot-grid.spacer-grid.title-grid {
+        .grid-patient {
+            width: 10vw;
+
+            .gallery-title {
+                font-size: 1.5vw;
+                margin-bottom: 2vw;
+            }
+
+            .gallery-excerpt {
+                font-size: 1vw;
+            }
+        }
+    }
+}
+@media screen and (min-width: 920px) and (max-height: 800px) {
+    .two-column-grid.headshot-grid.excerpt-grid,
+    .two-column-grid.headshot-grid.spacer-grid {
+        .grid-patient {
+            width: 10vw;
+
+            .gallery-excerpt {
+                font-size: 0.9vw;
+            }
+        }
+    }
+}
+@media screen and (min-width: 962px) {
+    .three-column-grid {
+        grid-template-columns: repeat(3, 1fr);
+
+        .grid-patient {
+            width: 25vw;
+        }
+
+        .headshot-image {
+            height: 100%;
+        }
+    }
+    .four-column-grid,
+    .six-column-grid {
+        grid-template-columns: repeat(4, 1fr);
+
+        .grid-patient {
+            width: 17vw;
+        }
+
+        .headshot-image {
+            height: 100%;
+        }
+    }
+    .two-column-grid.before-grid {
+        grid-template-columns: repeat(2, 1fr);
+        max-width: max-content;
+
+        .grid-patient {
+            width: 25vw;
+
+            .before-image {
+                clip: rect(0, 12.5vw, 17vw, 0);
+            }
+        }
+    }
+    .deluxe-grid.before-grid {
+        .grid-patient {
+            .before-image {
+                clip: rect(0, 41.5vw, 55.4vw, 0);
+            }
+        }
+    }
+    .two-column-grid.deluxe-grid.before-grid {
+        .grid-patient {
+            .before-image {
+                clip: rect(0, 19vw, 25.5vw, 0);
+            }
+        }
+    }
+    .deluxe-grid.excerpt-grid,
+    .deluxe-grid.spacer-grid {
+        .headshot-image {
+            height: 95%;
+        }
+    }
+    .four-column-grid.deluxe-grid.headshot-grid.before-grid {
+        grid-template-columns: repeat(3, 1fr);
+
+        .grid-patient {
+            width: 15vw;
+        }
+    }
+    .deluxe-grid.headshot-grid.excerpt-grid,
+    .deluxe-grid.headshot-grid.spacer-grid {
+        .before-image {
+            clip: rect(0, 11.8vw, 16vw, 0);
+        }
+    }
+    .deluxe-grid.headshot-grid.before-grid.excerpt-grid,
+    .deluxe-grid.headshot-grid.before-grid.spacer-grid {
+        .grid-patient {
+            .headshot-image {
+                height: 100%;
+            }
+        }
+    }
+}
+@media screen and (min-width: 962px) and (max-height: 800px) {
+    .headshot-grid.excerpt-grid,
+    .headshot-grid.spacer-grid,
+    .three-column-grid.headshot-grid.excerpt-grid,
+    .three-column-grid.headshot-grid.spacer-grid,
+    .four-column-grid.headshot-grid.excerpt-grid,
+    .four-column-grid.headshot-grid.spacer-grid {
+        .grid-patient {
+            width: 10vw;
+
+            .gallery-excerpt {
+                font-size: 0.9vw;
+            }
+        }
+    }
+    .before-grid {
+        .grid-patient {
+            width: 25vw;
+        }
+    }
+    .two-column-grid.before-grid.excerpt-grid,
+    .two-column-grid.before-grid.spacer-grid,
+    .three-column-grid.before-grid.excerpt-grid,
+    .three-column-grid.before-grid.spacer-grid,
+    .four-column-grid.before-grid.excerpt-grid,
+    .four-column-grid.before-grid.spacer-grid {
+        .grid-patient {
+            width: 20vw;
+
+            .before-image {
+                clip: rect(0, 10vw, 14vw, 0);
+            }
+
+            .gallery-excerpt {
+                font-size: 1vw;
+            }
+        }
+    }
+    .four-column-grid.deluxe-grid.headshot-grid,
+    .deluxe-grid.headshot-grid.before-grid,
+    .three-column-grid.deluxe-grid.headshot-grid.before-grid {
+        .grid-patient {
+            width: 10vw;
+        }
+    }
+    .three-column-grid.deluxe-grid.headshot-grid.before-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+    .deluxe-grid.headshot-grid.excerpt-grid,
+    .deluxe-grid.headshot-grid.spacer-grid,
+    .two-column-grid.deluxe-grid.headshot-grid.excerpt-grid,
+    .two-column-grid.deluxe-grid.headshot-grid.spacer-grid,
+    .three-column-grid.deluxe-grid.headshot-grid.excerpt-grid,
+    .three-column-grid.deluxe-grid.headshot-grid.spacer-grid,
+    .four-column-grid.deluxe-grid.headshot-grid.excerpt-grid,
+    .four-column-grid.deluxe-grid.headshot-grid.spacer-grid,
+    .six-column-grid.deluxe-grid.headshot-grid.excerpt-grid,
+    .six-column-grid.deluxe-grid.headshot-grid.spacer-grid {
+        .grid-patient {
+            .gallery-excerpt {
+                font-size: 0.9vw;
+            }
+        }
+    }
+    .two-column-grid.deluxe-grid.before-grid,
+    .three-column-grid.deluxe-grid.before-grid,
+    .four-column-grid.deluxe-grid.before-grid {
+        .grid-patient {
+            .before-image {
+                clip: rect(0, 12.5vw, 16.8vw, 0);
+            }
+        }
+    }
+}
+@media screen and (min-width: 1000px) and (min-height: 801px) {
+    .two-column-grid.headshot-grid,
+    .three-column-grid.headshot-grid,
+    .four-column-grid.headshot-grid,
+    .six-column-grid.headshot-grid,
+    .four-column-grid.deluxe-grid.headshot-grid,
+    .six-column-grid.deluxe-grid.headshot-grid {
+        .grid-patient {
+            width: 15vw;
+        }
+    }
+    .headshot-grid.before-grid,
+    .deluxe-grid.headshot-grid.before-grid {
+        .grid-patient {
+            width: 25vw;
+        }
+    }
+    .headshot-grid.excerpt-grid,
+    .headshot-grid.spacer-grid,
+    .three-column-grid.headshot-grid.excerpt-grid,
+    .three-column-grid.headshot-grid.spacer-grid,
+    .four-column-grid.headshot-grid.excerpt-grid,
+    .four-column-grid.headshot-grid.spacer-grid,
+    .six-column-grid.headshot-grid.excerpt-grid,
+    .six-column-grid.headshot-grid.spacer-grid {
+        .grid-patient {
+            width: 15vw;
+
+            .gallery-excerpt {
+                font-size: 1vw;
+            }
+        }
+    }
+    .four-column-grid.headshot-grid.excerpt-grid,
+    .four-column-grid.headshot-grid.spacer-grid,
+    .six-column-grid.headshot-grid.excerpt-grid,
+    .six-column-grid.headshot-grid.spacer-grid {
+        grid-template-columns: repeat(4, 1fr);
+    }
+    .four-column-grid.headshot-grid.before-grid.excerpt-grid,
+    .four-column-grid.headshot-grid.before-grid.spacer-grid,
+    .four-column-grid.headshot-grid.before-grid.excerpt-grid.title-grid,
+    .four-column-grid.headshot-grid.before-grid.spacer-grid.title-grid {
+        grid-template-columns: repeat(3, 1fr);
+
+        .grid-patient {
+            width: 28vw;
+
+            .before-image {
+                clip: rect(0, 6.7vw, 10vw, 0);
+            }
+
+            .gallery-excerpt {
+                font-size: 0.9vw;
+            }
+        }
+    }
+    .before-grid {
+        .grid-patient {
+            .before-image {
+                clip: rect(0px, 20vw, 27vw, 0px);
+            }
+        }
+    }
+    .deluxe-grid.headshot-grid.excerpt-grid,
+    .deluxe-grid.headshot-grid.spacer-grid,
+    .two-column-grid.deluxe-grid.headshot-grid.excerpt-grid,
+    .two-column-grid.deluxe-grid.headshot-grid.spacer-grid,
+    .three-column-grid.deluxe-grid.headshot-grid.excerpt-grid,
+    .three-column-grid.deluxe-grid.headshot-grid.spacer-grid,
+    .four-column-grid.deluxe-grid.headshot-grid.excerpt-grid,
+    .four-column-grid.deluxe-grid.headshot-grid.spacer-grid,
+    .six-column-grid.deluxe-grid.headshot-grid.excerpt-grid,
+    .six-column-grid.deluxe-grid.headshot-grid.spacer-grid {
+        .grid-patient {
+            .gallery-excerpt {
+                font-size: 1vw;
+            }
+        }
+    }
+    .deluxe-grid.before-grid {
+        .grid-patient {
+            width: 40vw;
+        }
+    }
+}
+@media screen and (min-width: 1000px) and (max-height: 800px) {
+    .four-column-grid.headshot-grid.excerpt-grid.title-grid,
+    .four-column-grid.headshot-grid.spacer-grid.title-grid,
+    .four-column-grid.headshot-grid.before-grid.excerpt-grid,
+    .four-column-grid.headshot-grid.before-grid.spacer-grid,
+    .four-column-grid.deluxe-grid.headshot-grid.excerpt-grid,
+    .four-column-grid.deluxe-grid.headshot-grid.spacer-grid,
+    .six-column-grid.deluxe-grid.headshot-grid.excerpt-grid,
+    .six-column-grid.deluxe-grid.headshot-grid.spacer-grid {
+        grid-template-columns: repeat( 4, 1fr);
+    }
+    .headshot-grid.excerpt-grid.title-grid,
+    .headshot-grid.spacer-grid.title-grid {
+        .grid-patient {
+            .gallery-title {
+                font-size: 1.2vw;
+            }
+
+            .gallery-excerpt {
+                font-size: 0.8vw;
+            }
+        }
+    }
+    .before-grid.excerpt-grid,
+    .before-grid.spacer-grid {
+        .grid-patient {
+            width: 10vw;
+
+            .before-image {
+                clip: rect(0, 5vw, 7vw, 0);
+            }
+
+            .gallery-excerpt {
+                font-size: 0.5vw;
+            }
+        }
+    }
+    .before-grid.excerpt-grid.title-grid,
+    .before-grid.spacer-grid.title-grid {
+        .grid-patient {
+            .gallery-title {
+                font-size: 1vw;
+            }
+
+            .gallery-excerpt {
+                font-size: 0.4vw;
+            }
+        }
+    }
+    .two-column-grid.headshot-grid.before-grid.excerpt-grid.title-grid,
+    .two-column-grid.headshot-grid.before-grid.spacer-grid.title-grid,
+    .four-column-grid.headshot-grid.before-grid.excerpt-grid.title-grid,
+    .four-column-grid.headshot-grid.before-grid.spacer-grid.title-grid {
+        .grid-patient {
+            width: 15vw;
+
+            .before-image {
+                clip: rect(0, 3.5vw, 5vw, 0);
+            }
+
+            .gallery-title {
+                font-size: 1vw;
+            }
+
+            .gallery-excerpt {
+                font-size: 0.5vw;
+            }
+        }
+    }
+    .two-column-grid.deluxe-grid.headshot-grid.before-grid.excerpt-grid,
+    .two-column-grid.deluxe-grid.headshot-grid.before-grid.spacer-grid,
+    .three-column-grid.deluxe-grid.headshot-grid.before-grid.excerpt-grid,
+    .three-column-grid.deluxe-grid.headshot-grid.before-grid.spacer-grid,
+    .four-column-grid.deluxe-grid.headshot-grid.before-grid.excerpt-grid,
+    .four-column-grid.deluxe-grid.headshot-grid.before-grid.spacer-grid {
+        .grid-patient {
+            width: 20vw;
+
+            .before-image {
+                clip: rect(0, 5vw, 6.3vw, 0);
+            }
+
+            .gallery-excerpt {
+                font-size: 0.7vw;
+            }
+        }
+    }
+    .deluxe-grid.before-grid,
+    .two-column-grid.deluxe-grid.before-grid,
+    .three-column-grid.deluxe-grid.before-grid,
+    .four-column-grid.deluxe-grid.before-grid {
+        .grid-patient {
+            width: 10vw;
+
+            .before-image {
+                clip: rect(0, 5vw, 8vw, 0);
+            }
+        }
+    }
+    .three-column-grid.deluxe-grid.before-grid,
+    .four-column-grid.deluxe-grid.before-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+@media screen and (min-width: 1000px) and (min-height: 801px) {
+    .headshot-grid.excerpt-grid.title-grid,
+    .headshot-grid.spacer-grid.title-grid {
+        .grid-patient {
+            width: 10vw;
+
+            .gallery-title {
+                font-size: 1.5vw;
+            }
+
+            .gallery-excerpt {
+                font-size: 1vw;
+            }
+        }
+    }
+}
+@media screen and (min-width: 1050px) and (max-height: 800px) {
+    .two-column-grid.before-grid.excerpt-grid,
+    .two-column-grid.before-grid.spacer-grid,
+    .three-column-grid.before-grid.excerpt-grid,
+    .three-column-grid.before-grid.spacer-grid,
+    .four-column-grid.before-grid.excerpt-grid,
+    .four-column-grid.before-grid.spacer-grid {
+        .grid-patient {
+            width: 16vw;
+
+            .before-image {
+                clip: rect(0, 8vw, 11vw, 0);
+            }
+
+            .gallery-excerpt {
+                font-size: 0.8vw;
+            }
+        }
+    }
+    .four-column-grid.before-grid.excerpt-grid,
+    .four-column-grid.before-grid.spacer-grid {
+        grid-template-columns: repeat(4, 1fr);
+    }
+    .two-column-grid.before-grid.excerpt-grid.title-grid,
+    .two-column-grid.before-grid.spacer-grid.title-grid,
+    .three-column-grid.before-grid.excerpt-grid.title-grid,
+    .three-column-grid.before-grid.spacer-grid.title-grid,
+    .four-column-grid.before-grid.excerpt-grid.title-grid,
+    .four-column-grid.before-grid.spacer-grid.title-grid {
+        .grid-patient {
+            .gallery-excerpt {
+                font-size: 0.7vw;
+            }
+        }
+    }
+    .two-column-grid.deluxe-grid.before-grid.excerpt-grid.title-grid,
+    .two-column-grid.deluxe-grid.before-grid.spacer-grid.title-grid,
+    .three-column-grid.deluxe-grid.before-grid.excerpt-grid.title-grid,
+    .three-column-grid.deluxe-grid.before-grid.spacer-grid.title-grid,
+    .four-column-grid.deluxe-grid.before-grid.excerpt-grid.title-grid,
+    .four-column-grid.deluxe-grid.before-grid.spacer-grid.title-grid {
+        .grid-patient {
+            .gallery-excerpt {
+                font-size: 0.4vw;
+            }
+        }
+    }
+    .four-column-grid.deluxe-grid.before-grid.excerpt-grid.title-grid,
+    .four-column-grid.deluxe-grid.before-grid.spacer-grid.title-grid {
+        .grid-patient {
+            .gallery-excerpt {
+                font-size: 0.9vw;
+            }
+        }
+    }
+}
+@media screen and (min-width: 1150px) and (max-height: 800px) {
+    .headshot-grid.before-grid,
+    .two-column-grid.deluxe-grid.headshot-grid.before-grid {
+        .grid-patient {
+            width: 15vw;
+        }
+    }
+    .headshot-grid.excerpt-grid.title-grid,
+    .headshot-grid.spacer-grid.title-grid {
+        .grid-patient {
+            .gallery-title {
+                font-size: 1vw;
+            }
+
+            .gallery-excerpt {
+                font-size: 0.6vw;
+            }
+        }
+    }
+    .headshot-grid.before-grid.excerpt-grid,
+    .headshot-grid.before-grid.spacer-grid,
+    .headshot-grid.before-grid.excerpt-grid.title-grid,
+    .headshot-grid.before-grid.spacer-grid.title-grid,
+    .three-column-grid.headshot-grid.before-grid.excerpt-grid.title-grid,
+    .three-column-grid.headshot-grid.before-grid.spacer-grid.title-grid,
+    .four-column-grid.headshot-grid.before-grid.excerpt-grid.title-grid,
+    .four-column-grid.headshot-grid.before-grid.spacer-grid.title-grid {
+        .grid-patient {
+            width: 10vw;
+
+            .before-image {
+                clip: rect(0, 2.3vw, 4vw, 0);
+            }
+
+            .gallery-title {
+                font-size: 0.7vw;
+            }
+
+            .gallery-excerpt {
+                font-size: 0.32vw;
+            }
+        }
+    }
+    .deluxe-grid.headshot-grid.excerpt-grid,
+    .deluxe-grid.headshot-grid.spacer-grid,
+    .two-column-grid.deluxe-grid.headshot-grid.excerpt-grid,
+    .two-column-grid.deluxe-grid.headshot-grid.spacer-grid,
+    .three-column-grid.deluxe-grid.headshot-grid.excerpt-grid,
+    .three-column-grid.deluxe-grid.headshot-grid.spacer-grid,
+    .four-column-grid.deluxe-grid.headshot-grid.excerpt-grid,
+    .four-column-grid.deluxe-grid.headshot-grid.spacer-grid,
+    .six-column-grid.deluxe-grid.headshot-grid.excerpt-grid,
+    .six-column-grid.deluxe-grid.headshot-grid.spacer-grid {
+        .grid-patient {
+            .gallery-excerpt {
+                font-size: 0.8vw;
+            }
+        }
+    }
+    .deluxe-grid.headshot-grid.before-grid.excerpt-grid,
+    .deluxe-grid.headshot-grid.before-grid.spacer-grid {
+        .grid-patient {
+            .before-image {
+                clip: rect(0, 6vw, 8vw, 0);
+            }
+        }
+    }
+    .two-column-grid.deluxe-grid.headshot-grid.before-grid.excerpt-grid,
+    .two-column-grid.deluxe-grid.headshot-grid.before-grid.spacer-grid,
+    .three-column-grid.deluxe-grid.headshot-grid.before-grid.excerpt-grid,
+    .three-column-grid.deluxe-grid.headshot-grid.before-grid.spacer-grid,
+    .four-column-grid.deluxe-grid.headshot-grid.before-grid.excerpt-grid,
+    .four-column-grid.deluxe-grid.headshot-grid.before-grid.spacer-grid {
+        .grid-patient {
+            width: 15vw;
+
+            .before-image {
+                clip: rect(0, 3.7vw, 5vw, 0);
+            }
+
+            .gallery-excerpt {
+                font-size: 0.5vw;
+            }
+        }
+    }
+}
+@media screen and (min-width: 1150px) and (min-height: 801px) {
+    .headshot-grid.excerpt-grid,
+    .headshot-grid.spacer-grid,
+    .three-column-grid.headshot-grid.excerpt-grid,
+    .three-column-grid.headshot-grid.spacer-grid,
+    .four-column-grid.headshot-grid.excerpt-grid,
+    .four-column-grid.headshot-grid.spacer-grid {
+        .grid-patient {
+            width: 10vw;
+
+            .gallery-excerpt {
+                font-size: 0.8vw;
+            }
+        }
+    }
+    .three-column-grid.headshot-grid.excerpt-grid.title-grid,
+    .three-column-grid.headshot-grid.spacer-grid.title-grid {
+        .grid-patient {
+            width: 10vw;
+
+            .gallery-excerpt {
+                font-size: 0.7vw;
+            }
+        }
+    }
+    .headshot-grid.before-grid.excerpt-grid,
+    .headshot-grid.before-grid.spacer-grid {
+        .grid-patient {
+            width: 25vw;
+
+            .before-image {
+                clip: rect(0, 6vw, 8vw, 0);
+            }
+
+            .gallery-excerpt {
+                font-size: 0.8vw;
+            }
+        }
+    }
+    .headshot-grid.before-grid.excerpt-grid.title-grid,
+    .headshot-grid.before-grid.spacer-grid.title-grid {
+        .grid-patient {
+            width: 25vw;
+
+            .gallery-title {
+                font-size: 1.5vw;
+            }
+
+            .gallery-excerpt {
+                font-size: 0.8vw;
+                margin: 1em 0 0;
+            }
+        }
+    }
+    .deluxe-grid.headshot-grid.excerpt-grid,
+    .deluxe-grid.headshot-grid.spacer-grid,
+    .two-column-grid.deluxe-grid.headshot-grid.excerpt-grid,
+    .two-column-grid.deluxe-grid.headshot-grid.spacer-grid,
+    .three-column-grid.deluxe-grid.headshot-grid.excerpt-grid,
+    .three-column-grid.deluxe-grid.headshot-grid.spacer-grid,
+    .four-column-grid.deluxe-grid.headshot-grid.excerpt-grid,
+    .four-column-grid.deluxe-grid.headshot-grid.spacer-grid,
+    .six-column-grid.deluxe-grid.headshot-grid.excerpt-grid,
+    .six-column-grid.deluxe-grid.headshot-grid.spacer-grid {
+        .grid-patient {
+            width: 10vw;
+        }
+    }
+    .four-column-grid.deluxe-grid.headshot-grid.excerpt-grid,
+    .four-column-grid.deluxe-grid.headshot-grid.spacer-grid,
+    .six-column-grid.deluxe-grid.headshot-grid.excerpt-grid,
+    .six-column-grid.deluxe-grid.headshot-grid.spacer-grid {
+        grid-template-columns: repeat(4, 1fr);
+    }
+    .deluxe-grid.headshot-grid.before-grid.excerpt-grid,
+    .deluxe-grid.headshot-grid.before-grid.spacer-grid {
+        .grid-patient {
+            width: 25vw;
+
+            .gallery-excerpt {
+                font-size: 0.8vw;
+            }
+        }
+    }
+    .deluxe-grid.headshot-grid.excerpt-grid.title-grid,
+    .deluxe-grid.headshot-grid.spacer-grid.title-grid {
+        .grid-patient {
+            .gallery-title {
+                margin-bottom: 1.5vw;
+            }
+
+            .gallery-excerpt {
+                font-size: 0.8vw;
+            }
+        }
+    }
+}
+@media screen and (min-width: 1200px) {
+    .excerpt-grid:not(.before-grid):not(.headshot-grid) {
+        .grid-patient {
+            .excerpt-container {
+                margin: 0 auto;
+
+                .gallery-excerpt {
+                    font-size: 20px;
+                }
+            }
+        }
+    }
+    .deluxe-grid.before-grid.excerpt-grid,
+    .deluxe-grid.before-grid.spacer-grid {
+        .grid-patient {
+            width: 20vw;
+
+            .before-image {
+                clip: rect(0, 10vw, 13.5vw, 0);
+            }
+
+            .gallery-excerpt {
+                font-size: 1vw;
+            }
+        }
+    }
+    .deluxe-grid.before-grid.excerpt-grid.title-grid,
+    .deluxe-grid.before-grid.spacer-grid.title-grid,
+    .two-column-grid.deluxe-grid.before-grid.excerpt-grid.title-grid,
+    .two-column-grid.deluxe-grid.before-grid.spacer-grid.title-grid,
+    .three-column-grid.deluxe-grid.before-grid.excerpt-grid.title-grid,
+    .three-column-grid.deluxe-grid.before-grid.spacer-grid.title-grid,
+    .four-column-grid.deluxe-grid.before-grid.excerpt-grid.title-grid,
+    .four-column-grid.deluxe-grid.before-grid.spacer-grid.title-grid {
+        .grid-patient {
+            width: 20vw;
+
+            .before-image {
+                clip: rect(0, 10vw, 13.4vw, 0);
+            }
+
+            .gallery-title {
+                font-size: 1.5vw;
+            }
+
+            .gallery-excerpt {
+                font-size: 0.9vw;
+            }
+        }
+    }
+    .three-column-grid.deluxe-grid.before-grid.excerpt-grid.title-grid,
+    .three-column-grid.deluxe-grid.before-grid.spacer-grid.title-grid,
+    .four-column-grid.deluxe-grid.before-grid.excerpt-grid.title-grid,
+    .four-column-grid.deluxe-grid.before-grid.spacer-grid.title-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+@media screen and (min-width: 1200px) and (max-height: 800px) {
+    .deluxe-grid.before-grid.excerpt-grid,
+    .deluxe-grid.before-grid.spacer-grid {
+        .grid-patient {
+            width: 10vw;
+
+            .before-image {
+                clip: rect(0, 5vw, 6.5vw, 0);
+            }
+
+            .gallery-excerpt {
+                font-size: 0.5vw;
+            }
+        }
+    }
+    .deluxe-grid.before-grid.excerpt-grid.title-grid,
+    .deluxe-grid.before-grid.spacer-grid.title-grid,
+    .two-column-grid.deluxe-grid.before-grid.excerpt-grid.title-grid,
+    .two-column-grid.deluxe-grid.before-grid.spacer-grid.title-grid,
+    .three-column-grid.deluxe-grid.before-grid.excerpt-grid.title-grid,
+    .three-column-grid.deluxe-grid.before-grid.spacer-grid.title-grid,
+    .four-column-grid.deluxe-grid.before-grid.excerpt-grid.title-grid,
+    .four-column-grid.deluxe-grid.before-grid.spacer-grid.title-grid {
+        .grid-patient {
+            width: 10vw;
+
+            .before-image {
+                clip: rect(0, 5vw, 6.8vw, 0);
+            }
+
+            .gallery-title {
+                font-size: 1vw;
+            }
+
+            .gallery-excerpt {
+                font-size: 0.4vw;
+            }
+        }
+    }
+    .four-column-grid.deluxe-grid.before-grid.excerpt-grid.title-grid,
+    .four-column-grid.deluxe-grid.before-grid.spacer-grid.title-grid {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+@media screen and (min-width: 1280px) {
+    .three-column-grid.before-grid,
+    .four-column-grid.headshot-grid.before-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+    .four-column-grid.headshot-grid,
+    .four-column-grid.before-grid,
+    .four-column-grid.headshot-grid.before-grid,
+    .six-column-grid.before-grid {
+        grid-template-columns: repeat(4, 1fr);
+    }
+    .six-column-grid.deluxe-grid.headshot-grid {
+        grid-template-columns: repeat(6, 1fr);
+    }
+    .three-column-grid.headshot-grid.before-grid,
+    .four-column-grid.headshot-grid.before-grid {
+        .grid-patient {
+            width: 15vw;
+        }
+    }
+    .four-column-grid.headshot-grid.before-grid,
+    .six-column-grid.headshot-grid.before-grid {
+        .gallery-excerpt {
+            margin-bottom: 1em;
+        }
+    }
+    .four-column-grid.before-grid {
+        .grid-patient {
+            width: 21vw;
+
+            .before-image {
+                clip: rect(0, 10.5vw, 14vw, 0);
+            }
+        }
+    }
+    .six-column-grid.headshot-grid.excerpt-grid,
+    .six-column-grid.headshot-grid.spacer-grid {
+        grid-template-columns: repeat(6, 1fr);
+
+        .grid-patient {
+            width: 10vw;
+
+            .gallery-excerpt {
+                font-size: 0.8vw;
+            }
+        }
+    }
+    .headshot-grid.excerpt-grid.title-grid,
+    .headshot-grid.spacer-grid.title-grid {
+        .grid-patient {
+            .gallery-title {
+                font-size: 1.2vw;
+            }
+
+            .gallery-excerpt {
+                font-size: 0.8vw;
+            }
+        }
+    }
+    .three-column-grid.headshot-grid.before-grid.excerpt-grid,
+    .three-column-grid.headshot-grid.before-grid.spacer-grid,
+    .four-column-grid.headshot-grid.before-grid.excerpt-grid,
+    .four-column-grid.headshot-grid.before-grid.spacer-grid,
+    .six-column-grid.headshot-grid.before-grid.excerpt-grid,
+    .six-column-grid.headshot-grid.before-grid.spacer-grid {
+        .grid-patient {
+            aspect-ratio: 3/2;
+
+            .gallery-excerpt {
+                margin: 1em auto;
+            }
+        }
+    }
+    .four-column-grid.before-grid.excerpt-grid,
+    .four-column-grid.before-grid.spacer-grid {
+        .grid-patient {
+            width: 20vw;
+
+            .before-image {
+                clip: rect(0, 10vw, 14vw, 0);
+            }
+
+            .gallery-excerpt {
+                font-size: 0.9vw;
+            }
+        }
+    }
+    .before-grid.excerpt-grid.title-grid,
+    .before-grid.spacer-grid.title-grid {
+        .grid-patient {
+            aspect-ratio: 1/1;
+        }
+    }
+    .three-column-grid.before-grid.excerpt-grid.title-grid,
+    .three-column-grid.before-grid.spacer-grid.title-grid {
+        .grid-patient {
+            .gallery-excerpt {
+                margin-top: 4px;
+            }
+        }
+    }
+    .four-column-grid.before-grid.excerpt-grid.title-grid,
+    .four-column-grid.before-grid.spacer-grid.title-grid {
+        .grid-patient {
+            .gallery-excerpt {
+                font-size: 0.9vw;
+                margin-top: 0;
+            }
+        }
+    }
+    .four-column-grid.headshot-grid.before-grid.excerpt-grid.title-grid,
+    .four-column-grid.headshot-grid.before-grid.spacer-grid.title-grid {
+        .grid-patient {
+            aspect-ratio: 3/2;
+
+            .gallery-title {
+                font-size: 1.5vw;
+            }
+
+            .gallery-excerpt {
+                margin: 0.5em auto 0;
+            }
+        }
+    }
+    .grid-patient {
+        margin: 0 auto;
+        width: 50vw;
+    }
+    .deluxe-grid.headshot-grid.before-grid {
+        .gallery-excerpt {
+            margin-bottom: 4em;
+        }
+    }
+    .before-image {
+        clip: rect(0, 17.5vw, 25vw, 0);
+    }
+    .three-column-grid {
+        .before-image {
+            clip: rect(0, 14vw, 19vw, 0);
+        }
+    }
+    .four-column-grid,
+    .six-column-grid {
+        .before-image {
+            clip: rect(0, 10vw, 14vw, 0);
+        }
+    }
+    .deluxe-grid {
+        .before-image {
+            clip: rect(0, 25vw, 33.4vw, 0);
+        }
+    }
+    .three-column-grid.deluxe-grid {
+        .before-image {
+            clip: rect(0, 11.5vw, 15.4vw, 0);
+        }
+    }
+    .four-column-grid.deluxe-grid,
+    .six-column-grid.deluxe-grid {
+        .grid-patient {
+            clip: rect(0, 7.5vw, 10vw, 0);
+        }
+    }
+    .deluxe-grid.headshot-grid.excerpt-grid,
+    .deluxe-grid.headshot-grid.spacer-grid {
+        .before-image {
+            clip: rect(0, 12vw, 16vw, 0);
+        }
+    }
+    .three-column-grid.deluxe-grid.excerpt-grid,
+    .three-column-grid.deluxe-grid.spacer-grid {
+        .before-image {
+            clip: rect(0, 11.5vw, 15.4vw, 0);
+        }
+    }
+    .deluxe-grid.excerpt-grid:not(.before-grid):not(.headshot-grid) {
+        .grid-patient {
+            width: unset;
+        }
+    }
+    .deluxe-grid.headshot-grid.before-grid.excerpt-grid,
+    .deluxe-grid.headshot-grid.before-grid.spacer-grid {
+        .grid-patient {
+            aspect-ratio: 3/2;
+        }
+    }
+    .deluxe-grid.headshot-grid.before-grid.excerpt-grid.title-grid,
+    .deluxe-grid.headshot-grid.before-grid.spacer-grid.title-grid,
+    .two-column-grid.deluxe-grid.headshot-grid.before-grid.excerpt-grid.title-grid,
+    .two-column-grid.deluxe-grid.headshot-grid.before-grid.spacer-grid.title-grid,
+    .three-column-grid.deluxe-grid.headshot-grid.before-grid.excerpt-grid.title-grid,
+    .three-column-grid.deluxe-grid.headshot-grid.before-grid.spacer-grid.title-grid,
+    .four-column-grid.deluxe-grid.headshot-grid.before-grid.excerpt-grid.title-grid,
+    .four-column-grid.deluxe-grid.headshot-grid.before-grid.spacer-grid.title-grid {
+        .grid-patient {
+            width: 20vw;
+
+            .before-image {
+                clip: rect(0, 4.7vw, 6.5vw, 0);
+            }
+
+            .gallery-title {
+                font-size: 1.3vw;
+                margin-bottom: 1.5vw
+            }
+
+            .gallery-excerpt {
+                font-size: 0.9vw;
+            }
+        }
+    }
+    .two-column-grid.deluxe-grid.headshot-grid.before-grid.excerpt-grid.title-grid,
+    .two-column-grid.deluxe-grid.headshot-grid.before-grid.spacer-grid.title-grid,
+    .three-column-grid.deluxe-grid.headshot-grid.before-grid.excerpt-grid.title-grid,
+    .three-column-grid.deluxe-grid.headshot-grid.before-grid.spacer-grid.title-grid,
+    .four-column-grid.deluxe-grid.headshot-grid.before-grid.excerpt-grid.title-grid,
+    .four-column-grid.deluxe-grid.headshot-grid.before-grid.spacer-grid.title-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+@media screen and (min-width: 1280px) and (max-height: 800px) {
+    .two-column-grid.before-grid.excerpt-grid,
+    .two-column-grid.before-grid.spacer-grid,
+    .three-column-grid.before-grid.excerpt-grid,
+    .three-column-grid.before-grid.spacer-grid,
+    .four-column-grid.before-grid.excerpt-grid,
+    .four-column-grid.before-grid.spacer-grid {
+        .grid-patient {
+            width: 10vw;
+
+            .before-image {
+                clip: rect(0, 5vw, 8vw, 0);
+            }
+
+            .gallery-excerpt {
+                font-size: 0.5vw;
+            }
+        }
+    }
+    .two-column-grid.before-grid.excerpt-grid.title-grid,
+    .two-column-grid.before-grid.spacer-grid.title-grid,
+    .three-column-grid.before-grid.excerpt-grid.title-grid,
+    .three-column-grid.before-grid.spacer-grid.title-grid,
+    .four-column-grid.before-grid.excerpt-grid.title-grid,
+    .four-column-grid.before-grid.spacer-grid.title-grid {
+        .grid-patient {
+            .gallery-title {
+                font-size: 1vw;
+            }
+
+            .gallery-excerpt {
+                font-size: 0.4vw;
+                margin-top: 4px;
+            }
+        }
+    }
+    .four-column-grid.before-grid.excerpt-grid.title-grid,
+    .four-column-grid.before-grid.spacer-grid.title-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+    .three-column-grid.headshot-grid.before-grid.excerpt-grid.title-grid,
+    .three-column-grid.headshot-grid.before-grid.spacer-grid.title-grid,
+    .four-column-grid.headshot-grid.before-grid.excerpt-grid.title-grid,
+    .four-column-grid.headshot-grid.before-grid.spacer-grid.title-grid {
+        .grid-patient {
+            aspect-ratio: 3/2;
+
+            .gallery-excerpt {
+                margin: 0.3em auto 0;
+            }
+        }
+    }
+    .four-column-grid.deluxe-grid.headshot-grid.before-grid.excerpt-grid,
+    .four-column-grid.deluxe-grid.headshot-grid.before-grid.spacer-grid {
+        .grid-patient {
+            aspect-ratio: 3/2;
+        }
+    }
+    .three-column-grid.deluxe-grid.headshot-grid.before-grid.excerpt-grid.title-grid,
+    .three-column-grid.deluxe-grid.headshot-grid.before-grid.spacer-grid.title-grid,
+    .four-column-grid.deluxe-grid.headshot-grid.before-grid.excerpt-grid.title-grid,
+    .four-column-grid.deluxe-grid.headshot-grid.before-grid.spacer-grid.title-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+@media screen and (min-width: 1366px) {
+    .two-column-grid.headshot-grid.before-grid {
+        .grid-patient {
+            width: 20vw;
+        }
+    }
+    .before-image {
+        clip: rect(0, 15vw, 20vw, 0);
+    }
+    .three-column-grid {
+        .before-image {
+            clip: rect(0, 13.5vw, 18vw, 0);
+        }
+    }
+    .two-column-grid.headshot-grid.excerpt-grid,
+    .two-column-grid.headshot-grid.spacer-grid,
+    .four-column-grid.headshot-grid.excerpt-grid,
+    .four-column-grid.headshot-grid.spacer-grid {
+        .grid-patient {
+            .gallery-excerpt {
+                font-size: 0.8vw;
+            }
+        }
+    }
+    .two-column-grid.headshot-grid.before-grid.excerpt-grid,
+    .two-column-grid.headshot-grid.before-grid.spacer-grid {
+        .grid-patient {
+            width: 20vw;
+
+            .before-image {
+                clip: rect(0, 5vw, 9vw, 0);
+            }
+
+            .gallery-excerpt {
+                font-size: 0.7vw;
+            }
+        }
+    }
+    .two-column-grid.headshot-grid.before-grid.excerpt-grid.title-grid,
+    .two-column-grid.headshot-grid.before-grid.spacer-grid.title-grid,
+    .four-column-grid.headshot-grid.before-grid.excerpt-grid.title-grid,
+    .four-column-grid.headshot-grid.before-grid.spacer-grid.title-grid {
+        .grid-patient {
+            width: 25vw;
+
+            .before-image {
+                clip: rect(0, 6vw, 8vw, 0);
+            }
+
+            .gallery-title {
+                font-size: 1.5vw;
+            }
+
+            .gallery-excerpt {
+                font-size: 0.8vw;
+            }
+        }
+    }
+    .three-column-grid.headshot-grid.before-grid.excerpt-grid.title-grid,
+    .three-column-grid.headshot-grid.before-grid.spacer-grid.title-grid,
+    .four-column-grid.headshot-grid.before-grid.excerpt-grid.title-grid,
+    .four-column-grid.headshot-grid.before-grid.spacer-grid.title-grid {
+        grid-template-columns: repeat(3, 1fr);
+
+        .grid-patient {
+            aspect-ratio: 3/2;
+
+            .before-image {
+                clip: rect(0, 6vw, 8vw, 0);
+            }
+
+            .gallery-excerpt {
+                margin: 0.5em auto 0;
+            }
+        }
+    }
+    .three-column-grid.deluxe-grid.headshot-grid.before-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+    .deluxe-grid.headshot-grid.excerpt-grid,
+    .deluxe-grid.headshot-grid.spacer-grid,
+    .two-column-grid.deluxe-grid.headshot-grid.excerpt-grid,
+    .two-column-grid.deluxe-grid.headshot-grid.spacer-grid,
+    .three-column-grid.deluxe-grid.headshot-grid.excerpt-grid,
+    .three-column-grid.deluxe-grid.headshot-grid.spacer-grid,
+    .four-column-grid.deluxe-grid.headshot-grid.excerpt-grid,
+    .four-column-grid.deluxe-grid.headshot-grid.spacer-grid,
+    .six-column-grid.deluxe-grid.headshot-grid.excerpt-grid,
+    .six-column-grid.deluxe-grid.headshot-grid.spacer-grid {
+        .grid-patient {
+            .gallery-excerpt {
+                font-size: 0.8vw;
+            }
+        }
+    }
+    .six-column-grid.deluxe-grid.headshot-grid.excerpt-grid,
+    .six-column-grid.deluxe-grid.headshot-grid.spacer-grid {
+        grid-template-columns: repeat(6, 1fr);
+    }
+    .two-column-grid.deluxe-grid.before-grid,
+    .three-column-grid.deluxe-grid.before-grid,
+    .four-column-grid.deluxe-grid.before-grid {
+        .grid-patient {
+            width: 25vw;
+
+            .before-image {
+                clip: rect(0, 12.5vw, 16.8vw, 0);
+            }
+        }
+    }
+    .three-column-grid.deluxe-grid.before-grid,
+    .four-column-grid.deluxe-grid.before-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+    .two-column-grid.deluxe-grid.before-grid.excerpt-grid,
+    .two-column-grid.deluxe-grid.before-grid.spacer-grid,
+    .three-column-grid.deluxe-grid.before-grid.excerpt-grid,
+    .three-column-grid.deluxe-grid.before-grid.spacer-grid,
+    .four-column-grid.deluxe-grid.before-grid.excerpt-grid,
+    .four-column-grid.deluxe-grid.before-grid.spacer-grid {
+        .grid-patient {
+            width: 20vw;
+
+            .before-image {
+                clip: rect(0, 10vw, 13.5vw, 0);
+            }
+
+            .gallery-excerpt {
+                font-size: 1vw;
+            }
+        }
+    }
+    .three-column-grid.deluxe-grid.before-grid.excerpt-grid,
+    .three-column-grid.deluxe-grid.before-grid.spacer-grid,
+    .four-column-grid.deluxe-grid.before-grid.excerpt-grid,
+    .four-column-grid.deluxe-grid.before-grid.spacer-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+    .deluxe-grid.headshot-grid.before-grid.excerpt-grid,
+    .deluxe-grid.headshot-grid.before-grid.spacer-grid {
+        .grid-patient {
+            .before-image {
+                clip: rect(0, 6vw, 8vw, 0);
+            }
+        }
+    }
+}
+@media screen and (min-width: 1366px) and (max-height: 800px) {
+    .two-column-grid.headshot-grid.before-grid,
+    .four-column-grid.deluxe-grid.headshot-grid.before-grid {
+        .grid-patient {
+            width: 10vw;
+        }
+    }
+    .two-column-grid.headshot-grid.before-grid.excerpt-grid.title-grid,
+    .two-column-grid.headshot-grid.before-grid.spacer-grid.title-grid,
+    .three-column-grid.headshot-grid.before-grid.excerpt-grid.title-grid,
+    .three-column-grid.headshot-grid.before-grid.spacer-grid.title-grid,
+    .four-column-grid.headshot-grid.before-grid.excerpt-grid.title-grid,
+    .four-column-grid.headshot-grid.before-grid.spacer-grid.title-grid {
+        .grid-patient {
+            width: 15vw;
+
+            .before-image {
+                clip: rect(0, 3.5vw, 5vw, 0);
+            }
+
+            .gallery-title {
+                font-size: 1vw;
+            }
+
+            .gallery-excerpt {
+                font-size: 0.5vw;
+            }
+        }
+    }
+    .four-column-grid.deluxe-grid.headshot-grid.before-grid {
+        grid-template-columns: repeat(4, 1fr);
+    }
+    .deluxe-grid.before-grid,
+    .two-column-grid.deluxe-grid.before-grid,
+    .three-column-grid.deluxe-grid.before-grid,
+    .four-column-grid.deluxe-grid.before-grid {
+        .grid-patient {
+            width: 10vw;
+
+            .before-image {
+                clip: rect(0, 5vw, 8vw, 0);
+            }
+        }
+    }
+    .two-column-grid.deluxe-grid.before-grid.excerpt-grid,
+    .two-column-grid.deluxe-grid.before-grid.spacer-grid {
+        .grid-patient {
+            width: 10vw;
+
+            .before-image {
+                clip: rect(0, 5vw, 6.5vw, 0);
+            }
+
+            .gallery-excerpt {
+                font-size: 0.5vw;
+            }
+        }
+    }
+}
+@media screen and (min-width: 1440px) {
+    .six-column-grid {
+        .before-image {
+            clip: rect(0, 6.5vw, 13vw, 0);
+        }
+    }
+    .four-column-grid.headshot-grid.before-grid,
+    .six-column-grid.headshot-grid.before-grid {
+        .gallery-excerpt {
+            margin-bottom: 3em;
+        }
+    }
+    .two-column-grid.headshot-grid.before-grid.excerpt-grid,
+    .two-column-grid.headshot-grid.before-grid.spacer-grid {
+        .grid-patient {
+            aspect-ratio: 3/2;
+        }
+    }
+    .before-grid {
+        .grid-patient {
+            width: 25vw;
+
+            .before-image {
+                clip: rect(0, 12.5vw, 17vw, 0);
+            }
+        }
+    }
+    .two-column-grid.deluxe-grid.headshot-grid.excerpt-grid,
+    .two-column-grid.deluxe-grid.headshot-grid.spacer-grid,
+    .three-column-grid.deluxe-grid.headshot-grid.excerpt-grid,
+    .three-column-grid.deluxe-grid.headshot-grid.spacer-grid,
+    .four-column-grid.deluxe-grid.headshot-grid.excerpt-grid,
+    .four-column-grid.deluxe-grid.headshot-grid.spacer-grid,
+    .six-column-grid.deluxe-grid.headshot-grid.excerpt-grid,
+    .six-column-grid.deluxe-grid.headshot-grid.spacer-grid {
+        .grid-patient {
+            .gallery-excerpt {
+                font-size: 0.8vw;
+            }
+        }
+    }
+    .deluxe-grid.headshot-grid.excerpt-grid.title-grid,
+    .deluxe-grid.headshot-grid.spacer-grid.title-grid {
+        .grid-patient {
+            .gallery-title {
+                font-size: 1.1vw;
+                margin-bottom: 1.1vw;
+            }
+
+            .gallery-excerpt {
+                font-size: 0.7vw;
+            }
+        }
+    }
+    .two-column-grid.deluxe-grid.headshot-grid.excerpt-grid.title-grid,
+    .two-column-grid.deluxe-grid.headshot-grid.spacer-grid.title-grid,
+    .three-column-grid.deluxe-grid.headshot-grid.excerpt-grid.title-grid,
+    .three-column-grid.deluxe-grid.headshot-grid.spacer-grid.title-grid,
+    .four-column-grid.deluxe-grid.headshot-grid.excerpt-grid.title-grid,
+    .four-column-grid.deluxe-grid.headshot-grid.spacer-grid.title-grid {
+        .grid-patient {
+            .excerpt-container .gallery-title:empty {
+                padding-top: 1.2vw;
+            }
+        }
+    }
+    .two-column-grid.deluxe-grid.headshot-grid.before-grid {
+        .gallery-excerpt {
+            font-size: 1.8em;
+        }
+    }
+    .four-column-grid.deluxe-grid.headshot-grid.before-grid,
+    .six-column-grid.deluxe-grid.headshot-grid.before-grid {
+        grid-template-columns: repeat(4, 1fr);
+
+        .grid-patient {
+            width: 19vw;
+        }
+    }
+    .before-image {
+        clip: rect(0, 17.5vw, 25vw, 0);
+    }
+    .deluxe-grid.before-grid {
+        .grid-patient {
+            width: 25vw;
+        }
+    }
+}
+@media screen and (min-width: 1440px) and (max-height: 800px) {
+    .two-column-grid.headshot-grid.before-grid.excerpt-grid.title-grid,
+    .two-column-grid.headshot-grid.before-grid.spacer-grid.title-grid {
+        .grid-patient {
+            .gallery-excerpt {
+                margin: 0.2em 0 0;
+            }
+        }
+    }
+    .deluxe-grid.before-grid {
+        .grid-patient {
+            width: 10vw;
+        }
+    }
+    .four-column-grid.deluxe-grid.before-grid {
+        grid-template-columns: repeat(4, 1fr);
+    }
+    .two-column-grid.deluxe-grid.headshot-grid.before-grid,
+    .four-column-grid.deluxe-grid.headshot-grid.before-grid {
+        .grid-patient {
+            width: 10vw;
+        }
+    }
+}
+@media screen and (min-width: 1500px) and (max-height: 800px) {
+    .two-column-grid.headshot-grid.before-grid.excerpt-grid,
+    .two-column-grid.headshot-grid.before-grid.spacer-grid {
+        .grid-patient {
+            .gallery-excerpt {
+                margin: 1em auto;
+            }
+        }
+    }
+    .before-grid {
+        .grid-patient {
+            width: 26vw;
+
+            .before-image {
+                clip: rect(0, 13vw, 18vw, 0);
+            }
+        }
+    }
+    .two-column-grid.before-grid {
+        .grid-patient {
+            width: 27vw;
+
+            .before-image {
+                clip: rect(0, 13.5vw, 19vw, 0);
+            }
+        }
+    }
+    .two-column-grid.headshot-grid.before-grid.excerpt-grid.title-grid,
+    .two-column-grid.headshot-grid.before-grid.spacer-grid.title-grid {
+        .grid-patient {
+            aspect-ratio: 3/2;
+        }
+    }
+    .three-column-grid.deluxe-grid.headshot-grid.before-grid,
+    .four-column-grid.deluxe-grid.headshot-grid.before-grid,
+    .six-column-grid.deluxe-grid.headshot-grid.before-grid {
+        .gallery-excerpt {
+            font-size: 1.2em;
+        }
+    }
+}
+@media screen and (min-width: 1500px) and (min-height: 801px) {
+    .three-column-grid.headshot-grid.excerpt-grid,
+    .three-column-grid.headshot-grid.spacer-grid,
+    .four-column-grid.headshot-grid.excerpt-grid,
+    .four-column-grid.headshot-grid.spacer-grid {
+        .grid-patient {
+            .gallery-excerpt {
+                font-size: 0.7vw;
+            }
+        }
+    }
+    .two-column-grid.headshot-grid.excerpt-grid.title-grid,
+    .two-column-grid.headshot-grid.spacer-grid.title-grid {
+        .grid-patient {
+            .gallery-excerpt {
+                font-size: 0.6vw;
+            }
+        }
+    }
+    .before-image {
+        clip: rect(0, 20vw, 27vw, 0);
+    }
+    .four-column-grid.headshot-grid.before-grid.excerpt-grid,
+    .four-column-grid.headshot-grid.before-grid.spacer-grid {
+        grid-template-columns: repeat(4, 1fr);
+
+        .grid-patient {
+            width: 21vw;
+
+            .before-image {
+                clip: rect(0, 5vw, 7vw, 0);
+            }
+
+            .gallery-excerpt {
+                font-size: 0.7vw;
+            }
+        }
+    }
+    .two-column-grid.headshot-grid.before-grid.excerpt-grid.title-grid,
+    .two-column-grid.headshot-grid.before-grid.spacer-grid.title-grid {
+        .grid-patient {
+            aspect-ratio: 3/2;
+
+            .gallery-excerpt {
+                margin: 0.3em 0 0;
+            }
+        }
+    }
+    .two-column-grid.deluxe-grid {
+        .before-image {
+            clip: rect(0, 17vw, 24vw, 0);
+        }
+    }
+    .two-column-grid.deluxe-grid.excerpt-grid,
+    .two-column-grid.deluxe-grid.spacer-grid {
+        .before-image {
+            clip: rect(0, 21vw, 28vw, 0);
+        }
+    }
+    .four-column-grid.deluxe-grid.headshot-grid {
+        grid-template-columns: repeat(4, 1fr);
+    }
+    .six-column-grid.deluxe-grid.headshot-grid {
+        grid-template-columns: repeat(6, 1fr);
+    }
+    .three-column-grid.deluxe-grid.headshot-grid,
+    .four-column-grid.deluxe-grid.headshot-grid,
+    .six-column-grid.deluxe-grid.headshot-grid {
+        .grid-patient {
+            width: 10vw;
+        }
+    }
+}
+@media screen and (min-width: 1550px) {
+    .two-column-grid.deluxe-grid.headshot-grid.before-grid.excerpt-grid,
+    .two-column-grid.deluxe-grid.headshot-grid.before-grid.spacer-grid,
+    .three-column-grid.deluxe-grid.headshot-grid.before-grid.excerpt-grid,
+    .three-column-grid.deluxe-grid.headshot-grid.before-grid.spacer-grid,
+    .four-column-grid.deluxe-grid.headshot-grid.before-grid.excerpt-grid,
+    .four-column-grid.deluxe-grid.headshot-grid.before-grid.spacer-grid {
+        .grid-patient {
+            width: 25vw;
+
+            .before-image {
+                clip: rect(0, 6vw, 8vw, 0);
+            }
+
+            .gallery-excerpt {
+                font-size: 0.8vw;
+            }
+        }
+    }
+    .three-column-grid.deluxe-grid.headshot-grid.before-grid.excerpt-grid,
+    .three-column-grid.deluxe-grid.headshot-grid.before-grid.spacer-grid,
+    .four-column-grid.deluxe-grid.headshot-grid.before-grid.excerpt-grid,
+    .four-column-grid.deluxe-grid.headshot-grid.before-grid.spacer-grid,
+    .three-column-grid.deluxe-grid.headshot-grid.before-grid.excerpt-grid.title-grid,
+    .three-column-grid.deluxe-grid.headshot-grid.before-grid.spacer-grid.title-grid,
+    .four-column-grid.deluxe-grid.headshot-grid.before-grid.excerpt-grid.title-grid,
+    .four-column-grid.deluxe-grid.headshot-grid.before-grid.spacer-grid.title-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+@media screen and (min-width: 1550px) and (max-height: 800px) {
+    .two-column-grid.deluxe-grid.headshot-grid.before-grid.excerpt-grid,
+    .two-column-grid.deluxe-grid.headshot-grid.before-grid.spacer-grid,
+    .three-column-grid.deluxe-grid.headshot-grid.before-grid.excerpt-grid,
+    .three-column-grid.deluxe-grid.headshot-grid.before-grid.spacer-grid,
+    .four-column-grid.deluxe-grid.headshot-grid.before-grid.excerpt-grid,
+    .four-column-grid.deluxe-grid.headshot-grid.before-grid.spacer-grid {
+        .grid-patient {
+            width: 15vw;
+
+            .before-image {
+                clip: rect(0, 3.7vw, 5vw, 0);
+            }
+
+            .gallery-excerpt {
+                font-size: 0.5vw;
+            }
+        }
+    }
+}
+@media screen and (min-width: 1600px) and (min-height: 801px) {
+    .two-column-grid.headshot-grid,
+    .three-column-grid.headshot-grid,
+    .four-column-grid.headshot-grid,
+    .six-column-grid.headshot-grid {
+        .grid-patient {
+            width: 10vw;
+        }
+    }
+    .six-column-grid.headshot-grid {
+        grid-template-columns: repeat(6, 1fr);
+    }
+    .three-column-grid.headshot-grid.before-grid,
+    .four-column-grid.headshot-grid.before-grid {
+        .grid-patient {
+            width: 20vw;
+        }
+    }
+    .headshot-grid.excerpt-grid,
+    .headshot-grid.spacer-grid,
+    .four-column-grid.headshot-grid.excerpt-grid,
+    .four-column-grid.headshot-grid.spacer-grid,
+    .six-column-grid.headshot-grid.excerpt-grid,
+    .six-column-grid.headshot-grid.spacer-grid {
+        .grid-patient {
+            .gallery-excerpt {
+                font-size: 0.7vw;
+            }
+        }
+    }
+    .deluxe-grid.headshot-grid.excerpt-grid.title-grid,
+    .deluxe-grid.headshot-grid.spacer-grid.title-grid {
+        .grid-patient {
+            .gallery-title {
+                font-size: 1vw;
+            }
+
+            .gallery-excerpt {
+                font-size: 0.6vw;
+            }
+        }
+    }
+    .deluxe-grid.headshot-grid.excerpt-grid,
+    .deluxe-grid.headshot-grid.spacer-grid,
+    .two-column-grid.deluxe-grid.headshot-grid.excerpt-grid,
+    .two-column-grid.deluxe-grid.headshot-grid.spacer-grid,
+    .three-column-grid.deluxe-grid.headshot-grid.excerpt-grid,
+    .three-column-grid.deluxe-grid.headshot-grid.spacer-grid,
+    .four-column-grid.deluxe-grid.headshot-grid.excerpt-grid,
+    .four-column-grid.deluxe-grid.headshot-grid.spacer-grid,
+    .six-column-grid.deluxe-grid.headshot-grid.excerpt-grid,
+    .six-column-grid.deluxe-grid.headshot-grid.spacer-grid {
+        .grid-patient {
+            .gallery-excerpt {
+                font-size: 0.6vw;
+            }
+        }
+    }
+}
+@media screen and (min-width: 1750px) and (min-height: 801px) {
+    .headshot-grid.excerpt-grid,
+    .headshot-grid.spacer-grid,
+    .three-column-grid.headshot-grid.excerpt-grid,
+    .three-column-grid.headshot-grid.spacer-grid,
+    .four-column-grid.headshot-grid.excerpt-grid,
+    .four-column-grid.headshot-grid.spacer-grid,
+    .six-column-grid.headshot-grid.excerpt-grid,
+    .six-column-grid.headshot-grid.spacer-grid {
+        .grid-patient {
+            .gallery-excerpt {
+                font-size: 0.6vw;
+            }
+        }
+    }
+    .before-grid.excerpt-grid,
+    .before-grid.spacer-grid,
+    .two-column-grid.before-grid.excerpt-grid,
+    .two-column-grid.before-grid.spacer-grid,
+    .three-column-grid.before-grid.excerpt-grid,
+    .three-column-grid.before-grid.spacer-grid,
+    .four-column-grid.before-grid.excerpt-grid,
+    .four-column-grid.before-grid.spacer-grid {
+        .grid-patient {
+            width: 10vw;
+
+            .before-image {
+                clip: rect(0, 5vw, 7vw, 0);
+            }
+
+            .gallery-excerpt {
+                font-size: 0.4vw;
+            }
+        }
+    }
+    .two-column-grid.before-grid.excerpt-grid,
+    .two-column-grid.before-grid.spacer-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .three-column-grid.before-grid.excerpt-grid,
+    .three-column-grid.before-grid.spacer-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+    .four-column-grid.before-grid.excerpt-grid,
+    .four-column-grid.before-grid.spacer-grid {
+        grid-template-columns: repeat(4, 1fr);
+    }
+    .before-grid.excerpt-grid.title-grid,
+    .before-grid.spacer-grid.title-grid {
+        .grid-patient {
+            .gallery-title {
+                font-size: 1vw;
+            }
+
+            .gallery-excerpt {
+                font-size: 0.4vw;
+            }
+        }
+    }
+    .two-column-grid.before-grid.excerpt-grid.title-grid,
+    .two-column-grid.before-grid.spacer-grid.title-grid,
+    .three-column-grid.before-grid.excerpt-grid.title-grid,
+    .three-column-grid.before-grid.spacer-grid.title-grid,
+    .four-column-grid.before-grid.excerpt-grid.title-grid,
+    .four-column-grid.before-grid.spacer-grid.title-grid {
+        .grid-patient {
+            .gallery-title {
+                font-size: 1vw;
+            }
+
+            .gallery-excerpt {
+                font-size: 0.4vw;
+                margin-top: 4px;
+            }
+        }
+    }
+}
+@media screen and (min-width: 1780px) and (max-height: 800px) {
+    .three-column-grid.headshot-grid.before-grid {
+        .grid-patient {
+            width: 10vw;
+        }
+    }
+}
+@media screen and (min-width: 1800px) {
+    .headshot-grid {
+        .grid-patient {
+            width: 10%;
+        }
+    }
+    .headshot-grid.excerpt-grid.title-grid,
+    .headshot-grid.spacer-grid.title-grid,
+    .two-column-grid.headshot-grid.excerpt-grid.title-grid,
+    .two-column-grid.headshot-grid.spacer-grid.title-grid,
+    .three-column-grid.headshot-grid.excerpt-grid.title-grid,
+    .three-column-grid.headshot-grid.spacer-grid.title-grid,
+    .deluxe-grid.headshot-grid.excerpt-grid.title-grid,
+    .deluxe-grid.headshot-grid.spacer-grid.title-grid {
+        .grid-patient {
+            .gallery-title {
+                font-size: 0.8vw;
+            }
+
+            .gallery-excerpt {
+                font-size: 0.5vw;
+            }
+        }
+    }
+    .two-column-grid.deluxe-grid.headshot-grid.excerpt-grid.title-grid,
+    .two-column-grid.deluxe-grid.headshot-grid.spacer-grid.title-grid,
+    .three-column-grid.deluxe-grid.headshot-grid.excerpt-grid.title-grid,
+    .three-column-grid.deluxe-grid.headshot-grid.spacer-grid.title-grid,
+    .four-column-grid.deluxe-grid.headshot-grid.excerpt-grid.title-grid,
+    .four-column-grid.deluxe-grid.headshot-grid.spacer-grid.title-grid {
+        .grid-patient {
+            .excerpt-container .gallery-title:empty {
+                padding-top: 0.9vw;
+            }
+        }
+    }
+    .deluxe-grid.before-grid.excerpt-grid,
+    .deluxe-grid.before-grid.spacer-grid,
+    .two-column-grid.deluxe-grid.before-grid.excerpt-grid,
+    .two-column-grid.deluxe-grid.before-grid.spacer-grid {
+        .grid-patient {
+            width: 10vw;
+
+            .before-image {
+                clip: rect(0, 5vw, 6.7vw, 0);
+            }
+
+            .gallery-excerpt {
+                font-size: 0.5vw;
+            }
+        }
+    }
+    .deluxe-grid.before-grid.excerpt-grid.title-grid,
+    .deluxe-grid.before-grid.spacer-grid.title-grid {
+        .grid-patient {
+            .gallery-title {
+                font-size: 1vw;
+            }
+        }
+    }
+}
+@media screen and (min-width: 1800px) and (max-height: 800px) {
+    .headshot-grid.before-grid,
+    .four-column-grid.headshot-grid.before-grid {
+        .grid-patient {
+            width: 10vw;
+        }
+    }
+}
+@media screen and (min-width: 1900px) {
+    .headshot-grid.excerpt-grid,
+    .headshot-grid.spacer-grid,
+    .three-column-grid.headshot-grid.excerpt-grid,
+    .three-column-grid.headshot-grid.spacer-grid,
+    .four-column-grid.headshot-grid.excerpt-grid,
+    .four-column-grid.headshot-grid.spacer-grid
+    .six-column-grid.headshot-grid.excerpt-grid,
+    .six-column-grid.headshot-grid.spacer-grid {
+        .grid-patient {
+            .gallery-excerpt {
+                font-size: 0.5vw;
+            }
+        }
+    }
+    .before-grid {
+        .grid-patient {
+            width: 50vw;
+
+            .before-image {
+                clip: rect(0, 25vw, 33vw, 0);
+            }
+        }
+    }
+    .before-grid.excerpt-grid.title-grid,
+    .before-grid.spacer-grid.title-grid {
+        .gallery-title {
+            font-size: 2.5em;
+        }
+    }
+    .two-column-grid.before-grid.excerpt-grid.title-grid,
+    .two-column-grid.before-grid.spacer-grid.title-grid {
+        .grid-patient {
+            aspect-ratio: 1 / 1.1;
+        }
+    }
+    .four-column-grid.before-grid.excerpt-grid.title-grid,
+    .four-column-grid.before-grid.spacer-grid.title-grid {
+        grid-template-columns: repeat(4, 1fr);
+    }
+    .two-column-grid.deluxe-grid {
+        .before-image {
+            clip: rect(0, 13.5vw, 19vw, 0);
+        }
+    }
+    .deluxe-grid.headshot-grid.excerpt-grid,
+    .deluxe-grid.headshot-grid.spacer-grid {
+        .grid-patient {
+            .gallery-excerpt {
+                font-size: 0.5vw;
+            }
+        }
+    }
+    .four-column-grid.deluxe-grid.headshot-grid.before-grid.excerpt-grid,
+    .four-column-grid.deluxe-grid.headshot-grid.before-grid.spacer-grid {
+        grid-template-columns: repeat(4, 1fr);
+
+        .grid-patient {
+            width: 20vw;
+
+            .headshot-image {
+                margin-bottom: 0.8em;
+            }
+
+            .before-image {
+                clip: rect(0, 4.8vw, 6.4vw, 0);
+            }
+
+            .gallery-excerpt {
+                font-size: 0.7vw;
+            }
+        }
+    }
+    .deluxe-grid.before-grid {
+        .grid-patient {
+            .before-image {
+                clip: rect(0, 12.5vw, 17vw, 0);
+            }
+        }
+    }
+    .four-column-grid.deluxe-grid.before-grid {
+        grid-template-columns: repeat(4, 1fr);
+
+        .grid-patient {
+            width: 20vw;
+
+            .before-image {
+                clip: rect(0, 10vw, 13.5vw, 0);
+            }
+        }
+    }
+    .four-column-grid.deluxe-grid.before-grid.excerpt-grid,
+    .four-column-grid.deluxe-grid.before-grid.spacer-grid {
+        grid-template-columns: repeat(4, 1fr);
+    }
+    .four-column-grid.deluxe-grid.headshot-grid.before-grid.excerpt-grid.title-grid,
+    .four-column-grid.deluxe-grid.headshot-grid.before-grid.spacer-grid.title-grid {
+        grid-template-columns: repeat(4, 1fr);
+    }
+    .deluxe-grid.before-grid.excerpt-grid.title-grid,
+    .deluxe-grid.before-grid.spacer-grid.title-grid,
+    .two-column-grid.deluxe-grid.before-grid.excerpt-grid.title-grid,
+    .two-column-grid.deluxe-grid.before-grid.spacer-grid.title-grid,
+    .three-column-grid.deluxe-grid.before-grid.excerpt-grid.title-grid,
+    .three-column-grid.deluxe-grid.before-grid.spacer-grid.title-grid,
+    .four-column-grid.deluxe-grid.before-grid.excerpt-grid.title-grid,
+    .four-column-grid.deluxe-grid.before-grid.spacer-grid.title-grid {
+        .grid-patient {
+            width: 14vw;
+
+            .before-image {
+                clip: rect(0, 7vw, 9.4vw, 0);
+            }
+
+            .gallery-title {
+                font-size: 1vw;
+            }
+
+            .gallery-excerpt {
+                font-size: 0.7vw;
+            }
+        }
+    }
+    .three-column-grid.deluxe-grid.before-grid.excerpt-grid.title-grid,
+    .three-column-grid.deluxe-grid.before-grid.spacer-grid.title-grid,
+    .four-column-grid.deluxe-grid.before-grid.excerpt-grid.title-grid,
+    .four-column-grid.deluxe-grid.before-grid.spacer-grid.title-grid {
+        .grid-patient {
+            .gallery-excerpt {
+                font-size: 0.6vw;
+            }
+        }
+    }
+    .four-column-grid.deluxe-grid.before-grid.excerpt-grid.title-grid,
+    .four-column-grid.deluxe-grid.before-grid.spacer-grid.title-grid {
+        grid-template-columns: repeat(4, 1fr);
+    }
+    @media screen and (min-width: 1900px) and (max-height: 800px) {
+        .deluxe-grid.before-grid.excerpt-grid.title-grid,
+        .deluxe-grid.before-grid.spacer-grid.title-grid,
+        .two-column-grid.deluxe-grid.before-grid.excerpt-grid.title-grid,
+        .two-column-grid.deluxe-grid.before-grid.spacer-grid.title-grid,
+        .three-column-grid.deluxe-grid.before-grid.excerpt-grid.title-grid,
+        .three-column-grid.deluxe-grid.before-grid.spacer-grid.title-grid,
+        .four-column-grid.deluxe-grid.before-grid.excerpt-grid.title-grid,
+        .four-column-grid.deluxe-grid.before-grid.spacer-grid.title-grid {
+            .grid-patient {
+                width: 10vw;
+
+                .before-image {
+                    clip: rect(0, 5vw, 6.8vw, 0);
+                }
+
+                .gallery-title {
+                    font-size: 1vw;
+                }
+
+                .gallery-excerpt {
+                    font-size: 0.4vw;
+                }
+            }
+        }
+    }
+}
+@media screen and (min-width: 2100px) {
+    .six-column-grid.deluxe-grid.headshot-grid.before-grid {
+        grid-template-columns: repeat(6, 1fr);
+    }
+    .before-image {
+        clip: rect(0, 25vw, 35vw, 0);
+    }
+}
+@media screen and (min-width: 2300px) and (min-height: 801px) {
+    .headshot-grid.before-grid {
+        .grid-patient {
+            width: 15vw;
+        }
+    }
+}

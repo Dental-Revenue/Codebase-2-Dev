@@ -21,7 +21,6 @@
 
 .static_image_split-contact .contact-options{display: block; padding-top: 15px;}
 .static_image_split-contact .contact-options .contact-option{margin: 0 0px 20px 30px; float: none; &:last-child{margin-right: 0;}}
-.static_image_split-contact a {margin-left: 2em;}
 
 .static_image_split form .btn {
     width: 100%;
@@ -63,3 +62,4 @@
     display: none;
 }
 }
+input[name="RepeatEmailName"] { opacity: 0; position: absolute; top: 0; left: 0; height: 0; width: 0; z-index: -1; }

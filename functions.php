@@ -92,6 +92,13 @@ if ( file_exists(  __DIR__ . '/inc/cpts/cpt-testimonials.php' ) ) {
 if ( file_exists(  __DIR__ . '/inc/meta/meta-gallery-pages.php' ) ) {
   require_once  __DIR__ . '/inc/meta/meta-gallery-pages.php';
 }
+if (file_exists(__DIR__ . '/inc/meta/meta-smart-gallery-template.php')) {
+    include_once __DIR__ . '/inc/meta/meta-smart-gallery-template.php';
+}
+// ================================================ GALLERIES CPT
+if (file_exists(__DIR__ . '/inc/cpts/cpt-smart-gallery.php')) {
+    include_once __DIR__ . '/inc/cpts/cpt-smart-gallery.php';
+}
 
 // ================================================ SERVICES META
 if ( file_exists(  __DIR__ . '/inc/meta/service-template-meta.php' ) ) {
@@ -1480,4 +1487,22 @@ function cb2_pagination(){
     echo paginate_links();
 }
 
+function dental_revenue_post_types() {
+    register_post_type('gallery', array(
+      'description' => 'Gallery of images for the gallery page template',
+      'menu_position' => 5,
+      'public' => true,
+      'menu_icon' => 'dashicons-format-gallery',
+      'has_archive' => false,
+      'supports' => array('excerpt'),
+      'labels' => array(
+        'name' => 'Gallery',
+        'add_new_item' => 'Add New Picture',
+        'edit_item' => 'Edit Picture',
+        'all_items' => 'All Pictures',
+        'singular_name' => 'Picture'
+      )
+    ));
+  }
+add_action('init', 'dental_revenue_post_types');
 ?>
