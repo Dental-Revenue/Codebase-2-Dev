@@ -85,7 +85,7 @@ $popup = $option['cta_popup'];
                     ?>
                 </nav>
                 <nav class="mobile-nav">
-                    <a href="#" id="panel-main"><i class="fas fa-bars"></i></a>
+                    <a href="#" id="panel-main"><i class="fas fa-bars"></i><span>Menu</span></a>
                     <?php
                     if (wp_is_mobile()) {
                         ?>
@@ -121,7 +121,7 @@ $popup = $option['cta_popup'];
                     ?>
                 </nav>
                 <nav class="mobile-nav">
-                    <a href="#" id="panel-main"><i class="fas fa-bars"></i></a>
+                    <a href="#" id="panel-main"><i class="fas fa-bars"></i><span>Menu</span></a>
                     <?php
                     if (wp_is_mobile()) {
                         ?>
@@ -187,7 +187,7 @@ $popup = $option['cta_popup'];
                     ?>
                 </nav>
                 <nav class="mobile-nav">
-                    <a href="#" id="panel-main"><i class="fas fa-bars"></i></a>
+                    <a href="#" id="panel-main"><i class="fas fa-bars"></i><span>Menu</span></a>
                     <?php 
                     if (wp_is_mobile()) {
                         ?>
@@ -224,7 +224,7 @@ $popup = $option['cta_popup'];
                 ?>
             </nav>
             <nav class="mobile-nav">
-                <a href="#" id="panel-main"><i class="fas fa-bars"></i></a>
+                <a href="#" id="panel-main"><i class="fas fa-bars"></i><span>Menu</span></a>
                 <?php
                 if (wp_is_mobile()) {
                     ?>
