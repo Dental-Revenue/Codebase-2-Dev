@@ -29,7 +29,7 @@ aside.widget_nav_menu{}
       
 
 /* CUSTOM SIDEBAR FORM WIDGET */
-aside.widget_form{}
+aside.widget_form{padding-bottom:32px;}
   aside.widget_form .captcha-container{margin-bottom: 20px;}
   aside.widget_form button{margin-bottom: 0;display: block;width: 100%; @extend .widget-btn; @extend .widget-on-light;}  
   
