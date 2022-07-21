@@ -132,24 +132,6 @@ get_template_part('partials/page-head');
                 ?>
                 <!-- BEGIN BEFORE AFTER CONTAINER DIV -->
                 <div class="before-after-container">
-                  <?php
-                    // BEGIN EXCERPT IF
-                    if ($smart_excerpt || $smart_title || $spacer) {
-                        ?>
-                        <div class="excerpt-container">
-                            <?php
-                            if ($smart_title) {
-                                ?>
-                                <h3 class="gallery-title"><?php echo $smart_title; ?></h3>
-                                <?php
-                            }
-                            ?>
-                            <p class="gallery-excerpt"><?php echo $smart_excerpt; ?></p>
-                        </div>
-                        <?php
-                        // END EXCERPT IF
-                    }
-                    ?>
                     <img src="<?php echo wp_get_attachment_image_src($before_image, 'lg')[0]; ?>" class="before-image" id="before-<?php echo $post_id; ?>" />
                     <div class="slide-container">
                         <input type="range" min="1" max="1000" value="500" class="slider<?php if ($spacer) {
@@ -160,6 +142,22 @@ get_template_part('partials/page-head');
                 <!-- END BEFORE AFTER CONTAINER DIV -->
                 </div>
                 <?php
+                // BEGIN EXCERPT IF
+                if ($smart_excerpt || $smart_title || $spacer) {
+                    ?>
+                    <div class="excerpt-container">
+                        <?php
+                        if ($smart_title) {
+                            ?>
+                            <h3 class="gallery-title"><?php echo $smart_title; ?></h3>
+                            <?php
+                        }
+                        ?>
+                        <p class="gallery-excerpt"><?php echo $smart_excerpt; ?></p>
+                    </div>
+                    <?php
+                    // END EXCERPT IF
+                }
                 // END BEFORE PICTURE IF
             }
             // BEGIN EXCERPT IF
