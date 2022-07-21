@@ -10,7 +10,7 @@
     .carousel-item a.read-more{margin: 0;color: $main-color; &:hover{opacity: 1;text-decoration:underline;}}
     
   .slick-carousel_3 .slick-next, .slick-carousel_3 .slick-prev {transform: translateY(-50%);}
-  .slick-carousel_3 .slick-next:before, .slick-carousel_3 .slick-prev:before {font-family: "Font Awesome 5 Free"; font-weight: 900; font-size: 40px;}
+  .slick-carousel_3 .slick-next:before, .slick-carousel_3 .slick-prev:before {font-family: "Font Awesome 5 Free"; font-weight: 900; font-size: 40px;font-display: swap;}
   	.slick-carousel_3 .slick-prev:before {content:'\f053';}
 		.slick-carousel_3 .slick-next:before {content:'\f054';}
 	.slick-carousel_3 .slick-dots {margin-top:30px;}

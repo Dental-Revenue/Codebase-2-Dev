@@ -8,6 +8,7 @@
     color: #404040;
     font-family: 'Font Awesome 5 Brands';
     font-size: 70px;
+    font-display: swap;
 }
 .embed-button-plus::before {
     content: '\f055';
@@ -20,6 +21,7 @@
     font-family: 'Font Awesome 5 Free';
     font-weight: 900;
     font-size: 60px;
+    font-display: swap;
 }
 .embed-button-none::before {
     display:none;

@@ -19,8 +19,8 @@
 
 /* testimonials */
 .service-testimonials{background-color: $main-color;}
-  .service-testimonial{color: $white;display: none;text-align: center;font-size: 20px;font-weight: 300;line-height:160%;font-family: $heading-font;}
-    .service-testimonial span{display: block;margin: 20px auto;text-transform: uppercase;font-family:$body-font;font-weight: 600;font-size: 14px;letter-spacing: .02em;}
+  .service-testimonial{color: $white;display: none;text-align: center;font-size: 20px;font-weight: 300;line-height:160%;font-display: swap;font-family: $heading-font;}
+    .service-testimonial span{display: block;margin: 20px auto;text-transform: uppercase;font-display: swap;font-family:$body-font;font-weight: 600;font-size: 14px;letter-spacing: .02em;}
     
   .service-testimonials .slick-dots{border: none;border-radius: none;padding: 0;margin: 0 auto;box-shadow: none;}
     .service-testimonials .slick-dots li button{border-color: $white;}
@@ -34,7 +34,7 @@
 .service-faqs{background-color: $md-lt-grey;}
   .faq-accordion{margin: 0;display: block;}
     .faq-accordion dt{padding: 8px 0;border-top: 1px solid rgba($black,.1); &:first-child{margin-top: 0;border-top:0;}}
-      .faq-accordion dt a{font-size: 17px;font-weight: 400;color: $black;padding-left:20px;position:relative;display:block; &:hover{text-decoration: none;} &:before{content:"\f067";display: inline-block;margin-right: 10px;font-family: $font-awesome;font-weight:800;color: $main-color;position: absolute;display: block;left: 0;top:2px;}}
+      .faq-accordion dt a{font-size: 17px;font-weight: 400;color: $black;padding-left:20px;position:relative;display:block; &:hover{text-decoration: none;} &:before{content:"\f067";display: inline-block;margin-right: 10px;font-display: swap;font-family: $font-awesome;font-weight:800;color: $main-color;position: absolute;display: block;left: 0;top:2px;}}
       .faq-accordion dt a.active:before{content:"\f068";}
     .faq-accordion dd{display: none;margin-left: 20px;padding-bottom: 10px;}
   

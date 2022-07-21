@@ -15,7 +15,7 @@ aside{background-color: $main-color;border-radius: 3px;display: block;padding: 2
 
 /* CUSTOM SIDEBAR BLOG WIDGET */
 aside.widget_blog{padding-bottom: 10px;}
-  aside.widget_blog a{color: $white;display: block;margin: 0;position: relative;padding: 20px 0 20px 40px;box-sizing: border-box;line-height: 1.4;border-top:1px solid rgba($black,.1); &:hover{opacity: 1;} &:before{content:'\f09e';font-size: 180%;font-family: $font-awesome;position: absolute;top:50%;left: 0;line-height:1;margin-top: -10px; font-weight:700;}}
+  aside.widget_blog a{color: $white;display: block;margin: 0;position: relative;padding: 20px 0 20px 40px;box-sizing: border-box;line-height: 1.4;border-top:1px solid rgba($black,.1); &:hover{opacity: 1;} &:before{content:'\f09e';font-size: 180%;font-display: swap;font-family: $font-awesome;position: absolute;top:50%;left: 0;line-height:1;margin-top: -10px; font-weight:700;}}
   
   
 /* CUSTOM SIDEBAR NAV WIDGET */

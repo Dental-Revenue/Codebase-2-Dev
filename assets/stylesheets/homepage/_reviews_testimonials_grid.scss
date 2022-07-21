@@ -15,7 +15,7 @@
 			.cvt-content h3{color: $black;text-transform: uppercase;font-weight: 400;letter-spacing: .05em;}
 			.cvt-content p{color: $black;font-size: 15px;opacity: .8;}
 			.cvt-content a{color: $black;text-transform: uppercase;letter-spacing: .05em;position: absolute;left:30px;bottom:30px; &:hover{opacity: .7;}}
-				.cvt-content a:before{content:"\f04b";margin-right: 10px;font-family: "Font Awesome 5 Free"; font-weight:900;}
+				.cvt-content a:before{content:"\f04b";margin-right: 10px;font-family: "Font Awesome 5 Free";font-display: swap; font-weight:900;}
 	
 	//block hover
 	.cvt-block:hover span{display: none;}

@@ -18,7 +18,7 @@ hr.static_big_small-rule{display: none;margin-bottom: 30px;}
 .plus-parent:before{content:'';position: absolute;top:0;right:0;bottom:0;left:0;background-color: rgba($accent,0);transition:background .3s;}
 .plus-parent:hover:before{background-color: rgba($main-color,0.8);}
 
-.plus-parent:after{content:'\f067';font-family: $font-awesome; font-weight:600; transform: rotate(90deg);width:80px;height:80px;line-height:80px;transition:transform .6s;font-size: 35px;color: $white;opacity: 0;top: 50%;left: 50%;margin: -40px 0 0 -40px;text-align: center;display: block;position: absolute;}
+.plus-parent:after{content:'\f067';font-family: $font-awesome;font-display: swap; font-weight:600; transform: rotate(90deg);width:80px;height:80px;line-height:80px;transition:transform .6s;font-size: 35px;color: $white;opacity: 0;top: 50%;left: 50%;margin: -40px 0 0 -40px;text-align: center;display: block;position: absolute;}
 .plus-parent:hover:after{transform: rotate(0);opacity: 1;}
 
 

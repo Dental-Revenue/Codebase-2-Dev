@@ -7,7 +7,7 @@ $sidebar-width-neg: -290px;
 #sidr-left{background-color: $dk-grey;-webkit-overflow-scrolling: touch;}
 #sidr-left > .sidr-inner > a{display: none;} /* the schedule button */
 #sidr-left > .sidr-inner > ul{margin: 0 0 30px; padding: 0;list-style: none;}
-	#sidr-left ul a{padding:0 5px 0 15px;display: block;font-size: 16px; line-height:56px;color: $white;font-family: $body-font;text-transform: uppercase;letter-spacing: .05em;font-weight: 900; border-bottom:1px solid rgba($white,0.2);}
+	#sidr-left ul a{padding:0 5px 0 15px;display: block;font-size: 16px; line-height:56px;color: $white;font-family: $body-font;font-display: swap;text-transform: uppercase;letter-spacing: .05em;font-weight: 900; border-bottom:1px solid rgba($white,0.2);}
 	#sidr-left ul ul{display:none;list-style: none;margin:0;padding: 0 0 15px 15px; }
 	  #sidr-left ul ul a{font-size:15px; text-transform: none; line-height: 40px;}
 	#sidr-left ul li:last-child a {border-bottom:none;}
@@ -15,7 +15,7 @@ $sidebar-width-neg: -290px;
 	#sidr-left li.menu-item-has-children > a {padding:0 50px 0 15px; position:relative; &:before{content:''; width:1px; border-right:1px solid rgba($white,0.2); height:100%; position:absolute; top:0; right:50px;}}
 	
 	#sidr-left li.menu-item-has-children {position: relative;}
-	#sidr-left li.menu-item-has-children > span {position: absolute; right:0px; top:0; height:56px; width: 50px; &:after {content:"\f067"; font-family: $font-awesome; color:$white; font-size: 13px; font-weight: 800; position: absolute; top:50%; left:50%; transform: translate(-50%,-50%);}}
+	#sidr-left li.menu-item-has-children > span {position: absolute; right:0px; top:0; height:56px; width: 50px; &:after {content:"\f067";font-display: swap; font-family: $font-awesome; color:$white; font-size: 13px; font-weight: 800; position: absolute; top:50%; left:50%; transform: translate(-50%,-50%);}}
 		#sidr-left li.menu-item-has-children.open > span:after {content:"\f068";}
 		#sidr-left ul ul li.menu-item-has-children > span {height:40px;}
 		
