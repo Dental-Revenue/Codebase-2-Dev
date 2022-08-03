@@ -40,10 +40,7 @@ body:not(.home) .main-content iframe {
 
 
 /* INTERIOR PAGE SIDEBAR */  
-body:not(.home) .row .columns.four {
-  margin-top: 2em;
-  margin-bottom: 2em;
-}
+.sidebar{}
 
 /* BLOG PAGE */
 article.hentry {padding-bottom: 50px;}
