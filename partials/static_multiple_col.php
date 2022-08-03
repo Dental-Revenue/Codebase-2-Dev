@@ -8,8 +8,12 @@
 	<?php //get data
 	$title_reg = get_post_meta( get_the_id(),$instance.'_title_reg', true );
 	$title_bold = get_post_meta( get_the_id(),$instance.'_title_bold', true );
+	if ($title_reg || $title_bold) {
+		?>
+  		<h2 class="<?php echo $headline_style; ?>"><?php echo $title_reg; ?> <span><?php echo $title_bold; ?></span></h2>
+		<?php
+	}
 	?>
-  <h2 class="<?php echo $headline_style; ?>"><?php echo $title_reg; ?> <span><?php echo $title_bold; ?></span></h2>
 </div>
 
 <div class="row">

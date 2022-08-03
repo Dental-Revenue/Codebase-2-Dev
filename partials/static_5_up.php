@@ -31,9 +31,12 @@
 	$middle_link_title = get_post_meta( get_the_ID(), $instance.'_middle_link_title', true ); 
 	$middle_link_url = get_post_meta( get_the_ID(), $instance.'_middle_link_url', true );
 	 
-?>
-  
-  <h2 class="<?php echo $headline_style; ?>"><?php echo $title; ?></h2>
+	if ($title) {
+		?>  
+		  <h2 class="<?php echo $headline_style; ?>"><?php echo $title; ?></h2>
+		<?php
+	}
+	?>
   
   <div class="row <?php echo $text_bars; ?>">
   

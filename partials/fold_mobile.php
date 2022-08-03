@@ -27,8 +27,13 @@
 		<div class="fold-mobile-slide">
   		<div class="fold-overlay" style="<?php if($color != '') { echo $colorCSS; } ?> <?php echo $colorDarkness; ?>"></div>
 			<div class="fold-mobile-slide-text">
-			  <h2><?php echo $fold_title; ?></h2>
-			  <?php if(isset($fold_excerpt) && $fold_excerpt != ''){ ?><p><?php echo $fold_excerpt; ?></p><?php } ?>
+				<?php
+				if ($fold_title) {
+					?>
+			  		<h2><?php echo $fold_title; ?></h2>
+					<?php
+				}
+				if(isset($fold_excerpt) && $fold_excerpt != ''){ ?><p><?php echo $fold_excerpt; ?></p><?php } ?>
 			  <?php if(isset($cta_text) && $cta_text != ''){ ?><a class="btn solid" href="<?php echo $cta_url; ?>"><?php echo $cta_text; ?></a><?php } ?>
 			  <?php if(isset($cta_text_2) && $cta_text_2 != ''){ ?><a class="btn solid" href="<?php echo $cta_url_2; ?>"><?php echo $cta_text_2; ?></a><?php } ?>
 			</div>

@@ -7,8 +7,12 @@
 <div class="row">
 	<?php //get data
 	$title = get_post_meta( get_the_id(),$instance.'_title', true );
+	if ($title) {
+		?>
+  		<h2 class="<?php echo $headline_style; ?>"><?php echo $title; ?></h2>
+		<?php
+	}
 	?>
-  <h2 class="<?php echo $headline_style; ?>"><?php echo $title; ?></h2>
 </div>
 
 <div class="row">

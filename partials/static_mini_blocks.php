@@ -11,9 +11,12 @@
     <?php
 	  $raw_headline = get_post_meta(get_the_id(),$instance.'_heading',true);
 		$headline = str_replace(array('{','}'), array('<span>','</span>'),$raw_headline);
-	  ?>
-	  
-    <h2><?php echo $headline; ?></h2>
+    if ($headline) {
+	      ?>
+        <h2><?php echo $headline; ?></h2>
+        <?php
+    }
+    ?>
     <div class="rte">
       <?php echo apply_filters('the_content', get_post_meta(get_the_id(),$instance.'_intro_paragraph',true)); ?>
     </div>
