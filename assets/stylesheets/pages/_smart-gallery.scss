@@ -4,17 +4,6 @@ input[type=range]:focus {
     outline: none;
     box-shadow: none;
 }
-.page-wrap {
-    .page-head {
-        h1 {
-                margin-bottom: 0;
-        }
-    }
-
-    .row {
-            max-width: unset;
-    }
-}
 #picture-grid {
     display: grid;
     margin: 0 auto 2em;
