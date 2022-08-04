@@ -1,5 +1,5 @@
 <?php 
-	$instance = $template_args['instance']; 
+$instance = $template_args['instance']; 
 	$appearance_info = get_option( 'appearance_info');
 	$headline_style = $appearance_info['headline_style'];
 	$title = get_post_meta( get_the_ID(), $instance.'_title', true );
@@ -51,13 +51,13 @@
 					<p class="g-customer-excerpt"><?php echo wp_trim_words(get_the_content(),60); ?></p>
 				</div>
 
-			
-			<?php $i++; endwhile; wp_reset_postdata();?>
-			
-			<div class="reviews_google-buttons">
-			<a href="<?php site_ops_google_review_url(); ?>" class="btn solid google" target="_blank" rel="noopener">Leave a Google Review</a>
-			<?php $page = get_pages(array('meta_key' => '_wp_page_template','meta_value' => 'page-templates/template-testimonials.php')); ?>
-			<?php if(isset($page[0]->ID)){ ?><a href="<?php echo get_permalink($page[0]->ID); ?>" class="btn solid">View More Reviews</a><?php } ?>
-			</div>
+            
+            <?php $i++; endwhile; wp_reset_postdata();?>
+            
+            <div class="reviews_google-buttons">
+            <a href="<?php site_ops_google_review_url(); ?>" class="btn solid google" target="_blank" rel="noopener">Leave a Google Review</a>
+            <?php $page = get_pages(array('meta_key' => '_wp_page_template','meta_value' => 'page-templates/template-testimonials.php')); ?>
+            <?php if(isset($page[0]->ID)){ ?><a href="<?php echo get_permalink($page[0]->ID); ?>" class="btn solid">View More Reviews</a><?php } ?>
+            </div>
   
   </div>
