@@ -18,7 +18,9 @@
     <div class="hp-post">
       <p class="hp-post-date"><?php the_time('M\<\b\r\/\>d') ?></p>
       <div class="hp-post-content">
-      	<h3><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h3>
+        <?php if (the_title()) : ?>
+      	  <h3><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h3>
+        <?php endif; ?>
       	<p><?php echo wp_trim_words(get_the_content(), 50); ?></p>
       	<a class="arrow" href="<?php the_permalink(); ?>">Read More</a>
       </div>
@@ -34,7 +36,9 @@
     <div class="hp-post">
       <p class="hp-post-date"><?php the_time('M\<\b\r\/\>d') ?></p>
       <div class="hp-post-content">
-      	<h3><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h3>
+      <?php if (the_title()) : ?>
+      	  <h3><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h3>
+        <?php endif; ?>
       	<p><?php echo wp_trim_words(get_the_content(), 16); ?></p>
       	<a class="arrow" href="<?php the_permalink(); ?>">Read More</a>
       </div>

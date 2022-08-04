@@ -14,7 +14,9 @@
 
 <div class="row">
 	<div class="static_cta_fold-content<?php if(!empty($cta_align)){ echo ' '.$cta_align; } ?>">
-		<h3><?php echo $cta_title; if(!empty($cta_subtitle)){ echo '<span>'.$cta_subtitle.'</span>'; } ?></h3>
+		<?php if ($cta_title) : ?>
+			<h3><?php echo $cta_title; if(!empty($cta_subtitle)){ echo '<span>'.$cta_subtitle.'</span>'; } ?></h3>
+		<?php endif; ?>
 		<?php echo wpautop($cta_excerpt); ?>
 		
 		<?php

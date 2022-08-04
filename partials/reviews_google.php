@@ -42,7 +42,9 @@
 					</div>
 					</div>
 					<div class="g-panel-detail">
-						<h3><?php the_title(); ?></h3>
+						<?php if (the_title()) : ?>
+							<h3><?php the_title(); ?></h3>
+						<?php endif; ?>
 						<i class="fa fa-star" aria-hidden="true"></i><i class="fa fa-star" aria-hidden="true"></i><i class="fa fa-star" aria-hidden="true"></i><i class="fa fa-star" aria-hidden="true"></i><i class="fa fa-star" aria-hidden="true"></i>
 						<p>5 out of 5 stars</p>
 					</div>

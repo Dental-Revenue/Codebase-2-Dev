@@ -17,7 +17,9 @@
 	  <div class="static_big_big-block">
 	    <img src="<?php echo $img[0]; ?>" alt="<?php echo $title; ?>" />
 	    <div class="static_big_big-block-text">
-	      <h3><a href="<?php echo $link; ?>"><?php echo $title; ?></a></h3>
+			<?php if ($title) : ?>
+				<h3><a href="<?php echo $link; ?>"><?php echo $title; ?></a></h3>
+			<?php endif; ?>
 	      <p><?php echo $excerpt; ?></p>
 	      <a href="<?php echo $link; ?>" class="read-more"><?php echo $link_title; ?></a>
 	    </div>

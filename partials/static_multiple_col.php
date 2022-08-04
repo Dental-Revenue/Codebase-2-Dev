@@ -25,7 +25,9 @@
 		if(isset($column['excerpt'])){ $column_excerpt = $column['excerpt']; } ?>
 		
 	  <div class="static_multiple_col-column columns three repeat">
-	  	<h3><a href="<?php echo $column_link; ?>"><?php echo $column_title; ?></a></h3>
+		<?php if ($column_title) : ?>
+			<h3><a href="<?php echo $column_link; ?>"><?php echo $column_title; ?></a></h3>
+		<?php endif; ?>
 	  	<?php echo wpautop($column_excerpt); ?>
 	  	<a href="<?php echo $column_link; ?>" class="arrow"><?php echo $column_link_title; ?></a>
 		</div>

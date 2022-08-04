@@ -38,7 +38,9 @@
 		
 		$content = get_post_meta(get_the_id(),$instance.'_list_content',true);
 		?>
-    <h3><?php echo $headline; ?></h3>
+    <?php if ($headline) : ?>
+      <h3><?php echo $headline; ?></h3>
+    <?php endif; ?>
     <div class="rte"><?php echo $content; ?></div>
     <ul>
 	    

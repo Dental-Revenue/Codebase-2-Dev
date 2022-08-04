@@ -32,7 +32,9 @@
       <div class="m1-block">
 	    	<div class="m1-block-image" style="background-image:url(<?php echo $image[0]; ?>);"></div>
 				<div class="m1-block-text">
-					<h3><a href="<?php echo $block['url']; ?>"><?php echo $block['title']; ?></a></h3>
+        <?php if ($block['title']) : ?>
+						<h3><a href="<?php echo $block['url']; ?>"><?php echo $block['title']; ?></a></h3>
+					<?php endif; ?>
 					<p><?php echo $block['excerpt']; ?></p>
 					<a href="<?php echo $block['url']; ?>" class="read-more">Read More</a>
       	</div>

@@ -33,7 +33,9 @@
           <img src="<?php echo $image[0]; ?>" alt="carousel image" />
         </a>
         <div class="carousel-text">
-          <h3><a href="<?php echo $block['url']; ?>"><?php echo $block['title']; ?></a></h3>
+        <?php if ($block['title']) : ?>
+						<h3><a href="<?php echo $block['url']; ?>"><?php echo $block['title']; ?></a></h3>
+					<?php endif; ?>
           <p><?php echo $block['excerpt']; ?></p>
           <a href="<?php echo $block['url']; ?>" class="read-more">Read More</a>
         </div>

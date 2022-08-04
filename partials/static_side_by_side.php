@@ -27,7 +27,9 @@
 	  
 	  <div class="static_side_by_side-block static_side_by_side-left columns six repeat">
 	    <a href="<?php echo $block_link; ?>" class="img" style="background-image: url(<?php echo $block_img[0]; ?>);"></a>
-	    <h3><a href="<?php echo $block_link; ?>"><?php echo $block_title; ?></a></h3>
+		<?php if ($block_title) : ?>
+			<h3><a href="<?php echo $block_link; ?>"><?php echo $block_title; ?></a></h3>
+		<?php endif; ?>
 	    <?php echo wpautop($block_excerpt); ?>
 	    <a href="<?php echo $block_link; ?>" class="learn-more arrow"><?php echo $block_link_title; ?></a>
 	  </div>
