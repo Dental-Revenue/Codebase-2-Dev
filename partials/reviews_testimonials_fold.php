@@ -5,12 +5,10 @@
 	$appearance_info = get_option( 'appearance_info');
 	$headline_style = $appearance_info['headline_style']; 
 	$color = (get_post_meta(get_the_id(),$instance.'_bg_color',true)!='') ? get_post_meta(get_the_id(),$instance.'_bg_color',true) : '#ffffff' ;
-if ($title) {
 	?>
-	<h2 class="<?php echo $headline_style; ?>" style="background-color:<?php echo $color; ?>"><?php echo $title; ?></h2>
-	<?php
-}
-?>
+	<?php if ($title) : ?>
+		<h2 class="<?php echo $headline_style; ?>" style="background-color:<?php echo $color; ?>"><?php echo $title; ?></h2>
+	<?php endif; ?>
 
 <div class="slick-init slick-reviews_testimonials_fold">
   

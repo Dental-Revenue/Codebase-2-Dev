@@ -5,13 +5,10 @@
 	
 	$text_bars = get_post_meta(get_the_id(),$instance.'_text_bars',true);
 	$title = get_post_meta( get_the_ID(), $instance.'_title', true ); 
-
-if ($title) {
-	?>  
-  	<h2 class="<?php echo $headline_style; ?>"><?php echo $title; ?></h2>
-	<?php
-}
 ?>
+	<?php if ($title) : ?>
+		<h2 class="<?php echo $headline_style; ?>"><?php echo $title; ?></h2>
+	<?php endif; ?>
   
   <div class="row <?php echo $text_bars; ?>">
 	  <?php 

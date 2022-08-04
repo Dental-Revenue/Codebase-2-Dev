@@ -29,13 +29,10 @@
 					  <img alt="<?php if (isset($p['alt'])){ echo $p['alt']; } else { echo 'Slideshow Image'; } ?>" src="<?php echo $image_atf[0]; ?>" srcset="<?php echo $image_lg[0]; ?> 500w, <?php echo $image_xl[0]; ?> 700w, <?php echo $image_xxl[0]; ?> 1300w, <?php echo $image_atf[0]; ?> 3000w" sizes="100vw,(min-width: 300px) 700px,(min-width: 700px) 1300px,(min-width: 1300px) 1800px" />
 						<div class="fold-overlay" style="background-color: rgba(0,0,0,.<?php echo $slider_overlay; ?>);"></div>
 				    <div class="hp-fold-text <?php if($slide_one_alignment != ''){ echo $slide_one_alignment; } ?>">
-						<?php
-						if ($p['title']) {
-							?>		
+						<?php if ($p['title']) : ?>
 							<h2><?php echo $p['title']; ?></h2>
-							<?php
-						}
-						if(isset($p['excerpt'])){ ?><p><?php echo $p['excerpt']; ?></p><?php }else{ echo "<br/>"; } ?>
+						<?php endif; ?>
+						<?php if(isset($p['excerpt'])){ ?><p><?php echo $p['excerpt']; ?></p><?php }else{ echo "<br/>"; } ?>
 				      <a href="<?php echo $p['url']; ?>" class="btn solid"><?php echo $p['cta']; ?></a>
 				    </div>
 				  </div> 

@@ -4,12 +4,10 @@
 	$text_bars = get_post_meta(get_the_id(),$instance.'_text_bars',true);
 	$appearance_info = get_option( 'appearance_info');
 	$headline_style = $appearance_info['headline_style'];
-if ($title) {
-?>
-<h2 class="<?php echo $headline_style; ?>"><?php echo $title; ?></h2>
-<?php
-}
-?>
+	?>
+	<?php if ($title) : ?>
+		<h2 class="<?php echo $headline_style; ?>"><?php echo $title; ?></h2>
+	<?php endif; ?>
 
 <div class="slick-init slick-carousel_2 <?php echo $text_bars; ?>">
     

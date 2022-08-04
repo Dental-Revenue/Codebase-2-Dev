@@ -3,12 +3,10 @@
 	$appearance_info = get_option( 'appearance_info');
 	$headline_style = $appearance_info['headline_style'];
 	$title = get_post_meta( get_the_ID(), $instance.'_title', true );
-if ($title) {
 	?>
-	<h2 class="<?php echo $headline_style; ?>"><?php echo $title; ?></h2>
-	<?php
-}
-?>
+	<?php if ($title) : ?>
+		<h2 class="<?php echo $headline_style; ?>"><?php echo $title; ?></h2>
+	<?php endif; ?>
   
   <div class="row">
 	  

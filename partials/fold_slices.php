@@ -37,13 +37,10 @@
 				
 				<div class="fold-overlay" style="background-color: rgba(0,0,0,<?php echo $overlay/100; ?>);"></div>
 				<div class="fold-slice-content <?php if($alignment != '') { echo $alignment; } ?>">
-				<?php
-				if ($s['title']) {
-					?>
+				<?php if ($s['title']) : ?>
 					<h2><?php echo $s['title']; ?></h2>
-					<?php
-				}
-				if(isset($s['excerpt'])){ ?><p><?php echo $s['excerpt']; ?></p><?php }else{ echo "<br/>"; } ?>
+				<?php : ?>
+				<?php if(isset($s['excerpt'])){ ?><p><?php echo $s['excerpt']; ?></p><?php }else{ echo "<br/>"; } ?>
 					<?php if(isset($s['url']) && isset($s['cta'])){ ?><a class="btn solid" href="<?php echo $s['url']; ?>"><?php echo $s['cta']; ?></a><?php } ?>
 				</div>
 			</div>
@@ -79,13 +76,10 @@
 				
 				<div class="fold-overlay" style="background-color: rgba(0,0,0,<?php echo $overlay/100; ?>);"></div>
 				<div class="fold-slice-content <?php if($alignment != '') { echo $alignment; } ?>">
-				<?php
-				if ($slide['title']) {
-					?>
+				<?php if ($slide['title']) : ?>
 					<h2><?php echo $slide['title']; ?></h2>
-					<?php
-				}
-				if(isset($slide['excerpt'])){ ?><p><?php echo $slide['excerpt']; ?></p><?php }else{ echo "<br/>"; } ?>
+				<?php endif; ?>
+				<?php if(isset($slide['excerpt'])){ ?><p><?php echo $slide['excerpt']; ?></p><?php }else{ echo "<br/>"; } ?>
 					<?php if(isset($slide['url']) && isset($slide['cta'])){ ?><a class="btn solid" href="<?php echo $slide['url']; ?>"><?php echo $slide['cta']; ?></a><?php } ?>
 				</div>
 			</div>

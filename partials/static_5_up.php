@@ -30,13 +30,10 @@
 	$middle_img = wp_get_attachment_image_src( $middle_img, 'full' ); 
 	$middle_link_title = get_post_meta( get_the_ID(), $instance.'_middle_link_title', true ); 
 	$middle_link_url = get_post_meta( get_the_ID(), $instance.'_middle_link_url', true );
-	 
-	if ($title) {
-		?>  
-		  <h2 class="<?php echo $headline_style; ?>"><?php echo $title; ?></h2>
-		<?php
-	}
 	?>
+	<?php if ($title) : ?>
+		<h2 class="<?php echo $headline_style; ?>"><?php echo $title; ?></h2>
+	<?php endif; ?>
   
   <div class="row <?php echo $text_bars; ?>">
   
