@@ -39,7 +39,7 @@
 				<div class="fold-slice-content <?php if($alignment != '') { echo $alignment; } ?>">
 				<?php if ($s['title']) : ?>
 					<h2><?php echo $s['title']; ?></h2>
-				<?php : ?>
+				<?php endif; ?>
 				<?php if(isset($s['excerpt'])){ ?><p><?php echo $s['excerpt']; ?></p><?php }else{ echo "<br/>"; } ?>
 					<?php if(isset($s['url']) && isset($s['cta'])){ ?><a class="btn solid" href="<?php echo $s['url']; ?>"><?php echo $s['cta']; ?></a><?php } ?>
 				</div>
