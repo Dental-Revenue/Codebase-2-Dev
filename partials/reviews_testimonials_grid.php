@@ -52,7 +52,9 @@
       
     <div class="cvt-block <?php if($display_rectangle_or_square === 'square'){ ?>cvt-block-square<?php } else { echo "cvt-block-rect";} ?>" style="background-image: url(<?php echo $image[0]; ?>);">
 		<div class="cvt-content" style="background-color:<?php echo $bg_color; ?>;">
-			<h3><?php echo $block['name']; ?></h3>
+			<?php if ($block['name']) : ?>
+				<h3><?php echo $block['name']; ?></h3>
+			<?php endif; ?>
 			<p><?php echo $block['excerpt']; ?></p>
 			<?php if(!empty($url)){ ?><a href="<?php echo $url; ?>" class="<?php if(strpos($url,'youtube') !== false || strpos($url,'vimeo') !== false){ ?>popup-youtube<?php } else { ?>icon-arrow<?php } ?>"><?php echo $url_text; ?></a><?php } ?>
 		</div>

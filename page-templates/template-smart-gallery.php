@@ -81,7 +81,7 @@ get_template_part('partials/page-head');
         }
         foreach ($filtered_tags as $tag) {
             ?>
-            <a href="#" id="<?php echo $tag->name; ?>" class="btn filter" onclick="FilterPicker(this.id)"><?php echo $tag->name; ?></a>
+            <a href="#" id="<?php echo str_replace(' ', '', strtolower($tag->name)); ?>" class="btn filter" onclick="FilterPicker(this.id)"><?php echo $tag->name; ?></a>
             <?php
         }
         if ($filtered_tags) {
@@ -116,7 +116,7 @@ get_template_part('partials/page-head');
       <div class="grid-patient all <?php
         if ($tags) {
             foreach ($tags as $tag) {
-                echo $tag->name . " ";
+                echo str_replace(' ', '', strtolower($tag->name)) . " ";
             }
         }
         ?>

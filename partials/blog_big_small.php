@@ -7,16 +7,20 @@
 		<?php
 	  $raw_headline = get_post_meta(get_the_id(),$instance.'_headline',true);
 		$headline = str_replace(array('{','}'), array('<span>','</span>'),$raw_headline);
-		?>
-		<h2 class="<?php echo $headline_style; ?>"><?php echo $headline; ?></h2>
-		<?php
+    ?>
+    <?php if ($headline) : ?>
+      <h2 class="<?php echo $headline_style; ?>"><?php echo $headline; ?></h2>
+    <?php endif; ?>
+    <?php
     $args = array( 'post_type' => 'post', 'orderby' => 'post_date','order' => 'DESC','posts_per_page' => 1 );
     $loop = new WP_Query( $args );
     while ( $loop->have_posts() ) : $loop->the_post(); ?>
     <div class="hp-post">
       <p class="hp-post-date"><?php the_time('M\<\b\r\/\>d') ?></p>
       <div class="hp-post-content">
-      	<h3><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h3>
+        <?php if (the_title()) : ?>
+      	  <h3><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h3>
+        <?php endif; ?>
       	<p><?php echo wp_trim_words(get_the_content(), 50); ?></p>
       	<a class="arrow" href="<?php the_permalink(); ?>">Read More</a>
       </div>
@@ -32,7 +36,9 @@
     <div class="hp-post">
       <p class="hp-post-date"><?php the_time('M\<\b\r\/\>d') ?></p>
       <div class="hp-post-content">
-      	<h3><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h3>
+      <?php if (the_title()) : ?>
+      	  <h3><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h3>
+        <?php endif; ?>
       	<p><?php echo wp_trim_words(get_the_content(), 16); ?></p>
       	<a class="arrow" href="<?php the_permalink(); ?>">Read More</a>
       </div>

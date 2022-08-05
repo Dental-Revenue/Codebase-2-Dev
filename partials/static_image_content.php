@@ -15,8 +15,10 @@
   </div>
   
   <div class="static_image_content-right">
-    <h2 class="<?php echo $headline_style; ?>"><?php echo $title; ?></h2>
-    <?php echo wpautop($excerpt); ?>
+  <?php if ($title) : ?>
+		<h2 class="<?php echo $headline_style; ?>"><?php echo $title; ?></h2>
+	<?php endif; ?>
+	<?php echo wpautop($excerpt); ?>
     <?php 
 	    $buttons = get_post_meta(get_the_id(),$instance.'_buttons',true);
 	    foreach ((array) $buttons as $key => $button ) {

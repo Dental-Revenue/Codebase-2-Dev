@@ -17,7 +17,9 @@
       <img src="<?php echo $primary_img[0]; ?>" alt="<?php echo $primary_title; ?>" />
     </a>
     <div class="static_big_small-block-text">
-      <h3><a href="<?php echo $primary_link; ?>"><?php echo $primary_title; ?></a></h3>
+      <?php if ($primary_title) : ?>
+        <h3><a href="<?php echo $primary_link; ?>"><?php echo $primary_title; ?></a></h3>
+      <?php endif; ?>
       <p><?php echo $primary_excerpt; ?></p>
       <a href="<?php echo $primary_link; ?>" class="read-more"><?php echo $primary_link_title; ?></a>
     </div>
@@ -44,7 +46,9 @@
         <img src="<?php echo $sec_img[0]; ?>" alt="<?php echo $sec_title; ?>" />
       </a>
       <div class="static_big_small-block-text">
-        <h3><a href="<?php echo $sec_link; ?>"><?php echo $sec_title; ?></a></h3>
+        <?php if ($sec_title) : ?>
+          <h3><a href="<?php echo $sec_link; ?>"><?php echo $sec_title; ?></a></h3>
+        <?php endif; ?>
         <p><?php echo $sec_excerpt; ?></p>
         <a href="<?php echo $sec_link; ?>" class="read-more"><?php echo $sec_link_title; ?></a>
       </div>

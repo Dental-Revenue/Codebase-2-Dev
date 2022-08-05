@@ -48,7 +48,9 @@
 			<?php } ?>
 		
 			<div class="static_tabs-text <?php if($alignment != '') { echo $alignment; } ?>">
-				<h3><?php echo $item_title; ?></h3>
+				<?php if ($item_title) : ?>
+					<h3><?php echo $item_title; ?></h3>
+				<?php endif; ?>
 				<?php if($item_excerpt != ''){ echo "<p>".$item_excerpt."</p>"; } ?>
 				<a href="<?php echo $item_link; ?>" class="btn solid"><?php echo $item_link_title; ?></a>
 			</div>

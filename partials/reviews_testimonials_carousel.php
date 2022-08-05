@@ -6,8 +6,10 @@
 	<?php
   $raw_headline = get_post_meta(get_the_id(),$instance.'_headline',true);
 	$headline = str_replace(array('{','}'), array('<span>','</span>'),$raw_headline);
-	?>
-	<h2 class="<?php echo $headline_style; ?>"><?php echo $headline; ?></h2>
+  ?>
+    <?php if ($headline) : ?>
+      <h2 class="<?php echo $headline_style; ?>"><?php echo $headline; ?></h2>
+    <?php endif; ?>
 </div>
 <div class="row">
 	
