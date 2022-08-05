@@ -17,7 +17,9 @@
 	      <p class="blog-date"><?php the_time('M\<\b\r\/\>d');?></p>
         <?php if($posts_have_images == 'yes'){ ?><a class="feat-img" style="background-image:url(<?php echo $thumb_url; ?>)" href="<?php the_permalink(); ?>"></a><?php } ?>
         <div class="hp-post-content">
-          <h3 class="post-title hp-headline"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h3>
+        <?php if (the_title()) : ?>
+      	  <h3 class="post-title hp-headline"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h3>
+        <?php endif; ?>
           <p><?php echo wp_trim_words(get_the_content(), 30); ?></p>
           <a class="read-more btn outline" href="<?php the_permalink(); ?>">Read More</a>
         </div>

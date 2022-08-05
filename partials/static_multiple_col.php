@@ -9,7 +9,9 @@
 	$title_reg = get_post_meta( get_the_id(),$instance.'_title_reg', true );
 	$title_bold = get_post_meta( get_the_id(),$instance.'_title_bold', true );
 	?>
-  <h2 class="<?php echo $headline_style; ?>"><?php echo $title_reg; ?> <span><?php echo $title_bold; ?></span></h2>
+	<?php if ($title_reg || $title_bold) : ?>
+  		<h2 class="<?php echo $headline_style; ?>"><?php echo $title_reg; ?> <span><?php echo $title_bold; ?></span></h2>
+	<?php endif; ?>
 </div>
 
 <div class="row">
@@ -23,7 +25,9 @@
 		if(isset($column['excerpt'])){ $column_excerpt = $column['excerpt']; } ?>
 		
 	  <div class="static_multiple_col-column columns three repeat">
-	  	<h3><a href="<?php echo $column_link; ?>"><?php echo $column_title; ?></a></h3>
+		<?php if ($column_title) : ?>
+			<h3><a href="<?php echo $column_link; ?>"><?php echo $column_title; ?></a></h3>
+		<?php endif; ?>
 	  	<?php echo wpautop($column_excerpt); ?>
 	  	<a href="<?php echo $column_link; ?>" class="arrow"><?php echo $column_link_title; ?></a>
 		</div>

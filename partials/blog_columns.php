@@ -18,7 +18,9 @@
         <?php the_post_thumbnail( 'recent-post',array('alt' => get_post_meta(get_post_thumbnail_id(get_the_id()), '_wp_attachment_image_alt', true) )); ?>
       </a>
       
-      <h3><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h3>
+      <?php if (the_title()) : ?>
+      	  <h3><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h3>
+        <?php endif; ?>
       <span class="meta"><?php the_time('F j, Y'); ?></span>
       <hr />
       <p><?php echo wp_trim_words(get_the_content(),30); ?></p>

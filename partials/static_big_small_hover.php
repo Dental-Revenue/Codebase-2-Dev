@@ -22,10 +22,11 @@
 	$sm_bottom_img = get_post_meta( get_the_ID(), $instance.'_small_bottom_img_id', true ); 
 	$sm_bottom_img = wp_get_attachment_image_src( $sm_bottom_img, 'lg' ); 
 	$sm_bottom_link_title = get_post_meta( get_the_ID(), $instance.'_small_bottom_link_title', true ); 
-	$sm_bottom_link = get_post_meta( get_the_ID(), $instance.'_small_bottom_link', true ); 
-?>
-  
-  <h2 class="<?php echo $headline_style; ?>"><?php echo $headline; ?></h2>
+	$sm_bottom_link = get_post_meta( get_the_ID(), $instance.'_small_bottom_link', true );
+	?>
+    <?php if ($headline) : ?>
+      <h2 class="<?php echo $headline_style; ?>"><?php echo $headline; ?></h2>
+    <?php endif; ?>
   
   <div class="row <?php echo $text_bars; ?>">
 	  
