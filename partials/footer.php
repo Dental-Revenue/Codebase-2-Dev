@@ -41,11 +41,11 @@
               </span>
             </p>
           </div>
-          <?php if(!empty(site_ops_new_patient_phone(false))){ ?>
-          <div class="contact-option">
-            <i class="fas fa-phone fa-flip-horizontal"></i>
-            <p>New Patients <span class="bold tracknum"><?php site_ops_new_patient_phone(); ?></span></p>
-          </div> 
+          <?php if (site_ops_new_patient_phone()) { ?>
+				<div class="contact-option">
+					<i class="fas fa-phone fa-flip-horizontal"></i>
+					<p>New Patients <span class="bold tracknum"><?php site_ops_new_patient_phone(); ?></span></p>
+				</div>
           <?php } ?>
           <?php if(!empty(site_ops_current_patient_phone(false))){ ?>
           <div class="contact-option">
@@ -76,7 +76,7 @@
           <div class="option">
             <i class="fas fa-phone fa-flip-horizontal"></i>
             <div>
-	            <span class="bold">New Patients</span><br>
+	            <span class="bold tracknum">New Patients</span><br>
 	            <?php site_ops_new_patient_phone(); ?>
 	          </div>
           </div>
