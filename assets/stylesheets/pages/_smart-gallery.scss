@@ -13,11 +13,6 @@ input[type=range]:focus {
         min-width: 10%;
     }
 }
-// input {
-//     padding: 0;
-//     margin: 0;
-//     transition: 0;
-// }
 .filter-list {
     text-align: center;
 }
@@ -257,7 +252,7 @@ input[type=range]:focus {
 .deluxe-grid {
     .grid-patient {
         padding: 1em;
-        background: $main-color;
+        background-color: $main-color !important;
         border-radius: 0.75em;
         position: relative;
         opacity: 1;
@@ -275,7 +270,7 @@ input[type=range]:focus {
         
         .gallery-title,
         .gallery-excerpt {
-            color: set-text-color($main-color);
+            color: color-contrast($main-color vs #fff, #ddd, #333, #000);
         }
     }
 }
