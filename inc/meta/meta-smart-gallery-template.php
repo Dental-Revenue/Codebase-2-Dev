@@ -36,7 +36,39 @@ function smartGalleryMeta()
             'six'   => esc_html__('Six', 'cmb2')
             ),
         )
-    );  
+    );
+    $box->add_field(
+        array(
+            'name'  => esc_html__('Deluxe', 'cmb2'),
+            'desc'  => esc_html__('Choose whether this will be a deluxe gallery or not', 'cmb2'),
+            'id'    => $prefix . 'deluxe',
+            'type'  => 'checkbox'
+        )
+    );
+    $box->add_field(
+        array(
+            'name'  => esc_html__('Background Color', 'cmb2'),
+            'desc'  => esc_html__('Choose the background color (deluxe only)', 'cmb2'),
+            'id'    => $prefix . 'bg-color',
+            'type'  => 'colorpicker'
+        )
+    );
+    $box->add_field(
+        array(
+            'name'  => esc_html__('Title Color', 'cmb2'),
+            'desc'  => esc_html__('Choose the title color, if a title exists', 'cmb2'),
+            'id'    => $prefix . 'title-color',
+            'type'  => 'colorpicker'
+        )
+    );
+    $box->add_field(
+        array(
+            'name'  => esc_html__('Description Color', 'cmb2'),
+            'desc'  => esc_html__('Choose the description color, if a description exists', 'cmb2'),
+            'id'    => $prefix . 'description-color',
+            'type'  => 'colorpicker'
+        )
+    );
 }
 add_action('cmb2_admin_init', 'smartGalleryMeta');
 ?>
