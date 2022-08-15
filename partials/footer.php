@@ -41,7 +41,7 @@
               </span>
             </p>
           </div>
-          <?php if (site_ops_new_patient_phone()) { ?>
+          <?php if (!empty(site_ops_new_patient_phone(false))) { ?>
 				<div class="contact-option">
 					<i class="fas fa-phone fa-flip-horizontal"></i>
 					<p>New Patients <span class="bold tracknum"><?php site_ops_new_patient_phone(); ?></span></p>
