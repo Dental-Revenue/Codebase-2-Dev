@@ -36,6 +36,7 @@ get_template_part('partials/page-head');
     while ($gallery->have_posts()) {
         $gallery->the_post();
         $post_id = get_the_ID();
+        $grid_patient_padding = get_post_meta($post_id, 'grid_patient_padding', true);
         $headshot = get_post_meta($post_id, 'headshot', true);
         $deluxe = get_post_meta($post_id, 'deluxe', true);
         $before_image = get_post_meta($post_id, 'before_image', true);
@@ -104,6 +105,7 @@ get_template_part('partials/page-head');
         while ($gallery->have_posts()) {
             $gallery->the_post();
             $post_id = get_the_ID();
+            $grid_patient_padding = get_post_meta($post_id, 'grid_patient_padding', true);
             $headshot = get_post_meta($post_id, 'headshot', true);
             $before_image = get_post_meta($post_id, 'before_image', true);
             $after_image = get_post_meta($post_id, 'after_image', true);
@@ -113,14 +115,11 @@ get_template_part('partials/page-head');
             $tags = get_the_tags();
             ?>
       <!-- BEGIN GRID PATIENT GRID -->
-      <div class="grid-patient all <?php
-        if ($tags) {
+      <div class="grid-patient all <?php if ($tags) :
             foreach ($tags as $tag) {
                 echo str_replace(' ', '', strtolower($tag->name)) . " ";
             }
-        }
-        ?>
-      ">
+     endif; ?>" style="padding: <?php echo $grid_patient_padding; ?>px;">
             <?php
             if ($headshot) {
                 ?>

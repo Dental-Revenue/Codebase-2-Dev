@@ -251,7 +251,6 @@ input[type=range]:focus {
 }
 .deluxe-grid {
     .grid-patient {
-        padding: 1em;
         background-color: $main-color !important;
         border-radius: 0.75em;
         position: relative;
@@ -283,11 +282,6 @@ input[type=range]:focus {
         }
     }
 }
-.deluxe-grid.headshot-grid.before-grid {
-    .grid-patient {
-        padding: 1em;
-    }
-}
 .two-column-grid.deluxe-grid.headshot-grid.before-grid,
 .three-column-grid.deluxe-grid.headshot-grid.before-grid,
 .four-column-grid.deluxe-grid.headshot-grid.before-grid,
@@ -299,7 +293,6 @@ input[type=range]:focus {
     grid-template-columns: 1fr;
 
     .grid-patient {
-        padding-bottom: 0;
         width: 35vw;
 
         .headshot-image {
@@ -321,7 +314,6 @@ input[type=range]:focus {
     gap: 2em;
 
     .grid-patient {
-        padding-bottom: 0.9em;
         width: 81vw;
 
         .headshot-image {
@@ -800,7 +792,6 @@ input[type=range]:focus {
     .four-column-grid.deluxe-grid.headshot-grid.before-grid.spacer-grid {
         .grid-patient {
             width: 35vw;
-            padding-bottom: 0.7em;
 
             .before-image {
                 clip: rect(0, 8.5vw, 11.1vw, 0);
@@ -811,18 +802,18 @@ input[type=range]:focus {
             }
         }
     }
-    .two-column-grid.deluxe-grid.headshot-grid.excerpt-grid.title-grid,
-    .two-column-grid.deluxe-grid.headshot-grid.spacer-grid.title-grid,
-    .three-column-grid.deluxe-grid.headshot-grid.excerpt-grid.title-grid,
-    .three-column-grid.deluxe-grid.headshot-grid.spacer-grid.title-grid,
-    .four-column-grid.deluxe-grid.headshot-grid.excerpt-grid.title-grid,
-    .four-column-grid.deluxe-grid.headshot-grid.spacer-grid.title-grid {
-        .grid-patient {
-            .excerpt-container .gallery-title:empty {
-                padding-top: 2.5vw;
-            }
-        }
-    }
+    // .two-column-grid.deluxe-grid.headshot-grid.excerpt-grid.title-grid,
+    // .two-column-grid.deluxe-grid.headshot-grid.spacer-grid.title-grid,
+    // .three-column-grid.deluxe-grid.headshot-grid.excerpt-grid.title-grid,
+    // .three-column-grid.deluxe-grid.headshot-grid.spacer-grid.title-grid,
+    // .four-column-grid.deluxe-grid.headshot-grid.excerpt-grid.title-grid,
+    // .four-column-grid.deluxe-grid.headshot-grid.spacer-grid.title-grid {
+    //     .grid-patient {
+    //         .excerpt-container .gallery-title:empty {
+    //             padding-top: 2.5vw;
+    //         }
+    //     }
+    // }
     .two-column-grid.deluxe-grid.headshot-grid.before-grid.excerpt-grid.title-grid,
     .two-column-grid.deluxe-grid.headshot-grid.before-grid.spacer-grid.title-grid,
     .three-column-grid.deluxe-grid.headshot-grid.before-grid.excerpt-grid.title-grid,
@@ -1579,18 +1570,18 @@ input[type=range]:focus {
             }
         }
     }
-    .two-column-grid.deluxe-grid.headshot-grid.excerpt-grid.title-grid,
-    .two-column-grid.deluxe-grid.headshot-grid.spacer-grid.title-grid,
-    .three-column-grid.deluxe-grid.headshot-grid.excerpt-grid.title-grid,
-    .three-column-grid.deluxe-grid.headshot-grid.spacer-grid.title-grid,
-    .four-column-grid.deluxe-grid.headshot-grid.excerpt-grid.title-grid,
-    .four-column-grid.deluxe-grid.headshot-grid.spacer-grid.title-grid {
-        .grid-patient {
-            .excerpt-container .gallery-title:empty {
-                padding-top: 3.3vw;
-            }
-        }
-    }
+    // .two-column-grid.deluxe-grid.headshot-grid.excerpt-grid.title-grid,
+    // .two-column-grid.deluxe-grid.headshot-grid.spacer-grid.title-grid,
+    // .three-column-grid.deluxe-grid.headshot-grid.excerpt-grid.title-grid,
+    // .three-column-grid.deluxe-grid.headshot-grid.spacer-grid.title-grid,
+    // .four-column-grid.deluxe-grid.headshot-grid.excerpt-grid.title-grid,
+    // .four-column-grid.deluxe-grid.headshot-grid.spacer-grid.title-grid {
+    //     .grid-patient {
+    //         .excerpt-container .gallery-title:empty {
+    //             padding-top: 3.3vw;
+    //         }
+    //     }
+    // }
     .deluxe-grid.before-grid {
         gap: 1em;
 
@@ -1706,18 +1697,18 @@ input[type=range]:focus {
             }
         }
     }
-    .two-column-grid.deluxe-grid.headshot-grid.excerpt-grid.title-grid,
-    .two-column-grid.deluxe-grid.headshot-grid.spacer-grid.title-grid,
-    .three-column-grid.deluxe-grid.headshot-grid.excerpt-grid.title-grid,
-    .three-column-grid.deluxe-grid.headshot-grid.spacer-grid.title-grid,
-    .four-column-grid.deluxe-grid.headshot-grid.excerpt-grid.title-grid,
-    .four-column-grid.deluxe-grid.headshot-grid.spacer-grid.title-grid {
-        .grid-patient {
-            .excerpt-container .gallery-title:empty {
-                padding-top: 1.65vw;
-            }
-        }
-    }
+    // .two-column-grid.deluxe-grid.headshot-grid.excerpt-grid.title-grid,
+    // .two-column-grid.deluxe-grid.headshot-grid.spacer-grid.title-grid,
+    // .three-column-grid.deluxe-grid.headshot-grid.excerpt-grid.title-grid,
+    // .three-column-grid.deluxe-grid.headshot-grid.spacer-grid.title-grid,
+    // .four-column-grid.deluxe-grid.headshot-grid.excerpt-grid.title-grid,
+    // .four-column-grid.deluxe-grid.headshot-grid.spacer-grid.title-grid {
+    //     .grid-patient {
+    //         .excerpt-container .gallery-title:empty {
+    //             padding-top: 1.65vw;
+    //         }
+    //     }
+    // }
     .two-column-grid.deluxe-grid.headshot-grid.before-grid {
         .grid-patient {
             width: 20vw;
@@ -1829,18 +1820,18 @@ input[type=range]:focus {
             }
         }
     }
-    .two-column-grid.deluxe-grid.headshot-grid.excerpt-grid.title-grid,
-    .two-column-grid.deluxe-grid.headshot-grid.spacer-grid.title-grid,
-    .three-column-grid.deluxe-grid.headshot-grid.excerpt-grid.title-grid,
-    .three-column-grid.deluxe-grid.headshot-grid.spacer-grid.title-grid,
-    .four-column-grid.deluxe-grid.headshot-grid.excerpt-grid.title-grid,
-    .four-column-grid.deluxe-grid.headshot-grid.spacer-grid.title-grid {
-        .grid-patient {
-            .excerpt-container .gallery-title:empty {
-                padding-top: 2.5vw;
-            }
-        }
-    }
+    // .two-column-grid.deluxe-grid.headshot-grid.excerpt-grid.title-grid,
+    // .two-column-grid.deluxe-grid.headshot-grid.spacer-grid.title-grid,
+    // .three-column-grid.deluxe-grid.headshot-grid.excerpt-grid.title-grid,
+    // .three-column-grid.deluxe-grid.headshot-grid.spacer-grid.title-grid,
+    // .four-column-grid.deluxe-grid.headshot-grid.excerpt-grid.title-grid,
+    // .four-column-grid.deluxe-grid.headshot-grid.spacer-grid.title-grid {
+    //     .grid-patient {
+    //         .excerpt-container .gallery-title:empty {
+    //             padding-top: 2.5vw;
+    //         }
+    //     }
+    // }
     .deluxe-grid.before-grid.excerpt-grid,
     .deluxe-grid.before-grid.spacer-grid {
         .grid-patient {
@@ -2189,7 +2180,6 @@ input[type=range]:focus {
 
         .grid-patient {
             width: 23vw;
-            padding-bottom: 1em;
         }
 
         .gallery-excerpt {
@@ -2233,8 +2223,6 @@ input[type=range]:focus {
     .six-column-grid.deluxe-grid.headshot-grid.excerpt-grid,
     .six-column-grid.deluxe-grid.headshot-grid.spacer-grid {
         .grid-patient {
-            padding-bottom: 0;
-
             .before-image {
                 clip: rect(0, 20vw, 27vw, 0);
             }
@@ -2254,7 +2242,6 @@ input[type=range]:focus {
     .deluxe-grid.headshot-grid.before-grid.spacer-grid {
         .grid-patient {
             aspect-ratio: 3/2;
-            padding-bottom: 0.9em;
         }
     }
     .three-column-grid.deluxe-grid.before-grid.excerpt-grid,
@@ -2292,8 +2279,6 @@ input[type=range]:focus {
     .four-column-grid.deluxe-grid.headshot-grid.before-grid.excerpt-grid.title-grid,
     .four-column-grid.deluxe-grid.headshot-grid.before-grid.spacer-grid.title-grid {
         .grid-patient {
-            padding-bottom: 0;
-
             .gallery-title {
                 margin-bottom: 2.5vw;
             }
@@ -2302,12 +2287,6 @@ input[type=range]:focus {
                 font-size: 1.8vw;
                 margin-bottom: 0;
             }
-        }
-    }
-    .four-column-grid.deluxe-grid.headshot-grid.before-grid.excerpt-grid.title-grid,
-    .four-column-grid.deluxe-grid.headshot-grid.before-grid.spacer-grid.title-grid {
-        .grid-patient {
-            padding: 1em;
         }
     }
 }
@@ -2433,18 +2412,18 @@ input[type=range]:focus {
             }
         }
     }
-    .two-column-grid.deluxe-grid.headshot-grid.excerpt-grid.title-grid,
-    .two-column-grid.deluxe-grid.headshot-grid.spacer-grid.title-grid,
-    .three-column-grid.deluxe-grid.headshot-grid.excerpt-grid.title-grid,
-    .three-column-grid.deluxe-grid.headshot-grid.spacer-grid.title-grid,
-    .four-column-grid.deluxe-grid.headshot-grid.excerpt-grid.title-grid,
-    .four-column-grid.deluxe-grid.headshot-grid.spacer-grid.title-grid {
-        .grid-patient {
-            .excerpt-container .gallery-title:empty {
-                padding-top: 1.65vw;
-            }
-        }
-    }
+    // .two-column-grid.deluxe-grid.headshot-grid.excerpt-grid.title-grid,
+    // .two-column-grid.deluxe-grid.headshot-grid.spacer-grid.title-grid,
+    // .three-column-grid.deluxe-grid.headshot-grid.excerpt-grid.title-grid,
+    // .three-column-grid.deluxe-grid.headshot-grid.spacer-grid.title-grid,
+    // .four-column-grid.deluxe-grid.headshot-grid.excerpt-grid.title-grid,
+    // .four-column-grid.deluxe-grid.headshot-grid.spacer-grid.title-grid {
+    //     .grid-patient {
+    //         .excerpt-container .gallery-title:empty {
+    //             padding-top: 1.65vw;
+    //         }
+    //     }
+    // }
 }
 @media screen and (min-width: 800px) and (max-height: 800px) {
     .headshot-grid.excerpt-grid.title-grid,
@@ -4013,18 +3992,18 @@ input[type=range]:focus {
             }
         }
     }
-    .two-column-grid.deluxe-grid.headshot-grid.excerpt-grid.title-grid,
-    .two-column-grid.deluxe-grid.headshot-grid.spacer-grid.title-grid,
-    .three-column-grid.deluxe-grid.headshot-grid.excerpt-grid.title-grid,
-    .three-column-grid.deluxe-grid.headshot-grid.spacer-grid.title-grid,
-    .four-column-grid.deluxe-grid.headshot-grid.excerpt-grid.title-grid,
-    .four-column-grid.deluxe-grid.headshot-grid.spacer-grid.title-grid {
-        .grid-patient {
-            .excerpt-container .gallery-title:empty {
-                padding-top: 1.2vw;
-            }
-        }
-    }
+    // .two-column-grid.deluxe-grid.headshot-grid.excerpt-grid.title-grid,
+    // .two-column-grid.deluxe-grid.headshot-grid.spacer-grid.title-grid,
+    // .three-column-grid.deluxe-grid.headshot-grid.excerpt-grid.title-grid,
+    // .three-column-grid.deluxe-grid.headshot-grid.spacer-grid.title-grid,
+    // .four-column-grid.deluxe-grid.headshot-grid.excerpt-grid.title-grid,
+    // .four-column-grid.deluxe-grid.headshot-grid.spacer-grid.title-grid {
+    //     .grid-patient {
+    //         .excerpt-container .gallery-title:empty {
+    //             padding-top: 1.2vw;
+    //         }
+    //     }
+    // }
     .two-column-grid.deluxe-grid.headshot-grid.before-grid {
         .gallery-excerpt {
             font-size: 1.8em;
@@ -4402,18 +4381,18 @@ input[type=range]:focus {
             }
         }
     }
-    .two-column-grid.deluxe-grid.headshot-grid.excerpt-grid.title-grid,
-    .two-column-grid.deluxe-grid.headshot-grid.spacer-grid.title-grid,
-    .three-column-grid.deluxe-grid.headshot-grid.excerpt-grid.title-grid,
-    .three-column-grid.deluxe-grid.headshot-grid.spacer-grid.title-grid,
-    .four-column-grid.deluxe-grid.headshot-grid.excerpt-grid.title-grid,
-    .four-column-grid.deluxe-grid.headshot-grid.spacer-grid.title-grid {
-        .grid-patient {
-            .excerpt-container .gallery-title:empty {
-                padding-top: 0.9vw;
-            }
-        }
-    }
+    // .two-column-grid.deluxe-grid.headshot-grid.excerpt-grid.title-grid,
+    // .two-column-grid.deluxe-grid.headshot-grid.spacer-grid.title-grid,
+    // .three-column-grid.deluxe-grid.headshot-grid.excerpt-grid.title-grid,
+    // .three-column-grid.deluxe-grid.headshot-grid.spacer-grid.title-grid,
+    // .four-column-grid.deluxe-grid.headshot-grid.excerpt-grid.title-grid,
+    // .four-column-grid.deluxe-grid.headshot-grid.spacer-grid.title-grid {
+    //     .grid-patient {
+    //         .excerpt-container .gallery-title:empty {
+    //             padding-top: 0.9vw;
+    //         }
+    //     }
+    // }
     .deluxe-grid.before-grid.excerpt-grid,
     .deluxe-grid.before-grid.spacer-grid,
     .two-column-grid.deluxe-grid.before-grid.excerpt-grid,
