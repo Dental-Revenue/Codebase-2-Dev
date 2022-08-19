@@ -252,7 +252,6 @@ input[type=range]:focus {
 .deluxe-grid {
     .grid-patient {
         padding: 1em;
-        background-color: $main-color !important;
         border-radius: 0.75em;
         position: relative;
         opacity: 1;
@@ -266,11 +265,6 @@ input[type=range]:focus {
         .before-image {
             box-shadow: 2px 2px 6px $black;
             clip: rect(0, 36vw, 48vw, 0);
-        }
-        
-        .gallery-title,
-        .gallery-excerpt {
-            color: color-contrast($main-color vs #fff, #ddd, #333, #000);
         }
     }
 }
