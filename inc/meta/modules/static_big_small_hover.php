@@ -14,6 +14,13 @@
 		'id' => $prefix.'title',
 		'type' => 'text'
 	));
+	$box->add_field(
+		array(
+			'name' => 'Subtitle',
+			'id' => $prefix.'subtitle',
+			'type' => 'text',
+		)
+	);
 	$box->add_field( array(
 		'name' => 'Big Image',
 		'id'   => $prefix.'big_img',
