@@ -383,6 +383,16 @@ function homepage_meta() {
 // ===============================================================================
 
 
+			case "fold_slider_2":
+			
+				require  __DIR__ . '/modules/fold_slider_2.php';
+				
+			break;
+			
+
+// ===============================================================================
+
+
 			case "fold_slices":
 			
 				require  __DIR__ . '/modules/fold_slices.php';
