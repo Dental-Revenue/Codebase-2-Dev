@@ -9,11 +9,14 @@
   <div class="m1-left">
     
     <?php
-	  $raw_headline = get_post_meta(get_the_id(),$instance.'_heading',true);
-		$headline = str_replace(array('{','}'), array('<span>','</span>'),$raw_headline);
+	  $headline = get_post_meta(get_the_id(),$instance.'_heading',true);
+    $subtitle = get_post_meta(get_the_ID(), $instance.'_subtitle', true);
     ?>
     <?php if ($headline) : ?>
         <h2><?php echo $headline; ?></h2>
+    <?php endif; ?>
+    <?php if ($subtitle) : ?>
+      <p class="module-subtitle"><?php echo $subtitle; ?></p>
     <?php endif; ?>
     <div class="rte">
       <?php echo apply_filters('the_content', get_post_meta(get_the_id(),$instance.'_intro_paragraph',true)); ?>
