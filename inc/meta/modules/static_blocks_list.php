@@ -72,8 +72,15 @@ $box->add_field( array(
 	'name' => 'List Headline',
 	'id' => $prefix.'list_headline',
 	'type' => 'text',
-	'description' => 'Optional. Supports {subhead}',
+	'description' => 'Optional.',
 ));
+$box->add_field(
+	array(
+		'name' => 'List Subtitle',
+		'id' => $prefix.'list_subtitle',
+		'type' => 'text',
+	)
+);
 $box->add_field( array(
 	'name' => 'List Content',
 	'id' => $prefix.'list_content',
