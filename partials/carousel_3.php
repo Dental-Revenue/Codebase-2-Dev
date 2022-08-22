@@ -17,8 +17,8 @@
         <div class="spacer">&nbsp;</div>
         <?php } ?>
         <?php if ($subtitle) : ?>
-    <p class="module-subtitle"><?php echo $subtitle; ?></p>
-  <?php endif; ?>
+          <p class="module-subtitle"><?php echo $subtitle; ?></p>
+        <?php endif; ?>
 </div>
 
 <div class="row">
