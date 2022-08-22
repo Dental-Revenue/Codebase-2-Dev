@@ -6,6 +6,13 @@ $box->add_field( array(
 	'description' => 'Optional. Supports {subhead}',
 	'type' => 'text'
 ));
+$box->add_field(
+	array(
+		'name' => 'Subtitle',
+		'id' => $prefix.'subtitle',
+		'type' => 'text',
+	)
+);
 $box->add_field( array(
 	'name' => 'Module Content',
 	'id' => $prefix.'content',
