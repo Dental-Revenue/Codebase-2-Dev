@@ -9,13 +9,16 @@
   
 <div class="row">
 	<?php
-  $raw_headline = get_post_meta(get_the_id(),$instance.'_headline',true);
-	$headline = str_replace(array('{','}'), array('<span>','</span>'),$raw_headline);
+  $headline = get_post_meta(get_the_id(),$instance.'_headline',true);
+  $subtitle = get_post_meta(get_the_ID(), $instance.'_subtitle', true);
 	?>
   <?php if(!empty($headline)){ ?><h2 class="<?php echo $headline_style; ?>"><?php echo $headline; ?></h2><?php 
         } else { ?>
         <div class="spacer">&nbsp;</div>
         <?php } ?>
+        <?php if ($subtitle) : ?>
+    <p class="module-subtitle"><?php echo $subtitle; ?></p>
+  <?php endif; ?>
 </div>
 
 <div class="row">
