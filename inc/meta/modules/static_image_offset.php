@@ -14,7 +14,7 @@ $box->add_field(
 		'id' => $prefix.'subtitle',
 		'type' => 'text',
 	)
-)
+);
 $box->add_field( array(
 	'name' => 'Left Side Image',
 	'id'   => $prefix.'left_side_image',
