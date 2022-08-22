@@ -1,11 +1,5 @@
-.fold_slider,
-.fold_slider_2 {
-  padding:0;
-}
-.fold_slider .module-content,
-.fold_slider_2 .module-content {
-  height:100%;
-}
+.fold_slider{padding:0;}
+.fold_slider .module-content {height:100%;}
 .slick-slider {margin-top: 0px;}
 	
 	// General Slide Styling
@@ -14,31 +8,8 @@
 			.fold-slide .fold-slide-contain img {height:100%; width:100%; object-fit:cover;}
 		.fold-slide .fold-overlay{opacity: 1;position: absolute;left: 0;top:0;width: 100%;height: 100%;transition: opacity .4s;z-index: 2;}
     .fold-slide-text{transition:all .3s ease; transition-delay: .3s; opacity:0; position:absolute; top: 80%; left: 50%; transform: translate(-50%,-50%); text-align: center; width: 90%; max-width: 700px; z-index: 3;}
-    .fold-slide-text h2,
-    .fold-slide-text > p {
-        font-weight: 900;
-        font-size: 56px;
-        line-height: 90%;
-        text-transform: uppercase;
-        color: $white;
-        margin:0;
-        &:after {
-            content: '';
-            width: 100px;
-            height: 4px;
-            background-color: $white;
-            margin: 30px auto;
-            display: none;
-        }
-    }
-    .fold-slide-text > p:last-child {
-      font-weight: 400;
-      font-size: 18px;
-      line-height: 1.6;
-      text-transform: none;
-      margin: 0 0 1.5em;
-    }
-			// .fold-slide-text p{font-size: 18px;margin: 0 0 1.5em;color: $white;}
+    	.fold-slide-text h2{font-weight: 900;font-size: 56px;line-height:90%;text-transform: uppercase;color: $white;margin:0;&:after{content:'';width: 100px;height: 4px;background-color: $white;margin: 30px auto;display: none;}}
+			.fold-slide-text p{font-size: 18px;margin: 0 0 1.5em;color: $white;}
 			.fold-slide-text.align-left {text-align: center; left: 7%; transform: translate(0,-50%); h2:after{margin:30px 0;}}
 			.fold-slide-text.align-right {text-align: center; left: initial; right:7%; transform: translate(0,-50%); h2:after{margin-top:30px; margin-bottom:30px; margin-left: calc(100% - 100px);}}
 			
@@ -56,38 +27,19 @@
       
   .slick-fold .fold-slide.slick-current .fold-slide-text{@include center(both);opacity: 1;}
   
-  .fold_slider .slick-dots,
-  .fold_slider_2 .slick-dots {
-    position: absolute;
-    bottom: 3%;
-    margin: 0 auto;
-    padding: 0;
-    right: 2%;
-    width: 20px;
-    border: 0;
-    box-shadow: none;
-  }
-  .fold_slider .slick-dots li button,
-  .fold_slider_2 .slick-dots li button {
-    margin-bottom: 7px;
-  }
-  .fold_slider .slick-dots li.slick-active button,
-  .fold_slider_2 .slick-dots li.slick-active button {
-    background-color: $main-color;
-    border-color: $main-color;
-  }
-  .fold_slider .single_btn,
-  .fold_slider_2 .single_btn {
+  .fold_slider .slick-dots {position: absolute; bottom:3%; margin: 0 auto; padding:0; right:2%; width:20px;border:0;box-shadow: none;}
+  	.fold_slider .slick-dots li button {margin-bottom: 7px;}
+  	.fold_slider .slick-dots li.slick-active button {background-color: $main-color; border-color: $main-color;}
+
+    .fold_slider .single_btn {
       margin-top: 30px;
-  }
-  .fold_slider .single_excerpt,
-  .fold_slider_2 .single_excerpt {
+    }
+    .fold_slider .single_excerpt {
       margin-top: 20px;
-  }
-  .fold_slider .single_title,
-  .fold_slider_2 .single_title {
+    }
+    .fold_slider .single_title {
       margin-top: 20px;
-  }
+    }
   
 .fold-video {
     width: 100%!important;
