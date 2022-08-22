@@ -2,9 +2,16 @@
 	$box->add_field( array(
 		'name' => 'Static Block Headline',
 		'id' => $prefix.'headline',
-		'description' => 'Optional. Supports {subhead}',
+		'description' => 'Optional.',
 		'type' => 'text'
 	));
+	$box->add_field(
+		array(
+			'name' => 'Subtitle',
+			'id' => $prefix.'subtitle',
+			'type' => 'text',
+		)
+	);
 	$box->add_field( array(
 		'name' => 'Static Block Excerpt',
 		'id' => $prefix.'excerpt',

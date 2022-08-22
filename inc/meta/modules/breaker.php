@@ -9,6 +9,13 @@ $box->add_field( array(
  		'required'    => 'required',
  	),
 ));
+$box->add_field(
+    array(
+        'name' => 'Subtitle',
+        'id' => $prefix.'subtitle',
+        'type' => 'text',
+    )
+);
 $box->add_field( array(
 	'name' => 'Breaker Button Text',
 	'id' => $prefix.'breaker_button_text',

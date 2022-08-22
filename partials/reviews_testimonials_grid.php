@@ -17,8 +17,8 @@
 	$appearance_info = get_option( 'appearance_info');
 	$headline_style = $appearance_info['headline_style'];
 	
-  	$raw_headline = get_post_meta(get_the_id(),$instance.'_headline',true);
-	$headline = str_replace(array('{','}'), array('<span>','</span>'),$raw_headline);
+	$headline = get_post_meta(get_the_id(),$instance.'_headline',true);
+	$subtitle = get_post_meta(get_the_ID(), $instance.'_subtitle', true);
 	
 	$excerpt = get_post_meta(get_the_id(),$instance.'_excerpt',true);
 	$url = get_post_meta(get_the_id(),$instance.'_url',true);
@@ -36,6 +36,9 @@
 	<?php if($display_static_block === 'yes') { ?>
 	<div class="cvt-block static <?php if($display_rectangle_or_square === 'square'){ ?>cvt-block-square<?php } else { echo "cvt-block-rect";} ?>" <?php if (!empty($grid_bg_color)){?>style="background-color:<?php echo $grid_bg_color; ?>"<?php } ?>>
 	  <?php if(!empty($headline)){ ?><h2 class="<?php echo $headline_style; ?>"><?php echo $headline; ?></h2><?php } ?>
+	  <?php if ($subtitle) : ?>
+      	<p class="module-subtitle"><?php echo $subtitle; ?></p>
+      <?php endif; ?>
 		<?php if(!empty($excerpt)){ ?><p><?php echo $excerpt; ?></p><?php } ?>
 		<?php if(!empty($url)){ ?><a href="<?php echo $url; ?>"><?php echo $url_text; ?></a><?php } ?>
 	</div>

@@ -8,6 +8,13 @@ $box->add_field( array(
  		'required'    => 'required',
  	),
 ));
+$box->add_field(
+	array(
+		'name' => 'Subtitle',
+		'id' => $prefix.'subtitle',
+		'type' => 'text',
+	)
+);
 $box->add_field( array(
 	'name' => 'Paragraph',
 	'id' => $prefix.'specials_breaker_text',

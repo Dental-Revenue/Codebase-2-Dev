@@ -7,12 +7,15 @@
 <div class="row">
   
   <?php
-  $raw_headline = get_post_meta(get_the_id(),$instance.'_headline',true);
-	$headline = str_replace(array('{','}'), array('<span>','</span>'),$raw_headline);
+  $headline = get_post_meta(get_the_id(),$instance.'_headline',true);
+	$subtitle = get_post_meta(get_the_ID(), $instance.'_subtitle', true);
 	$content = get_post_meta(get_the_id(),$instance.'_content',true);
 	?>
   <div class="static_blocks_list-text">
     <?php if(!empty($headline)){ ?><h2 class="<?php echo $headline_style; ?>" <?php if(empty($content)){ ?>style="padding-bottom: 6px;"<?php } ?>><?php echo $headline; ?></h2><?php } ?>
+    <?php if ($subtitle) : ?>
+    <p class="module-subtitle"><?php echo $subtitle; ?></p>
+  <?php endif; ?>
     <?php if(!empty($content)){ ?><div class="rte"><?php echo $content; ?></div><?php } ?>
   </div>
 
@@ -31,14 +34,17 @@
   </div>
   
   <?php
-	  $raw_headline = get_post_meta(get_the_id(),$instance.'_list_headline',true);
-		$headline = str_replace(array('{','}'), array('<span>','</span>'),$raw_headline);
+	  $headline = get_post_meta(get_the_id(),$instance.'_list_headline',true);
+    $subtitle = get_post_meta(get_the_ID(), $instance.'_list_subtitle', true);
 		$content = get_post_meta(get_the_id(),$instance.'_list_content',true);
     $items = get_post_meta(get_the_id(),$instance.'_list_items',true);
 	?>
   <?php if($display_list_block === 'yes'){ ?>
   <div class="static_blocks_list-right">
     <?php if(!empty($headline)){ ?><h3><?php echo $headline; ?></h3><?php } ?>
+    <?php if ($subtitle) : ?>
+    <p class="module-subtitle"><?php echo $subtitle; ?></p>
+  <?php endif; ?>
     <?php if(!empty($content)){ ?><div class="rte"><?php echo $content; ?></div><?php } ?>
     <?php if(!empty($items)){ ?>
     <ul>
