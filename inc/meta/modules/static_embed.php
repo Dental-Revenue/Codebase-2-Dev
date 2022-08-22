@@ -2,10 +2,16 @@
 
 $box->add_field( array(
 	'name' => 'Heading',
-	'desc' => 'Supports {subhead}',
 	'id' => $prefix.'heading',
 	'type' => 'text',
 ));
+$box->add_field(
+	array(
+		'name' => 'Subtitle',
+		'id' => $prefix.'subtitle',
+		'type' => 'text',
+	)
+)
 
 $box->add_field( array(
 	'name' => 'Embed Type',

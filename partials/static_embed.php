@@ -2,8 +2,8 @@
 $instance = $template_args['instance'];
 $appearance_info = get_option( 'appearance_info');
 $headline_style = $appearance_info['headline_style'];
-$raw_headline = get_post_meta(get_the_id(),$instance.'_heading',true);
-$headline = str_replace(array('{','}'), array('<span>','</span>'),$raw_headline);
+$headline = get_post_meta(get_the_id(),$instance.'_heading',true);
+$subtitle = get_post_meta(get_the_ID(), $instance.'_subtitle', true);
 $video_thumbnail = get_post_meta(get_the_id(),$instance.'_static_embed_image',true);
 $video_link = get_post_meta(get_the_id(),$instance.'_link',true);
 $additional_text = get_post_meta(get_the_id(),$instance.'_additional-text',true);
@@ -15,6 +15,9 @@ $randomnumber = rand(1,100);
 ?>
 
 <?php if(!empty($headline)){ ?><h2 class="<?php echo $headline_style; ?>"><?php echo $headline; ?></h2><?php } ?>
+<?php if ($subtitle) : ?>
+    <p class="module-subtitle"><?php echo $subtitle; ?></p>
+  <?php endif; ?>
 <div class="embed-container">
 <a class="popup-<?php echo $embedtype ?><?php if ($embedtype === 'custom') { echo "-" . $randomnumber; } ?> embed-button-<?php echo $embedicon; ?> embed-button-overlay embed-button-bg" <?php if ($embedtype !== 'custom') { echo 'href="' . $video_link . '"'; } ?>><img src="<?php echo $video_thumbnail; ?>"></a>
 </div>
