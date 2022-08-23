@@ -1,0 +1,50 @@
+.fold_mobile_2 {
+    padding:0;display:none;
+}
+// General Slide Styling
+.fold_mobile_2 .fold-mobile-slide-text p {
+    font-weight: 900;
+    font-size: 36px;
+    line-height: 90%;
+    text-transform: uppercase;
+    color: $white;
+    margin: 0;
+    &:after {
+        content: '';
+        width: 100px;
+        height: 4px;
+        background-color: $white;
+        margin: 20px auto;
+        display: block;
+    }
+}
+.fold_mobile_2 .fold-mobile-slide-text p + p {
+    font-size: 18px;
+    line-height: 24px;
+    color: $white;
+    width: 80%;
+    margin: 0 auto 20px;
+}
+.fold_mobile_2 .module-img img {
+    position: relative;
+    transform: none;
+    top: 0;
+    left: 0;
+    min-height: auto;
+}
+.fold_mobile_2 .static-module-image {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+@media all and (max-width: $bp-phablet) {
+	.fold_mobile_2 {
+        display: block;
+    }
+	.fold_mobile_2 + div {
+        display: none;
+    }
+}
+   
+      
+      
