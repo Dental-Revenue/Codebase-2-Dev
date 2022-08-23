@@ -158,6 +158,16 @@ function homepage_meta() {
 // ===============================================================================
 			
 			
+			case "spacer":
+				
+				require  __DIR__ . '/modules/spacer.php';
+				
+			break;
+
+
+// ===============================================================================
+			
+			
 			case "static_block_grid":
 				
 				require  __DIR__ . '/modules/static_block_grid.php';
