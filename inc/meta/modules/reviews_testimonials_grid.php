@@ -103,8 +103,19 @@
 		'default' => 'Watch Video',
 	));
 	$box->add_group_field( $group_field, array(
+		'name' => 'Secondary CTA Text',
+		'id'   => 'second_url_text',
+		'type' => 'text',
+		'default' => 'Watch Video',
+	));
+	$box->add_group_field( $group_field, array(
 		'name' => 'CTA URL',
 		'id'   => 'url',
+		'type' => 'text',
+	));
+	$box->add_group_field( $group_field, array(
+		'name' => 'Secondary CTA URL',
+		'id'   => 'second_url',
 		'type' => 'text',
 	));
 	$box->add_group_field( $group_field, array(

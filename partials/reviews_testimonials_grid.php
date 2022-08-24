@@ -23,6 +23,8 @@
 	$excerpt = get_post_meta(get_the_id(),$instance.'_excerpt',true);
 	$url = get_post_meta(get_the_id(),$instance.'_url',true);
 	$url_text = get_post_meta(get_the_id(),$instance.'_url_text',true);
+	$second_url = get_post_meta(get_the_id(), $instance.'_second_url', true);
+	$second_url_text = get_post_meta(get_the_id(), $instance.'_second_url_text', true);
 
 	$display_static_block = get_post_meta(get_the_id(),$instance.'_display_static_block',true);	
 	$grid_bg_color = get_post_meta(get_the_id(),$instance.'_grid_bg_color',true);		
@@ -40,7 +42,14 @@
       	<p class="module-subtitle"><?php echo $subtitle; ?></p>
       <?php endif; ?>
 		<?php if(!empty($excerpt)){ ?><p><?php echo $excerpt; ?></p><?php } ?>
-		<?php if(!empty($url)){ ?><a href="<?php echo $url; ?>"><?php echo $url_text; ?></a><?php } ?>
+		<?php if(!empty($url)){ ?><a href="<?php echo $url; ?>"><?php echo $url_text; ?></a><?php }
+		if (!empty($second_url)) {
+			?>
+			<a href="<?php echo $second_url; ?>"><?php echo $second_url_text; ?></a>
+			<?php
+		}
+		?>
+		}
 	</div>
 	<?php } ?>
 	
