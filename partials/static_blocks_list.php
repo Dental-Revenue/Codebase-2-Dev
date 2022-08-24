@@ -14,7 +14,7 @@
   <div class="static_blocks_list-text">
     <?php if(!empty($headline)){ ?><h2 class="<?php echo $headline_style; ?>" <?php if(empty($content)){ ?>style="padding-bottom: 6px;"<?php } ?>><?php echo $headline; ?></h2><?php } ?>
     <?php if ($subtitle) : ?>
-    <p class="module-subtitle"><?php echo $subtitle; ?></p>
+    <p class="module-subtitle <?php echo $headline_style; ?>"><?php echo $subtitle; ?></p>
   <?php endif; ?>
     <?php if(!empty($content)){ ?><div class="rte"><?php echo $content; ?></div><?php } ?>
   </div>
@@ -43,8 +43,8 @@
   <div class="static_blocks_list-right">
     <?php if(!empty($headline)){ ?><h3><?php echo $headline; ?></h3><?php } ?>
     <?php if ($subtitle) : ?>
-    <p class="module-subtitle"><?php echo $subtitle; ?></p>
-  <?php endif; ?>
+      <p class="module-subtitle"><?php echo $subtitle; ?></p>
+    <?php endif; ?>
     <?php if(!empty($content)){ ?><div class="rte"><?php echo $content; ?></div><?php } ?>
     <?php if(!empty($items)){ ?>
     <ul>
