@@ -47,7 +47,7 @@ $group_field = $box->add_field( array(
 ));
 
 $box->add_group_field( $group_field, array(
-	'name' => 'Slide Subtitle',
+	'name' => 'Slide Title',
 	'id'   => 'subtitle',
 	'type' => 'text',
 ));
@@ -82,7 +82,7 @@ $box->add_group_field( $group_field, array(
 ));
 
 $box->add_group_field( $group_field, array(
-	'name' => 'Slide Title',
+	'name' => 'Slide Subtitle',
 	'id'   => 'title',
 	'type' => 'text',
 ));
