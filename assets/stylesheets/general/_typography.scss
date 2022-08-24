@@ -18,18 +18,11 @@ p+h2,p+h3,p+h4,p+h5,p+h6{margin-top: 1.5em;}
 hr{padding-bottom:1px; background-color:$md-lt-grey; border:none;}
 
 //headlines global styles
-h2.headline-skinny{ font-size: 44px; display: block; padding: 30px 5% 10px; box-sizing: border-box; text-align: center; line-height: 112%; font-weight: 300; color: $main-color; text-transform: $headline_case; .invert & {color:$white;} &.span{font-weight:600;}}
-h2.headline-bold{ font-size: 28px; margin: 0; text-transform: uppercase; text-transform: $headline_case; line-height: 130%; color: $black; padding: 30px 5% 10px; text-align: center; &.span{font-weight:400;} .invert & {color:$white;} &:after{ content: ''; display: block; width: 40px; height: 3px; background-color: $main-color; margin: 10px auto 10px auto;}}
-.module-subtitle {
-    display: block;
-    padding: 7px 0px 0px 0px;
-    font-size: 60%;
-    font-style: italic;
-    line-height: 130%;
-    position: relative;
-}
-// TODO: The following two rule sets should be deprecated
-h2.headline-skinny span, h2.headline-bold span{display:block;padding:7px 0px 0px 0px;font-size:60%;font-style: italic;line-height:130%;position:relative;}
+h2.headline-skinny, p.headline-skinny{ font-size: 44px; display: block; padding: 30px 5% 10px; box-sizing: border-box; text-align: center; line-height: 112%; font-weight: 300; color: $main-color; text-transform: $headline_case; .invert & {color:$white;} &.span{font-weight:600;}}
+h2.headline-bold, p.headline-bold{ font-size: 28px; margin: 0; text-transform: uppercase; text-transform: $headline_case; line-height: 130%; color: $black; padding: 30px 5% 10px; text-align: center; &.span{font-weight:400;} .invert & {color:$white;} &:after{ content: ''; display: block; width: 40px; height: 3px; background-color: $main-color; margin: 10px auto 10px auto;}}
+h2.headline-skinny span, h2.headline-bold span, p.headline-bold, p.headline-skinny {display:block;padding:7px 0px 0px 0px;font-size:60%;font-style: italic;line-height:130%;position:relative;}
+p.headline-bold {font-size: 16.4px;}
+p.headline-skinny {font-size: 26.4px}
 .hp-headline span {
     display: block;
     font-size: 60%;

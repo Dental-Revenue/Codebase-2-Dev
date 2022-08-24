@@ -1,8 +1,8 @@
 .static_blocks_list{padding:0 0 0px;background-color: $white;padding-bottom: 30px;}
 
   .static_blocks_list-text{text-align: center;}
-    .static_blocks_list-text h2{padding: 30px 5% 0px;margin-bottom: 0px;line-height: 116%;text-align: center;color: $main-color; display: block;}
-      .static_blocks_list-text h2 span{display: block;font-weight: 600;}
+    .static_blocks_list-text h2 {padding: 30px 5% 0px;margin-bottom: 0px;line-height: 116%;text-align: center;color: $main-color; display: block;}
+      .static_blocks_list-text h2 span, .static_blocks_list-text .module-subtitle {display: block;font-weight: 600;}
     .static_blocks_list-text .rte{max-width: 600px;margin: 0px auto 20px;}
     .invert .static_blocks_list-text .rte {color: #fff;}
   
