@@ -1,7 +1,7 @@
 .static_intro_section{padding: 0 0 40px;text-align: center;}
   
 //INVERT COLOR SCHEME
-.static_intro_section.invert h2{color: $white;}
+.static_intro_section.invert h2, .static_intro_section.invert .sisection-subtitle {color: $white;}
 	.static_intro_section.invert p{color: rgba($white,.7);}
 
 .static_intro_section h2.headline-bold {
