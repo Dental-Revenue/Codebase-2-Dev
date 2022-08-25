@@ -15,7 +15,7 @@
   <div class="static_photo_list-text">
     <?php if(!empty($headline)){ ?><h2 class="<?php echo $headline_style; ?>"><?php echo $headline; ?></h2><?php } ?>
     <?php if ($subtitle) : ?>
-      <p class="module-subtitle"><?php echo $subtitle; ?></p>
+      <p class="spl-subtitle <?php echo $headline_style; ?>"><?php echo $subtitle; ?></p>
     <?php endif; ?>
     <?php if(!empty($content)){ ?><div class="rte"><?php echo $content; ?></div><?php } ?>
   </div>  
@@ -45,7 +45,7 @@
       <h3><?php echo $headline; ?></h3>
     <?php endif; ?>
     <?php if ($subtitle) : ?>
-      <p class="module-subtitle"><?php echo $subtitle; ?></p>
+      <p class="list-subtitle"><?php echo $subtitle; ?></p>
     <?php endif; ?>
     <div class="rte"><?php echo $content; ?></div>
     <ul>
