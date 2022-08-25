@@ -46,7 +46,7 @@
     <div class="static_image_split-content" style="text-align:<?php echo $text_align; ?>; padding: 5% <?php echo $text_padding; ?>% 7% <?php echo $text_padding; ?>%;">
     <?php if(!empty($headline)){ ?><h2 style="text-align:<?php echo $text_align; ?>" class="<?php echo $headline_style; ?>"><?php echo $headline; ?></h2><?php } ?>
     <?php if ($subtitle) : ?>
-      <p class="module-subtitle"><?php echo $subtitle; ?></p>
+      <p class="sis-subtitle <?php echo $headline_style; ?>"><?php echo $subtitle; ?></p>
     <?php endif; ?>
     <?php if ($display_form === 'no') { ?>
     <?php if (!empty($content)) {?><div class="static_image_split-paragraph"><?php echo $content; ?></div><?php } ?>
