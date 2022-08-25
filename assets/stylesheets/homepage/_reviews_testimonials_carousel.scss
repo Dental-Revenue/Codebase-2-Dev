@@ -1,7 +1,7 @@
 .reviews_testimonials_carousel{background-color: $main-color;text-align: center;padding: 0 0 40px;}
 
-  .reviews_testimonials_carousel h2{color: $white;}
-  	.reviews_testimonials_carousel h2 span {font-weight: 800;}
+  .reviews_testimonials_carousel h2, .reviews_testimonials_carousel .rtf-subtitle {color: $white;}
+  	.reviews_testimonials_carousel h2 span, .reviews_testimonials_carousel .rtf-subtitle {font-weight: 800;}
 
   .textslider-item{display: none;}
      .slick-slide .textslider-item img{display: inline-block;border-radius: 50%;}
