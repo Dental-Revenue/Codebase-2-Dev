@@ -6,6 +6,7 @@
 		.offset_left h2 {text-align: left; padding:0 0 30px; &:after {margin: 14px 0 0!important;}}
 		.offset_left_img {width:120%; position: relative; padding-top: 70%; background-size: cover; background-position: center center;}
 		.offset_left p {margin: 2em 0em 0em 0em;}
+		.offset_left .sio-subtitle {margin: 0;}
 	
 	.offset_right {width:50%; padding:45px 5%; box-sizing: border-box; position:absolute; bottom:0; right:0; top:0; display:flex; flex-wrap:wrap; align-content:end;}
 		.offset_right_img {width:100%; background-size: cover; background-position: center center; height:68%;}

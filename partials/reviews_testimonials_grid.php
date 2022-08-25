@@ -39,7 +39,7 @@
 	<div class="cvt-block static <?php if($display_rectangle_or_square === 'square'){ ?>cvt-block-square<?php } else { echo "cvt-block-rect";} ?>" <?php if (!empty($grid_bg_color)){?>style="background-color:<?php echo $grid_bg_color; ?>"<?php } ?>>
 	  <?php if(!empty($headline)){ ?><h2 class="<?php echo $headline_style; ?>"><?php echo $headline; ?></h2><?php } ?>
 	  <?php if ($subtitle) : ?>
-      	<p class="module-subtitle"><?php echo $subtitle; ?></p>
+      	<p class="rtg-subtitle <?php echo $headline_style; ?>"><?php echo $subtitle; ?></p>
       <?php endif; ?>
 		<?php if(!empty($excerpt)){ ?><p><?php echo $excerpt; ?></p><?php } ?>
 		<?php if(!empty($url)){ ?><a href="<?php echo $url; ?>"><?php echo $url_text; ?></a><?php }
@@ -47,9 +47,7 @@
 			?>
 			<a href="<?php echo $second_url; ?>"><?php echo $second_url_text; ?></a>
 			<?php
-		}
-		?>
-		}
+		} ?>
 	</div>
 	<?php } ?>
 	

@@ -43,7 +43,7 @@
   <div class="static_blocks_list-right">
     <?php if(!empty($headline)){ ?><h3><?php echo $headline; ?></h3><?php } ?>
     <?php if ($subtitle) : ?>
-      <p class="module-subtitle"><?php echo $subtitle; ?></p>
+      <p class="list-subtitle"><?php echo $subtitle; ?></p>
     <?php endif; ?>
     <?php if(!empty($content)){ ?><div class="rte"><?php echo $content; ?></div><?php } ?>
     <?php if(!empty($items)){ ?>

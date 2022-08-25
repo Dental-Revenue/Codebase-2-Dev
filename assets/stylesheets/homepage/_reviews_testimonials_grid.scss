@@ -8,7 +8,7 @@
 		width: 16.66%;
 		height: 370px;
 	}
-		.cvt-block span{display: block;width: 100%;padding: 20px;box-sizing:border-box;color: $black;text-transform: uppercase;letter-spacing: .05em;font-size: 16px;@include center(bottom);font-weight: 600;}
+		.cvt-block span, .cvt-block .rtg-subtitle {display: block;width: 100%;padding: 20px;box-sizing:border-box;color: $black;text-transform: uppercase;letter-spacing: .05em;font-size: 16px;@include center(bottom);font-weight: 600;}
 		.cvt-block-square {width: 25%;}
 
 		.cvt-content{position: absolute;left:0;top:0;width: 100%;height: 100%;padding: 30px;box-sizing: border-box;transform: translateY(-100%);transition: transform .3s;}
@@ -18,7 +18,7 @@
 				.cvt-content a:before{content:"\f04b";margin-right: 10px;font-family: "Font Awesome 5 Free"; font-weight:900;}
 	
 	//block hover
-	.cvt-block:hover span{display: none;}
+	.cvt-block:hover span, .cvt-block:hover .rtg-subtitle {display: none;}
 	.cvt-block:hover .cvt-content{transform: translateY(0);}	
 	
 	//custom first static block
@@ -29,10 +29,10 @@
 		
 .reviews_testimonials_grid.invert .cvt-block.static h2 {color:$white;}
 .reviews_testimonials_grid.invert .cvt-content h3 {color:$white;}
-.reviews_testimonials_grid.invert .cvt-content p, .reviews_testimonials_grid.invert .cvt-block.static p, .reviews_testimonials_grid.invert .cvt-block span {color:$white;}
+.reviews_testimonials_grid.invert .cvt-content p, .reviews_testimonials_grid.invert .cvt-block.static p, .reviews_testimonials_grid.invert .cvt-block span, .reviews_testimonials_grid.invert .cvt-block .rtg-subtitle {color:$white;}
 .reviews_testimonials_grid.invert .cvt-content a, .reviews_testimonials_grid.invert .cvt-block.static a {color:$white;}
 
-.cvt-block.static:hover span {display: block;}
+.cvt-block.static:hover span, .cvt-block.static:hover .rtg-subtitle {display: block;}
 
 .cvt-content a.icon-arrow:before {content: "\f061";}
 
@@ -84,7 +84,7 @@
 @media all and (max-width: $bp-phablet) {
 .cvt-block{width: 100%;height: 250px;}
 .cvt-block-square{height: 375px;}
-.cvt-block span{display: none;}
+.cvt-block span, .cvt-block .rtg-subtitle {display: none;}
 .cvt-content{transform: translateY(0);background-color: rgba($main-color,.5);}
 .cvt-block.static{height: auto;}
 .cvt-block.static a{position: relative;left: auto;bottom: auto;}

@@ -16,7 +16,7 @@ $randomnumber = rand(1,100);
 
 <?php if(!empty($headline)){ ?><h2 class="<?php echo $headline_style; ?>"><?php echo $headline; ?></h2><?php } ?>
 <?php if ($subtitle) : ?>
-    <p class="module-subtitle"><?php echo $subtitle; ?></p>
+    <p class="se-subtitle <?php echo $headline_style; ?>"><?php echo $subtitle; ?></p>
   <?php endif; ?>
 <div class="embed-container">
 <a class="popup-<?php echo $embedtype ?><?php if ($embedtype === 'custom') { echo "-" . $randomnumber; } ?> embed-button-<?php echo $embedicon; ?> embed-button-overlay embed-button-bg" <?php if ($embedtype !== 'custom') { echo 'href="' . $video_link . '"'; } ?>><img src="<?php echo $video_thumbnail; ?>"></a>

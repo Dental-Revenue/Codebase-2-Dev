@@ -17,7 +17,7 @@
         <div class="spacer">&nbsp;</div>
         <?php } ?>
         <?php if ($subtitle) : ?>
-          <p class="module-subtitle"><?php echo $subtitle; ?></p>
+          <p class="<?php echo $headline_style; ?>"><?php echo $subtitle; ?></p>
         <?php endif; ?>
 </div>
 

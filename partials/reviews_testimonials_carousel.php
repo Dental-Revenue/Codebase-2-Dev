@@ -11,7 +11,7 @@
       <h2 class="<?php echo $headline_style; ?>"><?php echo $headline; ?></h2>
     <?php endif; ?>
     <?php if ($subtitle) : ?>
-      <p class="module-subtitle"><?php echo $subtitle; ?></p>
+      <p class="rtf-subtitle <?php echo $headline_style; ?>"><?php echo $subtitle; ?></p>
     <?php endif; ?>
 </div>
 <div class="row">

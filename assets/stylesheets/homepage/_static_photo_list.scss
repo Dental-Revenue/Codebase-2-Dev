@@ -1,15 +1,15 @@
 .static_photo_list{padding: 0 0 50px;background-color: rgba($main-color,.3);}
 
   .static_photo_list-text{text-align: center;margin-bottom: 40px;}
-    .static_photo_list-text h2{padding: 30px 5% 0px;margin-bottom: 0px;line-height: 116%;text-align: center;color: $main-color; display: block;}
-      .static_photo_list-text h2 span{display: block;font-weight: 600;}
+    .static_photo_list-text h2, .static_photo_list-text .spl-subtitle {padding: 30px 5% 0px;margin-bottom: 0px;line-height: 116%;text-align: center;color: $main-color; display: block;}
+      .static_photo_list-text h2 span, .static_photo_list-text .spl-subtitle {display: block;font-weight: 600;}
     .static_photo_list-text .rte{max-width: 600px;margin: 0px auto 40px;}
   
   .static_photo_list-left{width: 66%;float: left;@include clearfix();}
 .static_photo_list .static_photo_list-left img{width: 100%;height: auto;display: block;} 
   
   .static_photo_list-right{float: right;width: 30%;max-width: 400px;@include clearfix();}
-    .static_photo_list-right h3{margin-top: 0;color: $main-color;margin-bottom: 5px;}
+    .static_photo_list-right h3, .static_photo_list-right .list-subtitle {margin-top: 0;color: $main-color;margin-bottom: 5px;}
     .static_photo_list-right p{}
     .static_photo_list-right ul{padding-left: 20px;}
       .static_photo_list-right ul li{}
