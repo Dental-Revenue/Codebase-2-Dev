@@ -16,7 +16,7 @@
 <div class="row">
   <?php if(!empty($headline)){ ?><h2 class="<?php echo $headline_style; ?>"><?php echo $headline; ?></h2><?php } ?>
   <?php if ($subtitle) : ?>
-    <p class="module-subtitle"><?php echo $subtitle; ?></p>
+    <p class="sb-subtitle <?php echo $headline_style; ?>"><?php echo $subtitle; ?></p>
   <?php endif; ?>
   <?php if(!empty($specials_text) && !wp_is_mobile() ){ ?><p><?php echo $specials_text; ?></p><?php } ?><?php if( wp_is_mobile() && $paragraph_mobile === 'yes' && !empty($specials_text) ){ ?><p><?php echo $specials_text; ?></p><?php } ?>
   <?php if ($button_url != ''){?><a href="<?php echo $button_url; ?>" class="btn"><?php echo $button_text; ?></a><?php } ?>
