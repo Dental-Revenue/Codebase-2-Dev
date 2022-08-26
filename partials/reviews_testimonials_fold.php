@@ -47,7 +47,7 @@
 			<?php endif; ?>
         	<p><?php echo wp_trim_words( get_the_content(), 120, "..." ); ?></p>
         	<?php if($services && $services!=''){ ?>
-        		<p class="rtf-heading">What we did</p>
+        		<h4 >What we did</h4>
 						<p><?php echo $services; ?></p>
 					<?php } ?>
       	</div>
