@@ -16,7 +16,8 @@
 	
 	// Content styling
 	.fold-slice-content{position: absolute;left: -499px;bottom: 0%;opacity: 0;transition: all .2s ease;width: 500px;z-index: 3;}
-		.fold-slice-content h2{padding: 10px 10px 10px 60px;color: $white;display: inline-block;font-size: 40px;}
+		.fold-slice-content h2,
+		.fold-slice-content p:first-child {padding: 10px 10px 10px 60px;color: $white;display: inline-block;font-size: 40px;}
 		.fold-slice-content p{padding-left: 60px;color: $white;}
 		.fold-slice-content a{margin: 20px 0 60px 60px;}
 		.fold-slice-content.align-center {text-align: center; h2 {padding:10px 30px;} p {padding: 0 30px;} a {margin:20px 0 60px;}}
@@ -37,7 +38,8 @@
 	.fold-slices {display:none;}
 	.fold-slices-mobile{display:block;}
   	.fold-slice-content, .fold-slice-content.onScreen{width: 90%; height:auto!important; left: 5%; right:initial; top: 50%;transform: translateY(-50%); position: relative; &.align-right {left:5%; right:initial;} &.align-center {transform: translate(-50%, -50%);}}
-  		.fold-slice-content h2{font-size: 36px;padding: 10px!important;}
+  		.fold-slice-content h2,
+		.fold-slice-content p:first-child {font-size: 36px;padding: 10px!important;}
   		.fold-slice-content p{font-size: 15px;padding: 0 10px!important;}
   		.fold-slice-content a{margin: 20px 0 0 0!important;}
   		
