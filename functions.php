@@ -678,8 +678,8 @@ if (is_admin()){
 
 //Replace the standard content for specific pages (leave review, ...)
 
-function replace_content($content){
-  global $post;
+// function replace_content($content){
+//   global $post;
   // $realtemplate = get_post_meta($post->ID, '_wp_page_template', true);
   // $hiddentemplate = get_post_meta($post->ID, '_wp_hidden_template', true);
   // if($realtemplate=='leave-review.php' || $hiddentemplate=='leave-review.php'){
@@ -695,12 +695,12 @@ function replace_content($content){
   // if($realtemplate=='site-map.php' || $hiddentemplate=='site-map.php'){
   //   $content = '<ul class="sitemap">'.wp_list_pages( array( 'echo'=>false, 'title_li' => false ) ).'</ul>';
   // }
-  if($realtemplate=='accessibility.php' || $hiddentemplate=='accessibility.php'){
-    $content = '<div class="accessibility-content"><p>We are committed to providing a website that is accessible to the widest possible audience, regardless of technology or ability. We are always striving to increase the accessibility and usability of our website and in doing so adhere to many of the available standards and guidelines, such as those below:</p><ul><li>Provide text alternatives for non-text content.</li><li>Provide captions and other alternatives for multimedia.</li><li>Create content that can be presented in different ways, including by assistive technologies, without losing meaning.</li><li>Make it easier for users to see and hear content.</li><li>Make all functionality available from a keyboard.</li><li>Give users enough time to read and use content.</li><li>Do not use content that causes seizures.</li><li>Help users navigate and find content.</li><li>Make text readable and understandable.</li><li>Make content appear and operate in predictable ways.</li><li>Help users avoid and correct mistakes.</li><li>Maximize compatibility with current and future user tools.</li></ul><p>We are always seeking opportunities to improve website accessibility. If you experience any difficulty in accessing this website, please don\'t hesitate to contact us at [new_patient_phone_span].</p></div>';
-  }
-  return $content;
-}
-add_filter('the_content','replace_content');
+  // if($realtemplate=='accessibility.php' || $hiddentemplate=='accessibility.php'){
+  //   $content = '<div class="accessibility-content"><p>We are committed to providing a website that is accessible to the widest possible audience, regardless of technology or ability. We are always striving to increase the accessibility and usability of our website and in doing so adhere to many of the available standards and guidelines, such as those below:</p><ul><li>Provide text alternatives for non-text content.</li><li>Provide captions and other alternatives for multimedia.</li><li>Create content that can be presented in different ways, including by assistive technologies, without losing meaning.</li><li>Make it easier for users to see and hear content.</li><li>Make all functionality available from a keyboard.</li><li>Give users enough time to read and use content.</li><li>Do not use content that causes seizures.</li><li>Help users navigate and find content.</li><li>Make text readable and understandable.</li><li>Make content appear and operate in predictable ways.</li><li>Help users avoid and correct mistakes.</li><li>Maximize compatibility with current and future user tools.</li></ul><p>We are always seeking opportunities to improve website accessibility. If you experience any difficulty in accessing this website, please don\'t hesitate to contact us at [new_patient_phone_span].</p></div>';
+  // }
+//   return $content;
+// }
+// add_filter('the_content','replace_content');
 
 //AUTO GENERATE MODULES TABLE
 function createModulesTable(){
