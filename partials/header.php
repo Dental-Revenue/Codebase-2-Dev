@@ -278,25 +278,25 @@ $popup = $option['cta_popup'];
                 <li class="new-phone">New Patients Call <span class="tracknum"><?php site_ops_new_patient_phone(); ?></span></li>
                 <li><a href="<?php site_ops_cta_url(); ?>" class="schedule"><?php site_ops_cta_text(); ?></a></li>
                 <?php if (!empty(site_ops_facebook(false))) { ?>
-                    <li><a href="<?php site_ops_facebook(); ?>" target="_blank" rel="noopener"><i class="fab fa-facebook-f"></i></a></li>
+                    <li><a href="<?php site_ops_facebook(); ?>" target="_blank" rel="noopener" aria-label="facebook link"><i class="fab fa-facebook-f"></i></a></li>
                 <?php } ?>
                 <?php if (!empty(site_ops_twitter(false))) { ?>
-                    <li><a href="<?php site_ops_twitter(); ?>" target="_blank" rel="noopener"><i class="fab fa-twitter"></i></a></li>
+                    <li><a href="<?php site_ops_twitter(); ?>" target="_blank" rel="noopener" aria-label="twitter link"><i class="fab fa-twitter"></i></a></li>
                 <?php } ?>
                 <?php if (!empty(site_ops_linkedin(false))) { ?>
-                    <li><a href="<?php site_ops_linkedin(); ?>" target="_blank" rel="noopener"><i class="fab fa-linkedin-in"></i></a></li>
+                    <li><a href="<?php site_ops_linkedin(); ?>" target="_blank" rel="noopener" aria-label="linkedin link"><i class="fab fa-linkedin-in"></i></a></li>
                 <?php } ?>
                 <?php if (!empty(site_ops_instagram(false))) { ?>
-                    <li><a href="<?php site_ops_instagram(); ?>" target="_blank" rel="noopener"><i class="fab fa-instagram"></i></a></li>
+                    <li><a href="<?php site_ops_instagram(); ?>" target="_blank" rel="noopener" aria-label="instagram link"><i class="fab fa-instagram"></i></a></li>
                 <?php } ?>
                 <?php if (!empty(site_ops_google_plus(false))) { ?>
-                    <li><a href="<?php site_ops_google_plus(); ?>" target="_blank" rel="noopener"><i class="fab fa-google-plus-g"></i></a></li>
+                    <li><a href="<?php site_ops_google_plus(); ?>" target="_blank" rel="noopener" aria-label="google plus link"><i class="fab fa-google-plus-g"></i></a></li>
                 <?php } ?>
                 <?php if (!empty(site_ops_youtube(false))) { ?>
-                    <li><a href="<?php site_ops_youtube(); ?>" target="_blank" rel="noopener"><i class="fab fa-youtube"></i></a></li>
+                    <li><a href="<?php site_ops_youtube(); ?>" target="_blank" rel="noopener" aria-label="youtube link"><i class="fab fa-youtube"></i></a></li>
                 <?php } ?>
                 <?php if (!empty(site_ops_yelp(false))) { ?>
-                    <li><a href="<?php site_ops_yelp(); ?>" target="_blank" rel="noopener"><i class="fab fa-yelp"></i></a></li>
+                    <li><a href="<?php site_ops_yelp(); ?>" target="_blank" rel="noopener" aria-label="yelp link"><i class="fab fa-yelp"></i></a></li>
                 <?php } ?>
             </ul>
         </div>
