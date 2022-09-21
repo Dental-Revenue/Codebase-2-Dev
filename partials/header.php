@@ -89,7 +89,7 @@ $popup = $option['cta_popup'];
                     <?php
                     if (wp_is_mobile()) {
                         ?>
-                        <a href="tel:<?php site_ops_new_patient_phone(); ?>"><i class="fas fa-phone"></i><span class="tracknum">Call</span></a>
+                        <a href="tel:<?php site_ops_new_patient_phone(); ?>"><i class="fas fa-phone"></i><span>Call</span></a>
                         <?php
                     }
                     if (!empty(site_ops_cta_text(false)) && in_array("cta", $header_items)) { 
@@ -125,7 +125,7 @@ $popup = $option['cta_popup'];
                     <?php
                     if (wp_is_mobile()) {
                         ?>
-                        <a href="tel:<?php site_ops_new_patient_phone(); ?>"><i class="fas fa-phone"></i><span class="tracknum">Call</span></a>
+                        <a href="tel:<?php site_ops_new_patient_phone(); ?>"><i class="fas fa-phone"></i><span>Call</span></a>
                         <?php
                     }
                     if (!empty(site_ops_cta_text(false)) && in_array("cta", $header_items)) {
@@ -167,7 +167,7 @@ $popup = $option['cta_popup'];
                 if (!empty(site_ops_new_patient_phone(false))) { 
                     ?>
                     <div class="contact-option">
-                        <a href="tel:<?php site_ops_new_patient_phone(); ?>"><i class="fas fa-phone"></i><span class="tracknum">New Patients </span><span class="bold tracknum"><?php site_ops_new_patient_phone(); ?></span></a>
+                        <a href="tel:<?php site_ops_new_patient_phone(); ?>"><i class="fas fa-phone"></i><span>New Patients </span><span class="bold"><?php site_ops_new_patient_phone(); ?></span></a>
                     </div>
                     <?php
                 }
@@ -191,7 +191,7 @@ $popup = $option['cta_popup'];
                     <?php 
                     if (wp_is_mobile()) {
                         ?>
-                        <a href="tel:<?php site_ops_new_patient_phone(); ?>"><i class="fas fa-phone"></i><span class="tracknum">Call</span></a>
+                        <a href="tel:<?php site_ops_new_patient_phone(); ?>"><i class="fas fa-phone"></i><span>Call</span></a>
                         <?php
                     }
                     if (!empty(site_ops_cta_text(false)) && in_array("cta", $header_items)) {
@@ -228,7 +228,7 @@ $popup = $option['cta_popup'];
                 <?php
                 if (wp_is_mobile()) {
                     ?>
-                    <a href="tel:<?php site_ops_new_patient_phone(); ?>"><i class="fas fa-phone"></i><span class="tracknum">Call</span></a>
+                    <a href="tel:<?php site_ops_new_patient_phone(); ?>"><i class="fas fa-phone"></i><span>Call</span></a>
                     <?php
                 }
                 if (!empty(site_ops_cta_text(false)) && in_array("cta", $header_items)) {
@@ -260,7 +260,7 @@ $popup = $option['cta_popup'];
             if (!empty(site_ops_new_patient_phone(false))) {
                 ?>
                 <div class="contact-option">
-                    <a href="tel:<?php site_ops_new_patient_phone(); ?>"><i class="fas fa-phone"></i><span class="tracknum">New Patients </span><span class="bold tracknum"><?php site_ops_new_patient_phone(); ?></span></a>
+                    <a href="tel:<?php site_ops_new_patient_phone(); ?>"><i class="fas fa-phone"></i><span>New Patients </span><span class="bold"><?php site_ops_new_patient_phone(); ?></span></a>
                 </div>
                 <?php
             }
@@ -310,7 +310,7 @@ $popup = $option['cta_popup'];
                 <div class="contact-dropwdown">
                     <a class="drop-link" href="">Contact Us <i class="fa fa-caret-down"></i></a>
                     <div class="drop-content" style="display: none;">
-                        <a href="tel:<?php site_ops_new_patient_phone(); ?>"><i class="fas fa-phone"></i><span>New Patients </span><span class="bold tracknum"><?php site_ops_new_patient_phone(); ?></span></a>
+                        <a href="tel:<?php site_ops_new_patient_phone(); ?>"><i class="fas fa-phone"></i><span>New Patients </span><span class="bold"><?php site_ops_new_patient_phone(); ?></span></a>
                         <a href="tel:<?php site_ops_current_patient_phone(); ?>"><i class="fas fa-phone"></i><span>Current Patients </span><span class="bold"><?php site_ops_current_patient_phone(); ?></span></a>
                         <a href="<?php site_ops_cta_url(); ?>"><?php site_ops_cta_text(); ?></a>
                         <a href="/leave-a-review/">Leave a Review</a>
