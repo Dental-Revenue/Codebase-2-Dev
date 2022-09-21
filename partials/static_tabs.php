@@ -10,7 +10,7 @@
 		  if(isset($item['title'])){ $item_title = $item['title']; }	
 			
 			
-			echo "<li><a href='#tab".$counter."-".$instance."'".$active." data-toggle='tab'>".$item_title."</a></li>";
+			echo "<li role='tab'><a href='#tab".$counter."-".$instance."'".$active." data-toggle='tab'>".$item_title."</a></li>";
 			$counter++;
 		} ?>
 	</ul>
