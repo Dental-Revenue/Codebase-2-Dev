@@ -18,7 +18,7 @@ header{}
     .header-contact{@include center(right);}
       .header-contact .contact-option{margin-right: 20px; &:last-child{margin-right:0;} }
   
-  .header-bottom{background-color: $dk-grey;z-index: 1;position: relative;}
+  .header-bottom{background-color: $dk-grey;z-index: 1;position: relative;z-index: 999;}
   
 
 /* HEADER Stick Style */
