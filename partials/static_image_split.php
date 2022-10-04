@@ -73,7 +73,7 @@
     </div>
     <?php } ?>
     <?php } else { ?>
-    <form action="<?php echo get_form_processor(); ?>" method="post" name="form-schedule">
+    <form action="<?php echo get_form_processor(); ?>" method="post" name="form-schedule" autocomplete="on">
       <input type="text" name="Name" placeholder="Name" />
       <input type="text" name="Phone" placeholder="Phone" />
       <input type="text" name="EmailName" placeholder="Email" />
