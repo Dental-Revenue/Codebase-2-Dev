@@ -25,17 +25,17 @@
 				</div>                
 			</div>
 			
-			<?php 
-				if($global_sidebar == 'on'){ 
-					if($page_sidebar == 'on'){ 
-			?>
-						<div class="columns four">
-							<?php get_sidebar(); ?>
-						</div>
-			<?php 
-					} 
-				} 
-			?>
+			<!-- <?php 
+			// 	if($global_sidebar == 'on'){ 
+			// 		if($page_sidebar == 'on'){ 
+			// ?>
+			// 			<div class="columns four">
+			// 				<?php // get_sidebar(); ?>
+			// 			</div>
+			// <?php 
+			// 		} 
+			// 	} 
+			?> -->
 		
 		</div>
 			

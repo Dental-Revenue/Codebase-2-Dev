@@ -51,9 +51,9 @@ Template Name: Testimonials
 
 </div> 
 
-<div class="columns four">
-<?php get_sidebar(); ?>
-</div>               
+<!-- <div class="columns four">
+<?php // get_sidebar(); ?>
+</div>                -->
 
 </div>
 </div>

@@ -97,9 +97,9 @@ Template Name: Service
 					  
 			</div>
 			
-			<div class="columns four">
-				<?php get_sidebar(); ?>
-			</div>
+			<!-- <div class="columns four">
+				<?php // get_sidebar(); ?>
+			</div> -->
 		
 		</div>
 		
