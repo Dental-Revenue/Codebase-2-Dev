@@ -31,7 +31,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 </head>
 
 <body <?php body_class(); ?>>
-	
+<div id="fb-root"></div>
+<script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v15.0&appId=216592269093521&autoLogAppEvents=1" nonce="0iK3lx9C"></script>
 <?php if(!empty(site_ops_gtm_id(false))){ ?>
 <!-- Google Tag Manager (noscript) -->
 <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-<?php site_ops_gtm_id(); ?>"

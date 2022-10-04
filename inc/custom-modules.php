@@ -70,6 +70,8 @@ function render_modules(){ ?>
 							<option value="fold_mobile">Fold Mobile</option>
 							<option value="fold_mobile_2">Fold Mobile 2</option>
 							<option>------------------</option>
+							<option value="facebook">Facebook</option>
+							<option>------------------</option>
 							<option value="static_mini_blocks">Static Mini Blocks</option>
 							<option value="static_big_small">Static Big/Small</option>
 							<option value="static_big_small_hover">Static Big/Small Hover</option>
