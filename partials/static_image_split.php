@@ -74,7 +74,8 @@
     <?php } ?>
     <?php } else { ?>
     <form action="<?php echo get_form_processor(); ?>" method="post" name="form-schedule" autocomplete="on">
-      <input type="text" name="Name" placeholder="Name" />
+      <input type="text" name="FirstName" placeholder="First Name" autofocus/>
+      <input type="text" name="LastName" placeholder="Last Name" />
       <input type="text" name="Phone" placeholder="Phone" />
       <input type="text" name="EmailName" placeholder="Email" />
       <textarea name="Comments" placeholder="How can we help?"></textarea>
