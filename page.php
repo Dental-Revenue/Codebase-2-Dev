@@ -3,7 +3,7 @@
 	
 	$page_sidebar = get_post_meta( get_the_id(), 'standard_sidebar', true );
 	$global_sidebar = site_ops_global_sidebar(false);
-	$class_row = "row sm"; $class_columns = "columns twelve";
+	$class_row = "row"; $class_columns = "columns twelve";
 	// if($global_sidebar == 'on'){ 
 	// 	if($page_sidebar == 'on'){ $class_row = "row"; $class_columns = "columns eight"; }
 	// }
