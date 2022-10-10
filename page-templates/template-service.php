@@ -14,7 +14,7 @@ Template Name: Service
     <div role="main" class="service-template">	
         <div class="row">
         
-            <div class="columns eight">
+            <div class="columns twelve">
                   
                 <?php //pull general info and setup reusable functions
                 
