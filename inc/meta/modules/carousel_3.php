@@ -6,6 +6,13 @@ $box->add_field( array(
 					'description' => 'Optional',
 					'type' => 'text'
 				));
+				$box->add_field(
+					array(
+						'name' => 'Subtitle',
+						'id' => $prefix.'subtitle',
+						'type' => 'text',
+					)
+				);
 				$box->add_field( array(
 					'name' => 'Carousel Items',
 					'desc' => 'Number of items visible per slide',

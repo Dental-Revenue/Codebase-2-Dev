@@ -64,9 +64,11 @@ function render_modules(){ ?>
 						<label>Module #</label>
 						<select name="module_name">
 							<option value="fold_slider">Fold Slider</option>
+							<option value="fold_slider_2">Fold Slider 2</option>
 							<option value="fold_slices">Fold Slices</option>
 							<option value="fold_boxes">Fold Boxes</option>
 							<option value="fold_mobile">Fold Mobile</option>
+							<option value="fold_mobile_2">Fold Mobile 2</option>
 							<option>------------------</option>
 							<option value="static_mini_blocks">Static Mini Blocks</option>
 							<option value="static_big_small">Static Big/Small</option>
@@ -89,6 +91,7 @@ function render_modules(){ ?>
 							<option>------------------</option>
 							<option value="breaker">Breaker</option>
 							<option value="specials_breaker">Specials Breaker</option>
+							<option value="spacer">Spacer</option>
 							<option>------------------</option>
 							<option value="carousel_1">Carousel 1</option>
 							<option value="carousel_2">Carousel 2</option>

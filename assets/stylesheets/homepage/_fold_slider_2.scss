@@ -1,0 +1,56 @@
+.fold_slider_2 {
+    padding:0;
+  }
+  .fold_slider_2 .module-content {
+    height:100%;
+  }
+  .fold_slider_2 .fold-slide-text h2,
+  .fold_slider_2 .fold-slide-text > p {
+      font-weight: 900;
+      font-size: 56px;
+      line-height: 90%;
+      text-transform: uppercase;
+      color: $white;
+      margin:0;
+      &:after {
+          content: '';
+          width: 100px;
+          height: 4px;
+          background-color: $white;
+          margin: 30px auto;
+          display: none;
+      }
+  }
+  .fold_slider_2 .fold-slide-text > p:last-child {
+      font-weight: 400;
+      font-size: 18px;
+      line-height: 1.6;
+      text-transform: none;
+      margin: 0 0 1.5em;
+  }
+  .fold_slider_2 .slick-dots {
+      position: absolute;
+      bottom: 3%;
+      margin: 0 auto;
+      padding: 0;
+      right: 2%;
+      width: 20px;
+      border: 0;
+      box-shadow: none;
+  }
+  .fold_slider_2 .slick-dots li button {
+      margin-bottom: 7px;
+  }
+  .fold_slider_2 .slick-dots li.slick-active button {
+      background-color: $main-color;
+      border-color: $main-color;
+  }
+  .fold_slider_2 .single_btn {
+        margin-top: 30px;
+  }
+  .fold_slider_2 .single_excerpt {
+        margin-top: 20px;
+  }
+  .fold_slider_2 .fold-slide-text .single_title {
+        margin-top: 20px;
+  }

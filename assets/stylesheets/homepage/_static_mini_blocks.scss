@@ -1,8 +1,9 @@
 .static_mini_blocks{padding: 40px 0px 35px 0px;}
   
     .m1-left{float: left;width: 30%;& >:last-child{margin-bottom: 0;}}
-  	.m1-left h2{font-size: 28px;margin:0 0 20px;text-transform: uppercase;line-height: 1.1;}
-  		.m1-left h2 span{display: block;font-size: 50%;opacity: .7;margin: 0;line-height: 2;}
+  	.m1-left h2, .m1-left .smb-subtitle {font-size: 28px;margin:0 0 20px;text-transform: uppercase;line-height: 1.1;}
+  		.m1-left h2 span, .m1-left .smb-subtitle {display: block;font-size: 50%;opacity: .7;margin: 0;line-height: 2;}
+      .m1-left .smb-subtitle {font-size: 16px;}
   
   .m1-right{float: right;width: 66%;}
     .m1-right ul{margin-bottom: 3%;}

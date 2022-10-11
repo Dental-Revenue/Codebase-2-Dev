@@ -1,16 +1,16 @@
 .static_blocks_list{padding:0 0 0px;background-color: $white;padding-bottom: 30px;}
 
   .static_blocks_list-text{text-align: center;}
-    .static_blocks_list-text h2{padding: 30px 5% 0px;margin-bottom: 0px;line-height: 116%;text-align: center;color: $main-color; display: block;}
-      .static_blocks_list-text h2 span{display: block;font-weight: 600;}
+    .static_blocks_list-text h2 {padding: 30px 5% 0px;margin-bottom: 0px;line-height: 116%;text-align: center;color: $main-color; display: block;}
+      .static_blocks_list-text h2 span, .static_blocks_list-text .module-subtitle {display: block;font-weight: 600;}
     .static_blocks_list-text .rte{max-width: 600px;margin: 0px auto 20px;}
     .invert .static_blocks_list-text .rte {color: #fff;}
   
   .static_blocks_list-left{width: 66%;float: left;@include clearfix();}
   
   .static_blocks_list-right{float: right;width: 30%;max-width: 400px;@include clearfix();}
-    .static_blocks_list-right h3{margin-top: 0;color: $main-color;margin-bottom: 10px;}
-    .static_blocks_list-right h3 span {
+    .static_blocks_list-right h3, .static_blocks_list-right .list-subtitle {margin-top: 0;color: $main-color;margin-bottom: 10px;}
+    .static_blocks_list-right h3 span, .static_blocks_list-right .list-subtitle {
       display: block;
       padding: 3px 0px 0px 0px;
       font-size: 80%;

@@ -158,6 +158,16 @@ function homepage_meta() {
 // ===============================================================================
 			
 			
+			case "spacer":
+				
+				require  __DIR__ . '/modules/spacer.php';
+				
+			break;
+
+
+// ===============================================================================
+			
+			
 			case "static_block_grid":
 				
 				require  __DIR__ . '/modules/static_block_grid.php';
@@ -383,6 +393,16 @@ function homepage_meta() {
 // ===============================================================================
 
 
+			case "fold_slider_2":
+			
+				require  __DIR__ . '/modules/fold_slider_2.php';
+				
+			break;
+			
+
+// ===============================================================================
+
+
 			case "fold_slices":
 			
 				require  __DIR__ . '/modules/fold_slices.php';
@@ -406,6 +426,16 @@ function homepage_meta() {
 			case "fold_mobile":
 			
 				require  __DIR__ . '/modules/fold_mobile.php';
+				
+			break;
+			
+
+// ===============================================================================
+
+
+			case "fold_mobile_2":
+			
+				require  __DIR__ . '/modules/fold_mobile_2.php';
 				
 			break;
 			

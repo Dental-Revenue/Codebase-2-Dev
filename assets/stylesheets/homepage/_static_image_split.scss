@@ -3,16 +3,17 @@
 .static_image_split-img img {height:100%; width:100%; object-fit:cover;}
 .static_image_split-right{width: 50%;position: relative;}
 
-.static_image_split-content h2{color: $main-color;font-size: 28px; text-transform: uppercase; line-height: 130%; padding: 0; max-width: 100%;}
-.static_image_split-content h2 span {display: block;font-size: 50%;opacity: .7;margin: 0;}
-.static_image_split-content h2:after {content: '';display: none;}
+.static_image_split-content h2, .static_image_split-content .sis-subtitle {color: $main-color;font-size: 28px; text-transform: uppercase; line-height: 130%; padding: 0; max-width: 100%;}
+.static_image_split-content h2 span, .static_image_split-content .sis-subtitle {display: block;font-size: 50%;opacity: .7;margin: 0;}
+.static_image_split-content .sis-subtitle {font-size: 14px;}
+.static_image_split-content h2:after, .static_image_split-content .sis-subtitle:after {content: '';display: none;}
 /*.static_image_split-content *{max-width: 400px; color: $white; text-align:left; margin-left:0;}*/
 .static_image_split-content *{max-width: 100%; color: $main-color; margin-left:0;}
 .static_image_split-content ul{margin: 0;padding:0;list-style: none;}
 .static_image_split-content ul li{margin: 4px 0 4px 16px; color: $main-color; text-indent: -6px; font-size: 16px; &:before{content:'•';color:$main-color;margin-right: 6px;display: inline-block;}}
 .static_image_split-content p:last-child {margin-bottom: 0px;}
 
-.invert .static_image_split-content h2{color: $white;}
+.invert .static_image_split-content h2, .invert .static_image_split-content .sis-subtitle {color: $white;}
 .invert .static_image_split-content *{color: $white;}
 .invert .static_image_split-content ul li{color: $white; &:before{color:$white;}}
 .invert .static_image_split-content input, .invert .static_image_split-content textarea {
@@ -26,7 +27,8 @@
     width: 100%;
     margin-top: 10px;
 }
-.static_image_split h2 span {
+.static_image_split h2 span,
+.static_image_split .sis-subtitle {
     padding: 7px 0px 0px 0px;
 }
 .static_image_split-paragraph {

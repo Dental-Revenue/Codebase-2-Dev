@@ -7,6 +7,13 @@ $box->add_field( array(
 	'description' => 'Optional',
 	'type' => 'text'
 ));
+$box->add_field(
+	array(
+		'name' => 'Subtitle',
+		'id' => $prefix.'subtitle',
+		'type' => 'text',
+	)
+);
 $box->add_field( array(
 	'name' => 'Module Content',
 	'id' => $prefix.'content',
@@ -39,6 +46,13 @@ $box->add_field( array(
  		'required'    => 'required',
  	),
 ));
+$box->add_field(
+	array(
+		'name' => 'List Subtitle',
+		'id' => $prefix.'list_subtitle',
+		'type' => 'text',
+	)
+);
 $box->add_field( array(
 	'name' => 'List Content',
 	'id' => $prefix.'list_content',

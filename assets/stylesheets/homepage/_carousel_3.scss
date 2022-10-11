@@ -1,6 +1,6 @@
 .carousel_3{padding-bottom: 40px;background-size: cover;background-position: center center center;}
 
-	.carousel_3 h2{margin-bottom: 0px;color: $white;line-height: 116%;text-align: center; display: block;}
+	.carousel_3 h2, .carousel_3 h2 + p {margin-bottom: 0px;color: $white;line-height: 116%;text-align: center; display: block;}
 
   .carousel-item{text-align: center;}
     .carousel-item img{border: 3px solid $white; width: 80%;min-width: 160px;max-width: 250px;height: auto;display: block;margin: 0 auto;}

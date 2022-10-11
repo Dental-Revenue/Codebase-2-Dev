@@ -23,6 +23,10 @@ get_template_part('partials/page-head');
     endwhile;
     endif;
     $columns = get_post_meta(get_the_ID(), 'sg_select', true);
+    $deluxe = get_post_meta(get_the_ID(), 'sg_deluxe', true);
+    $background_color = get_post_meta(get_the_ID(), 'sg_bg-color', true);
+    $title_color = get_post_meta(get_the_ID(), 'sg_title-color', true);
+    $description_color = get_post_meta(get_the_ID(), 'sg_description-color', true);
     $tags = array();
     $gallery = new WP_Query(
         array(
@@ -38,7 +42,6 @@ get_template_part('partials/page-head');
         $post_id = get_the_ID();
         $grid_patient_padding = get_post_meta($post_id, 'grid_patient_padding', true);
         $headshot = get_post_meta($post_id, 'headshot', true);
-        $deluxe = get_post_meta($post_id, 'deluxe', true);
         $before_image = get_post_meta($post_id, 'before_image', true);
         $smart_title = get_post_meta($post_id, 'smart_title', true);
         $smart_excerpt = get_post_meta($post_id, 'description', true);
@@ -114,12 +117,21 @@ get_template_part('partials/page-head');
             $spacer = get_post_meta($post_id, 'spacer', true);
             $tags = get_the_tags();
             ?>
-      <!-- BEGIN GRID PATIENT GRID -->
-      <div class="grid-patient all <?php if ($tags) :
+        <!-- BEGIN GRID PATIENT GRID -->
+        <div class="grid-patient all <?php
+        if ($tags) {
             foreach ($tags as $tag) {
                 echo str_replace(' ', '', strtolower($tag->name)) . " ";
             }
-     endif; ?>" style="padding: <?php echo $grid_patient_padding; ?>px;">
+        }
+        ?>"
+            <?php
+            if ($deluxe) {
+                ?>
+                style="background-color: <?php echo $background_color; ?> !important" 
+                <?php
+            }
+            ?>>
             <?php
             if ($headshot) {
                 ?>
@@ -148,11 +160,11 @@ get_template_part('partials/page-head');
                         <?php
                         if ($smart_title) {
                             ?>
-                            <h3 class="gallery-title"><?php echo $smart_title; ?></h3>
+                            <h3 class="gallery-title" style="color: <?php echo $title_color; ?>"><?php echo $smart_title; ?></h3>
                             <?php
                         }
                         ?>
-                        <p class="gallery-excerpt"><?php echo $smart_excerpt; ?></p>
+                        <p class="gallery-excerpt" style="color: <?php echo $description_color; ?>"><?php echo $smart_excerpt; ?></p>
                     </div>
                     <?php
                     // END EXCERPT IF
@@ -166,11 +178,11 @@ get_template_part('partials/page-head');
                     <?php
                     if ($smart_title) {
                         ?>
-                        <h3 class="gallery-title"><?php echo $smart_title; ?></h3>
+                        <h3 class="gallery-title" style="color: <?php echo $title_color; ?>"><?php echo $smart_title; ?></h3>
                         <?php
                     }
                     ?>
-                    <p class="gallery-excerpt"><?php echo $smart_excerpt; ?></p>
+                    <p class="gallery-excerpt" style="color: <?php echo $description_color; ?>"><?php echo $smart_excerpt; ?></p>
                 </div>
                 <?php
                 // END EXCERPT IF

@@ -71,7 +71,7 @@ $box->add_group_field( $group_field, array(
 			'Yes' => 'Yes',
 			'No' => 'No',
 		),
-		'default' => 'No',
+		'default' => 'Yes',
 ));
 $box->add_group_field( $group_field, array(
 	'name' => 'Decorative Line Styling',
@@ -106,7 +106,7 @@ $box->add_group_field( $group_field, array(
 			'Yes' => 'Yes',
 			'No' => 'No',
 		),
-		'default' => 'No',
+		'default' => 'Yes',
 ));
 $box->add_group_field( $group_field, array(
 	'name' => 'Decorative Line Styling',

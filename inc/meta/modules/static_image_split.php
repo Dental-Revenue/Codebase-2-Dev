@@ -56,8 +56,14 @@ $box->add_field( array(
 	'name' => 'Side Content Heading',
 	'id' => $prefix.'headline',
 	'type' => 'text',
-	'desc' => 'Supports {subhead}',
 ));
+$box->add_field(
+	array(
+		'name' => 'Subtitle',
+		'id' => $prefix.'subtitle',
+		'type' => 'text',
+	)
+);
 $box->add_field( array(
 	'name' => 'Replace Side Content with Form?',
 	'id'   => $prefix.'display_form',

@@ -14,8 +14,8 @@
   $image_alt = get_post_meta(get_the_id(),$instance.'_side_image_alt',true);
 	
 	$color = (get_post_meta(get_the_id(),$instance.'_bg_color',true)!='') ? get_post_meta(get_the_id(),$instance.'_bg_color',true) : '#ffffff' ;	
-  $raw_headline = get_post_meta(get_the_id(),$instance.'_headline',true);
-	$headline = str_replace(array('{','}'), array('<span>','</span>'),$raw_headline);
+  $headline = get_post_meta(get_the_id(),$instance.'_headline',true);
+	$subtitle = get_post_meta(get_the_ID(), $instance.'_subtitle', true);
 
   $display_phone = get_post_meta(get_the_id(),$instance.'_display_phone',true);
   $display_address = get_post_meta(get_the_id(),$instance.'_display_address',true);
@@ -45,6 +45,9 @@
 
     <div class="static_image_split-content" style="text-align:<?php echo $text_align; ?>; padding: 5% <?php echo $text_padding; ?>% 7% <?php echo $text_padding; ?>%;">
     <?php if(!empty($headline)){ ?><h2 style="text-align:<?php echo $text_align; ?>" class="<?php echo $headline_style; ?>"><?php echo $headline; ?></h2><?php } ?>
+    <?php if ($subtitle) : ?>
+      <p class="sis-subtitle <?php echo $headline_style; ?>"><?php echo $subtitle; ?></p>
+    <?php endif; ?>
     <?php if ($display_form === 'no') { ?>
     <?php if (!empty($content)) {?><div class="static_image_split-paragraph"><?php echo $content; ?></div><?php } ?>
     <?php if ($display_phone === 'yes' || $display_address === 'yes' || !empty($btn_url) ) {?>
@@ -71,7 +74,8 @@
     <?php } ?>
     <?php } else { ?>
     <form action="<?php echo get_form_processor(); ?>" method="post" name="form-schedule">
-      <input type="text" name="Name" placeholder="Name" />
+      <input name="FirstName" type="text" placeholder="First Name" required />
+      <input name="LastName" type="text" placeholder="Last Name" />
       <input type="text" name="Phone" placeholder="Phone" />
       <input type="text" name="EmailName" placeholder="Email" />
       <textarea name="Comments" placeholder="How can we help?"></textarea>

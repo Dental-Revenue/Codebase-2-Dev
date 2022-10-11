@@ -6,8 +6,8 @@
 	$text_bars = get_post_meta(get_the_id(),$instance.'_text_bars',true);
 	//$title = get_post_meta( get_the_ID(), $instance.'_title', true );
 	
-	$raw_headline = get_post_meta(get_the_id(),$instance.'_title',true);
-	$headline = str_replace(array('{','}'), array('<span>','</span>'),$raw_headline);
+	$headline = get_post_meta(get_the_id(),$instance.'_title',true);
+	$subtitle = get_post_meta(get_the_ID(), $instance.'_subtitle', true);
 	
 	$big_img = get_post_meta( get_the_ID(), $instance.'_big_img_id', true ); 
 	$big_img = wp_get_attachment_image_src( $big_img, 'xl' ); 
@@ -27,6 +27,9 @@
     <?php if ($headline) : ?>
       <h2 class="<?php echo $headline_style; ?>"><?php echo $headline; ?></h2>
     <?php endif; ?>
+	<?php if ($subtitle) : ?>
+    <p class="sbsh-subtitle <?php echo $headline_style; ?>"><?php echo $subtitle; ?></p>
+  <?php endif; ?>
   
   <div class="row <?php echo $text_bars; ?>">
 	  
