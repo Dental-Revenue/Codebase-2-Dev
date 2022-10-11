@@ -128,10 +128,15 @@ get_template_part('partials/page-head');
             <?php
             if ($deluxe) {
                 ?>
-                style="background-color: <?php echo $background_color; ?> !important" 
+                style="
                 <?php
-            }
-            ?>>
+                if ($background_color) { ?>
+                    background-color: <?php echo $background_color; ?> !important
+                <?php } ?>
+                <?php if ($grid_patient_padding) { ?>
+                    padding: <?php echo $grid_patient_padding; ?>
+                <?php } ?>
+            <?php } ?>">
             <?php
             if ($headshot) {
                 ?>
