@@ -27,6 +27,7 @@ get_template_part('partials/page-head');
     $background_color = get_post_meta(get_the_ID(), 'sg_bg-color', true);
     $title_color = get_post_meta(get_the_ID(), 'sg_title-color', true);
     $description_color = get_post_meta(get_the_ID(), 'sg_description-color', true);
+    $grid_patient_padding = get_post_meta(get_the_ID(), 'sg_padding', true);
     $tags = array();
     $gallery = new WP_Query(
         array(
@@ -40,7 +41,6 @@ get_template_part('partials/page-head');
     while ($gallery->have_posts()) {
         $gallery->the_post();
         $post_id = get_the_ID();
-        $grid_patient_padding = get_post_meta($post_id, 'grid_patient_padding', true);
         $headshot = get_post_meta($post_id, 'headshot', true);
         $before_image = get_post_meta($post_id, 'before_image', true);
         $smart_title = get_post_meta($post_id, 'smart_title', true);
@@ -108,7 +108,6 @@ get_template_part('partials/page-head');
         while ($gallery->have_posts()) {
             $gallery->the_post();
             $post_id = get_the_ID();
-            $grid_patient_padding = get_post_meta($post_id, 'grid_patient_padding', true);
             $headshot = get_post_meta($post_id, 'headshot', true);
             $before_image = get_post_meta($post_id, 'before_image', true);
             $after_image = get_post_meta($post_id, 'after_image', true);
@@ -131,10 +130,10 @@ get_template_part('partials/page-head');
                 style="
                 <?php
                 if ($background_color) { ?>
-                    background-color: <?php echo $background_color; ?> !important
+                    background-color: <?php echo $background_color; ?> !important; 
                 <?php } ?>
                 <?php if ($grid_patient_padding) { ?>
-                    padding: <?php echo $grid_patient_padding; ?>
+                    padding: <?php echo $grid_patient_padding; ?>px;
                 <?php } ?>
             <?php } ?>">
             <?php
