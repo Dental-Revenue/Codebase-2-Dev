@@ -14,13 +14,3 @@ updates:
       - "PaulDRev"
     commit-message:
       prefix: "npm"
-    
-  - package-ecosystem: "composer"
-    directory: "/"
-    schedule:
-      interval: "daily"
-    allow: "all"
-    reviewers:
-      - "PaulDRev"
-    commit-message:
-      prefix: "composer"
