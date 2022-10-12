@@ -9,7 +9,8 @@ updates:
     directory: "/" # Location of package manifests
     schedule:
       interval: "daily"
-    allow: "all"
+    allow: 
+      - dependency-type: "all"
     reviewers:
       - "PaulDRev"
     commit-message:
