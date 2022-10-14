@@ -40,6 +40,7 @@
     "gulp-uglify": "3.0.2",
     "imagemin-pngquant": "^9.0.2",
     "is-svg": ">=4.3.0",
+    "semver-regex": ">=3.1.4",
     "vinyl-buffer": "^1.0.1",
     "vinyl-source-stream": "^2.0.0",
     "watchify": "^4.0.0",
