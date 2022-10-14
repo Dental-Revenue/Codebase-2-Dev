@@ -69,6 +69,14 @@ function smartGalleryMeta()
             'type'  => 'colorpicker'
         )
     );
+    $box->add_field(
+        array(
+            'name' => esc_html__('Padding', 'cmb2'),
+            'desc' => esc_html__('Amount of padding in pixels for each box', 'cmb2'),
+            'id'   => $prefix . 'padding',
+            'type' => 'text'
+        )
+    );
 }
 add_action('cmb2_admin_init', 'smartGalleryMeta');
 ?>
