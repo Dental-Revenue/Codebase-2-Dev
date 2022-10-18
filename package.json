@@ -23,7 +23,7 @@
     "babel-preset-es2016": "^6.24.1",
     "babelify": "^10.0.0",
     "browserify": "17.0.0",
-    "browserify-shim": "^3.8.14",
+    "browserify-shim": "^3.8.16",
     "gulp": "^4.0.1",
     "gulp-append-prepend": "^1.0.9",
     "gulp-autoprefixer": "8.0.0",
