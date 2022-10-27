@@ -158,9 +158,9 @@ function homepage_meta() {
 // ===============================================================================
 			
 			
-			case "spacer":
+			case "spacer_module":
 				
-				require  __DIR__ . '/modules/spacer.php';
+				require  __DIR__ . '/modules/spacer_module.php';
 				
 			break;
 
