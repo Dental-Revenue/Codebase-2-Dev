@@ -29,12 +29,12 @@ $cpt_override =""; $num_slides = $items;
             $image = wp_get_attachment_image_src($block['image_id'], 'md-square');
             ?>    
             <div class="carousel-item">
-                <a href="<?php echo $block['url']; ?>" aria-label="<?php echo $block['title']; ?>>
+                <a href="<?php echo $block['url']; ?>" aria-label="<?php echo $block['title']; ?>">
                     <img src="<?php echo $image[0]; ?>" alt="carousel image" />
                 </a>
                 <div class="carousel-text">
                     <?php if ($block['title']) : ?>
-                        <h3><a href="<?php echo $block['url']; ?>" aria-label="<?php echo $block['title']; ?>><?php echo $block['title']; ?></a></h3>
+                        <h3><a href="<?php echo $block['url']; ?>" aria-label="<?php echo $block['title']; ?>"><?php echo $block['title']; ?></a></h3>
                     <?php endif; ?>
                     <p><?php echo $block['excerpt']; ?></p>
                     <a href="<?php echo $block['url']; ?>" class="read-more" aria-label="Read More">Read More</a>
