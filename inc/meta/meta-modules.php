@@ -168,6 +168,16 @@ function homepage_meta() {
 // ===============================================================================
 			
 			
+case "short_code":
+				
+	require  __DIR__ . '/modules/shortcode.php';
+	
+break;
+
+
+// ===============================================================================
+			
+			
 			case "static_block_grid":
 				
 				require  __DIR__ . '/modules/static_block_grid.php';
