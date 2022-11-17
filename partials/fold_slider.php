@@ -95,7 +95,8 @@ $slider_height = get_post_meta(get_the_id(), $instance.'_height', true);
                 <?php } else { ?>
                     <?php echo $block['excerpt_styling_mobile']; ?>
                 <?php } ?>" class="
-                <?php if (!empty($block['subtitle'])&&$block['line'] === 'No') { ?>
+                <?php if (//!empty($block['title'])&&empty($block['subtitle'])&&
+                    $block['line'] === 'No') { ?>
                     single_excerpt
                 <?php } ?>"><?php echo $block['excerpt']; ?></p>
             <?php } ?>
