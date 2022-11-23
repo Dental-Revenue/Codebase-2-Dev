@@ -50,7 +50,7 @@
     "lib": "lib"
   },
   "dependencies": {
-    "bootstrap": "^5.1.3",
+    "bootstrap": "^5.2.3",
     "cleave.js": "^1.6.0",
     "covervid": "^1.0.0",
     "imagesloaded": "^5.0.0",
