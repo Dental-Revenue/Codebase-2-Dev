@@ -66,6 +66,11 @@ function site_ops_google_map($echo = true){
 	if(!empty($option['google_map'])){if($echo){echo $option['google_map'];}else{return $option['google_map'];}}else{if($echo){echo '<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3088.3671114022404!2d-76.56648874846827!3d39.279924279413095!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c803f65b93dfa5%3A0xd388a5f63fa5a04b!2sDental+Revenue+Boston+Street%2C+Baltimore%2C+MD!5e0!3m2!1sen!2sus!4v1543507717220" width="600" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>';}else{return '<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3088.3671114022404!2d-76.56648874846827!3d39.279924279413095!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c803f65b93dfa5%3A0xd388a5f63fa5a04b!2sDental+Revenue+Boston+Street%2C+Baltimore%2C+MD!5e0!3m2!1sen!2sus!4v1543507717220" width="600" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>';}}
 }
 
+function site_ops_google_map_page_url($echo = true){
+	$option = get_option('practice_info'); 
+	if(!empty($option['google_map_page_url'])){if($echo){echo $option['google_map_page_url'];}else{return $option['google_map_page_url'];}}else{if($echo){echo 'https://www.google.com/maps/place/3500+Boston+St+%23421,+Baltimore,+MD+21224/@39.2777417,-76.5692394,17z/data=!3m1!4b1!4m5!3m4!1s0x89c803f40f0162e5:0xc06a7c5299fde3dd!8m2!3d39.2777376!4d-76.5670507';}}
+}
+
 function site_ops_company_hours($echo = true){
 	$option = get_option('practice_info'); 
 	if(!empty($option['company_hours'])){if($echo){echo $option['company_hours'];}else{return $option['company_hours'];}}else{if($echo){echo 'Monday

@@ -32,14 +32,14 @@
         <div class="footer-column">      
           <div class="contact-option">
             <i class="fas fa-map-marker-alt"></i>
-            <p>
+            <a href="<?php site_ops_google_map_page_url(); ?>" target="_blank" rel="nofollow noreferrer">
               <span><?php site_ops_address(); ?></span><br />
               <span class="bold">
                 <span><?php site_ops_city(); ?></span>,
                 <span><?php site_ops_state(); ?></span>
                 <span><?php site_ops_zip(); ?></span>
               </span>
-            </p>
+	  </a>
           </div>
           <?php if (!empty(site_ops_new_patient_phone(false))) { ?>
 				<div class="contact-option">
