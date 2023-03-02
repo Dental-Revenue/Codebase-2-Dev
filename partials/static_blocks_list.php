@@ -25,7 +25,7 @@
   foreach ((array) $blocks as $key => $block ) {
 	$image = wp_get_attachment_image_src( $block['block_image_id'], 'large' );
   ?>
-  <a href="<?php echo $block['block_url']; ?>" class="block" style="background-image:url(<?php echo $image[0]; ?>);">
+  <a aria-label="An image for <?php echo $block['block_title']; ?>" href="<?php echo $block['block_url']; ?>" class="block" style="background-image:url(<?php echo $image[0]; ?>);">
     <div class="fold-overlay" style="background-color: rgba(0, 0, 0, 0.15);opacity: 1;position: absolute;left: 0;top: 0;width: 100%;height: 100%;transition: opacity 0.4s;"></div>
     <p><?php echo $block['block_title']; ?> <i class="fa fa-plus-circle" aria-hidden="true"></i></p>
     <p><?php echo $block['block_excerpt']; ?></p>
@@ -51,7 +51,7 @@
 	    <?php foreach ((array) $items as $key => $item ) {
 	    ?>
 			  <?php if(!empty($item['list_item_url'])){ ?>
-		    	<li><a href="<?php echo $item['list_item_url']; ?>"><?php echo $item['list_item']; ?></a></li>
+		    	<li><a aria-label="List item <?php echo $item['list_item']; ?>" href="<?php echo $item['list_item_url']; ?>"><?php echo $item['list_item']; ?></a></li>
 		    <?php } else { ?>
 		    	<li><?php echo $item['list_item']; ?></li>
 		    <?php } ?>
@@ -59,7 +59,7 @@
     </ul>
     <?php } ?>
     <?php $page = get_pages(array('meta_key' => '_wp_page_template','meta_value' => 'page-templates/template-schedule.php')); ?>
-    <a class="schedule btn on-light" href="<?php echo get_permalink($page[0]->ID); ?>"><?php site_ops_cta_text(); ?></a>
+    <a aria-label="Button to schedule an appointment" class="schedule btn on-light" href="<?php echo get_permalink($page[0]->ID); ?>"><?php site_ops_cta_text(); ?></a>
   </div>
   <?php } ?>
   
