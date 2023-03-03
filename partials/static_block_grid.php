@@ -12,7 +12,7 @@
 	
 	<div class="static_block_grid-block">
 		
-		<a href="<?php echo $block['block_url']; ?>" class="static_block_grid-block-image" style="background-image: url(<?php echo $block['block_image']; ?>);"></a>
+		<a aria-label="An image for <?php echo $block['block_title']; ?>" href="<?php echo $block['block_url']; ?>" class="static_block_grid-block-image" style="background-image: url(<?php echo $block['block_image']; ?>);"></a>
 		
 		<div class="static_block_grid-block-text-cont">
 			<div class="static_block_grid-block-text">
@@ -20,7 +20,7 @@
 					<h3><?php echo $block['block_title']; ?></h3>
 				<?php endif; ?>
 				<p><?php echo $block['block_excerpt']; ?></p>
-				<a href="<?php echo $block['block_url']; ?>" class="read-more">Read More</a>
+				<a aria-label="A button to read more" href="<?php echo $block['block_url']; ?>" class="read-more">Read More</a>
 			</div>
 		</div>
 	

@@ -1,8 +1,8 @@
 <?php
 $box->add_field(
     array(
-        'name' => 'Margin',
-        'id' => $prefix.'margin',
+        'name' => 'Padding',
+        'id' => $prefix.'padding',
         'type' => 'text',
     )
 );

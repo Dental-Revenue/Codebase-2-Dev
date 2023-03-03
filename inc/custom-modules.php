@@ -91,7 +91,8 @@ function render_modules(){ ?>
 							<option>------------------</option>
 							<option value="breaker">Breaker</option>
 							<option value="specials_breaker">Specials Breaker</option>
-							<option value="spacer">Spacer</option>
+							<option value="spacer_module">Spacer</option>
+							<option value="short_code">Shortcode</option>
 							<option>------------------</option>
 							<option value="carousel_1">Carousel 1</option>
 							<option value="carousel_2">Carousel 2</option>
