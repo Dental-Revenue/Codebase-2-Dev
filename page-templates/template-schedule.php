@@ -37,45 +37,28 @@ Template Name: Schedule Appointment Form
                             <label for="by-email">Email</label>
                         </div>
                     </fieldset>
-
-                        <!--  research radio box option for the checkbox, will not work (checkbox group - required fields) -->
-                    <fieldset name="AdsNext-AreYouNewPatient">
-                        <legend>Are you a new patient? </legend>
-                        <div>
-                            <input id="yes" type="checkbox">
-                            <label for="yes">Yes</label>
-                        </div>
-                        <div>
-                            <input id="no" type="checkbox">
-                            <label for="no">No</label>
-                        </div>
-                    </fieldset>
-                <!-- =============================================================================================== -->
+                    
+                    <div class="select-container"> <!-- Styles are needed on this element, and the label -->
+                        <label for="patient">Are you a new Patient?</label>
+                        <select name="AdsNext-AreYouNewPatient" id="patient" required>
+                            <option selected value="Select One">Select One*</option>
+                            <option value="Yes">Yes</option>
+                            <option value="No">No</option>
+                        </select>
+                    </div>
             
-                    <fieldset name="AdsNext-ScheduleRange">
-                        <legend>I would like to schedule a visit: </legend>
-                        <div>
-                            <input id="lessthanone" type="checkbox">
-                            <label for="lessthanone">Less than 1 month</label>
-                        </div>
-                        <div>
-                            <input id="onetothree" type="checkbox">
-                            <label for="onetothree">1 - 3 months</label>
-                        </div>
-                        <div>
-                            <input id="threetosix" type="checkbox">
-                            <label for="threetosix">3 - 6 months</label>
-                        </div>
-                        <div>
-                            <input id="sixtotwelve" type="checkbox">
-                            <label for="threetosix">6 - 12 months</label>
-                        </div>
-                        <div>
-                            <input id="twelveormore" type="checkbox">
-                            <label for="twelveormore">12 months +</label>
-                        </div>
-                    </fieldset>
-            
+                    <div class="select-container"><!-- Styles are needed on this element, and the label -->
+                        <label for="range">I would like to schedule a visit</label>
+                        <select name="AdsNext-ScheduleRange" id="range">
+                            <option selected value="Select One">Select One</option>
+                            <option value="Less than 1 month">Less than 1 month</option>
+                            <option value="1 - 3 months">in 1 - 3 months</option>
+                            <option value="3 - 6 months">in 3 - 6 months</option>
+                            <option value="6 - 12 months">in 6 - 12 months</option>
+                            <option value="12 months or more">in 12 months+</option>
+                        </select>
+                    </div>
+                    
                     <fieldset name="FS-AreYouNewPatient">
                         <legend>What time of day would you prefer?</legend>
                         <div>
