@@ -6,3 +6,75 @@
 .schedule-form .captcha-container{margin-top: 20px;}
 .schedule-form button{margin-top: 20px;width: 100%;}
 input[name="RepeatEmailName"] { opacity: 0; position: absolute; top: 0; left: 0; height: 0; width: 0; z-index: -1; }
+
+
+.s-input {
+    display: inline-block;
+    width: 90%;
+    max-width: 500px;
+    height: 40px;
+    padding: 9px 10px;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 16px;
+    font-weight: normal;
+    line-height: 22px;
+    border: 1px solid #cbd6e2;
+    box-sizing: border-box;
+    padding: 0 15px;
+    min-height: 27px;
+    border-radius: 3px;
+    background-color: #f5f8fa;
+  }
+  
+  select.is-placeholder {
+    color: #bfbfbf;
+  }
+  .schedule-form {
+    background-color: #fff;
+    border-top: none;
+    display: block;
+    padding: 20px;
+    box-sizing: border-box;
+    margin: 2em auto;
+    max-width: 700px;
+  }
+  .schedule-form p {
+    margin: 0;
+    font-size: inherit;
+    font-weight: inherit;
+  }
+  .user-info {
+    display: flex;
+  }
+  .schedule-form {
+    margin: 0;
+    max-width: 90%;
+  }
+  .info-select,
+  .name,
+  .contact-info {
+    width: 100%;
+  }
+  .schedule-form label {
+    color: #333;
+    opacity: 1;
+  }
+  fieldset {
+    padding: 1.75rem 1.5rem;
+    border: 2px solid #f4f4f4;
+    border-radius: 4px;
+    margin-bottom: 2em;
+    width: 90%;
+  }
+  textarea {
+    max-width: none !important;
+    width: 90% !important;
+    height: auto !important;
+    padding: 1.75rem 1.5rem !important;
+  }
+  
+  @media (max-width: 800px) {
+    .user-info {
+      flex-wrap: wrap;
+    }
+  }
