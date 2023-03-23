@@ -1,3 +1,7 @@
+
+// This file is NOT connected. It does NOT run in the browser
+
+
 //require jQuery
 var $ = require('jquery');
 window.jQuery = window.$ = $;
