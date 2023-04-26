@@ -16,7 +16,7 @@ get_template_part('partials/page-head');
             endwhile;
             endif;
             ?>            
-            <form action="<?php echo get_form_processor(); ?>" method="post" name="form-schedule" autocomplete="on">
+            <form action="<?php echo get_form_processor(); ?>" method="post" name="form-schedule" autocomplete="nope">
               <div class="user-info">
                 <div class="name">
                   <label for="firstname">First name:</label>
