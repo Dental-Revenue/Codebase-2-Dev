@@ -57,7 +57,7 @@
     "isotope-layout": "^3.0.6",
     "jquery": "^3.6.4",
     "jquery-bridget": "^3.0.1",
-    "js-cookie": "^3.0.1",
+    "js-cookie": "^3.0.5",
     "magnific-popup": "^1.1.0",
     "onscreen": "^1.4.0",
     "popper.js": "^1.16.1",
