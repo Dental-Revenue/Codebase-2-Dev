@@ -44,7 +44,7 @@
     "vinyl-buffer": "^1.0.1",
     "vinyl-source-stream": "^2.0.0",
     "watchify": "^4.0.0",
-    "yargs": "^17.7.1"
+    "yargs": "^17.7.2"
   },
   "directories": {
     "lib": "lib"
