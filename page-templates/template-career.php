@@ -60,6 +60,7 @@ get_template_part('partials/page-head');
               <input type="hidden" name="gaKeyword" />
               <input type="hidden" name="pagename" />       
             </form>
+            <script type='text/javascript' src='https://www.google.com/recaptcha/api.js' id='recaptcha-js'></script>
         </div>
     </div>
 </div>
