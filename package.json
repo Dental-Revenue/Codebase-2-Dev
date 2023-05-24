@@ -39,12 +39,12 @@
     "gulp-sourcemaps": "3.0.0",
     "gulp-uglify": "3.0.2",
     "imagemin-pngquant": "^9.0.2",
-    "is-svg": ">=4.3.0",
+    "is-svg": ">=5.0.0",
     "semver-regex": ">=3.1.4",
     "vinyl-buffer": "^1.0.1",
     "vinyl-source-stream": "^2.0.0",
     "watchify": "^4.0.0",
-    "yargs": "^17.7.1"
+    "yargs": "^17.7.2"
   },
   "directories": {
     "lib": "lib"
@@ -55,9 +55,9 @@
     "covervid": "^1.0.0",
     "imagesloaded": "^5.0.0",
     "isotope-layout": "^3.0.6",
-    "jquery": "^3.6.3",
+    "jquery": "^3.7.0",
     "jquery-bridget": "^3.0.1",
-    "js-cookie": "^3.0.1",
+    "js-cookie": "^3.0.5",
     "magnific-popup": "^1.1.0",
     "onscreen": "^1.4.0",
     "popper.js": "^1.16.1",

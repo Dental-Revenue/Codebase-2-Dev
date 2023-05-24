@@ -23,7 +23,7 @@ header{}
 
 /* HEADER Stick Style */
 	.no-stick header {position:static;}
-	.no-stick .page-wrap {margin-top:0;}
+	.no-stick .page-wrap {margin-top:0 !important;}
 
 /* HEADER STYLE-A */
 .header-style-a {}
