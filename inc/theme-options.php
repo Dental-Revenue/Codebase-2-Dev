@@ -516,6 +516,8 @@ function cmb2_appearance_options() {
 			'header-style-c' => 'Style C',
 			'header-style-d' => 'Style D',
 			'header-style-e' => 'Style E',
+			'header-style-cabcover' => 'Cab Cover'
+
 		),
 		'default' => 'header-style-a'
 	));
@@ -527,6 +529,25 @@ function cmb2_appearance_options() {
 		'default'				=> '#ffffff',
 		'options' => array('alpha' => true),
 	));
+
+	$box->add_field( array(
+		'name' 					=> 'Header-top Color',
+		'id'   					=> 'headertop_color',
+		'type' 					=> 'colorpicker',
+		'default'				=> '#0000',
+		'options' => array('alpha' => true),
+	));
+	
+
+	$box->add_field( array(
+		'name' 					=> 'Utility Nav Color',
+		'id'   					=> 'utility_nav_color',
+		'type' 					=> 'colorpicker',
+		'default'				=> '#0000',
+		'options' => array('alpha' => true),
+	));
+	
+	
 	
 	$box->add_field( array(
 		'name' 					=> 'CTA button text',
@@ -567,6 +588,106 @@ function cmb2_appearance_options() {
 			'cta' => 'CTA Button',
 		),
 	));
+
+	$box->add_field( array(
+		'name' => 'Dropdown Links',
+		'desc' => 'Add links to the Cab Cover header dropdown',
+		'type' => 'title',
+		'id'   => 'item_title'
+	) );
+	
+	$group_field_id = $box->add_field( array(
+		'id'          => 'nav_dropdown_link',
+		'type'        => 'group',
+		// 'description' => __( 'Generates reusable links', 'cmb2' ),
+		// 'repeatable'  => false, // use false if you want non-repeatable group
+		'options'     => array(
+			'group_title'       => __( 'Nav Link {#}', 'cmb2' ), // since version 1.1.4, {#} gets replaced by row number
+			'add_button'        => __( 'Add Another Link', 'cmb2' ),
+			'remove_button'     => __( 'Remove Link', 'cmb2' ),
+			'sortable'          => true,
+			'closed'         => true, // true to have the groups closed by default
+			// 'remove_confirm' => esc_html__( 'Are you sure you want to remove?', 'cmb2' ), // Performs confirmation before removing group.
+		),
+	) );
+
+
+
+	
+	// Id's for group's fields only need to be unique for the group. Prefix is not needed.
+	$box->add_group_field( $group_field_id, array(
+		'name' => 'Entry Title',
+		'id'   => 'title',
+		'type' => 'text',
+		// 'repeatable' => true, // Repeatable fields are supported w/in repeatable groups (for most types)
+	) );
+	
+	$box->add_group_field( $group_field_id, array(
+		'name' => 'URL',
+		'description' => 'Enter a URL',
+		'id'   => 'url',
+		'type' => 'text_url',
+	) );
+
+		
+	$box->add_group_field( $group_field_id, array(
+		'name' => 'Link Text',
+		'description' => 'Enter a short phrase',
+		'id'   => 'link_text',
+		'type' => 'text',
+	) );
+
+		
+	
+	$box->add_field( array(
+		'name' => 'Infobar Links',
+		'desc' => 'Add more links to the Infobar',
+		'type' => 'title',
+		'id'   => 'infobar_title'
+	) );
+
+		
+	$group_field_id = $box->add_field( array(
+		'id'          => 'infobar_link',
+		'type'        => 'group',
+		// 'description' => __( 'Generates reusable links', 'cmb2' ),
+		// 'repeatable'  => false, // use false if you want non-repeatable group
+		'options'     => array(
+			'group_title'       => __( 'Infobar Link {#}', 'cmb2' ), // since version 1.1.4, {#} gets replaced by row number
+			'add_button'        => __( 'Add Another Link', 'cmb2' ),
+			'remove_button'     => __( 'Remove Link', 'cmb2' ),
+			'sortable'          => true,
+			'closed'         => true, // true to have the groups closed by default
+			// 'remove_confirm' => esc_html__( 'Are you sure you want to remove?', 'cmb2' ), // Performs confirmation before removing group.
+		),
+	) );
+
+
+
+	$box->add_group_field( $group_field_id, array(
+		'name' => 'Link Text',
+		'description' => 'Enter a short phrase',
+		'id'   => 'infobar_text',
+		'type' => 'text',
+	) );
+	
+
+	$box->add_group_field( $group_field_id, array(
+		'name' => 'URL',
+		'description' => 'Enter a URL',
+		'id'   => 'infobar_url',
+		'type' => 'text_url',
+	) );
+
+	
+	
+	$box->add_field( array(
+		'name' => 'Behaviors',
+		'type' => 'title',
+		'id'   => 'behaviors_title'
+	) );
+
+
 	
 	$box->add_field( array(
 		'name' 					=> 'Scroll Behavior',
@@ -625,7 +746,29 @@ function cmb2_appearance_options() {
 		),
 		'default' => 'uppercase'
 	));
-	
+
+
+
+	$box->add_field( array(
+		'name' => 'Footer Options',
+		// 'desc' => 'Additional Options',
+		'type' => 'title',
+		'id'   => 'footer_title',
+	) );
+
+
+	$box->add_field( array(
+		'name'    => 'Style',
+		'id'      => 'footer_style',
+		'type'    => 'radio_inline',
+		'options' => array(
+			'standard' => __( 'Standard', 'cmb2' ),
+			'custom'   => __( 'Footer-B', 'cmb2' ),
+			// 'none'     => __( 'Option Three', 'cmb2' ),
+		),
+		'default' => 'standard',
+	) );
+
 }
 
 add_action( 'cmb2_admin_init', 'cmb2_appearance_options' );
@@ -671,6 +814,11 @@ function cmb2_form_options() {
 		'id'   					=> 'form_recaptcha',
 		'type' 					=> 'text',
 	));
+
+
+
+		
+
 	
 }
 
