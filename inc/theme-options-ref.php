@@ -169,6 +169,15 @@ function site_ops_nav_color($echo = true){
 	if(!empty($option['nav_color'])){if($echo){echo $option['nav_color'];}else{return $option['nav_color'];}}else{if($echo){echo '#000000';}else{return '#000000';}}
 }
 
+function site_ops_headertop_color($echo = true){
+	$option = get_option('appearance_info'); 
+	if(!empty($option['headertop_color'])){if($echo){echo $option['headertop_color'];}else{return $option['nav_color'];}}else{if($echo){echo '#000000';}else{return '#000000';}}
+}
+function site_ops_utility_nav_color($echo = true){
+	$option = get_option('appearance_info'); 
+	if(!empty($option['utility_nav_color'])){if($echo){echo $option['utility_nav_color'];}else{return $option['utility_nav_color'];}}else{if($echo){echo '#000000';}else{return '#000000';}}
+}
+
 function site_ops_heading_font($echo = true){
 	$option = get_option('appearance_info'); 
 	if(!empty($option['heading_font'])){if($echo){echo $option['heading_font'];}else{return $option['heading_font'];}}else{if($echo){echo 'Raleway';}else{return 'Raleway';}}
@@ -212,6 +221,17 @@ function site_ops_side_tabs_active($echo = true){
 	$option = get_option('appearance_info'); 
 	if(!empty($option['side_tabs_active'])){if($echo){echo $option['side_tabs_active'];}else{return $option['side_tabs_active'];}}else{if($echo){echo '';}else{return '';}}
 }
+
+function addEntries($echo = true){
+	$option = get_option('appearance_info');
+	if(!empty($option['nav_dropdown_link'])){return $option['nav_dropdown_link'];}else{return '';}
+}
+
+function infobar($echo = true){
+	$option = get_option('appearance_info');
+	if(!empty($option['infobar_link'])){return $option['infobar_link'];}else{return '';}
+}
+
 
 function site_ops_side_tabs_repeat($echo = true){
 	$option = get_option('appearance_info'); 
