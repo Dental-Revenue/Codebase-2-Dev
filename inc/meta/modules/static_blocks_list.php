@@ -1,5 +1,18 @@
 <?php
-
+$box->add_field( array(
+	'name' => 'Overlap',
+	'desc' => 'Enter a negative number, in any CSS unit (ex. -4rem, -4px, -4vh)',
+	'classes' => 'double-rule',
+	'id' => $prefix.'overlap',
+	'type' => 'text'
+));
+$box->add_field( array(
+	'name' => 'Bottom Margin',
+	'desc' => 'Enter a negative number, in any CSS unit (ex. -4rem, -4px, -4vh)',
+	'classes' => 'double-rule',
+	'id' => $prefix.'bottom_margin',
+	'type' => 'text'
+));
 $box->add_field( array(
 	'name' => 'Main Headline',
 	'id' => $prefix.'headline',

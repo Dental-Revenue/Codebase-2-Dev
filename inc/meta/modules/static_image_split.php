@@ -1,5 +1,19 @@
 <?php
 $box->add_field( array(
+    'name' => 'Overlap',
+    'desc' => 'Enter a negative number, in any CSS unit (ex. -4rem, -4px, -4vh)',
+    'classes' => 'double-rule',
+    'id' => $prefix.'overlap',
+    'type' => 'text'
+));
+$box->add_field( array(
+    'name' => 'Bottom Margin',
+    'desc' => 'Enter a negative number, in any CSS unit (ex. -4rem, -4px, -4vh)',
+    'classes' => 'double-rule',
+    'id' => $prefix.'bottom_margin',
+    'type' => 'text'
+));
+$box->add_field( array(
     'name' => 'Left Content Type',
     'desc' => 'e.g. Text/Image, Google Maps/360 Tour, YouTube/Vimeo/Video Link, Form, Custom',
     'id' => $prefix.'left_content_type',

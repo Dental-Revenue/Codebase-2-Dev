@@ -12,23 +12,31 @@
 		$color2 = get_post_meta(get_the_id(),$instance.'_bg_color_2',true);
 		$colorCSS = !empty($color2) ? 'background:linear-gradient('.$color.', '.$color2.');' : 'background-color:'.$color.';';
 		$image_atf = wp_get_attachment_image_src( get_post_meta(get_the_id(),$instance.'_bg_image_id',true), 'xxl' );
-	  $image_xxl = wp_get_attachment_image_src( get_post_meta(get_the_id(),$instance.'_bg_image_id',true), 'xxl' );
-	  $image_xl = wp_get_attachment_image_src( get_post_meta(get_the_id(),$instance.'_bg_image_id',true), 'xl' );
-	  $image_lg = wp_get_attachment_image_src( get_post_meta(get_the_id(),$instance.'_bg_image_id',true), 'lg' );
-	  $image_alt = get_post_meta(get_the_id(),$instance.'_alt',true);
-		
+		$image_xxl = wp_get_attachment_image_src( get_post_meta(get_the_id(),$instance.'_bg_image_id',true), 'xxl' );
+		$image_xl = wp_get_attachment_image_src( get_post_meta(get_the_id(),$instance.'_bg_image_id',true), 'xl' );
+	  	$image_lg = wp_get_attachment_image_src( get_post_meta(get_the_id(),$instance.'_bg_image_id',true), 'lg' );
+	  	$image_alt = get_post_meta(get_the_id(),$instance.'_alt',true);
 		$image_opacity = (get_post_meta(get_the_id(),$instance.'_bg_image_opacity',true)!='') ? (get_post_meta(get_the_id(),$instance.'_bg_image_opacity',true)/100) : 1 ;
-		
 		$lightness = getColorLightness($color);
+		$overlap = get_post_meta(get_the_ID(), $instance.'_overlap', true);
+		$bottom_margin = get_post_meta(get_the_ID(), $instance.'_bottom_margin', true);
+		
+
+		
 		if(!empty($color2)){ 
 			$lightness2 = getColorLightness($color2); 
 			$lightness = ($lightness+$lightness2)/2;
 		}
 		
 		if($lightness<700){$classes .= 'invert';}
-		
+
+		if($m->module == "reviews_testimonials_grid" && !empty($overlap)){echo '<div id="i'.$instance.'" class="module '.$m->module.' '.$classes.'" style="'.$colorCSS.' top:'.$overlap.'; width: 80%; margin: 0 auto; margin-bottom:'. $bottom_margin .'" >';}
+		if($m->module == "static_image_split" && !empty($overlap)){echo '<div id="i'.$instance.'" class="module '.$m->module.' '.$classes.'" style="'.$colorCSS.' top:'.$overlap.'; width: 80%; margin: 0 auto; margin-bottom:'. $bottom_margin .'" >';}
+		if($m->module == "static_blocks_list" && !empty($overlap)){echo '<div id="i'.$instance.'" class="module '.$m->module.' '.$classes.'" style="'.$colorCSS.' top:'.$overlap.'; width: 80%; margin: 0 auto; margin-bottom:'. $bottom_margin .'" >';}
+		if($m->module == "static_image_offset" && !empty($overlap)){echo '<div id="i'.$instance.'" class="module '.$m->module.' '.$classes.'" style="'.$colorCSS.' top:'.$overlap.'; width: 80%; margin: 0 auto; margin-bottom:'. $bottom_margin .'" >';}
+
 		//open the module container
-		echo '<div id="i'.$instance.'" class="module '.$m->module.' '.$classes.'" style="'.$colorCSS.'" >';
+		else {echo '<div id="i'.$instance.'" class="test module '.$m->module.' '.$classes.'" style="'.$colorCSS.'" >';}
 		
 			//insert a background image, if applicable
 			if(isset($image_lg) && $image_lg[0]!=''){ ?>
