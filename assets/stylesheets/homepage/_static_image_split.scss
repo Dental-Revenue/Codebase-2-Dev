@@ -1,6 +1,7 @@
 .sis-container {
     display: flex;
     max-height: 600px;
+    padding-top: 70px;
 }
 .sis-side {
     width: 50%;
@@ -49,16 +50,38 @@
             flex-direction: column;
             align-items: center;
 
+            p {
+                color: $main-color;
+            }
+
             + .btn {
                 margin-top: 3em;
             }
         }
     }
+    .schedule-form {
+        background-color: transparent;
 
-    form {
-        img {
-            margin: 0 auto;
-            padding-bottom: 24px;
+        form {
+            input,
+            textarea {
+                background-color: lightgray;
+            }
+
+            textarea {
+                width: 100% !important;
+            }
+    
+            img {
+                margin: 0 auto;
+                padding-bottom: 24px;
+            }
+            
+            button,
+            .btn.solid {
+                background-color: $main-color;
+                color: $white;
+            }
         }
     }
 
@@ -99,6 +122,10 @@
             }
 
             .contact-container {
+                .contact-option {
+                    display: block;
+                }
+
                 + .btn {
                     margin-top: 1em;
                 }
