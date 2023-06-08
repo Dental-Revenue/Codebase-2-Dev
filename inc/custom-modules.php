@@ -107,6 +107,15 @@ function render_modules(){ ?>
 							<option value="reviews_testimonials_carousel">Reviews Testimonials Carousel</option>
 							<option value="reviews_testimonials_grid">Reviews Testimonials Grid</option>
 							<option value="reviews_google">Reviews Google</option>
+							<option>------------------</option>
+							<option value="internal_fold_slider">Internal Fold Slider</option>
+							<option value="internal_fold_slider_2">Internal Fold Slider 2</option>
+							<option value="internal_static_image_split">Internal Static Image Split</option>
+							<option value="internal_static_intro_section">Internal Static Intro Section</option>
+							<option value="internal_reviews_testimonials_grid">Internal Reviews Testimonials Grid</option>
+							<option value="internal_static_blocks_list">Internal Static Blocks List</option>
+							<option value="internal_static_photo_list">Internal Static Photo List</option>
+							<option value="internal_static_embed">Internal Static Embed</option>
 						</select>
 						<label>Module Name</label>
 						<input type="text" name="module_display_name" />

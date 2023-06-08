@@ -1,0 +1,43 @@
+.internal_fold_slider_2 .fold-slide-text .title {
+    display: block;
+    font-size: 56px;
+    margin-block-start: 0.83em;
+    margin-block-end: 0.83em;
+    margin-inline-start: 0;
+    margin-inline-end: 0;
+    font-weight: 900;
+    line-height: 90%;
+    text-transform: uppercase;
+    color: $white;
+    padding-top: 18px;
+    margin: 0;
+
+    &:after {
+        content:'';
+        width: 100px;
+        height: 4px;
+        background-color: $white;
+        margin: 30px auto;
+        display: none;
+    }
+}
+
+@media all and (max-width: $bp-laptop) {
+    .fold-slide-text .title {
+        font-size: 36px;
+        
+        &:after {
+            margin: 20px auto;
+        }
+    }
+}
+@media all and (max-width: $bp-phone) {
+  .fold-slide-text .title {
+        font-size: 24px;
+        
+        &:after {
+            margin: 10px auto;
+            height: 2px
+        }
+    }
+}

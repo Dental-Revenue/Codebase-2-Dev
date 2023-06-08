@@ -451,7 +451,46 @@ break;
 			
 
 // ===============================================================================
-
+case "internal_fold_slider":
+				
+	require  __DIR__ . '/modules/internal_fold_slider.php';
+	
+break;
+case "internal_fold_slider_2":
+				
+	require  __DIR__ . '/modules/internal_fold_slider_2.php';
+	
+break;
+case "internal_static_image_split":
+				
+	require  __DIR__ . '/modules/internal_static_image_split.php';
+	
+break;
+case "internal_static_intro_section":
+				
+	require  __DIR__ . '/modules/internal_static_intro_section.php';
+	
+break;
+case "internal_reviews_testimonials_grid":
+				
+	require  __DIR__ . '/modules/internal_reviews_testimonials_grid.php';
+	
+break;
+case "internal_static_blocks_list":
+				
+	require  __DIR__ . '/modules/internal_static_blocks_list.php';
+	
+break;
+case "internal_static_photo_list":
+				
+	require  __DIR__ . '/modules/internal_static_photo_list.php';
+	
+break;
+case "internal_static_embed":
+				
+	require  __DIR__ . '/modules/internal_static_embed.php';
+	
+break;
 			
 		} //end switch
 	} 
