@@ -1,0 +1,38 @@
+.internal_static_blocks_list .static_blocks_list-text .headline {
+    font-size: 1.5em;
+    padding: 30px 5% 0px;
+    margin-top: 0.83em;
+    margin-left: 0;
+    margin-right: 0;
+    font-weight: bold;
+    margin-bottom: 0px;
+    line-height: 116%;
+    text-align: center;
+    color: $main-color; 
+    display: block;
+}
+.internal_static_blocks_list .static_blocks_list-text .headline span {
+    display: block;
+    font-weight: 600;
+}
+.internal_static_blocks_list .static_blocks_list-right .headline-h3 {
+    display: block;
+    font-size: 1.17em;
+    margin-left: 0;
+    margin-right: 0;
+    font-weight: bold;
+    margin-top: 0;
+    color: $main-color;
+    margin-bottom: 10px;
+}
+.internal_static_blocks_list .static_blocks_list-right .headline-h3 span {
+    display: block;
+    padding: 3px 0px 0px 0px;
+    font-size: 80%;
+    font-style: italic;
+    line-height: 130%;
+}
+/* Media Queries */
+@media all and (max-width: $bp-laptop) {  
+    .internal_static_blocks_list .static_blocks_list-right .headline-h3{margin-top: 20px;font-size: 22px;}
+}
