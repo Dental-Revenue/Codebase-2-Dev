@@ -274,7 +274,7 @@ $popup = $option['cta_popup'];
             ?>
         </div>
         <?php
-    } elseif ($nav_style == 'header-style-cabcover') {
+    } elseif ($nav_style == 'header-style-f') {
         ?>
         
         <!-- ===============  Cab Cover  ================ -->
