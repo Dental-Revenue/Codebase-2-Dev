@@ -161,7 +161,7 @@ header {
 .header-style-cover {
 }
 
-.header-style-cabcover:not(.home) > .page-wrap {
+.header-style-f:not(.home) > .page-wrap {
   padding-top: 14rem;
 }
 @media (min-width: 1199px) {
@@ -171,26 +171,26 @@ header {
   }
 }
 
-.header-style-cabcover > header > div.header-top {
+.header-style-f > header > div.header-top {
   height: 130px;
 }
 @media (max-width: 1199px) {
-  .header-style-cabcover > header > div.location.contact-dropdown {
+  .header-style-f > header > div.location.contact-dropdown {
     top: 120px;
   }
 
-  .header-style-cabcover > header > div.header-logo {
+  .header-style-f > header > div.header-logo {
     top: 11%;
   }
 }
-.header-style-cabcover header > div.location.contact-dropdown > div {
+.header-style-f header > div.location.contact-dropdown > div {
   width: auto;
 }
-.header-style-cabcover .sub-menu {
+.header-style-f .sub-menu {
   background-color: rgba(0, 0, 0, 0.6);
 }
 
-.header-style-cabcover
+.header-style-f
   > header
   > .header-bottom
   > div
@@ -203,10 +203,10 @@ header {
 .large-nav > div > ul > li > span > ul > li:nth-child(even) {
   background-color: #000;
 }
-.scrolled.header-style-cabcover > .header > a {
+.scrolled.header-style-f > .header > a {
   top: 85% !important;
 }
-.header-style-cabcover > header > .header-bottom * {
+.header-style-f > header > .header-bottom * {
   color: $nav-color;
 }
 .scrolled header {
@@ -222,10 +222,10 @@ header {
 
 // Deactivate no-stick
 
-.header-style-cabcover.no-stick {
+.header-style-f.no-stick {
   position: relative;
 }
-.header-style-cabcover.no-stick > header {
+.header-style-f.no-stick > header {
   position: absolute !important;
 }
 
@@ -233,17 +233,17 @@ header.header {
   height: 223px;
 }
 @media (min-width: 1199px) {
-  .header-style-cabcover ul#menu-a-header {
+  .header-style-f ul#menu-a-header {
     width: 100%;
     display: flex;
     justify-content: center;
   }
 }
 
-.header-style-cabcover #menu-a-header {
+.header-style-f #menu-a-header {
   display: block;
 }
-.header-style-cabcover > header > div.location.contact-dropdown > div {
+.header-style-f > header > div.location.contact-dropdown > div {
   background-color: $main-color;
 }
 
@@ -252,10 +252,10 @@ header.header {
   background: $main-color;
   color: $nav-color;
 }
-.header-style-cabcover > header > div.location.contact-dropdown > div > p {
+.header-style-f > header > div.location.contact-dropdown > div > p {
   color: #fff;
 }
-.header-style-cabcover .header-top {
+.header-style-f .header-top {
   height: 84px;
   background-color: $nav-color;
   position: relative;
@@ -265,11 +265,11 @@ header.header {
 #fixed-specials-2 {
   right: 282px;
 }
-.header-style-cabcover .header-bottom {
+.header-style-f .header-bottom {
   // background-color: ;
   border-top: 1px solid grey;
 }
-.header-style-cabcover > .large-nav > div > ul > li > a {
+.header-style-f > .large-nav > div > ul > li > a {
   font-size: 15px !important;
   font-weight: 400 !important;
   color: #000;
@@ -315,19 +315,19 @@ a.drop-link {
   display: none;
 }
 @media (min-width: 1199px) {
-  .header-style-cabcover .header-logo {
+  .header-style-f .header-logo {
     top: 57px;
   }
-  .header-style-cabcover .header-logo {
+  .header-style-f .header-logo {
     left: 160px;
   }
-  .header-style-cabcover.scrolled > header > div.header-top {
+  .header-style-f.scrolled > header > div.header-top {
     height: 97px !important;
   }
-  .header-style-cabcover.scrolled > header > div.header-top > #minidrop {
+  .header-style-f.scrolled > header > div.header-top > #minidrop {
     display: none !important;
   }
-  .header-style-cabcover.scrolled > .header > div.location.contact-dropdown {
+  .header-style-f.scrolled > .header > div.location.contact-dropdown {
     top: 42% !important;
   }
   // .scrolled .header-logo .logo img {
@@ -355,7 +355,7 @@ a.drop-link {
     flex-wrap: wrap;
   }
 }
-.header-style-cabcover > .header-logo .logo img {
+.header-style-f > .header-logo .logo img {
   max-width: none;
   max-height: none;
   width: 251px;
@@ -393,7 +393,7 @@ a.drop-link {
   height: 223px;
 }
 @media (min-width: 119px) {
-  .header-style-cabcover > .header-logo {
+  .header-style-f > .header-logo {
     top: 25px;
   }
 }
@@ -484,14 +484,8 @@ div#h-toll-free {
   #fixed-specials {
     display: none;
   }
-  // .header-style-cabcover > .header-logo .logo img {
-  //   top: 0;
-  // }
-  // .header-style-cabcover > .header-logo {
-  //   top: 0;
-  // }
 
-  .header-style-cabcover > .header-logo .logo img {
+  .header-style-f > .header-logo .logo img {
     max-width: none;
     max-height: none;
     display: block;

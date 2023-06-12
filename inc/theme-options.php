@@ -516,7 +516,7 @@ function cmb2_appearance_options() {
 			'header-style-c' => 'Style C',
 			'header-style-d' => 'Style D',
 			'header-style-e' => 'Style E',
-			'header-style-cabcover' => 'Cab Cover'
+			'header-style-f' => 'Style F'
 
 		),
 		'default' => 'header-style-a'
