@@ -118,7 +118,7 @@ function render_modules(){ ?>
 							<option value="internal_static_embed">Internal Static Embed</option>
 							<option>------------------</option>
 							<option value="blank_one">Blank One</option>
-							<option value="blank_two">Blank Twp</option>
+							<option value="blank_two">Blank Two</option>
 							<option value="blank_three">Blank Three</option>
 							<option value="blank_four">Blank Four</option>
 							<option value="blank_five">Blank Five</option>
