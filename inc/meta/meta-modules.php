@@ -491,6 +491,56 @@ case "internal_static_embed":
 	require  __DIR__ . '/modules/internal_static_embed.php';
 	
 break;
+case "blank_one":
+
+	require __DIR__ . '/modules/blank_one.php';
+
+break;
+case "blank_two":
+
+	require __DIR__ . '/modules/blank_one.php';
+
+break;
+case "blank_three":
+
+	require __DIR__ . '/modules/blank_one.php';
+
+break;
+case "blank_four":
+
+	require __DIR__ . '/modules/blank_one.php';
+
+break;
+case "blank_five":
+
+	require __DIR__ . '/modules/blank_one.php';
+
+break;
+case "blank_six":
+
+	require __DIR__ . '/modules/blank_one.php';
+
+break;
+case "blank_seven":
+
+	require __DIR__ . '/modules/blank_one.php';
+
+break;
+case "blank_eight":
+
+	require __DIR__ . '/modules/blank_one.php';
+
+break;
+case "blank_nine":
+
+	require __DIR__ . '/modules/blank_one.php';
+
+break;
+case "blank_ten":
+
+	require __DIR__ . '/modules/blank_one.php';
+
+break;
 			
 		} //end switch
 	} 

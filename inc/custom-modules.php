@@ -116,6 +116,17 @@ function render_modules(){ ?>
 							<option value="internal_static_blocks_list">Internal Static Blocks List</option>
 							<option value="internal_static_photo_list">Internal Static Photo List</option>
 							<option value="internal_static_embed">Internal Static Embed</option>
+							<option>------------------</option>
+							<option value="blank_one">Blank One</option>
+							<option value="blank_two">Blank Twp</option>
+							<option value="blank_three">Blank Three</option>
+							<option value="blank_four">Blank Four</option>
+							<option value="blank_five">Blank Five</option>
+							<option value="blank_six">Blank Six</option>
+							<option value="blank_seven">Blank Seven</option>
+							<option value="blank_eight">Blank Eight</option>
+							<option value="blank_nine">Blank Nine</option>
+							<option value="blank_ten">Blank Ten</option>
 						</select>
 						<label>Module Name</label>
 						<input type="text" name="module_display_name" />
