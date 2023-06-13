@@ -109,10 +109,10 @@ function render_modules(){ ?>
 							<option value="reviews_google">Reviews Google</option>
 						</select>
 						<label>Module Name</label>
-						<input type="text" name="module_display_name" />
+						<input type="text" name="module_display_name"  autocomplete="nope" />
 						<p>Both Fields are required. The module name is for admin organization only</p>
-						<input type="hidden" name="editing" value="<?php echo $editing; ?>" />
-						<input type="hidden" name="action" value="add_module">
+						<input type="hidden" name="editing" value="<?php echo $editing; ?>"  autocomplete="nope" />
+						<input type="hidden" name="action" value="add_module" autocomplete="nope" >
 						<button type="submit" class="button button-primary button-large">Add Module</button>
     			</form>
 				</div>
@@ -133,9 +133,9 @@ function render_modules(){ ?>
 						?>
 						<p>Module: <?php echo $str; ?></p>
 						<form method="post" action="<?php echo esc_html( admin_url( 'admin-post.php' ) ); ?>">
-							<input type="hidden" name="instance" value="<?php echo $m->id; ?>" />
-							<input type="hidden" name="editing" value="<?php echo $editing; ?>" />
-							<input type="hidden" name="action" value="delete_module">
+							<input type="hidden" name="instance" value="<?php echo $m->id; ?>"  autocomplete="nope" />
+							<input type="hidden" name="editing" value="<?php echo $editing; ?>"  autocomplete="nope" />
+							<input type="hidden" name="action" value="delete_module" autocomplete="nope" >
 							<button type="submit" class="module-trash page-title-action">x</button>
     				</form>
 					</div>

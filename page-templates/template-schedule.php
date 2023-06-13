@@ -20,14 +20,14 @@ get_template_part('partials/page-head');
               <div class="user-info">
                 <div class="name">
                   <label for="firstname">First name:</label>
-                  <input type="text" name="FirstName" id="firstname" class="s-input">
+                  <input type="text" name="FirstName" id="firstname" class="s-input" autocomplete="nope">
                   <label for="lastname">Last name:</label>
-                  <input type="text" name="LastName" id="lastname" class="s-input">
+                  <input type="text" name="LastName" id="lastname" class="s-input" autocomplete="nope">
                 </div>
                 <div class="contact-info">
-                  <label for="phone">Phone:</label> <input type="text" name="Phone" id="phone" class="s-input">
-                  <label for="email">Email:</label> <input type="text" name="EmailName" id="email" class="s-input">
-                  <input type="text" name="RepeatEmailName" placeholder="Retype Email" autocomplete="nope">
+                  <label for="phone">Phone:</label> <input type="text" name="Phone" id="phone" class="s-input" autocomplete="nope">
+                  <label for="email">Email:</label> <input type="text" name="EmailName" id="email" class="s-input" autocomplete="nope">
+                  <input type="text" name="RepeatEmailName" placeholder="Retype Email" autocomplete="nope" autocomplete="nope">
                 </div>
               </div>
               <div class="user-info">

@@ -20,13 +20,13 @@ get_template_part('partials/page-head');
               <div class="user-info">
                 <div class="name">
                   <label for="firstname">First name:</label>
-                  <input type="text" name="FirstName" id="firstname" class="s-input">
+                  <input type="text" name="FirstName" id="firstname" class="s-input" autocomplete="nope" >
                   <label for="lastname">Last name:</label>
-                  <input type="text" name="LastName" id="lastname" class="s-input">
+                  <input type="text" name="LastName" id="lastname" class="s-input" autocomplete="nope" >
                 </div>
                 <div class="contact-info">
-                  <label for="phone">Phone:</label> <input type="text" name="Phone" id="phone" class="s-input">
-                  <label for="email">Email:</label> <input type="text" name="EmailName" id="email" class="s-input">
+                  <label for="phone">Phone:</label> <input type="text" name="Phone" id="phone" class="s-input" autocomplete="nope" >
+                  <label for="email">Email:</label> <input type="text" name="EmailName" id="email" class="s-input" autocomplete="nope" >
                   <input type="text" name="RepeatEmailName" placeholder="Retype Email" autocomplete="nope">
                 </div>
               </div>
@@ -43,13 +43,13 @@ get_template_part('partials/page-head');
                                             
               <button type="submit" class="btn solid">Submit</button>
               
-              <input name="Subject" type="hidden" value="<?php bloginfo('name'); ?> Career Form" />
+              <input name="Subject" type="hidden" value="<?php bloginfo('name'); ?> Career Form" autocomplete="nope" />
                             
-              <input name="Campaign" type="hidden" value="Career Form" />
+              <input name="Campaign" type="hidden" value="Career Form" autocomplete="nope" />
               
-              <input name="AccountID" type="hidden" value="<?php site_ops_dashboard_account_id(); ?>" />
-              <input name="RedirectPageFullURL" type="hidden" value="<?php site_ops_form_redirect_url(); ?>" />
-              <input name="EmailRecipient" type="hidden" value="<?php site_ops_form_to_email(); ?>" />
+              <input name="AccountID" type="hidden" value="<?php site_ops_dashboard_account_id(); ?>" autocomplete="nope" />
+              <input name="RedirectPageFullURL" type="hidden" value="<?php site_ops_form_redirect_url(); ?>" autocomplete="nope" />
+              <input name="EmailRecipient" type="hidden" value="<?php site_ops_form_to_email(); ?>" autocomplete="nope" />
               <?php  if (!empty(site_ops_dashboard_cc_email(false))) { ?>
                 <input name="EmailCC" type="hidden" value="<?php echo site_ops_dashboard_cc_email(); ?>" />
               <?php }  ?>

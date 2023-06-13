@@ -99,10 +99,10 @@ $randomnumber = rand(1, 100);
                     <?php if ($leftFormLogo) : ?>
                         <img src="<?= $leftFormLogo; ?>" alt="Logo" />
                     <?php endif; ?>
-                    <input name="FirstName" type="text" placeholder="First Name" required />
-                    <input name="LastName" type="text" placeholder="Last Name" />
-                    <input type="text" name="Phone" placeholder="Phone" />
-                    <input type="text" name="EmailName" placeholder="Email" />
+                    <input name="FirstName" type="text" placeholder="First Name" required autocomplete="nope" />
+                    <input name="LastName" type="text" placeholder="Last Name" autocomplete="nope" />
+                    <input type="text" name="Phone" placeholder="Phone" autocomplete="nope" />
+                    <input type="text" name="EmailName" placeholder="Email" autocomplete="nope" />
                     <textarea name="Comments" placeholder="How can we help?"></textarea>
                     <input type="text" name="RepeatEmailName" placeholder="Retype Email" autocomplete="nope">
                     <br />
@@ -112,11 +112,11 @@ $randomnumber = rand(1, 100);
                         </div>
                     <?php endif;  ?>
                     <button type="submit" class="btn solid">Submit</button>
-                    <input name="Subject" type="hidden" value="<?php bloginfo('name'); ?> Schedule Appointment Form" />
-                    <input name="Campaign" type="hidden" value="Schedule Appointment Form" />
-                    <input name="AccountID" type="hidden" value="<?php site_ops_dashboard_account_id(); ?>" />
-                    <input name="RedirectPageFullURL" type="hidden" value="<?php site_ops_form_redirect_url(); ?>" />
-                    <input name="EmailRecipient" type="hidden" value="<?php site_ops_form_to_email(); ?>" />
+                    <input name="Subject" type="hidden" value="<?php bloginfo('name'); ?> Schedule Appointment Form" autocomplete="nope" />
+                    <input name="Campaign" type="hidden" value="Schedule Appointment Form" autocomplete="nope" />
+                    <input name="AccountID" type="hidden" value="<?php site_ops_dashboard_account_id(); ?>" autocomplete="nope" />
+                    <input name="RedirectPageFullURL" type="hidden" value="<?php site_ops_form_redirect_url(); ?>" autocomplete="nope" />
+                    <input name="EmailRecipient" type="hidden" value="<?php site_ops_form_to_email(); ?>" autocomplete="nope" />
                     <?php if (!empty(site_ops_dashboard_cc_email(false))) : ?>
                         <input name="EmailCC" type="hidden" value="<?php echo site_ops_dashboard_cc_email(); ?>" />
                     <?php endif; ?>
@@ -219,10 +219,10 @@ $randomnumber = rand(1, 100);
                     <?php if ($rightFormLogo) : ?>
                         <img src="<?= $rightFormLogo; ?>" alt="Logo" />
                     <?php endif; ?>
-                    <input name="FirstName" type="text" placeholder="First Name" required />
-                    <input name="LastName" type="text" placeholder="Last Name" />
-                    <input type="text" name="Phone" placeholder="Phone" />
-                    <input type="text" name="EmailName" placeholder="Email" />
+                    <input name="FirstName" type="text" placeholder="First Name" required autocomplete="nope" />
+                    <input name="LastName" type="text" placeholder="Last Name" autocomplete="nope" />
+                    <input type="text" name="Phone" placeholder="Phone" autocomplete="nope" />
+                    <input type="text" name="EmailName" placeholder="Email" autocomplete="nope" />
                     <textarea name="Comments" placeholder="How can we help?"></textarea>
                     <input type="text" name="RepeatEmailName" placeholder="Retype Email" autocomplete="nope">
                     <br />
@@ -233,10 +233,10 @@ $randomnumber = rand(1, 100);
                     <?php endif;  ?>
                     <button type="submit" class="btn solid">Submit</button>
                     <input name="Subject" type="hidden" value="<?php bloginfo('name'); ?> Schedule Appointment Form" />
-                    <input name="Campaign" type="hidden" value="Schedule Appointment Form" />
-                    <input name="AccountID" type="hidden" value="<?php site_ops_dashboard_account_id(); ?>" />
-                    <input name="RedirectPageFullURL" type="hidden" value="<?php site_ops_form_redirect_url(); ?>" />
-                    <input name="EmailRecipient" type="hidden" value="<?php site_ops_form_to_email(); ?>" />
+                    <input name="Campaign" type="hidden" value="Schedule Appointment Form" autocomplete="nope" />
+                    <input name="AccountID" type="hidden" value="<?php site_ops_dashboard_account_id(); ?>" autocomplete="nope" />
+                    <input name="RedirectPageFullURL" type="hidden" value="<?php site_ops_form_redirect_url(); ?>" autocomplete="nope" />
+                    <input name="EmailRecipient" type="hidden" value="<?php site_ops_form_to_email(); ?>" autocomplete="nope" />
                     <?php if (!empty(site_ops_dashboard_cc_email(false))) : ?>
                         <input name="EmailCC" type="hidden" value="<?php echo site_ops_dashboard_cc_email(); ?>" />
                     <?php endif; ?>
