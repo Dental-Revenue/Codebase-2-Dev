@@ -1,4 +1,5 @@
-<?php
+<?php 
+
 $box->add_field( array(
 	'name' => 'Slider Height',
 	'desc' => 'include measurement (i.e. px, % or vh)',
@@ -8,6 +9,7 @@ $box->add_field( array(
  		'required'    => 'required',
  	),
 ));
+
 $box->add_field( array(
 	'name' => 'Overlay Darkness',
 	'desc' => 'Defaults to 30 (percent)',
@@ -31,6 +33,7 @@ $box->add_field( array(
     'id' => $prefix . 'import_title_font_family_2',
     'type' => 'text',
 ));
+
 $group_field = $box->add_field( array(
 	'id' => $prefix.'fold_slides',
 	'type' => 'group',
@@ -42,6 +45,7 @@ $group_field = $box->add_field( array(
 		'closed'    		=> true
 	),
 ));
+
 $box->add_group_field( $group_field, array(
 	'name' => 'Slide Title',
 	'id'   => 'title',
@@ -67,7 +71,7 @@ $box->add_group_field( $group_field, array(
 			'Yes' => 'Yes',
 			'No' => 'No',
 		),
-		'default' => 'No',
+		'default' => 'Yes',
 ));
 $box->add_group_field( $group_field, array(
 	'name' => 'Decorative Line Styling',
@@ -76,6 +80,7 @@ $box->add_group_field( $group_field, array(
 	'desc' => 'Adjust as needed',
 	'default' => 'width:100px;height:4px;background-color:#fff;margin:30px auto 30px auto;',
 ));
+
 $box->add_group_field( $group_field, array(
 	'name' => 'Slide Subtitle',
 	'id'   => 'subtitle',
@@ -101,7 +106,7 @@ $box->add_group_field( $group_field, array(
 			'Yes' => 'Yes',
 			'No' => 'No',
 		),
-		'default' => 'No',
+		'default' => 'Yes',
 ));
 $box->add_group_field( $group_field, array(
 	'name' => 'Decorative Line Styling',
@@ -182,4 +187,5 @@ $box->add_group_field( $group_field, array(
 	'id' => 'bg_color_2',
 	'type' => 'colorpicker'
 ));
+
 ?>

@@ -1,0 +1,15 @@
+.headline {
+    display: block;
+    font-size: 1.5em;
+    margin-bottom: 0.83em;
+    margin-left: 0;
+    margin-right: 0;
+    font-weight: bold;
+}
+.static_embed .headline:after {
+    display:none;
+}
+.static_embed .headline {
+    padding: 0px 5% 17px;
+    margin-top: -10px;
+}

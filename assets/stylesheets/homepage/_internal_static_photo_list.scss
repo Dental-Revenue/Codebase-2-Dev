@@ -1,0 +1,27 @@
+.static_photo_list-text .headline {
+    font-size: 1.5em;
+    margin-top: 0.83em;
+    margin-left: 0;
+    margin-right: 0;
+    font-weight: bold;
+    padding: 30px 5% 0px;
+    margin-bottom: 0px;
+    line-height: 116%;
+    text-align: center;
+    color: $main-color; 
+    display: block;
+}
+.static_photo_list-text .headline span {
+    display: block;
+    font-weight: 600;
+}
+.static_photo_list-right .headline-h3 {
+    display: block;
+    font-size: 1.17em;
+    margin-left: 0;
+    margin-right: 0;
+    font-weight: bold;
+    margin-top: 0;
+    color: $main-color;
+    margin-bottom: 5px;
+}

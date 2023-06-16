@@ -451,7 +451,96 @@ break;
 			
 
 // ===============================================================================
+case "internal_fold_slider":
+				
+	require  __DIR__ . '/modules/internal_fold_slider.php';
+	
+break;
+case "internal_fold_slider_2":
+				
+	require  __DIR__ . '/modules/internal_fold_slider_2.php';
+	
+break;
+case "internal_static_image_split":
+				
+	require  __DIR__ . '/modules/internal_static_image_split.php';
+	
+break;
+case "internal_static_intro_section":
+				
+	require  __DIR__ . '/modules/internal_static_intro_section.php';
+	
+break;
+case "internal_reviews_testimonials_grid":
+				
+	require  __DIR__ . '/modules/internal_reviews_testimonials_grid.php';
+	
+break;
+case "internal_static_blocks_list":
+				
+	require  __DIR__ . '/modules/internal_static_blocks_list.php';
+	
+break;
+case "internal_static_photo_list":
+				
+	require  __DIR__ . '/modules/internal_static_photo_list.php';
+	
+break;
+case "internal_static_embed":
+				
+	require  __DIR__ . '/modules/internal_static_embed.php';
+	
+break;
+case "blank_one":
 
+	require __DIR__ . '/modules/blank_one.php';
+
+break;
+case "blank_two":
+
+	require __DIR__ . '/modules/blank_one.php';
+
+break;
+case "blank_three":
+
+	require __DIR__ . '/modules/blank_one.php';
+
+break;
+case "blank_four":
+
+	require __DIR__ . '/modules/blank_one.php';
+
+break;
+case "blank_five":
+
+	require __DIR__ . '/modules/blank_one.php';
+
+break;
+case "blank_six":
+
+	require __DIR__ . '/modules/blank_one.php';
+
+break;
+case "blank_seven":
+
+	require __DIR__ . '/modules/blank_one.php';
+
+break;
+case "blank_eight":
+
+	require __DIR__ . '/modules/blank_one.php';
+
+break;
+case "blank_nine":
+
+	require __DIR__ . '/modules/blank_one.php';
+
+break;
+case "blank_ten":
+
+	require __DIR__ . '/modules/blank_one.php';
+
+break;
 			
 		} //end switch
 	} 
