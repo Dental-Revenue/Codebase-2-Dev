@@ -611,9 +611,6 @@ function cmb2_appearance_options() {
 		),
 	) );
 
-
-
-	
 	// Id's for group's fields only need to be unique for the group. Prefix is not needed.
 	$box->add_group_field( $group_field_id, array(
 		'name' => 'Entry Title',
@@ -637,7 +634,45 @@ function cmb2_appearance_options() {
 		'type' => 'text',
 	) );
 
+	$box->add_field( array(
+		'name' 					=> 'Header-F Navigation Tabs',
+		'id'   					=> 'headerftabs',
+		'type' 					=> 'title',
+	));
+	
+	$box->add_field( array(
+		'name' => 'Tab 1 Text',
+		'desc' => 'Enter a Nav Tab title',
+		'id'   => 'navtab1_text',
+		'type' => 'text',
+		'default' => 'specials',
+	) );
+
+	$box->add_field( array(
+		'name' => ' Tab 1 URL',
+		'description' => 'Enter a URL',
+		'id'   => 'navtab1_url',
+		'type' => 'text_url',
+		'default' => '#'
+	) );
+
+	
+	$box->add_field(  array(
+		'name' => 'Tab 2 Text',
+		'desc' => 'Enter a Nav Tab title',
+		'type' => 'text',
+		'default' => 'request appointment',
+		'id'   => 'navtab2_text',
 		
+	) );
+
+	$box->add_field( array(
+		'name' => ' Tab 2 URL',
+		'description' => 'Enter a URL',
+		'id'   => 'navtab2_url',
+		'type' => 'text_url',
+		'default' => '#',
+	) );
 	
 	$box->add_field( array(
 		'name' => 'Infobar Links',

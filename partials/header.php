@@ -277,8 +277,6 @@ $popup = $option['cta_popup'];
     } elseif ($nav_style == 'header-style-f') {
         ?>
         
-        <!-- ===============  Cab Cover  ================ -->
-
         <div class="location contact-dropdown" >
             <a href="#" class="drop-link" style="color:#fff;">CONTACT<i class="fa fa-caret-down"></i></a>
             <div class="drop-content" style="background:rgba(<?= $headertop_color  ?>, 0.5); display: none;">
@@ -324,8 +322,8 @@ $popup = $option['cta_popup'];
 
             </div>
   	    </div>
-        <a href="#" id="fixed-specials-2" style="background:<?= $util_nav_color ?>;">Static Link</a>
-        <a href="/request-appointment" id="fixed-specials" style="background:<?= $util_nav_color ?>;">Schedule An Appointment</a>
+        <a href="#" id="fixed-specials-2" style="background:<?= $util_nav_color ?>;"><?= $tab1_text ?></a>
+        <a href="/request-appointment" id="fixed-specials" style="background:<?= $util_nav_color ?>;"><?= $tab2_text ?></a>
         <!--  =============================================== End make this dynamic =================================== -->
         <div class="header-logo">
             <h1><a href="/" class="logo"><img src="<?php site_ops_logo(); ?>" alt="<?php site_ops_practice_name(); ?>" /></a></h1>
