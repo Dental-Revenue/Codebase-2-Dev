@@ -232,6 +232,27 @@ function infobar($echo = true){
 	if(!empty($option['infobar_link'])){return $option['infobar_link'];}else{return '';}
 }
 
+function navtab1_text($echo = true){
+	$option = get_option('appearance_info'); 
+	if(!empty($option['navtab1_text'])){if($echo){echo $option['navtab1_text'];}else{return $option['navtab1_text'];}}else{if($echo){echo '';}else{return '';}}
+}
+
+
+function navtab1_url($echo = true){
+	$option = get_option('appearance_info'); 
+	if(!empty($option['navtab1_url'])){if($echo){echo $option['navtab1_url'];}else{return $option['navtab1_url'];}}else{if($echo){echo '';}else{return '';}}
+}
+
+function navtab2_text($echo = true){
+	$option = get_option('appearance_info'); 
+	if(!empty($option['navtab2_text'])){if($echo){echo $option['navtab2_text'];}else{return $option['navtab2_text'];}}else{if($echo){echo '';}else{return '';}}
+}
+
+
+function navtab2_url($echo = true){
+	$option = get_option('appearance_info'); 
+	if(!empty($option['navtab2_url'])){if($echo){echo $option['navtab2_url'];}else{return $option['navtab2_url'];}}else{if($echo){echo '';}else{return '';}}
+}
 
 function site_ops_side_tabs_repeat($echo = true){
 	$option = get_option('appearance_info'); 
