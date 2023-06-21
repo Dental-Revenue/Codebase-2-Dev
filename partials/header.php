@@ -14,6 +14,7 @@ $color = $option['nav_color'];
 $headertop_color = $option['headertop_color'];
 $util_nav_color = $option['utility_nav_color'];
 $lightness = getColorLightness($color);
+$util_nav_lightness = getColorLightness($util_nav_color);
 $popup = $option['cta_popup'];
 $tab1_text = $option['navtab1_text'];
 $tab2_text = $option['navtab2_text'];
@@ -280,7 +281,7 @@ $tab2_url = $option['navtab2_url'];
         ?>
         
         <div class="location contact-dropdown" >
-            <a href="#" class="drop-link" style="color:#fff;">CONTACT<i class="fa fa-caret-down"></i></a>
+            <a href="#" class="drop-link" style="style:<?= $color; ?>;">CONTACT<i class="fa fa-caret-down"></i></a>
             <div class="drop-content" style="background:rgba(<?= $headertop_color  ?>, 0.5); display: none;">
             <?php 
                 $entries = addEntries(true);
@@ -297,7 +298,10 @@ $tab2_url = $option['navtab2_url'];
             
             </div>
         </div>
-        <div id="utility-nav" class="clearfix" style="background:<?= $util_nav_color ?>;">
+        <div id="utility-nav" class="clearfix <?php
+    if ($util_nav_lightness<700) {
+        echo "revert";
+    } ?>" style="background:<?= $util_nav_color ?>;">
             <div class="utility-left">
 
                 <a href="/write-a-review">Write a Review</a>
@@ -323,12 +327,12 @@ $tab2_url = $option['navtab2_url'];
 
             </div>
   	    </div>
-        <a href="<?= $tab1_url ?>" id="fixed-specials-2" style="background:<?= $util_nav_color ?>;"><?= $tab1_text ?></a>
-        <a href="<?= $tab2_url ?>" id="fixed-specials" style="background:<?= $util_nav_color ?>;"><?= $tab2_text ?></a>
+        <a href="<?= $tab1_url ?>" id="fixed-specials-2"><?= $tab1_text ?></a>
+        <a href="<?= $tab2_url ?>" id="fixed-specials"><?= $tab2_text ?></a>
         <div class="header-logo">
             <h1><a href="/" class="logo"><img src="<?php site_ops_logo(); ?>" alt="<?php site_ops_practice_name(); ?>" /></a></h1>
         </div>
-        <div class="header-top" style="background:<?= $headertop_color ?>;">
+        <div class="header-top">
             <div id="minidrop">
                 <div id="h-toll-free">
                     <span class="tracknum"><?php site_ops_new_patient_phone(); ?></span>
@@ -356,10 +360,7 @@ $tab2_url = $option['navtab2_url'];
                 <?php if (!empty(site_ops_yelp(false))) { ?>
                     <li><a href="<?php site_ops_yelp(); ?>" target="_blank" rel="noopener" aria-label="yelp link"><i class="fab fa-yelp"></i></a></li>
                 <?php } ?>
-                        <!-- <li><a href="<?php site_ops_facebook(); ?>" target="_blank" rel="noopener"><i class="fab fa-facebook-f"></i></a></li>
-                        <li><a href="<?php site_ops_twitter(); ?>" target="_blank" rel="noopener"><i class="fab fa-twitter"></i></a></li>
-                        <li><a href="<?php site_ops_instagram(); ?>/" target="_blank" rel="noopener"><i class="fab fa-instagram"></i></a></li>
-                        <li><a href="<?php site_ops_google_plus(); ?>" target="_blank" rel="noopener"><i class="fab fa-google"></i></a></li> -->
+    
                     </ul>
                 </div>
             </div>
