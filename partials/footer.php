@@ -3,10 +3,12 @@
 	$nav_style = $appearance_info['nav_style'];
 	$option2 = get_option('practice_info');
 	$google_map_embed_url = $option2['google_map_embed_url'];
-    $option3 = get_option('social_info'); 
+  $option3 = get_option('social_info'); 
 	$facebook_link = $option3['facebook_link'];
 	$instagram_link = $option3['instagram_link'];
-    $footer_style = $appearance_info['footer_style'];
+  $footer_style = $appearance_info['footer_style'];
+  $google_map_url = $practice_info['google_map_url'];
+  $google_map_picture = $practice_info['google_map_picture'];
 ?>
 
 <?php if ($footer_style == 'custom'): ?>
@@ -15,15 +17,14 @@
 	<footer>
 <?php endif; ?>
 <?php if($footer_style == 'custom'): ?>
-		<div  id="footer-b" class="footer-top">
+		<div  id="footer-b" class="footer-top" style="background-image: url('<?= $google_map_picture; ?>'); background-size: cover; background-repeat: no-repeat; background-position: top -140px right 0;">
         <div class="row">
             <div class="footer-right">        
                 <div class="footer-column">        
                     <div class="footer-contact clearfix">
                     <h3>Contact</h3>
-                    <!-- need to add dynamic links for address -->
-                        <p><a href="" target="_blank" nofollow noreferrer><?php site_ops_address(); ?></a></p>
-                        <p><a href="" target="_blank" nofollow noreferrer><?php site_ops_city(); ?>, <?php site_ops_state(); ?> <?php site_ops_zip(); ?></a></p>
+                        <p><a href="<?= $google_map_url ?>" target="_blank" nofollow noreferrer><?php site_ops_address(); ?></a></p>
+                        <p><a href="<?= $google_map_url ?>" target="_blank" nofollow noreferrer><?php site_ops_city(); ?>, <?php site_ops_state(); ?> <?php site_ops_zip(); ?></a></p>
                         <p class="phone">New Patients <span class="tracknum"><?php site_ops_new_patient_phone(); ?></span></p>
                         <p class="phone">Current Patients <span><?php site_ops_current_patient_phone(); ?></span></p>
                     </div>
@@ -194,6 +195,7 @@
     		<div class="row">
 				<?php if(!wp_is_mobile()){ ?>   
 					<div class="footer-left google-map-container">
+            
 						<?php site_ops_google_map(); ?>
 					</div>
 				<?php } ?>
