@@ -16,8 +16,10 @@ $util_nav_color = $option['utility_nav_color'];
 $lightness = getColorLightness($color);
 $util_nav_lightness = getColorLightness($util_nav_color);
 $popup = $option['cta_popup'];
-
-
+$tab1_text = $option['navtab1_text'];
+$tab2_text = $option['navtab2_text'];
+$tab1_url = $option['navtab1_url'];
+$tab2_url = $option['navtab2_url'];
 
 
 
@@ -279,7 +281,7 @@ $popup = $option['cta_popup'];
         ?>
         
         <div class="location contact-dropdown" >
-            <a href="#" class="drop-link" style="<?= $color; ?>:#fff;">CONTACT<i class="fa fa-caret-down"></i></a>
+            <a href="#" class="drop-link" style="style:<?= $color; ?>;">CONTACT<i class="fa fa-caret-down"></i></a>
             <div class="drop-content" style="background:rgba(<?= $headertop_color  ?>, 0.5); display: none;">
             <?php 
                 $entries = addEntries(true);
@@ -300,7 +302,6 @@ $popup = $option['cta_popup'];
     if ($util_nav_lightness<700) {
         echo "revert";
     } ?>" style="background:<?= $util_nav_color ?>;">
-                <!-- ======================= Make this dynamic =================================== -->
             <div class="utility-left">
 
                 <a href="/write-a-review">Write a Review</a>
@@ -326,9 +327,8 @@ $popup = $option['cta_popup'];
 
             </div>
   	    </div>
-        <a href="#" id="fixed-specials-2"><?= $tab1_text ?></a>
-        <a href="/request-appointment" id="fixed-specials"><?= $tab2_text ?></a>
-        <!--  =============================================== End make this dynamic =================================== -->
+        <a href="<?= $tab1_url ?>" id="fixed-specials-2"><?= $tab1_text ?></a>
+        <a href="<?= $tab2_url ?>" id="fixed-specials"><?= $tab2_text ?></a>
         <div class="header-logo">
             <h1><a href="/" class="logo"><img src="<?php site_ops_logo(); ?>" alt="<?php site_ops_practice_name(); ?>" /></a></h1>
         </div>
