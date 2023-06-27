@@ -33,7 +33,7 @@ $slider_height = get_post_meta(get_the_id(), $instance.'_height', true);
            } ?>;
            <?php } ?>">
             <?php if (isset($block['video_webm']) && $block['video_webm']!='' && isset($block['video_mp4']) && $block['video_mp4'] != '') { ?>
-                <video class="fold-video" autoplay loop muted data-audio="true" poster="<?php echo $image[0]; ?>">
+                <video class="fold-video" autoplay loop muted data-audio="true" poster="<?php echo $image_xxl[0]; ?>">
                     <source src="<?php echo $block['video_webm']; ?>" type="video/webm">
                     <source src="<?php echo $block['video_mp4']; ?>" type="video/mp4">
                 </video>
@@ -43,7 +43,7 @@ $slider_height = get_post_meta(get_the_id(), $instance.'_height', true);
                     echo $block['alt'];
                 } else {
                     echo 'Slideshow Image';
-                } ?>" src="<?php echo $image_atf[0]; ?>" srcset="<?php echo $image_lg[0]; ?> 500w, <?php echo $image_xl[0]; ?> 700w, <?php echo $image_xxl[0]; ?> 1300w, <?php echo $image_atf[0]; ?> 3000w" sizes="100vw,(min-width: 300px) 700px,(min-width: 700px) 1300px,(min-width: 1300px) 1800px" />
+                } ?>" src="<?php echo $image_atf[0]; ?>" />
             <?php } ?>
             <div class="fold-overlay" style="background-color: rgba(0,0,0,.<?php echo $slider_overlay; ?>);">
             </div>

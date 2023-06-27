@@ -40,7 +40,7 @@
 		 ?>
 		
 		<div id="tab<?php echo $counter; ?>-<?php echo $instance; ?>" class="tab-pane fade <?php if($counter==1){ echo 'show active'; } ?>">
-			<img alt="<?php if (isset($item['alt'])){ echo $item['alt']; } else { echo 'Slideshow Image'; } ?>" src="<?php echo $image_atf[0]; ?>" srcset="<?php echo $image_lg[0]; ?> 500w, <?php echo $image_xl[0]; ?> 700w, <?php echo $image_xxl[0]; ?> 1300w, <?php echo $image_atf[0]; ?> 3000w" sizes="100vw,(min-width: 300px) 700px,(min-width: 700px) 1300px,(min-width: 1300px) 2300px" />
+			<img alt="<?php if (isset($item['alt'])){ echo $item['alt']; } else { echo 'Slideshow Image'; } ?>" src="<?php echo $item['image']; ?>" />
 		
 			<?php if($item_darkness!=''){
 				$darkness = $item_darkness/100; ?>
