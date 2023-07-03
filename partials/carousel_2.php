@@ -17,7 +17,7 @@
 		$item_title = $item_img = $item_link_id = ''; 
 		if(isset($item['title'])){ $item_title = $item['title']; }
 		if(isset($item['image'])){ $item_img_id = $item['image_id']; }
-		if(isset($item['image'])){ $item_img = wp_get_attachment_image_src( $item_img_id, 'lg-square' ); }
+		if(isset($item['image'])){ $item_img = wp_get_attachment_image_src($item_img_id); }
 		if(isset($item['carousel_page'])){ $item_link_id = $item['carousel_page']; } ?>
   
     <div class="carousel_2-block hover-up-parent">
