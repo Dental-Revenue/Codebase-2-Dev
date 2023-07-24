@@ -30,10 +30,86 @@
 		
 		if($lightness<700){$classes .= 'invert';}
 
-		if($m->module == "reviews_testimonials_grid" && !empty($overlap)){echo '<div id="i'.$instance.'" class="module '.$m->module.' '.$classes.'" style="'.$colorCSS.' top:'.$overlap.'; width: 80%; margin: 0 auto; margin-bottom:'. $bottom_margin .'" >';}
-		if($m->module == "static_image_split" && !empty($overlap)){echo '<div id="i'.$instance.'" class="module '.$m->module.' '.$classes.'" style="'.$colorCSS.' top:'.$overlap.'; width: 80%; margin: 0 auto; margin-bottom:'. $bottom_margin .'" >';}
-		if($m->module == "static_blocks_list" && !empty($overlap)){echo '<div id="i'.$instance.'" class="module '.$m->module.' '.$classes.'" style="'.$colorCSS.' top:'.$overlap.'; width: 80%; margin: 0 auto; margin-bottom:'. $bottom_margin .'" >';}
-		if($m->module == "static_image_offset" && !empty($overlap)){echo '<div id="i'.$instance.'" class="module '.$m->module.' '.$classes.'" style="'.$colorCSS.' top:'.$overlap.'; width: 80%; margin: 0 auto; margin-bottom:'. $bottom_margin .'" >';}
+		if($m->module == "reviews_testimonials_grid" && !empty($overlap)){echo '<div id="i'.$instance.'" class="module '.$m->module.' '.$classes.'" style="'.$colorCSS.' top:'.$overlap.'; width: 80%; margin: 0 auto; margin-bottom:'. $bottom_margin .'" >';//insert a background image, if applicable
+			if(isset($image_lg) && $image_lg[0]!=''){ ?>
+				<div class='module-image' style='opacity:<?php echo $image_opacity; ?>;'>
+					<img alt="<?php if (isset($image_alt) && $image_alt!=''){ echo $image_alt; } else { echo 'Background Image'; } ?>" src="<?php echo $image[0]; ?>" />
+				</div>
+			<?php }
+			
+			//action for before the module content
+			do_action('before_i'.$instance);
+		
+			//get the guts of the module
+			echo "<div class='module-content'>";
+				get_partial('/partials/'.$m->module, [ 'instance' => $m->id ]);
+			echo "</div>";
+			
+			//action for after the module content
+			do_action('after_i'.$instance);
+		
+		//close the module container
+		echo '</div>';}
+		if($m->module == "static_image_split" && !empty($overlap)){echo '<div id="i'.$instance.'" class="module '.$m->module.' '.$classes.'" style="'.$colorCSS.' top:'.$overlap.'; width: 80%; margin: 0 auto; margin-bottom:'. $bottom_margin .'" >';//insert a background image, if applicable
+			if(isset($image_lg) && $image_lg[0]!=''){ ?>
+				<div class='module-image' style='opacity:<?php echo $image_opacity; ?>;'>
+					<img alt="<?php if (isset($image_alt) && $image_alt!=''){ echo $image_alt; } else { echo 'Background Image'; } ?>" src="<?php echo $image[0]; ?>" />
+				</div>
+			<?php }
+			
+			//action for before the module content
+			do_action('before_i'.$instance);
+		
+			//get the guts of the module
+			echo "<div class='module-content'>";
+				get_partial('/partials/'.$m->module, [ 'instance' => $m->id ]);
+			echo "</div>";
+			
+			//action for after the module content
+			do_action('after_i'.$instance);
+		
+		//close the module container
+		echo '</div>';}
+		if($m->module == "static_blocks_list" && !empty($overlap)){echo '<div id="i'.$instance.'" class="module '.$m->module.' '.$classes.'" style="'.$colorCSS.' top:'.$overlap.'; width: 80%; margin: 0 auto; margin-bottom:'. $bottom_margin .'" >';//insert a background image, if applicable
+			if(isset($image_lg) && $image_lg[0]!=''){ ?>
+				<div class='module-image' style='opacity:<?php echo $image_opacity; ?>;'>
+					<img alt="<?php if (isset($image_alt) && $image_alt!=''){ echo $image_alt; } else { echo 'Background Image'; } ?>" src="<?php echo $image[0]; ?>" />
+				</div>
+			<?php }
+			
+			//action for before the module content
+			do_action('before_i'.$instance);
+		
+			//get the guts of the module
+			echo "<div class='module-content'>";
+				get_partial('/partials/'.$m->module, [ 'instance' => $m->id ]);
+			echo "</div>";
+			
+			//action for after the module content
+			do_action('after_i'.$instance);
+		
+		//close the module container
+		echo '</div>';}
+		if($m->module == "static_image_offset" && !empty($overlap)){echo '<div id="i'.$instance.'" class="module '.$m->module.' '.$classes.'" style="'.$colorCSS.' top:'.$overlap.'; width: 80%; margin: 0 auto; margin-bottom:'. $bottom_margin .'" >';//insert a background image, if applicable
+			if(isset($image_lg) && $image_lg[0]!=''){ ?>
+				<div class='module-image' style='opacity:<?php echo $image_opacity; ?>;'>
+					<img alt="<?php if (isset($image_alt) && $image_alt!=''){ echo $image_alt; } else { echo 'Background Image'; } ?>" src="<?php echo $image[0]; ?>" />
+				</div>
+			<?php }
+			
+			//action for before the module content
+			do_action('before_i'.$instance);
+		
+			//get the guts of the module
+			echo "<div class='module-content'>";
+				get_partial('/partials/'.$m->module, [ 'instance' => $m->id ]);
+			echo "</div>";
+			
+			//action for after the module content
+			do_action('after_i'.$instance);
+		
+		//close the module container
+		echo '</div>';}
 
 		//open the module container
 		else {echo '<div id="i'.$instance.'" class="test module '.$m->module.' '.$classes.'" style="'.$colorCSS.'" >';}
