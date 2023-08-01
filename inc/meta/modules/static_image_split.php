@@ -99,8 +99,6 @@ $box->add_field( array(
     'name' => 'Left Side Excerpt',
     'id' => $prefix.'left_excerpt',
     'type' => 'wysiwyg',
-    'desc' => '
-    Any text tags must also have the class "excerpt" added to them.',
 ));
 $box->add_field( array(
     'name' => 'Left Phone Number?',
