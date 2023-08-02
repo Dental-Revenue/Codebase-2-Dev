@@ -7,6 +7,15 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
+    - uses: actions/setup-node@v2
+      with:
+        node-version: 12.x
+    - name: Install dependencies
+      run: |
+        composer install -o
+        npm install
+    - name: Build
+      run: npm run build
     - name: Sync
       env:
         dest: 'git@git.wpengine.com:testingmod2021.git'
