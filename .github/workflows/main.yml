@@ -18,7 +18,7 @@ jobs:
       run: npm run build
     - name: Sync
       env:
-        dest: 'git@git.wpengine.com:testingmod2021.git'
+        dest: 'paul@dentalrevenue.com:/wp-content/themes/codebase2'
       run: |
         echo "${{secrets.DEPLOY_KEY}}" > deploy_key
         chmod 600 ./deploy_key
