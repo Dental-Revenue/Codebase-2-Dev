@@ -1,9 +1,22 @@
-name: CI
+name: Deployment
 on:
   push:
-    branches: [ Production ]
+    branches: [ production ]
 jobs:
-  build:
+  deploy:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
+    - name: Sync
+      env:
+        dest: 'git@git.wpengine.com:testingmod2021.git'
+      run: |
+        echo "${{secrets.DEPLOY_KEY}}" > deploy_key
+        chmod 600 ./deploy_key
+        rsync -chav --delete \
+          -e 'ssh -i ./deploy_key -o StrictHostKeyChecking=no' \
+          --exclude /deploy_key \
+          --exclude /.git/ \
+          --exclude /.github/ \
+          --exclude /node_modules/ \
+          ./ ${{env.dest}}
