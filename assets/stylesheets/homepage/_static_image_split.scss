@@ -1,3 +1,6 @@
+.module.static_image_split .module-content {
+    padding: 70px 0;
+}
 .sis-container {
     display: flex;
     max-height: 600px;
@@ -118,6 +121,9 @@
     }
 }
 @media screen and (max-width: 1199px) {
+    .module.static_image_split .module-content {
+        padding: 70px 0 0;
+    }
     .sis-container {
         flex-direction: column;
         max-height: unset;
