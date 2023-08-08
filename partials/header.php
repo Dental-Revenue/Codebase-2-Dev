@@ -283,6 +283,13 @@ $tab2_url = $option['navtab2_url'];
             <div class="header-top">
                 <ul>
                     <li class="new-phone">New Patients Call <span class="tracknum"><?php site_ops_new_patient_phone(); ?></span></li>
+                    <?php
+                    if (!empty(site_ops_current_patient_phone(false)) && in_array("current_patient", $header_items)) {
+                        ?>
+                        <li class="new-phone">Current Patients Call <span><?php site_ops_current_patient_phone(); ?></span></li>
+                        <?php
+                    }
+                    ?>
                     <li><a href="<?php site_ops_cta_url(); ?>" class="schedule"><?php site_ops_cta_text(); ?></a></li>
                     <?php if (!empty(site_ops_facebook(false))) { ?>
                         <li><a href="<?php site_ops_facebook(); ?>" target="_blank" rel="noopener" aria-label="facebook link"><i class="fab fa-facebook-f"></i></a></li>
