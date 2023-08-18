@@ -20,9 +20,6 @@ $tab1_text = $option['navtab1_text'];
 $tab2_text = $option['navtab2_text'];
 $tab1_url = $option['navtab1_url'];
 $tab2_url = $option['navtab2_url'];
-
-
-
 ?>
 <header class="header
     <?php
@@ -276,174 +273,181 @@ $tab2_url = $option['navtab2_url'];
             }
             ?>
         </div>
-        <?php
-    } elseif ($nav_style == 'header-style-f') {
+    <?php
+    } elseif ($nav_style == 'header-style-e') {
         ?>
-        
-        <div class="location contact-dropdown" >
-            <a href="#" class="drop-link" style="style:<?= $color; ?>;">CONTACT<i class="fa fa-caret-down"></i></a>
-            <div class="drop-content" style="background:rgba(<?= $headertop_color  ?>, 0.5); display: none;">
-            <?php 
-                $entries = addEntries(true);
-			    foreach ( (array) $entries as $key => $entry ) {  // Drop Down Loop
-				  $title = $url = $linkText ='';
-				  if(isset($entry['title'])){ $title = esc_html( $entry['title'] ); }
-				  if(isset($entry['url'])){ $url = esc_html( $entry['url'] ); }
-                  if(isset($entry['link_text'])){ $linkText = esc_html( $entry['link_text'] ); }
-            ?>
-            
-            <p><?= $title ?>: <a href="<?= $url ?>" target="_blank" rel="noopenner"><span><?= $linkText?></span></a></p>
-            <?php } ?>
-
-            
+            <div class="header-logo">
+                <h1><a class="logo" href="/"><img src="<?php site_ops_logo(); ?>" alt="<?php site_ops_practice_name(); ?>" /></a></h1>
+                <a href="#" id="panel-main"><i class="fas fa-bars"></i></a>
             </div>
-        </div>
-        <div id="utility-nav" class="clearfix <?php
-    if ($util_nav_lightness<700) {
-        echo "revert";
-    } ?>" style="background:<?= $util_nav_color ?>;">
-            <div class="utility-left">
-
-                <a href="/write-a-review">Write a Review</a>
-                <a href="<?php $itemHref ?>"><?php $itemLink ?></a>
-            </div>
-            <div class="utility-right">
-
-
-
-
-            <?php 
-                $infobarLinks = infobar(true);
-			    foreach ( (array) $infobarLinks as $key => $link ) {  // Drop Down Loop
-				  $url = $linkText ='';
-				  if(isset($link['infobar_url'])){ $url = esc_html( $link['infobar_url'] ); }
-                  if(isset($link['infobar_text'])){ $linkText = esc_html( $link['infobar_text'] ); }
-            ?>
-
-                       <a href="<?= $url ?>"><?= $linkText  ?></a>
-            
-
-            <?php } ?>
-
-            </div>
-  	    </div>
-        <a href="<?= $tab1_url ?>" id="fixed-specials-2"><?= $tab1_text ?></a>
-        <a href="<?= $tab2_url ?>" id="fixed-specials"><?= $tab2_text ?></a>
-        <div class="header-logo">
-            <h1><a href="/" class="logo"><img src="<?php site_ops_logo(); ?>" alt="<?php site_ops_practice_name(); ?>" /></a></h1>
-        </div>
-        <div class="header-top">
-            <div id="minidrop">
-                <div id="h-toll-free">
-                    <span class="tracknum"><?php site_ops_new_patient_phone(); ?></span>
-                </div>
-                <div>
-                    <ul class="social clearfix">
-                    <?php if (!empty(site_ops_facebook(false))) { ?>
-                    <li><a href="<?php site_ops_facebook(); ?>" target="_blank" rel="noopener" aria-label="facebook link"><i class="fab fa-facebook-f"></i></a></li>
-                <?php } ?>
-                <?php if (!empty(site_ops_twitter(false))) { ?>
-                    <li><a href="<?php site_ops_twitter(); ?>" target="_blank" rel="noopener" aria-label="twitter link"><i class="fab fa-twitter"></i></a></li>
-                <?php } ?>
-                <?php if (!empty(site_ops_linkedin(false))) { ?>
-                    <li><a href="<?php site_ops_linkedin(); ?>" target="_blank" rel="noopener" aria-label="linkedin link"><i class="fab fa-linkedin-in"></i></a></li>
-                <?php } ?>
-                <?php if (!empty(site_ops_instagram(false))) { ?>
-                    <li><a href="<?php site_ops_instagram(); ?>" target="_blank" rel="noopener" aria-label="instagram link"><i class="fab fa-instagram"></i></a></li>
-                <?php } ?>
-                <?php if (!empty(site_ops_google_plus(false))) { ?>
-                    <li><a href="<?php site_ops_google_plus(); ?>" target="_blank" rel="noopener" aria-label="google plus link"><i class="fab fa-google-plus-g"></i></a></li>
-                <?php } ?>
-                <?php if (!empty(site_ops_youtube(false))) { ?>
-                    <li><a href="<?php site_ops_youtube(); ?>" target="_blank" rel="noopener" aria-label="youtube link"><i class="fab fa-youtube"></i></a></li>
-                <?php } ?>
-                <?php if (!empty(site_ops_yelp(false))) { ?>
-                    <li><a href="<?php site_ops_yelp(); ?>" target="_blank" rel="noopener" aria-label="yelp link"><i class="fab fa-yelp"></i></a></li>
-                <?php } ?>
-    
-                    </ul>
-                </div>
-            </div>
-        </div>
-        <div class="header-bottom" style="background:<?= $headertop_color ?>">
-            <div class="row full">
-                <nav class="large-nav">
-                   <?php
-                    wp_nav_menu(array('walker' => new Walker_Quickstart_Menu()));
-                    if (!empty(site_ops_cta_text(false)) && in_array("cta", $header_items)) {
+            <div class="header-top">
+                <ul>
+                    <li class="new-phone">New Patients Call <span class="tracknum"><?php site_ops_new_patient_phone(); ?></span></li>
+                    <?php
+                    if (!empty(site_ops_current_patient_phone(false)) && in_array("current_patient", $header_items)) {
                         ?>
-                        <!-- <a href="<?php site_ops_cta_url(); ?>" class="schedule btn sm outline"><?php site_ops_cta_text(); ?></a> -->
+                        <li class="new-phone">Current Patients Call <span><?php site_ops_current_patient_phone(); ?></span></li>
                         <?php
                     }
                     ?>
+                    <li><a href="<?php site_ops_cta_url(); ?>" class="schedule"><?php site_ops_cta_text(); ?></a></li>
+                    <?php if (!empty(site_ops_facebook(false))) { ?>
+                        <li><a href="<?php site_ops_facebook(); ?>" target="_blank" rel="noopener" aria-label="facebook link"><i class="fab fa-facebook-f"></i></a></li>
+                    <?php } ?>
+                    <?php if (!empty(site_ops_twitter(false))) { ?>
+                        <li><a href="<?php site_ops_twitter(); ?>" target="_blank" rel="noopener" aria-label="twitter link"><i class="fab fa-twitter"></i></a></li>
+                    <?php } ?>
+                    <?php if (!empty(site_ops_linkedin(false))) { ?>
+                        <li><a href="<?php site_ops_linkedin(); ?>" target="_blank" rel="noopener" aria-label="linkedin link"><i class="fab fa-linkedin-in"></i></a></li>
+                    <?php } ?>
+                    <?php if (!empty(site_ops_instagram(false))) { ?>
+                        <li><a href="<?php site_ops_instagram(); ?>" target="_blank" rel="noopener" aria-label="instagram link"><i class="fab fa-instagram"></i></a></li>
+                    <?php } ?>
+                    <?php if (!empty(site_ops_google_plus(false))) { ?>
+                        <li><a href="<?php site_ops_google_plus(); ?>" target="_blank" rel="noopener" aria-label="google plus link"><i class="fab fa-google-plus-g"></i></a></li>
+                    <?php } ?>
+                    <?php if (!empty(site_ops_youtube(false))) { ?>
+                        <li><a href="<?php site_ops_youtube(); ?>" target="_blank" rel="noopener" aria-label="youtube link"><i class="fab fa-youtube"></i></a></li>
+                    <?php } ?>
+                    <?php if (!empty(site_ops_yelp(false))) { ?>
+                        <li><a href="<?php site_ops_yelp(); ?>" target="_blank" rel="noopener" aria-label="yelp link"><i class="fab fa-yelp"></i></a></li>
+                    <?php } ?>
+                </ul>
+            </div>
+            <div class="header-bottom">
+                <nav class="large-nav">
+                    <?php 
+                    wp_nav_menu(array('walker' => new Walker_Quickstart_Menu()));
+                    ?>
                 </nav>
                 <nav class="mobile-nav">
-                    <a href="#" id="panel-main"><i class="fas fa-bars"></i><span>Menu</span></a>
-                    
-                    <?php if (wp_is_mobile()) { ?>
-                        <a href="tel:<?php site_ops_new_patient_phone(); ?>"><i class="fas fa-phone"></i><span class="tracknum">Call</span></a>
-                    <?php }
-                    
-                    if (!empty(site_ops_cta_text(false)) && in_array("cta", $header_items)) { ?>
-                        <a href="<?php site_ops_cta_url(); ?>"><i class="far fa-calendar-alt"></i><span>Book</span></a>
-                    <?php } ?>
-                    <a href="#" id="panel-more"><i class="fas fa-info"></i><span>Contact</span></a>
+                    <div class="contact-dropwdown">
+                        <a class="drop-link" href="">Contact Us <i class="fa fa-caret-down"></i></a>
+                        <div class="drop-content" style="display: none;">
+                            <a href="tel:<?php site_ops_new_patient_phone(); ?>"><i class="fas fa-phone"></i><span>New Patients </span><span class="bold tracknum"><?php site_ops_new_patient_phone(); ?></span></a>
+                            <a href="tel:<?php site_ops_current_patient_phone(); ?>"><i class="fas fa-phone"></i><span>Current Patients </span><span class="bold"><?php site_ops_current_patient_phone(); ?></span></a>
+                            <a href="<?php site_ops_cta_url(); ?>"><?php site_ops_cta_text(); ?></a>
+                            <a href="/leave-a-review/">Leave a Review</a>
+                        </div>
+                    </div>
                 </nav>
             </div>
-        </div>
-        <?php
+            <?php
     } else {
-        ?>
-        <div class="header-logo">
-            <h1><a class="logo" href="/"><img src="<?php site_ops_logo(); ?>" alt="<?php site_ops_practice_name(); ?>" /></a></h1>
-            <a href="#" id="panel-main"><i class="fas fa-bars"></i></a>
-        </div>
-        <div class="header-top">
-            <ul>
-                <li class="new-phone">New Patients Call <span class="tracknum"><?php site_ops_new_patient_phone(); ?></span></li>
-                <li><a href="<?php site_ops_cta_url(); ?>" class="schedule"><?php site_ops_cta_text(); ?></a></li>
-                <?php if (!empty(site_ops_facebook(false))) { ?>
-                    <li><a href="<?php site_ops_facebook(); ?>" target="_blank" rel="noopener" aria-label="facebook link"><i class="fab fa-facebook-f"></i></a></li>
-                <?php } ?>
-                <?php if (!empty(site_ops_twitter(false))) { ?>
-                    <li><a href="<?php site_ops_twitter(); ?>" target="_blank" rel="noopener" aria-label="twitter link"><i class="fab fa-twitter"></i></a></li>
-                <?php } ?>
-                <?php if (!empty(site_ops_linkedin(false))) { ?>
-                    <li><a href="<?php site_ops_linkedin(); ?>" target="_blank" rel="noopener" aria-label="linkedin link"><i class="fab fa-linkedin-in"></i></a></li>
-                <?php } ?>
-                <?php if (!empty(site_ops_instagram(false))) { ?>
-                    <li><a href="<?php site_ops_instagram(); ?>" target="_blank" rel="noopener" aria-label="instagram link"><i class="fab fa-instagram"></i></a></li>
-                <?php } ?>
-                <?php if (!empty(site_ops_google_plus(false))) { ?>
-                    <li><a href="<?php site_ops_google_plus(); ?>" target="_blank" rel="noopener" aria-label="google plus link"><i class="fab fa-google-plus-g"></i></a></li>
-                <?php } ?>
-                <?php if (!empty(site_ops_youtube(false))) { ?>
-                    <li><a href="<?php site_ops_youtube(); ?>" target="_blank" rel="noopener" aria-label="youtube link"><i class="fab fa-youtube"></i></a></li>
-                <?php } ?>
-                <?php if (!empty(site_ops_yelp(false))) { ?>
-                    <li><a href="<?php site_ops_yelp(); ?>" target="_blank" rel="noopener" aria-label="yelp link"><i class="fab fa-yelp"></i></a></li>
-                <?php } ?>
-            </ul>
-        </div>
-        <div class="header-bottom">
-            <nav class="large-nav">
+            ?>
+            
+            <div class="location contact-dropdown" >
+                <a href="#" class="drop-link" style="style:<?= $color; ?>;">CONTACT<i class="fa fa-caret-down"></i></a>
+                <div class="drop-content" style="background:rgba(<?= $headertop_color  ?>, 0.5); display: none;">
                 <?php 
-                wp_nav_menu(array('walker' => new Walker_Quickstart_Menu()));
+                    $entries = addEntries(true);
+                    foreach ( (array) $entries as $key => $entry ) {  // Drop Down Loop
+                    $title = $url = $linkText ='';
+                    if(isset($entry['title'])){ $title = esc_html( $entry['title'] ); }
+                    if(isset($entry['url'])){ $url = esc_html( $entry['url'] ); }
+                    if(isset($entry['link_text'])){ $linkText = esc_html( $entry['link_text'] ); }
                 ?>
-            </nav>
-            <nav class="mobile-nav">
-                <div class="contact-dropwdown">
-                    <a class="drop-link" href="">Contact Us <i class="fa fa-caret-down"></i></a>
-                    <div class="drop-content" style="display: none;">
-                        <a href="tel:<?php site_ops_new_patient_phone(); ?>"><i class="fas fa-phone"></i><span>New Patients </span><span class="bold tracknum"><?php site_ops_new_patient_phone(); ?></span></a>
-                        <a href="tel:<?php site_ops_current_patient_phone(); ?>"><i class="fas fa-phone"></i><span>Current Patients </span><span class="bold"><?php site_ops_current_patient_phone(); ?></span></a>
-                        <a href="<?php site_ops_cta_url(); ?>"><?php site_ops_cta_text(); ?></a>
-                        <a href="/leave-a-review/">Leave a Review</a>
+                
+                <p><?= $title ?>: <a href="<?= $url ?>" target="_blank" rel="noopenner"><span><?= $linkText?></span></a></p>
+                <?php } ?>
+
+                
+                </div>
+            </div>
+            <div id="utility-nav" class="clearfix <?php
+        if ($util_nav_lightness<700) {
+            echo "revert";
+        } ?>" style="background:<?= $util_nav_color ?>;">
+                <div class="utility-left">
+
+                    <a href="/write-a-review">Write a Review</a>
+                    <a href="<?php $itemHref ?>"><?php $itemLink ?></a>
+                </div>
+                <div class="utility-right">
+
+
+
+
+                <?php 
+                    $infobarLinks = infobar(true);
+                    foreach ( (array) $infobarLinks as $key => $link ) {  // Drop Down Loop
+                    $url = $linkText ='';
+                    if(isset($link['infobar_url'])){ $url = esc_html( $link['infobar_url'] ); }
+                    if(isset($link['infobar_text'])){ $linkText = esc_html( $link['infobar_text'] ); }
+                ?>
+
+                        <a href="<?= $url ?>"><?= $linkText  ?></a>
+                
+
+                <?php } ?>
+
+                </div>
+            </div>
+            <a href="<?= $tab1_url ?>" id="fixed-specials-2"><?= $tab1_text ?></a>
+            <a href="<?= $tab2_url ?>" id="fixed-specials"><?= $tab2_text ?></a>
+            <div class="header-logo">
+                <h1><a href="/" class="logo"><img src="<?php site_ops_logo(); ?>" alt="<?php site_ops_practice_name(); ?>" /></a></h1>
+            </div>
+            <div class="header-top">
+                <div id="minidrop">
+                    <div id="h-toll-free">
+                        <span class="tracknum"><?php site_ops_new_patient_phone(); ?></span>
+                    </div>
+                    <div>
+                        <ul class="social clearfix">
+                        <?php if (!empty(site_ops_facebook(false))) { ?>
+                        <li><a href="<?php site_ops_facebook(); ?>" target="_blank" rel="noopener" aria-label="facebook link"><i class="fab fa-facebook-f"></i></a></li>
+                    <?php } ?>
+                    <?php if (!empty(site_ops_twitter(false))) { ?>
+                        <li><a href="<?php site_ops_twitter(); ?>" target="_blank" rel="noopener" aria-label="twitter link"><i class="fab fa-twitter"></i></a></li>
+                    <?php } ?>
+                    <?php if (!empty(site_ops_linkedin(false))) { ?>
+                        <li><a href="<?php site_ops_linkedin(); ?>" target="_blank" rel="noopener" aria-label="linkedin link"><i class="fab fa-linkedin-in"></i></a></li>
+                    <?php } ?>
+                    <?php if (!empty(site_ops_instagram(false))) { ?>
+                        <li><a href="<?php site_ops_instagram(); ?>" target="_blank" rel="noopener" aria-label="instagram link"><i class="fab fa-instagram"></i></a></li>
+                    <?php } ?>
+                    <?php if (!empty(site_ops_google_plus(false))) { ?>
+                        <li><a href="<?php site_ops_google_plus(); ?>" target="_blank" rel="noopener" aria-label="google plus link"><i class="fab fa-google-plus-g"></i></a></li>
+                    <?php } ?>
+                    <?php if (!empty(site_ops_youtube(false))) { ?>
+                        <li><a href="<?php site_ops_youtube(); ?>" target="_blank" rel="noopener" aria-label="youtube link"><i class="fab fa-youtube"></i></a></li>
+                    <?php } ?>
+                    <?php if (!empty(site_ops_yelp(false))) { ?>
+                        <li><a href="<?php site_ops_yelp(); ?>" target="_blank" rel="noopener" aria-label="yelp link"><i class="fab fa-yelp"></i></a></li>
+                    <?php } ?>
+        
+                        </ul>
                     </div>
                 </div>
-            </nav>
-        </div>
-        <?php
+            </div>
+            <div class="header-bottom" style="background:<?= $headertop_color ?>">
+                <div class="row full">
+                    <nav class="large-nav">
+                    <?php
+                        wp_nav_menu(array('walker' => new Walker_Quickstart_Menu()));
+                        if (!empty(site_ops_cta_text(false)) && in_array("cta", $header_items)) {
+                            ?>
+                            <!-- <a href="<?php site_ops_cta_url(); ?>" class="schedule btn sm outline"><?php site_ops_cta_text(); ?></a> -->
+                            <?php
+                        }
+                        ?>
+                    </nav>
+                    <nav class="mobile-nav">
+                        <a href="#" id="panel-main"><i class="fas fa-bars"></i><span>Menu</span></a>
+                        
+                        <?php if (wp_is_mobile()) { ?>
+                            <a href="tel:<?php site_ops_new_patient_phone(); ?>"><i class="fas fa-phone"></i><span class="tracknum">Call</span></a>
+                        <?php }
+                        
+                        if (!empty(site_ops_cta_text(false)) && in_array("cta", $header_items)) { ?>
+                            <a href="<?php site_ops_cta_url(); ?>"><i class="far fa-calendar-alt"></i><span>Book</span></a>
+                        <?php } ?>
+                        <a href="#" id="panel-more"><i class="fas fa-info"></i><span>Contact</span></a>
+                    </nav>
+                </div>
+            </div>
+            <?php
     }
     do_action('after_header');
     ?>
