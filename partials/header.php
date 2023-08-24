@@ -1,6 +1,6 @@
 <?php
 $appearance_info = get_option('appearance_info');
-$nav_style = $appearance_info['nav_style'];
+$header_style = $appearance_info['nav_style'];
 $header_items = $appearance_info['header_items'];
 $extra_header_classes = '';
 if (!empty(site_ops_notification_message(false))) { 
@@ -10,16 +10,20 @@ if (!empty(site_ops_notification_message(false))) {
 }
 //set up defaults
 $option = get_option('appearance_info');
-$color = $option['nav_color'];
-$headertop_color = $option['headertop_color'];
-$util_nav_color = $option['utility_nav_color'];
-$lightness = getColorLightness($color);
-$util_nav_lightness = getColorLightness($util_nav_color);
+$header_color = $option['nav_color'];
+$lightness = getColorLightness($header_color);
+$alternate_nav_color = $option['alternate_nav_color'];
+$alternate_nav_text_color = $option['alternate_nav_text_color'];
+$header_text_color = $option['header_text_color'];
 $popup = $option['cta_popup'];
-$tab1_text = $option['navtab1_text'];
-$tab2_text = $option['navtab2_text'];
-$tab1_url = $option['navtab1_url'];
-$tab2_url = $option['navtab2_url'];
+$left_btn_text = $option['left_btn_text'];
+$right_btn_text = $option['right_btn_text'];
+$left_btn_url = $option['left_btn_url'];
+$right_btn_url = $option['right_btn_url'];
+$left_btn_bckgrnd_color = $option['left_btn_bckgrnd_color'];
+$left_btn_txt_color = $option['left_btn_txt_color'];
+$right_btn_bckgrnd_color = $option['right_btn_bckgrnd_color'];
+$right_btn_txt_color = $option['right_btn_txt_color'];
 ?>
 <header class="header
     <?php
@@ -42,7 +46,7 @@ $tab2_url = $option['navtab2_url'];
         }
     }
     do_action('before_header');
-    if ($nav_style == 'header-style-a') {
+    if ($header_style == 'header-style-a') {
         ?>
         <div class="header-logo">
             <h1><a href="/" class="logo"><img src="<?php site_ops_logo(); ?>" alt="<?php site_ops_practice_name(); ?>" /></a></h1>
@@ -110,7 +114,7 @@ $tab2_url = $option['navtab2_url'];
             </div>
         </div>
         <?php
-    } elseif ($nav_style == 'header-style-b') { 
+    } elseif ($header_style == 'header-style-b') { 
         ?>
         <div class="header-style-b-contain">
             <div class="header-logo">
@@ -146,7 +150,7 @@ $tab2_url = $option['navtab2_url'];
             </div>
         </div>
         <?php
-    } elseif ($nav_style == 'header-style-c') {
+    } elseif ($header_style == 'header-style-c') {
         ?>
         <div class="header-logo">
             <h1><a href="/" class="logo"><img src="<?php site_ops_logo(); ?>" alt="<?php site_ops_practice_name(); ?>" /></a></h1>
@@ -212,7 +216,7 @@ $tab2_url = $option['navtab2_url'];
             </div>
         </div>
         <?php
-    } elseif ($nav_style == 'header-style-d') {
+    } elseif ($header_style == 'header-style-d') {
         ?>
         <div class="header-style-contain">
             <div class="header-logo">
@@ -273,8 +277,8 @@ $tab2_url = $option['navtab2_url'];
             }
             ?>
         </div>
-    <?php
-    } elseif ($nav_style == 'header-style-e') {
+        <?php
+    } elseif ($header_style == 'header-style-e') {
         ?>
             <div class="header-logo">
                 <h1><a class="logo" href="/"><img src="<?php site_ops_logo(); ?>" alt="<?php site_ops_practice_name(); ?>" /></a></h1>
@@ -334,120 +338,94 @@ $tab2_url = $option['navtab2_url'];
             </div>
             <?php
     } else {
+        if ($option['alternate_nav_review_url'] || $option['alternate_nav_links']) {
             ?>
-            
-            <div class="location contact-dropdown" >
-                <a href="#" class="drop-link" style="style:<?= $color; ?>;">CONTACT<i class="fa fa-caret-down"></i></a>
-                <div class="drop-content" style="background:rgba(<?= $headertop_color  ?>, 0.5); display: none;">
-                <?php 
-                    $entries = addEntries(true);
-                    foreach ( (array) $entries as $key => $entry ) {  // Drop Down Loop
-                    $title = $url = $linkText ='';
-                    if(isset($entry['title'])){ $title = esc_html( $entry['title'] ); }
-                    if(isset($entry['url'])){ $url = esc_html( $entry['url'] ); }
-                    if(isset($entry['link_text'])){ $linkText = esc_html( $entry['link_text'] ); }
-                ?>
-                
-                <p><?= $title ?>: <a href="<?= $url ?>" target="_blank" rel="noopenner"><span><?= $linkText?></span></a></p>
-                <?php } ?>
-
-                
-                </div>
-            </div>
-            <div id="utility-nav" class="clearfix <?php
-        if ($util_nav_lightness<700) {
-            echo "revert";
-        } ?>" style="background:<?= $util_nav_color ?>;">
-                <div class="utility-left">
-
-                    <a href="/write-a-review">Write a Review</a>
-                    <a href="<?php $itemHref ?>"><?php $itemLink ?></a>
-                </div>
-                <div class="utility-right">
-
-
-
-
-                <?php 
-                    $infobarLinks = infobar(true);
-                    foreach ( (array) $infobarLinks as $key => $link ) {  // Drop Down Loop
-                    $url = $linkText ='';
-                    if(isset($link['infobar_url'])){ $url = esc_html( $link['infobar_url'] ); }
-                    if(isset($link['infobar_text'])){ $linkText = esc_html( $link['infobar_text'] ); }
-                ?>
-
-                        <a href="<?= $url ?>"><?= $linkText  ?></a>
-                
-
-                <?php } ?>
-
-                </div>
-            </div>
-            <a href="<?= $tab1_url ?>" id="fixed-specials-2"><?= $tab1_text ?></a>
-            <a href="<?= $tab2_url ?>" id="fixed-specials"><?= $tab2_text ?></a>
-            <div class="header-logo">
-                <h1><a href="/" class="logo"><img src="<?php site_ops_logo(); ?>" alt="<?php site_ops_practice_name(); ?>" /></a></h1>
-            </div>
-            <div class="header-top">
-                <div id="minidrop">
-                    <div id="h-toll-free">
-                        <span class="tracknum"><?php site_ops_new_patient_phone(); ?></span>
+                <div id="alternate-nav" style="background-color: <?php echo $alternate_nav_color; ?>">
+                    <div class="alternate-left">
+                        <a href="<?php echo $option['alternate_nav_review_url']; ?>" style="color: <?php echo $alternate_nav_text_color; ?>">Write a Review</a>
                     </div>
-                    <div>
-                        <ul class="social clearfix">
-                        <?php if (!empty(site_ops_facebook(false))) { ?>
-                        <li><a href="<?php site_ops_facebook(); ?>" target="_blank" rel="noopener" aria-label="facebook link"><i class="fab fa-facebook-f"></i></a></li>
-                    <?php } ?>
-                    <?php if (!empty(site_ops_twitter(false))) { ?>
-                        <li><a href="<?php site_ops_twitter(); ?>" target="_blank" rel="noopener" aria-label="twitter link"><i class="fab fa-twitter"></i></a></li>
-                    <?php } ?>
-                    <?php if (!empty(site_ops_linkedin(false))) { ?>
-                        <li><a href="<?php site_ops_linkedin(); ?>" target="_blank" rel="noopener" aria-label="linkedin link"><i class="fab fa-linkedin-in"></i></a></li>
-                    <?php } ?>
-                    <?php if (!empty(site_ops_instagram(false))) { ?>
-                        <li><a href="<?php site_ops_instagram(); ?>" target="_blank" rel="noopener" aria-label="instagram link"><i class="fab fa-instagram"></i></a></li>
-                    <?php } ?>
-                    <?php if (!empty(site_ops_google_plus(false))) { ?>
-                        <li><a href="<?php site_ops_google_plus(); ?>" target="_blank" rel="noopener" aria-label="google plus link"><i class="fab fa-google-plus-g"></i></a></li>
-                    <?php } ?>
-                    <?php if (!empty(site_ops_youtube(false))) { ?>
-                        <li><a href="<?php site_ops_youtube(); ?>" target="_blank" rel="noopener" aria-label="youtube link"><i class="fab fa-youtube"></i></a></li>
-                    <?php } ?>
-                    <?php if (!empty(site_ops_yelp(false))) { ?>
-                        <li><a href="<?php site_ops_yelp(); ?>" target="_blank" rel="noopener" aria-label="yelp link"><i class="fab fa-yelp"></i></a></li>
-                    <?php } ?>
-        
-                        </ul>
-                    </div>
-                </div>
-            </div>
-            <div class="header-bottom" style="background:<?= $headertop_color ?>">
-                <div class="row full">
-                    <nav class="large-nav">
-                    <?php
-                        wp_nav_menu(array('walker' => new Walker_Quickstart_Menu()));
-                        if (!empty(site_ops_cta_text(false)) && in_array("cta", $header_items)) {
+                    <div class="alternate-right">
+                        <?php 
+                        $alternate_nav_links = alternateNavLinks(true);
+                        foreach ( (array) $alternate_nav_links as $key => $link ) {
                             ?>
-                            <!-- <a href="<?php site_ops_cta_url(); ?>" class="schedule btn sm outline"><?php site_ops_cta_text(); ?></a> -->
-                            <?php
-                        }
-                        ?>
-                    </nav>
-                    <nav class="mobile-nav">
-                        <a href="#" id="panel-main"><i class="fas fa-bars"></i><span>Menu</span></a>
-                        
-                        <?php if (wp_is_mobile()) { ?>
-                            <a href="tel:<?php site_ops_new_patient_phone(); ?>"><i class="fas fa-phone"></i><span class="tracknum">Call</span></a>
-                        <?php }
-                        
-                        if (!empty(site_ops_cta_text(false)) && in_array("cta", $header_items)) { ?>
-                            <a href="<?php site_ops_cta_url(); ?>"><i class="far fa-calendar-alt"></i><span>Book</span></a>
+                            <a href="<?= $link['alternate_nav_link_url'] ?>" style="color: <?php echo $alternate_nav_text_color; ?>"><?= $link['alternate_nav_link_text'] ?></a>
                         <?php } ?>
-                        <a href="#" id="panel-more"><i class="fas fa-info"></i><span>Contact</span></a>
-                    </nav>
+                    </div>
                 </div>
-            </div>
             <?php
+        }
+        ?>
+        <div class="header-logo">
+            <h1><a href="/" class="logo"><img src="<?php site_ops_logo(); ?>" alt="<?php site_ops_practice_name(); ?>" /></a></h1>
+        </div>
+        <div class="header-top" style="background-color: <?php echo $header_color; ?>">
+            <p class="tracknum patient-number" style="color: <?php echo $header_text_color; ?>">New Patients: <?php site_ops_new_patient_phone(); ?></p>
+            <?php
+            if (!empty(site_ops_current_patient_phone(false)) && in_array("current_patient", $header_items)) {
+                ?>
+                <p class="patient-number" style="color: <?php echo $header_text_color; ?>">Current Patients: <?php site_ops_current_patient_phone(); ?></span></li>
+                <?php
+            }
+            ?>
+            <ul class="social">
+                <?php if (!empty(site_ops_facebook(false))) { ?>
+                    <li style="color: <?php echo $header_text_color; ?>"><a href="<?php site_ops_facebook(); ?>" target="_blank" rel="noopener" aria-label="facebook link"><i class="fab fa-facebook-f"></i></a></li>
+                <?php } ?>
+                <?php if (!empty(site_ops_twitter(false))) { ?>
+                    <li style="color: <?php echo $header_text_color; ?>"><a href="<?php site_ops_twitter(); ?>" target="_blank" rel="noopener" aria-label="twitter link"><i class="fab fa-twitter"></i></a></li>
+                <?php } ?>
+                <?php if (!empty(site_ops_linkedin(false))) { ?>
+                    <li style="color: <?php echo $header_text_color; ?>"><a href="<?php site_ops_linkedin(); ?>" target="_blank" rel="noopener" aria-label="linkedin link"><i class="fab fa-linkedin-in"></i></a></li>
+                <?php } ?>
+                <?php if (!empty(site_ops_instagram(false))) { ?>
+                    <li style="color: <?php echo $header_text_color; ?>"><a href="<?php site_ops_instagram(); ?>" target="_blank" rel="noopener" aria-label="instagram link"><i class="fab fa-instagram"></i></a></li>
+                <?php } ?>
+                <?php if (!empty(site_ops_google_plus(false))) { ?>
+                    <li style="color: <?php echo $header_text_color; ?>"><a href="<?php site_ops_google_plus(); ?>" target="_blank" rel="noopener" aria-label="google plus link"><i class="fab fa-google-plus-g"></i></a></li>
+                <?php } ?>
+                <?php if (!empty(site_ops_youtube(false))) { ?>
+                    <li style="color: <?php echo $header_text_color; ?>"><a href="<?php site_ops_youtube(); ?>" target="_blank" rel="noopener" aria-label="youtube link"><i class="fab fa-youtube"></i></a></li>
+                <?php } ?>
+                <?php if (!empty(site_ops_yelp(false))) { ?>
+                    <li style="color: <?php echo $header_text_color; ?>"><a href="<?php site_ops_yelp(); ?>" target="_blank" rel="noopener" aria-label="yelp link"><i class="fab fa-yelp"></i></a></li>
+                <?php } ?>
+            </ul>
+        </div>
+        <div class="header-bottom">
+            <div class="row full">
+                <nav class="large-nav">
+                <?php
+                    wp_nav_menu(array('walker' => new Walker_Quickstart_Menu()));
+                ?>
+                </nav>
+                <nav class="mobile-nav">
+                    <a href="#" id="panel-main"><i class="fas fa-bars"></i><span>Menu</span></a>                        
+                    <?php if (wp_is_mobile()) { ?>
+                        <a href="tel:<?php site_ops_new_patient_phone(); ?>"><i class="fas fa-phone"></i><span class="tracknum">Call</span></a>
+                    <?php }                        
+                    if (!empty(site_ops_cta_text(false)) && in_array("cta", $header_items)) { ?>
+                        <a href="<?php site_ops_cta_url(); ?>"><i class="far fa-calendar-alt"></i><span>Book</span></a>
+                    <?php } ?>
+                    <a href="#" id="panel-more"><i class="fas fa-info"></i><span>Contact</span></a>
+                </nav>
+            </div>
+        </div>
+        <div class="option-container">
+            <?php
+            if ($left_btn_text) {
+                ?>
+                <a class="btn solid" href="<?php echo $btn_one_url; ?>" style="background-color: <?php echo $left_btn_bckgrnd_color; ?>; color: <?php echo $left_btn_txt_color; ?>"><?php echo $left_btn_text; ?></a>
+                <?php
+            }
+            if ($right_btn_text) {
+                ?>
+                <a class="btn solid" href="<?php echo $btn_two_url; ?>"  style="background-color: <?php echo $right_btn_bckgrnd_color; ?>; color: <?php echo $right_btn_txt_color; ?>"><?php echo $right_btn_text; ?></a>
+                <?php
+            }
+            ?>
+        </div>
+    <?php
     }
     do_action('after_header');
     ?>
