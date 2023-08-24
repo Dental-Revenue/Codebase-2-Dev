@@ -519,13 +519,13 @@ function cmb2_appearance_options() {
 	
 	
 	$box->add_field( array(
-		'name' 					=> 'Navigation',
+		'name' 					=> 'Header',
 		'id'   					=> 'nav',
 		'type' 					=> 'title',
 	));
 	
 	$box->add_field( array(
-		'name' 					=> 'Navigation Style',
+		'name' 					=> 'Header Style',
 		'desc'					=> 'Choose the style of navigation',
 		'id'   					=> 'nav_style',
 		'type' => 'select',
@@ -540,50 +540,27 @@ function cmb2_appearance_options() {
 		),
 		'default' => 'header-style-a'
 	));
-
 	$box->add_field( array(
-		'name' 					=> 'Navigation Color',
+		'name' 					=> 'Header Color',
 		'id'   					=> 'nav_color',
 		'type' 					=> 'colorpicker',
 		'default'				=> '#ffffff',
 		'options' => array('alpha' => true),
 	));
-
-	$box->add_field( array(
-		'name' 					=> 'Header-top Color',
-		'id'   					=> 'headertop_color',
-		'type' 					=> 'colorpicker',
-		'default'				=> '#0000',
-		'options' => array('alpha' => true),
-	));
-	
-
-	$box->add_field( array(
-		'name' 					=> 'Utility Nav Color',
-		'id'   					=> 'utility_nav_color',
-		'type' 					=> 'colorpicker',
-		'default'				=> '#0000',
-		'options' => array('alpha' => true),
-	));
-	
-	
-	
 	$box->add_field( array(
 		'name' 					=> 'CTA button text',
 		'desc'					=> 'Text in CTA buttons. Default: Schedule Appointment',
 		'id'   					=> 'cta_text',
 		'type' 					=> 'text',
 		'default'				=> 'Schedule Appointment'
-	));
-	
+	));	
 	$box->add_field( array(
 		'name' 					=> 'CTA button url',
 		'desc'					=> 'URL in CTA button. Default: /schedule-appointment/',
 		'id'   					=> 'cta_url',
 		'type' 					=> 'text',
 		'default'				=> '/schedule-appointment/'
-	));
-	
+	));	
 	$box->add_field( array(
 		'name' 					=> 'CTA button popup',
 		'desc'					=> 'Instead of CTA button url, open as a popup form? Note: Only works on Navigation Style F (for now)',
@@ -595,9 +572,8 @@ function cmb2_appearance_options() {
 		),
 		'default' => 'popup'
 	));
-
 	$box->add_field( array(
-		'name'    => 'Optional Header Items',
+		'name'    => 'Header Items',
 		'desc'    => 'Logo, Navigation and New Patent # are required items.',
 		'id'      => 'header_items',
 		'type'    => 'multicheck_inline',
@@ -607,142 +583,121 @@ function cmb2_appearance_options() {
 			'cta' => 'CTA Button',
 		),
 	));
-
+	$box->add_field(array(
+		'name' 	=> 'Header Style F Options',
+		'id' 	=> 'header-style-f-options',
+		'type' 	=> 'title',
+	));
 	$box->add_field( array(
-		'name' => 'Dropdown Links',
-		'desc' => 'Add links to the Cab Cover header dropdown',
-		'type' => 'title',
-		'id'   => 'item_title'
-	) );
-	
+		'name' 					=> 'Alternate Nav Color',
+		'id'   					=> 'alternate_nav_color',
+		'type' 					=> 'colorpicker',
+		'default'				=> '#000000',
+		'options' => array('alpha' => true),
+	));
+	$box->add_field( array(
+		'name' 					=> 'Alternate Nav Text Color',
+		'id'   					=> 'alternate_nav_text_color',
+		'type' 					=> 'colorpicker',
+		'default'				=> '#ffffff',
+		'options' => array('alpha' => true),
+	));
+	$box->add_field(array(
+		'name' 			=> 'Alternate Nav Review URL',
+		'id' 			=> 'alternate_nav_review_url',
+		'description' 	=> 'Alternate Nav Review URL',
+		'type' 			=> 'text_url',
+	));
 	$group_field_id = $box->add_field( array(
-		'id'          => 'nav_dropdown_link',
+		'id'          => 'alternate_nav_links',
 		'type'        => 'group',
-		// 'description' => __( 'Generates reusable links', 'cmb2' ),
-		// 'repeatable'  => false, // use false if you want non-repeatable group
 		'options'     => array(
-			'group_title'       => __( 'Nav Link {#}', 'cmb2' ), // since version 1.1.4, {#} gets replaced by row number
+			'group_title'       => __( 'Alternate Nav Link {#}', 'cmb2' ),
 			'add_button'        => __( 'Add Another Link', 'cmb2' ),
 			'remove_button'     => __( 'Remove Link', 'cmb2' ),
 			'sortable'          => true,
-			'closed'         => true, // true to have the groups closed by default
-			// 'remove_confirm' => esc_html__( 'Are you sure you want to remove?', 'cmb2' ), // Performs confirmation before removing group.
+			'closed'         => true, 
 		),
-	) );
-
-	// Id's for group's fields only need to be unique for the group. Prefix is not needed.
-	$box->add_group_field( $group_field_id, array(
-		'name' => 'Entry Title',
-		'id'   => 'title',
-		'type' => 'text',
-		// 'repeatable' => true, // Repeatable fields are supported w/in repeatable groups (for most types)
-	) );
-	
-	$box->add_group_field( $group_field_id, array(
-		'name' => 'URL',
-		'description' => 'Enter a URL',
-		'id'   => 'url',
-		'type' => 'text_url',
-	) );
-
-		
+	));
 	$box->add_group_field( $group_field_id, array(
 		'name' => 'Link Text',
 		'description' => 'Enter a short phrase',
-		'id'   => 'link_text',
+		'id'   => 'alternate_nav_link_text',
 		'type' => 'text',
-	) );
-
-	$box->add_field( array(
-		'name' 					=> 'Header-F Navigation Tabs',
-		'id'   					=> 'headerftabs',
-		'type' 					=> 'title',
 	));
-	
-	$box->add_field( array(
-		'name' => 'Tab 1 Text',
-		'desc' => 'Enter a Nav Tab title',
-		'id'   => 'navtab1_text',
-		'type' => 'text',
-		'default' => 'specials',
-	) );
-
-	$box->add_field( array(
-		'name' => ' Tab 1 URL',
+	$box->add_group_field( $group_field_id, array(
+		'name' => 'URL',
 		'description' => 'Enter a URL',
-		'id'   => 'navtab1_url',
+		'id'   => 'alternate_nav_link_url',
+		'type' => 'text_url',
+	));
+	$box->add_field( array(
+		'name' 					=> 'Header Text Color',
+		'id'   					=> 'header_text_color',
+		'type' 					=> 'colorpicker',
+		'default'				=> '#000000',
+		'options' => array('alpha' => true),
+	));
+	$box->add_field( array(
+		'name' => 'Left Button Text',
+		'desc' => 'Left button label',
+		'id'   => 'left_btn_text',
+		'type' => 'text'
+	));
+	$box->add_field( array(
+		'name' => 'Left Button URL',
+		'description' => 'Left button URL',
+		'id'   => 'left_btn_url',
 		'type' => 'text_url',
 		'default' => '#'
-	) );
-
-	
+	));
+	$box->add_field( array(
+		'name' 					=> 'Left Button Background Color',
+		'id'   					=> 'left_btn_bckgrnd_color',
+		'type' 					=> 'colorpicker',
+		'default'				=> '#ffffff',
+		'options' => array('alpha' => true),
+	));
+	$box->add_field( array(
+		'name' 					=> 'Left Button Text Color',
+		'id'   					=> 'left_btn_txt_color',
+		'type' 					=> 'colorpicker',
+		'default'				=> '#000000',
+		'options' => array('alpha' => true),
+	));
 	$box->add_field(  array(
-		'name' => 'Tab 2 Text',
-		'desc' => 'Enter a Nav Tab title',
+		'name' => 'Right Button Text',
+		'desc' => 'Right button label',
 		'type' => 'text',
-		'default' => 'request appointment',
-		'id'   => 'navtab2_text',
-		
-	) );
-
+		'default' => 'Request Appointment',
+		'id'   => 'right_btn_text',		
+	));
 	$box->add_field( array(
-		'name' => ' Tab 2 URL',
-		'description' => 'Enter a URL',
-		'id'   => 'navtab2_url',
+		'name' => 'Right Button URL',
+		'description' => 'Right Button URL',
+		'id'   => 'right_btn_url',
 		'type' => 'text_url',
-		'default' => '#',
-	) );
-	
+		'default' => '/request-appointment',
+	));
 	$box->add_field( array(
-		'name' => 'Infobar Links',
-		'desc' => 'Add more links to the Infobar',
-		'type' => 'title',
-		'id'   => 'infobar_title'
-	) );
-
-		
-	$group_field_id = $box->add_field( array(
-		'id'          => 'infobar_link',
-		'type'        => 'group',
-		// 'description' => __( 'Generates reusable links', 'cmb2' ),
-		// 'repeatable'  => false, // use false if you want non-repeatable group
-		'options'     => array(
-			'group_title'       => __( 'Infobar Link {#}', 'cmb2' ), // since version 1.1.4, {#} gets replaced by row number
-			'add_button'        => __( 'Add Another Link', 'cmb2' ),
-			'remove_button'     => __( 'Remove Link', 'cmb2' ),
-			'sortable'          => true,
-			'closed'         => true, // true to have the groups closed by default
-			// 'remove_confirm' => esc_html__( 'Are you sure you want to remove?', 'cmb2' ), // Performs confirmation before removing group.
-		),
-	) );
-
-
-
-	$box->add_group_field( $group_field_id, array(
-		'name' => 'Link Text',
-		'description' => 'Enter a short phrase',
-		'id'   => 'infobar_text',
-		'type' => 'text',
-	) );
-	
-
-	$box->add_group_field( $group_field_id, array(
-		'name' => 'URL',
-		'description' => 'Enter a URL',
-		'id'   => 'infobar_url',
-		'type' => 'text_url',
-	) );
-
-	
-	
+		'name' 					=> 'Right Button Background Color',
+		'id'   					=> 'right_btn_bckgrnd_color',
+		'type' 					=> 'colorpicker',
+		'default'				=> '#ffffff',
+		'options' => array('alpha' => true),
+	));
+	$box->add_field( array(
+		'name' 					=> 'Right Button Text Color',
+		'id'   					=> 'right_btn_txt_color',
+		'type' 					=> 'colorpicker',
+		'default'				=> '#000000',
+		'options' => array('alpha' => true),
+	));
 	$box->add_field( array(
 		'name' => 'Behaviors',
 		'type' => 'title',
 		'id'   => 'behaviors_title'
-	) );
-
-
-	
+	));	
 	$box->add_field( array(
 		'name' 					=> 'Scroll Behavior',
 		'desc'					=> 'Choose how you would like the navigation change once scrolled down the page',
@@ -754,29 +709,25 @@ function cmb2_appearance_options() {
 			'no-stick' => 'Do Not Stick Nav to Top',
 		),
 		'default' => 'slim'
-	));
-	
+	));	
 	$box->add_field( array(
 		'name' 					=> 'Notification Message',
 		'desc'					=> 'Put a phrase in to activate the notification bar.',
 		'id'   					=> 'nav_notification',
 		'type' => 'wysiwyg',
 		'options' => array('teeny' => true,'textarea_rows' =>4)
-	));
-	
+	));	
 	$box->add_field( array(
 		'name' 					=> 'Notification Message End Date',
 		'desc'					=> 'When do you want the notification to end? Leave blank to have no end date.',
 		'id'   					=> 'nav_notification_timestamp',
 		'type' => 'text_date_timestamp'
-	));
-	
+	));	
 	$box->add_field( array(
 		'name' 					=> 'Module Specific',
 		'id'   					=> 'module_title',
 		'type' 					=> 'title',
-	));
-	
+	));	
 	$box->add_field( array(
 		'name' 					=> 'Headline Style',
 		'desc'					=> 'Bold or Skinny Headline Style',

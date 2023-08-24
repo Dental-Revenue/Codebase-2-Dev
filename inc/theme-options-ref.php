@@ -169,15 +169,6 @@ function site_ops_nav_color($echo = true){
 	if(!empty($option['nav_color'])){if($echo){echo $option['nav_color'];}else{return $option['nav_color'];}}else{if($echo){echo '#000000';}else{return '#000000';}}
 }
 
-function site_ops_headertop_color($echo = true){
-	$option = get_option('appearance_info'); 
-	if(!empty($option['headertop_color'])){if($echo){echo $option['headertop_color'];}else{return $option['nav_color'];}}else{if($echo){echo '#000000';}else{return '#000000';}}
-}
-function site_ops_utility_nav_color($echo = true){
-	$option = get_option('appearance_info'); 
-	if(!empty($option['utility_nav_color'])){if($echo){echo $option['utility_nav_color'];}else{return $option['utility_nav_color'];}}else{if($echo){echo '#000000';}else{return '#000000';}}
-}
-
 function site_ops_heading_font($echo = true){
 	$option = get_option('appearance_info'); 
 	if(!empty($option['heading_font'])){if($echo){echo $option['heading_font'];}else{return $option['heading_font'];}}else{if($echo){echo 'Raleway';}else{return 'Raleway';}}
@@ -227,31 +218,9 @@ function addEntries($echo = true){
 	if(!empty($option['nav_dropdown_link'])){return $option['nav_dropdown_link'];}else{return '';}
 }
 
-function infobar($echo = true){
+function alternateNavLinks($echo = true){
 	$option = get_option('appearance_info');
-	if(!empty($option['infobar_link'])){return $option['infobar_link'];}else{return '';}
-}
-
-function navtab1_text($echo = true){
-	$option = get_option('appearance_info'); 
-	if(!empty($option['navtab1_text'])){if($echo){echo $option['navtab1_text'];}else{return $option['navtab1_text'];}}else{if($echo){echo '';}else{return '';}}
-}
-
-
-function navtab1_url($echo = true){
-	$option = get_option('appearance_info'); 
-	if(!empty($option['navtab1_url'])){if($echo){echo $option['navtab1_url'];}else{return $option['navtab1_url'];}}else{if($echo){echo '';}else{return '';}}
-}
-
-function navtab2_text($echo = true){
-	$option = get_option('appearance_info'); 
-	if(!empty($option['navtab2_text'])){if($echo){echo $option['navtab2_text'];}else{return $option['navtab2_text'];}}else{if($echo){echo '';}else{return '';}}
-}
-
-
-function navtab2_url($echo = true){
-	$option = get_option('appearance_info'); 
-	if(!empty($option['navtab2_url'])){if($echo){echo $option['navtab2_url'];}else{return $option['navtab2_url'];}}else{if($echo){echo '';}else{return '';}}
+	if(!empty($option['alternate_nav_links'])){return $option['alternate_nav_links'];}else{return '';}
 }
 
 function site_ops_side_tabs_repeat($echo = true){
