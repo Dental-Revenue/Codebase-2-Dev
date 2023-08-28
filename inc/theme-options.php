@@ -113,18 +113,12 @@ function cmb2_practice_options() {
 			'desc'					=> 'Copy/Paste Google Map embed url here',
 			'default'				=> 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3101.855715091177!2d-76.48322958464746!3d38.97296247955894!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c803f40fba8ec9%3A0xed2615b8c0e64e5f!2sDental%20Revenue!5e0!3m2!1sen!2sus!4v1625243096578!5m2!1sen!2sus'
 	));
-
-	$box->add_field(array(
-        'name' => 'Google Map Picture',
-        'id'   => 'google_map_picture',
-        'type' => 'file',
-        'desc' => 'Crop the photo needed for the footer, if using footer style B',
-        'options' => array('url' => false),
-		'query_args' => array(
-			'type' => array('image/gif','image/jpeg','image/png')
-		)
-    ));
-	
+	$box->add_field( array(
+		'name'    => 'Google Map Picture',
+		'desc'    => 'Crop the photo needed for the footer, if using footer style B',
+		'id'      => 'google_map_picture',
+		'type'    => 'file',
+	) );
 	$box->add_field(array(
         'name'    => 'Google Map URL',
         'id'      => 'google_map_url',
@@ -751,29 +745,24 @@ function cmb2_appearance_options() {
 		),
 		'default' => 'uppercase'
 	));
-
-
-
 	$box->add_field( array(
 		'name' => 'Footer Options',
 		// 'desc' => 'Additional Options',
 		'type' => 'title',
 		'id'   => 'footer_title',
 	) );
-
-
 	$box->add_field( array(
-		'name'    => 'Style',
-		'id'      => 'footer_style',
-		'type'    => 'radio_inline',
-		'options' => array(
-			'standard' => __( 'Standard', 'cmb2' ),
-			'custom'   => __( 'Footer-B', 'cmb2' ),
-			// 'none'     => __( 'Option Three', 'cmb2' ),
-		),
-		'default' => 'standard',
-	) );
+		'name' 					=> 'Footer Style',
+		'desc'					=> 'Choose the style of the footer',
+		'id'   					=> 'footer_style',
+		'type' => 'select',
+		'options'          => array(
+			'footer-style-a' => 'Style A',
+			'footer-style-b' => 'Style B'
 
+		),
+		'default' => 'footer-style-a'
+	));
 }
 
 add_action( 'cmb2_admin_init', 'cmb2_appearance_options' );
