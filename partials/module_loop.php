@@ -18,7 +18,8 @@ foreach ($modules as $m) {
         $image_opacity = (get_post_meta(get_the_id(), $instance.'_bg_image_opacity', true)!='') ? (get_post_meta(get_the_id(), $instance.'_bg_image_opacity', true)/100) : 1;
         $lightness = getColorLightness($color);
         $overlap = get_post_meta(get_the_ID(), $instance.'_overlap', true);
-        $bottom_margin = get_post_meta(get_the_ID(), $instance.'_bottom_margin', true);        
+        $bottom_margin = get_post_meta(get_the_ID(), $instance.'_bottom_margin', true);
+        $sis_padding = get_post_meta(get_the_ID(), $instance.'_sis_padding', true);
         if (!empty($color2)) { 
             $lightness2 = getColorLightness($color2); 
             $lightness = ($lightness+$lightness2)/2;
@@ -41,7 +42,7 @@ foreach ($modules as $m) {
         do_action('before_i'.$instance);
     
         //get the guts of the module
-        echo "<div class='module-content'>";
+        echo "<div class='module-content' style='padding-top: ".$sis_padding."px; padding-bottom: ".$sis_padding."px;'>";
             get_partial('/partials/'.$m->module, [ 'instance' => $m->id ]);
         echo "</div>";
         
