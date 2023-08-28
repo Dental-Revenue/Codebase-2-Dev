@@ -150,7 +150,10 @@ footer .footer-bottom {
 // footer-b Footer
 
 /* new footer styles */
-
+#footer-b {
+  background-size: cover;
+  background-repeat: no-repeat;
+}
 #footer-b .footer-top > div {
   width: 100%;
 }
@@ -171,21 +174,12 @@ footer .footer-bottom {
   justify-content: space-around;
   align-items: center;
 }
-footer.tr-footer {
-  border-top: 1em solid $main-color;
-}
 #footer-b > div.row > div > div:nth-child(2) > .footer-column > div > a {
   background-color: $main-color;
 }
 #footer-b > .row > div > div:nth-child(2) > .footer-contact.clearfix > h3,
 #footer-b > div.row > div > div:nth-child(2) > div.footer-column > div > h3 {
   color: $main-color;
-}
-#footer-b {
-  background-image: url("/wp-content/uploads/2023/03/map_template-scaled.jpg");
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: top -140px right 0;
 }
 #footer-b
   > .footer-right
@@ -283,6 +277,9 @@ footer.tr-footer {
 /* Media Queries */
 
 @media (min-width: 1200px) {
+  #footer-b {
+    background-position: top -140px right 0;
+  }
   #footer-b .footer-column {
     padding: 0px 1em;
   }
