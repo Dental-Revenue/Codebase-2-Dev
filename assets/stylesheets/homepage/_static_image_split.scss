@@ -112,57 +112,60 @@
         display: none;
     }
 }
-@media screen and (max-width: 1199px) {
-    .module.static_image_split .module-content {
-        padding: 70px 0 0;
-    }
+@media screen and (max-width: 1350px) {
     .sis-container {
         flex-direction: column;
         max-height: unset;
         padding-top: unset;
-    }
-    .sis-side {
-        width: 100%;
 
-        .text-container {
-            display: flex;
-            flex-direction: column;
-            text-align: center;
-            margin: 36px auto;
-            position: relative;
+        .sis-side {
+            width: 100%;
 
-            h3 {
-                font-size: 24px;
+            .text-container {
+                display: flex;
+                flex-direction: column;
+                text-align: center;
+                margin: 36px auto;
+                position: relative;
+    
+                h3 {
+                    font-size: 24px;
+                }
+        
+                p {
+                    font-size: 16px;
+                }
+    
+                .contact-container {
+                    .contact-option {
+                        display: block;
+                    }
+    
+                    + .btn {
+                        margin-top: 1em;
+                    }
+                }
             }
     
-            p {
-                font-size: 16px;
-            }
-
-            .contact-container {
-                .contact-option {
-                    display: block;
-                }
-
-                + .btn {
-                    margin-top: 1em;
+            .popup-youtube {
+                iframe {
+                    height: auto;
                 }
             }
-        }
-
-        .popup-youtube {
-            iframe {
-                height: auto;
+    
+            img {
+                max-width: 400px;
+            }
+    
+            div + .text-container,
+            noscript + .text-container {
+                position: absolute;
             }
         }
-
-        img {
-            max-width: 400px;
-        }
-
-        div + .text-container,
-        noscript + .text-container {
-            position: absolute;
-        }
+    }
+}
+@media screen and (max-width: 1199px) {
+    .module.static_image_split .module-content {
+        padding: 70px 0 0;
     }
 }
