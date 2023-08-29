@@ -18,7 +18,6 @@ foreach ($modules as $m) {
         $image_opacity = (get_post_meta(get_the_id(), $instance.'_bg_image_opacity', true)!='') ? (get_post_meta(get_the_id(), $instance.'_bg_image_opacity', true)/100) : 1;
         $lightness = getColorLightness($color);
         $overlap = get_post_meta(get_the_ID(), $instance.'_overlap', true);
-        $bottom_margin = get_post_meta(get_the_ID(), $instance.'_bottom_margin', true);
         $sis_padding = get_post_meta(get_the_ID(), $instance.'_sis_padding', true);
         if (!empty($color2)) { 
             $lightness2 = getColorLightness($color2); 
@@ -28,7 +27,7 @@ foreach ($modules as $m) {
             $classes .= 'invert';
         }
         if (!empty($overlap)) {
-            echo '<div id="i'.$instance.'" class="module '.$m->module.' '.$classes.'" style="'.$colorCSS.' top:'.$overlap.'; width: 80%; margin: 0 auto; margin-bottom:'. $bottom_margin .'" >';
+            echo '<div id="i'.$instance.'" class="module '.$m->module.' '.$classes.'" style="'.$colorCSS.'; margin-top: -'.$overlap.'px;" >';
         } else {
             echo '<div id="i'.$instance.'" class="module '.$m->module.' '.$classes.'" style="'.$colorCSS.'" >';
         }
