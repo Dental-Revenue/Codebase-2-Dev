@@ -1,5 +1,13 @@
 <?php
-
+$box->add_field(
+    array(
+    'name' => 'Overlap',
+    'desc' => 'Just enter a number, this will be how many pixels the module moves',
+    'classes' => 'double-rule',
+    'id' => $prefix.'overlap',
+    'type' => 'text'
+    )
+);
 $box->add_field( array(
 	'name' => 'Main Headline',
 	'id' => $prefix.'headline',

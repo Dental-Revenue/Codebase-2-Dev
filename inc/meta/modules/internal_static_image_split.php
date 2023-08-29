@@ -1,4 +1,13 @@
 <?php
+$box->add_field(
+    array(
+    'name' => 'Overlap',
+    'desc' => 'Just enter a number, this will be how many pixels the module moves',
+    'classes' => 'double-rule',
+    'id' => $prefix.'overlap',
+    'type' => 'text'
+    )
+);
 $box->add_field( array(
     'name' => 'Left Content Type',
     'desc' => 'e.g. Text/Image, Google Maps/360 Tour, YouTube/Vimeo/Video Link, Form, Custom',
