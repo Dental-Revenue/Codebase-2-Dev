@@ -112,14 +112,6 @@
         display: none;
     }
 }
-@media screen and (min-width: 1200px) and (max-width: 1350px) {
-    .sis-side {
-        img {
-            width: 100%;
-            height: auto;
-        }
-    }
-}
 @media screen and (max-width: 1199px) {
     .module.static_image_split .module-content {
         padding: 70px 0 0;
