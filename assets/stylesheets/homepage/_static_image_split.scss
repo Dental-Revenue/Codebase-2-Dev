@@ -118,7 +118,7 @@
         font-size: 38px !important;
     }
 }
-@media screen and (max-width: 1199px) {
+@media screen and (max-width: $bp-laptop) {
     .module.static_image_split {
         .module-content {
             padding: 35px 0 0;
@@ -185,6 +185,16 @@
             div + .text-container,
             noscript + .text-container {
                 position: absolute;
+            }
+        }
+    }
+}
+@media screen and (max-width: $bp-phone) {
+    .sis-container {
+        .sis-side {
+            .text-container {
+                width: 75vw;
+                max-width: 75vw;
             }
         }
     }
