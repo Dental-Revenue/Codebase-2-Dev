@@ -114,11 +114,10 @@ $randomnumber = rand(1, 100);
 
         <!-- Embedded Video -->
         <?php if ($leftWebmVideo || $leftMp4Video) : ?>
-            <video class="fold-video" autoplay loop muted data-audio="true">
+            <video class="fold-video" autoplay loop muted data-audio="true" poster="<?= $leftImage; ?>">
                 <source src="<?= $leftWebmVideo; ?>" type="video/webm">
                 <source src="<?= $leftMp4Video; ?>" type="video/mp4">
             </video>
-            <img src="<?= $leftImage; ?>" alt="<?= $leftImageAlt; ?>">
         <? endif; ?>
 
         <!-- Text -->
@@ -158,25 +157,6 @@ $randomnumber = rand(1, 100);
         <?php endif; ?>
     </div>
     <div id="right-side" class="sis-side">
-        <!-- Image -->
-        <?php if ($rightContentType === 'image') : ?>
-            <img src="<?= $rightImage; ?>" alt="<?= $rightImageAlt; ?>" />
-        <?php endif; ?>
-
-        <!-- Google Maps/360 Tour -->
-        <?php if ($rightContentType === 'iframe' && !$rightMp4Video && !$rightWebmVideo) : ?>
-            <div class="popup-youtube embed-button-none">
-                <?= $rightEmbed; ?>
-            </div>
-        <?php endif; ?>
-
-        <!-- Video Link -->
-        <?php if ($rightContentType === 'youtube' && !$rightMp4Video && !$rightWebmVideo) : ?>
-            <div class="popup-youtube embed-button-play" href="<?= $rightEmbed; ?>">
-                <img src="<?= $rightImage; ?>" alt="<?= $rightImageAlt; ?>" />
-            </div>
-        <?php endif; ?>
-
         <!-- Form -->
         <?php if ($rightContentType == 'form') : ?>
             <div class="main-content schedule-form">
@@ -213,6 +193,25 @@ $randomnumber = rand(1, 100);
                 </form>
             </div>
             <script src='https://www.google.com/recaptcha/api.js' id='recaptcha-js'></script>
+        <?php endif; ?>
+
+        <!-- Image -->
+        <?php if ($rightContentType === 'image') : ?>
+            <img src="<?= $rightImage; ?>" alt="<?= $rightImageAlt; ?>" />
+        <?php endif; ?>
+
+        <!-- Google Maps/360 Tour -->
+        <?php if ($rightContentType === 'iframe' && !$rightMp4Video && !$rightWebmVideo) : ?>
+            <div class="popup-youtube embed-button-none">
+                <?= $rightEmbed; ?>
+            </div>
+        <?php endif; ?>
+
+        <!-- Video Link -->
+        <?php if ($rightContentType === 'youtube' && !$rightMp4Video && !$rightWebmVideo) : ?>
+            <div class="popup-youtube embed-button-none" href="<?= $rightEmbed; ?>">
+                <img src="<?= $rightImage; ?>" alt="<?= $rightImageAlt; ?>" />
+            </div>
         <?php endif; ?>
 
         <!-- Custom -->
