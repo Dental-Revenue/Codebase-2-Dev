@@ -90,6 +90,17 @@ $box -> add_field(
     )
 );
 $box->add_field( array(
+	'name' => 'Left Text Container Padding',
+	'id'   => $prefix.'left_text_padding',
+	'type' => 'text',
+    'attributes' => array(
+        'type' => 'number',
+    ),
+	'default' => '5',
+	'desc' => 'percent padding % (default is 5%)',
+
+));
+$box->add_field( array(
     'name' => 'Left Title',
     'id' => $prefix.'left_title',
     'type' => 'text',
@@ -209,6 +220,17 @@ $box -> add_field(
         'default' => '255,255,255,1'
     )
 );
+$box->add_field( array(
+	'name' => 'Right Text Container Padding',
+	'id'   => $prefix.'right_text_padding',
+	'type' => 'text',
+    'attributes' => array(
+        'type' => 'number',
+    ),
+	'default' => '5',
+	'desc' => 'percent padding % (default is 5%)',
+
+));
 $box->add_field( array(
     'name' => 'Right Title',
     'id' => $prefix.'right_title',

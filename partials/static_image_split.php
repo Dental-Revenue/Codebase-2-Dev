@@ -13,6 +13,8 @@ $rightWebmVideo = get_post_meta(get_the_id(), $instance.'_right_video_webm', tru
 $rightMp4Video = get_post_meta(get_the_id(), $instance.'_right_video_mp4', true);
 $leftRGBA = get_post_meta(get_the_id(), $instance.'_left_rgba', true);
 $rightRGBA = get_post_meta(get_the_id(), $instance.'_right_rgba', true);
+$leftTextPadding = get_post_meta(get_the_id(),$instance.'_left_text_padding',true);
+$rightTextPadding = get_post_meta(get_the_id(),$instance.'_right_text_padding',true);
 $leftTitle = get_post_meta(get_the_id(), $instance.'_left_title', true);
 $rightTitle = get_post_meta(get_the_id(), $instance.'_right_title', true);
 $leftSubtitle = get_post_meta(get_the_ID(), $instance.'_left_subtitle', true);
@@ -122,7 +124,7 @@ $randomnumber = rand(1, 100);
 
         <!-- Text -->
         <?php if ($leftTitle || $leftSubtitle || $leftExcerpt || $leftDisplayPhone === 'yes' || $leftDisplayAddress === 'yes' || $leftBtnText) : ?>
-            <div class="text-container" style="background-color: rgba(<?= $leftRGBA; ?>)">
+            <div class="text-container" style="background-color: rgba(<?= $leftRGBA; ?>); padding: 5% <?php echo $leftTextPadding; ?>% 7% <?php echo $leftTextPadding; ?>%;">
                 <?php if ($leftTitle) : ?>
                     <h3><?= $leftTitle; ?></h3>
                 <?php endif; ?>
@@ -242,7 +244,7 @@ $randomnumber = rand(1, 100);
 
         <!-- Text -->
         <?php if ($rightTitle || $rightSubtitle || $rightExcerpt || $rightDisplayPhone === 'yes' || $rightDisplayAddress === 'yes' || $rightBtnText) : ?>
-            <div class="text-container" style="background-color: rgba(<?= $rightRGBA; ?>)">
+            <div class="text-container" style="background-color: rgba(<?= $rightRGBA; ?>); padding: 5% <?php echo $rightTextPadding; ?>% 7% <?php echo $rightTextPadding; ?>%;">
                 <?php if ($rightTitle) : ?>
                     <h3><?= $rightTitle; ?></h3>
                 <?php endif; ?>
