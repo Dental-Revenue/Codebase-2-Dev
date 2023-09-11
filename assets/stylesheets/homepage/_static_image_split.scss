@@ -35,21 +35,6 @@
         position: absolute;
         z-index: 1;
 
-        h3 {
-            font-size: 36px;
-        }
-
-        .subtitle {
-            font-size: 24px;
-            color: $cta-color;
-            margin: 0;
-        }
-
-        .excerpt {
-            padding-left: 3em;
-            padding-right: 3em;
-        }
-
         .contact-container {
             display: flex;
             flex-direction: column;
@@ -58,14 +43,18 @@
             p {
                 color: $main-color;
             }
+        }
 
-            + .btn {
-                margin-top: 3em;
-            }
+        // If the button is under any element, but not if the button is alone
+        * + .btn {
+            margin-top: 24px;
         }
     }
     .schedule-form {
         background-color: transparent;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
 
         form {
             input,
@@ -91,9 +80,19 @@
         }
     }
 
-    // This is to hide the text container if the form is present
-    script + .text-container {
-        display: none;
+    h3 {
+        font-size: 36px;
+    }
+
+    .subtitle {
+        font-size: 24px;
+        color: $cta-color;
+        margin: 0;
+    }
+
+    .excerpt {
+        padding-left: 3em;
+        padding-right: 3em;
     }
 
     .popup-youtube {
@@ -113,15 +112,21 @@
         display: none;
     }
 }
+@media screen and (min-width: 2100px) {
+    .sis-side .fold-video {
+        width: auto !important;
+        left: 45% !important;
+    }
+}
 @media screen and (max-width: 1439px) {
     .excerpt p > span {
         font-size: 38px !important;
     }
 }
-@media screen and (max-width: $bp-laptop) {
+@media screen and (max-width: 1199px) {
     .module.static_image_split {
         .module-content {
-            padding: 35px 0 0;
+            padding: 70px 0 0;
         }
     }
     .sis-container {
@@ -143,9 +148,10 @@
                 display: flex;
                 flex-direction: column;
                 text-align: center;
-                margin: 36px auto;
+                margin: 36px 0;
+                padding: 50px !important;
                 position: relative;
-                max-width: 74%;
+                width: 100%;
     
                 h3 {
                     font-size: 24px;
@@ -181,21 +187,17 @@
                     height: auto;
                 }
             }
-    
-            div + .text-container,
-            noscript + .text-container {
+
+            * + .text-container {
                 position: absolute;
+                margin: 36px auto;
+                padding: 50px;
             }
         }
     }
 }
-@media screen and (max-width: $bp-phone) {
-    .sis-container {
-        .sis-side {
-            .text-container {
-                width: 75vw;
-                max-width: 75vw;
-            }
-        }
-    }
+
+// This is to hide the text container if the form is present
+script + .text-container {
+    display: none !important;
 }

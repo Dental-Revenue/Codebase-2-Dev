@@ -42,6 +42,17 @@ $randomnumber = rand(1, 100);
         <!-- Form -->
         <?php if ($leftContentType == 'form') : ?>
             <div class="main-content schedule-form">
+                <?php if ($leftTitle) {?>
+                    <h3><?= $leftTitle; ?></h3>
+                <?php } ?>
+                <?php if ($leftSubtitle) {?>
+                    <p class="subtitle"><?= $leftSubtitle; ?></p>
+                <?php } ?>
+                <?php if ($leftExcerpt) {?>
+                    <div class="excerpt">
+                        <?= $leftExcerpt; ?>
+                    </div>
+                <?php } ?>
                 <form action="<?php echo get_form_processor(); ?>" method="post" name="form-schedule">
                     <?php if ($leftFormLogo) : ?>
                         <img src="<?= $leftFormLogo; ?>" alt="Logo" />
@@ -162,6 +173,17 @@ $randomnumber = rand(1, 100);
         <!-- Form -->
         <?php if ($rightContentType == 'form') : ?>
             <div class="main-content schedule-form">
+            <?php if ($rightTitle) {?>
+                    <h3><?= $rightTitle; ?></h3>
+                <?php } ?>
+                <?php if ($rightSubtitle) {?>
+                    <p class="subtitle"><?= $rightSubtitle; ?></p>
+                <?php } ?>
+                <?php if ($rightExcerpt) {?>
+                    <div class="excerpt">
+                        <?= $rightExcerpt; ?>
+                    </div>
+                <?php } ?>
                 <form action="<?php echo get_form_processor(); ?>" method="post" name="form-schedule">
                     <?php if ($rightFormLogo) : ?>
                         <img src="<?= $rightFormLogo; ?>" alt="Logo" />
