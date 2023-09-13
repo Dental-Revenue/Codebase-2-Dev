@@ -13,6 +13,8 @@ $rightWebmVideo = get_post_meta(get_the_id(), $instance.'_right_video_webm', tru
 $rightMp4Video = get_post_meta(get_the_id(), $instance.'_right_video_mp4', true);
 $leftRGBA = get_post_meta(get_the_id(), $instance.'_left_rgba', true);
 $rightRGBA = get_post_meta(get_the_id(), $instance.'_right_rgba', true);
+$leftTextPadding = get_post_meta(get_the_id(),$instance.'_left_text_padding',true);
+$rightTextPadding = get_post_meta(get_the_id(),$instance.'_right_text_padding',true);
 $leftTitle = get_post_meta(get_the_id(), $instance.'_left_title', true);
 $rightTitle = get_post_meta(get_the_id(), $instance.'_right_title', true);
 $leftSubtitle = get_post_meta(get_the_ID(), $instance.'_left_subtitle', true);
@@ -40,6 +42,17 @@ $randomnumber = rand(1, 100);
         <!-- Form -->
         <?php if ($leftContentType == 'form') : ?>
             <div class="main-content schedule-form">
+                <?php if ($leftTitle) {?>
+                    <h3><?= $leftTitle; ?></h3>
+                <?php } ?>
+                <?php if ($leftSubtitle) {?>
+                    <p class="subtitle"><?= $leftSubtitle; ?></p>
+                <?php } ?>
+                <?php if ($leftExcerpt) {?>
+                    <div class="excerpt">
+                        <?= $leftExcerpt; ?>
+                    </div>
+                <?php } ?>
                 <form action="<?php echo get_form_processor(); ?>" method="post" name="form-schedule">
                     <?php if ($leftFormLogo) : ?>
                         <img src="<?= $leftFormLogo; ?>" alt="Logo" />
@@ -114,16 +127,15 @@ $randomnumber = rand(1, 100);
 
         <!-- Embedded Video -->
         <?php if ($leftWebmVideo || $leftMp4Video) : ?>
-            <video class="fold-video" autoplay loop muted data-audio="true">
+            <video class="fold-video" autoplay loop muted data-audio="true" poster="<?= $leftImage; ?>">
                 <source src="<?= $leftWebmVideo; ?>" type="video/webm">
                 <source src="<?= $leftMp4Video; ?>" type="video/mp4">
             </video>
-            <img src="<?= $leftImage; ?>" alt="<?= $leftImageAlt; ?>">
         <? endif; ?>
 
         <!-- Text -->
         <?php if ($leftTitle || $leftSubtitle || $leftExcerpt || $leftDisplayPhone === 'yes' || $leftDisplayAddress === 'yes' || $leftBtnText) : ?>
-            <div class="text-container" style="background-color: rgba(<?= $leftRGBA; ?>)">
+            <div class="text-container" style="background-color: rgba(<?= $leftRGBA; ?>); padding: 5% <?php echo $leftTextPadding; ?>% 7% <?php echo $leftTextPadding; ?>%;">
                 <?php if ($leftTitle) : ?>
                     <h3><?= $leftTitle; ?></h3>
                 <?php endif; ?>
@@ -158,28 +170,20 @@ $randomnumber = rand(1, 100);
         <?php endif; ?>
     </div>
     <div id="right-side" class="sis-side">
-        <!-- Image -->
-        <?php if ($rightContentType === 'image') : ?>
-            <img src="<?= $rightImage; ?>" alt="<?= $rightImageAlt; ?>" />
-        <?php endif; ?>
-
-        <!-- Google Maps/360 Tour -->
-        <?php if ($rightContentType === 'iframe' && !$rightMp4Video && !$rightWebmVideo) : ?>
-            <div class="popup-youtube embed-button-none">
-                <?= $rightEmbed; ?>
-            </div>
-        <?php endif; ?>
-
-        <!-- Video Link -->
-        <?php if ($rightContentType === 'youtube' && !$rightMp4Video && !$rightWebmVideo) : ?>
-            <div class="popup-youtube embed-button-play" href="<?= $rightEmbed; ?>">
-                <img src="<?= $rightImage; ?>" alt="<?= $rightImageAlt; ?>" />
-            </div>
-        <?php endif; ?>
-
         <!-- Form -->
         <?php if ($rightContentType == 'form') : ?>
             <div class="main-content schedule-form">
+            <?php if ($rightTitle) {?>
+                    <h3><?= $rightTitle; ?></h3>
+                <?php } ?>
+                <?php if ($rightSubtitle) {?>
+                    <p class="subtitle"><?= $rightSubtitle; ?></p>
+                <?php } ?>
+                <?php if ($rightExcerpt) {?>
+                    <div class="excerpt">
+                        <?= $rightExcerpt; ?>
+                    </div>
+                <?php } ?>
                 <form action="<?php echo get_form_processor(); ?>" method="post" name="form-schedule">
                     <?php if ($rightFormLogo) : ?>
                         <img src="<?= $rightFormLogo; ?>" alt="Logo" />
@@ -215,6 +219,25 @@ $randomnumber = rand(1, 100);
             <script src='https://www.google.com/recaptcha/api.js' id='recaptcha-js'></script>
         <?php endif; ?>
 
+        <!-- Image -->
+        <?php if ($rightContentType === 'image') : ?>
+            <img src="<?= $rightImage; ?>" alt="<?= $rightImageAlt; ?>" />
+        <?php endif; ?>
+
+        <!-- Google Maps/360 Tour -->
+        <?php if ($rightContentType === 'iframe' && !$rightMp4Video && !$rightWebmVideo) : ?>
+            <div class="popup-youtube embed-button-none">
+                <?= $rightEmbed; ?>
+            </div>
+        <?php endif; ?>
+
+        <!-- Video Link -->
+        <?php if ($rightContentType === 'youtube' && !$rightMp4Video && !$rightWebmVideo) : ?>
+            <div class="popup-youtube embed-button-none" href="<?= $rightEmbed; ?>">
+                <img src="<?= $rightImage; ?>" alt="<?= $rightImageAlt; ?>" />
+            </div>
+        <?php endif; ?>
+
         <!-- Custom -->
         <?php if ($embedtype === 'custom') : ?>
             <div class="static_image_split-img popup-custom-<?php echo $randomnumber; ?> embed-button-plus static_image_split-img-btn-bg"></div>
@@ -243,7 +266,7 @@ $randomnumber = rand(1, 100);
 
         <!-- Text -->
         <?php if ($rightTitle || $rightSubtitle || $rightExcerpt || $rightDisplayPhone === 'yes' || $rightDisplayAddress === 'yes' || $rightBtnText) : ?>
-            <div class="text-container" style="background-color: rgba(<?= $rightRGBA; ?>)">
+            <div class="text-container" style="background-color: rgba(<?= $rightRGBA; ?>); padding: 5% <?php echo $rightTextPadding; ?>% 7% <?php echo $rightTextPadding; ?>%;">
                 <?php if ($rightTitle) : ?>
                     <h3><?= $rightTitle; ?></h3>
                 <?php endif; ?>
