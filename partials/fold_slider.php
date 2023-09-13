@@ -19,7 +19,7 @@ $image = get_post_meta(get_the_id(), $instance.'_image', true);
     <?php
     $blocks = get_post_meta(get_the_id(), $instance.'_fold_slides', true);
     foreach ((array) $blocks as $key => $block ) {
-        $image_atf = wp_get_attachment_image_src($block['image_id'], 'xxl');
+        $image_atf = wp_get_attachment_image_src($block['image_id'], 'atf');
         $image_xxl = wp_get_attachment_image_src($block['image_id'], 'xxl');
         $image_xl = wp_get_attachment_image_src($block['image_id'], 'xl');
         $image_lg = wp_get_attachment_image_src($block['image_id'], 'lg');

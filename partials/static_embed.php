@@ -22,7 +22,7 @@ $randomnumber = rand(1,100);
 <a class="popup-<?php echo $embedtype ?><?php if ($embedtype === 'custom') { echo "-" . $randomnumber; } ?> embed-button-<?php echo $embedicon; ?> embed-button-overlay embed-button-bg" <?php if ($embedtype !== 'custom') { echo 'href="' . $video_link . '"'; } ?>><img src="<?php echo $video_thumbnail; ?>"></a>
 </div>
 <?php if(!empty($additional_text)){ ?><p style="margin-bottom: 0px;"><?php echo $additional_text; ?></p><?php } ?>
-<?php if(!empty($btn_link)){ ?><a class="<?php //if(empty($block['excerpt'])&&!empty($block['title'])){ ?>single_btn<?php //} ?> btn solid" href="<?php echo $btn_link; ?>"><?php echo $btn_text; ?></a><?php } ?>
+<?php if(!empty($btn_link)){ ?><a class="single_btn btn solid" href="<?php echo $btn_link; ?>"><?php echo $btn_text; ?></a><?php } ?>
 
 <?php if ($embedtype === 'custom') { ?>
 <script>
