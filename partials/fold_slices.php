@@ -18,7 +18,7 @@ if (sizeof($slices)<3) {
             } else {
                 $overlay = 30;
             }
-            $image_atf = wp_get_attachment_image_src($s['image_id'], 'xxl');
+            $image_atf = wp_get_attachment_image_src($s['image_id'], 'atf');
             $image_xxl = wp_get_attachment_image_src($s['image_id'], 'xxl');
             $image_xl = wp_get_attachment_image_src($s['image_id'], 'xl');
             $image_lg = wp_get_attachment_image_src($s['image_id'], 'lg');          
@@ -29,7 +29,7 @@ if (sizeof($slices)<3) {
                 echo 'active';
             } ?>" style="height:<?php echo $slider_height; ?>">                
                 <?php if (isset($s['video_webm']) && $s['video_webm']!='' && isset($s['video_mp4']) && $s['video_mp4']!='') { ?>
-                    <video class="fold-video" autoplay loop muted data-audio="true" poster="<?php echo $image[0]; ?>">
+                    <video class="fold-video" autoplay loop muted data-audio="true" poster="<?php echo $image_atf[0]; ?>">
                         <source src="<?php echo $s['video_webm']; ?>" type="video/webm">
                         <source src="<?php echo $s['video_mp4']; ?>" type="video/mp4">
                     </video>
@@ -77,15 +77,15 @@ if (sizeof($slices)<3) {
             } else {
                 $overlay = 30;
             }
-            $image_atf = wp_get_attachment_image_src($slide['image_id'], 'xxl');
+            $image_atf = wp_get_attachment_image_src($slide['image_id'], 'atf');
             $image_xxl = wp_get_attachment_image_src($slide['image_id'], 'xxl');
             $image_xl = wp_get_attachment_image_src($slide['image_id'], 'xl');
             $image_lg = wp_get_attachment_image_src($slide['image_id'], 'lg');          
             $alignment = $slide['alignment'];
             ?>            
-            <div class="fold-slice" style="background-image: url(<?php echo $image[0]; ?>);height:<?php echo $slider_height; ?>">                
+            <div class="fold-slice" style="background-image: url(<?php echo $image_atf[0]; ?>);height:<?php echo $slider_height; ?>">                
                 <?php if (isset($slide['video_webm']) && $slide['video_webm']!='' && isset($slide['video_mp4']) && $slide['video_mp4']!='') { ?>
-                    <video class="fold-video" autoplay loop muted data-audio="true" poster="<?php echo $image[0]; ?>">
+                    <video class="fold-video" autoplay loop muted data-audio="true" poster="<?php echo $image_atf[0]; ?>">
                         <source src="<?php echo $slide['video_webm']; ?>" type="video/webm">
                         <source src="<?php echo $slide['video_mp4']; ?>" type="video/mp4">
                     </video>
@@ -95,7 +95,7 @@ if (sizeof($slices)<3) {
                         echo $s['alt'];
                     } else {
                         echo 'Slideshow Image';
-                    } ?>" src="<?php echo $image[0]; ?>" />
+                    } ?>" src="<?php echo $image_atf[0]; ?>" />
                 <?php  } ?>                
                 <div class="fold-overlay" style="background-color: rgba(0,0,0,<?php echo $overlay/100; ?>);">
                 </div>

@@ -7,6 +7,10 @@
     margin-inline-end: 0;
     font-weight: bold;
 }
+.internal_reviews_testimonials_grid .custom-video-testimonials {
+    display: flex;
+    justify-content: center;
+}
 .internal_reviews_testimonials_grid .cvt-content .name{color: $black;text-transform: uppercase;font-weight: 400;letter-spacing: .05em;}
 .internal_reviews_testimonials_grid .cvt-block .headline {
     font-size: 1.5em;

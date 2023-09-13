@@ -1,6 +1,10 @@
+.module.internal_static_image_split .module-content {
+    padding: 70px 0;
+}
 .sis-container {
     display: flex;
-    max-height: 600px;
+    // max-height: 600px;
+    padding-top: 70px;
 }
 .sis-side {
     width: 50%;
@@ -12,7 +16,9 @@
     img {
         width: auto;
         height: auto;
+        height: auto;
         max-width: 100%;
+        max-height: 100%;
         max-height: 100%;
     }
 
@@ -29,38 +35,66 @@
         place-items: center;
         padding: 50px;
         position: absolute;
-
-        .title {
-            font-size: 36px;
-        }
-
-        .subtitle {
-            font-size: 24px;
-            color: $cta-color;
-            margin: 0;
-        }
-
-        .excerpt {
-            padding-left: 3em;
-            padding-right: 3em;
-        }
+        z-index: 1;
 
         .contact-container {
             display: flex;
             flex-direction: column;
             align-items: center;
 
-            + .btn {
-                margin-top: 3em;
+            p {
+                color: $main-color;
+            }
+        }
+
+        // If the button is under any element, but not if the button is alone
+        * + .btn {
+            margin-top: 24px;
+        }
+    }
+    .schedule-form {
+        background-color: transparent;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        form {
+            input,
+            textarea {
+                background-color: lightgray;
+            }
+
+            textarea {
+                width: 100% !important;
+            }
+    
+            img {
+                margin: 0 auto;
+                padding-bottom: 24px;
+            }
+            
+            button,
+            .btn.solid {
+                background-color: $main-color;
+                color: $white;
+                border: 2px solid $white;
             }
         }
     }
 
-    form {
-        img {
-            margin: 0 auto;
-            padding-bottom: 24px;
-        }
+    h3 {
+        font-size: 36px;
+    }
+
+    .subtitle {
+        font-size: 24px;
+        color: $cta-color;
+        margin: 0;
+    }
+
+    .excerpt {
+        padding-left: 3em;
+        padding-right: 3em;
     }
 
     .popup-youtube {
@@ -68,40 +102,104 @@
             max-width: 100%;
         }
     }
+
+    .btn {
+        background-color: $white;
+        color: $main-color;
+        border: 2px solid $main-color;
+    }
+}
+@media screen and (min-width: 1200px) {
+    video + img {
+        display: none;
+    }
+}
+@media screen and (min-width: 2100px) {
+    .sis-side .fold-video {
+        width: auto !important;
+        left: 45% !important;
+    }
+}
+@media screen and (max-width: 1439px) {
+    .excerpt p > span {
+        font-size: 38px !important;
+    }
 }
 @media screen and (max-width: 1199px) {
+    .module.static_image_split {
+        .module-content {
+            padding: 70px 0 0;
+        }
+    }
     .sis-container {
         flex-direction: column;
         max-height: unset;
-    }
-    .sis-side {
-        width: 100%;
+        padding-top: unset;
 
-        .text-container {
-            display: flex;
+        .sis-side {
+            width: 100%;
             flex-direction: column;
-            text-align: center;
-            margin: 36px auto;
 
-            p {
-                font-size: 16px;
+            .fold-video {
+                transform: unset !important;
+                top: 0 !important;
+                left: 0 !important;
             }
 
-            .title {
-                font-size: 24px;
-            }
+            .text-container {
+                display: flex;
+                flex-direction: column;
+                text-align: center;
+                margin: 36px 0;
+                padding: 50px !important;
+                position: relative;
+                width: 100%;
+    
+                h3 {
+                    font-size: 24px;
+                }
+        
+                p {
+                    font-size: 16px;
+                }
+    
+                .contact-container {
+                    .contact-option {
+                        display: block;
+                    }
+    
+                    + .btn {
+                        margin-top: 1em;
+                    }
+                }
 
-            .contact-container {
-                + .btn {
-                    margin-top: 1em;
+                .excerpt {
+                    padding: 0;
+
+                    p {
+                        span {
+                            text-align: center;
+                        }
+                    }
                 }
             }
-        }
+    
+            .popup-youtube {
+                iframe {
+                    height: auto;
+                }
+            }
 
-        .popup-youtube {
-            iframe {
-                height: auto;
+            * + .text-container {
+                position: absolute;
+                margin: 36px auto;
+                padding: 50px;
             }
         }
     }
+}
+
+// This is to hide the text container if the form is present
+script + .text-container {
+    display: none !important;
 }
