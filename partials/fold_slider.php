@@ -54,13 +54,13 @@ $image = get_post_meta(get_the_id(), $instance.'_image', true);
             } ?>">
             <?php if (!empty($block['title'])) {
                 if ($key === array_key_first($blocks)) { ?>
-                    <h2 style="
+                    <p class="title" style="
                         <?php if (!wp_is_mobile()) { ?>
                             <?php echo $block['title_styling']; ?>
                         <?php } else { ?>
                             <?php echo $block['title_styling_mobile']; ?>
                         <?php } ?>"><?php echo $block['title']; ?>
-                    </h2>
+                    </p>
                 <?php } else { ?>
                     <p style="
                         <?php if (!wp_is_mobile()) { ?>

@@ -24,3 +24,9 @@
 .internal_reviews_testimonials_grid .cvt-block.static .headline{color: $black;text-align: left; padding: 0; opacity: 1; &:after {display: none;}}		
 .internal_reviews_testimonials_grid.invert .cvt-block.static .headline {color:$white;}
 .internal_reviews_testimonials_grid.invert .cvt-content .name {color:$white;}
+
+@media screen and (max-width: $bp-phablet) {
+    .internal_reviews_testimonials_grid .custom-video-testimonials {
+        flex-direction: column;
+    }
+}
