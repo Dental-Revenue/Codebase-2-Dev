@@ -1,9 +1,22 @@
-.headline {
-    display: block;
-    font-size: 1.5em;
-    margin-block-start: 0.83em;
-    margin-block-end: 0.83em;
-    margin-inline-start: 0;
-    margin-inline-end: 0;
-    font-weight: bold;
+.internal_static_intro_section {
+    text-align: center;
+    
+    p.headline-bold {
+        font-size: 28px;
+        margin: 0;
+        padding: 30px 5% 0px;
+        line-height: 130%;
+        text-align: center;
+        font-style: normal;
+        font-weight: bold;
+    }
+
+    p.sisection-subtitle {
+        padding: 7px 0 0 0;
+        font-style: italic;
+        line-height: 130%;
+        margin: 0;
+        font-size: 16.4px;
+        font-weight: normal;
+    }
 }
