@@ -1,5 +1,5 @@
 .internal_static_blocks_list .static_blocks_list-text .headline {
-    font-size: 1.5em;
+    font-size: 28px;
     padding: 30px 5% 0px;
     margin-top: 0.83em;
     margin-left: 0;
@@ -10,6 +10,7 @@
     text-align: center;
     color: $main-color; 
     display: block;
+    font-style: normal;
 }
 .internal_static_blocks_list .static_blocks_list-text .headline span {
     display: block;
