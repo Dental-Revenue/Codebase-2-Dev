@@ -26,7 +26,7 @@ $instance = $template_args['instance'];
 					<div class="g-panel-img" target="_blank" rel="noopener"><img src="https://maps.gstatic.com/mapfiles/place_api/icons/generic_business-71.png" alt="<?php echo $option['practice_name']; ?>" /></div>
 					<div class="g-panel-detail">
 						<?php if ($option['practice_name']) : ?>
-							<h3><?php echo $option['practice_name']; ?></h3>
+							<p class="rg_heading"><?php echo $option['practice_name']; ?></p>
 						<?php endif; ?>
 						<img src="<?php echo get_template_directory_uri(); ?>/assets/images/layout/g-logo.png" alt="Google Logo" class="g-logo" />
 					</div>
