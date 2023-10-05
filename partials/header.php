@@ -49,7 +49,13 @@ $right_btn_txt_color = $option['right_btn_txt_color'];
     if ($header_style == 'header-style-a') {
         ?>
         <div class="header-logo">
-            <h1><a href="/" class="logo"><img src="<?php site_ops_logo(); ?>" alt="<?php site_ops_practice_name(); ?>" /></a></h1>
+        <?php if (is_front_page()) {?>
+            <h1>
+        <?php } ?>
+        <a href="/" class="logo"><img src="<?php site_ops_logo(); ?>" alt="<?php site_ops_practice_name(); ?>" /></a>
+        <?php if (is_front_page()) {?>
+            </h1>
+        <?php } ?>
         </div>
         <div class="header-top">
             <div class="row full">
@@ -118,7 +124,13 @@ $right_btn_txt_color = $option['right_btn_txt_color'];
         ?>
         <div class="header-style-b-contain">
             <div class="header-logo">
-                <h1><a class="logo" href="/"><img src="<?php site_ops_logo(); ?>" alt="<?php site_ops_practice_name(); ?>" /></a></h1>
+            <?php if (is_front_page()) {?>
+            <h1>
+        <?php } ?>
+        <a href="/" class="logo"><img src="<?php site_ops_logo(); ?>" alt="<?php site_ops_practice_name(); ?>" /></a>
+        <?php if (is_front_page()) {?>
+            </h1>
+        <?php } ?>
             </div>
             <div class="header-bottom">
                 <nav class="large-nav">
@@ -153,7 +165,13 @@ $right_btn_txt_color = $option['right_btn_txt_color'];
     } elseif ($header_style == 'header-style-c') {
         ?>
         <div class="header-logo">
-            <h1><a href="/" class="logo"><img src="<?php site_ops_logo(); ?>" alt="<?php site_ops_practice_name(); ?>" /></a></h1>
+        <?php if (is_front_page()) {?>
+            <h1>
+        <?php } ?>
+        <a href="/" class="logo"><img src="<?php site_ops_logo(); ?>" alt="<?php site_ops_practice_name(); ?>" /></a>
+        <?php if (is_front_page()) {?>
+            </h1>
+        <?php } ?>
         </div>
         <div class="header-top">
             <div class="row">
@@ -220,7 +238,13 @@ $right_btn_txt_color = $option['right_btn_txt_color'];
         ?>
         <div class="header-style-contain">
             <div class="header-logo">
-                <h1><a class="logo" href="/"><img src="<?php site_ops_logo(); ?>" alt="<?php site_ops_practice_name(); ?>" /></a></h1>
+            <?php if (is_front_page()) {?>
+            <h1>
+        <?php } ?>
+        <a href="/" class="logo"><img src="<?php site_ops_logo(); ?>" alt="<?php site_ops_practice_name(); ?>" /></a>
+        <?php if (is_front_page()) {?>
+            </h1>
+        <?php } ?>
             </div>
         </div>
         <div class="header-bottom">
@@ -281,7 +305,13 @@ $right_btn_txt_color = $option['right_btn_txt_color'];
     } elseif ($header_style == 'header-style-e') {
         ?>
             <div class="header-logo">
-                <h1><a class="logo" href="/"><img src="<?php site_ops_logo(); ?>" alt="<?php site_ops_practice_name(); ?>" /></a></h1>
+            <?php if (is_front_page()) {?>
+            <h1>
+        <?php } ?>
+        <a href="/" class="logo"><img src="<?php site_ops_logo(); ?>" alt="<?php site_ops_practice_name(); ?>" /></a>
+        <?php if (is_front_page()) {?>
+            </h1>
+        <?php } ?>
                 <a href="#" id="panel-main"><i class="fas fa-bars"></i></a>
             </div>
             <div class="header-top">
@@ -357,7 +387,13 @@ $right_btn_txt_color = $option['right_btn_txt_color'];
         }
         ?>
         <div class="header-logo">
-            <h1><a href="/" class="logo"><img src="<?php site_ops_logo(); ?>" alt="<?php site_ops_practice_name(); ?>" /></a></h1>
+            <?php if (is_front_page()) {?>
+                <h1>
+            <?php } ?>
+            <a href="/" class="logo"><img src="<?php site_ops_logo(); ?>" alt="<?php site_ops_practice_name(); ?>" /></a>
+            <?php if (is_front_page()) {?>
+                </h1>
+            <?php } ?>
         </div>
         <div class="header-top" style="background-color: <?php echo $header_color; ?>">
             <p class="tracknum patient-number" style="color: <?php echo $header_text_color; ?>">New Patients: <?php site_ops_new_patient_phone(); ?></p>
