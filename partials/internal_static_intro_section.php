@@ -4,7 +4,6 @@
     $headline_style = $appearance_info['headline_style'];
 
     $paragraph = get_post_meta(get_the_id(), $instance.'_paragraph', true);
-    //$paragraph = apply_filters('the_content', get_post_meta(get_the_id(),$instance.'_paragraph',true));
     $paragraph_mobile = get_post_meta(get_the_id(), $instance.'_paragraph_mobile', true);
 ?>
 <?php if ($paragraph_mobile === 'no' && wp_is_mobile()) { ?>

@@ -7,7 +7,7 @@
 			.g-panel-img{float: left;width: 68px;height: 68px;margin: 0 20px 20px 0;display: block;border-radius:50%;overflow: hidden;}
 				.g-panel-img img{display: block;width: 100%;height: auto;}
 			.g-panel-detail{overflow: hidden;}
-				.g-panel-detail h3{margin: 3px 0 4px;font-size: 15px;font-weight: 700; color: $google-red;}
+				.g-panel-detail .rg-heading{font-family: 'Open Sans';line-height: 1.1;margin: 3px 0 4px;font-size: 15px;font-weight: 700; color: $google-red;}
 				.g-panel-detail i{color: $google-red;font-size: 18px;}
 				.g-panel-detail .g-logo{height: 22px;width: auto;display: inline-block;vertical-align: -8px;margin-left: 8px;}
 				.g-panel-detail p{clear: both;margin: 0;font-weight: 300;font-size: 13px;}
@@ -16,7 +16,7 @@
 		
 		//Customer Panel
 		.g-panel.g-customer .g-panel-img{border-radius: 50%;}
-		.g-customer .g-panel-detail h3{color: #427fed;font-weight: 400;}
+		.g-customer .g-panel-detail .rg-heading{color: #427fed;font-weight: 400;}
 		.g-customer-excerpt{font-size: 12px;line-height: 200%;margin: 0;clear: both;}
 	
 	//buttons

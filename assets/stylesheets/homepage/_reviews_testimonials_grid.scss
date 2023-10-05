@@ -1,15 +1,18 @@
 .reviews_testimonials_grid{padding:0;}
 .custom-video-testimonials.grid-padding {padding: 90px 130px;overflow: hidden;}
 .custom-video-testimonials.grid-padding-rect {overflow: hidden;}
+.reviews_testimonials_grid .custom-video-testimonials {
+    display: flex;
+    justify-content: center;
+}
 
 	//general blocks
 	.cvt-block{width: 33.333%;float: left;height: 350px;background-size: cover;background-position: center center;position: relative;overflow: hidden;}
 	.cvt-block-square {
-		width: 16.66%;
+		width: 25%;
 		height: 370px;
 	}
 		.cvt-block span, .cvt-block .rtg-subtitle {display: block;width: 100%;padding: 20px;box-sizing:border-box;color: $black;text-transform: uppercase;letter-spacing: .05em;font-size: 16px;@include center(bottom);font-weight: 600;}
-		.cvt-block-square {width: 25%;}
 
 		.cvt-content{position: absolute;left:0;top:0;width: 100%;height: 100%;padding: 30px;box-sizing: border-box;transform: translateY(-100%);transition: transform .3s;}
 			.cvt-content h3{color: $black;text-transform: uppercase;font-weight: 400;letter-spacing: .05em;}
@@ -88,6 +91,9 @@
 .cvt-content{transform: translateY(0);background-color: rgba($main-color,.5);}
 .cvt-block.static{height: auto;}
 .cvt-block.static a{position: relative;left: auto;bottom: auto;}
+.reviews_testimonials_grid .custom-video-testimonials {
+    flex-direction: column;;
+}
 }
 @media (min-width:500px) and (max-width:767px){
 	.custom-video-testimonials.grid-padding {

@@ -7,16 +7,27 @@
     margin-inline-end: 0;
     font-weight: bold;
 }
+.internal_reviews_testimonials_grid .custom-video-testimonials {
+    display: flex;
+    justify-content: center;
+}
 .internal_reviews_testimonials_grid .cvt-content .name{color: $black;text-transform: uppercase;font-weight: 400;letter-spacing: .05em;}
 .internal_reviews_testimonials_grid .cvt-block .headline {
-    font-size: 1.5em;
+    font-size: 28px;
     display: block;
     margin-block-start: 0.83em;
     margin-block-end: 0.83em;
     margin-inline-start: 0;
     margin-inline-end: 0;
     font-weight: bold;
+    font-style: normal;
 }
 .internal_reviews_testimonials_grid .cvt-block.static .headline{color: $black;text-align: left; padding: 0; opacity: 1; &:after {display: none;}}		
 .internal_reviews_testimonials_grid.invert .cvt-block.static .headline {color:$white;}
 .internal_reviews_testimonials_grid.invert .cvt-content .name {color:$white;}
+
+@media screen and (max-width: $bp-phablet) {
+    .internal_reviews_testimonials_grid .custom-video-testimonials {
+        flex-direction: column;
+    }
+}
