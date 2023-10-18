@@ -12,6 +12,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+	background-image: none !important;
 
     img {
         width: auto;
@@ -117,12 +118,9 @@
 @media screen and (min-width: 2100px) {
     .sis-side .fold-video {
         width: auto !important;
-        left: 45% !important;
-    }
-}
-@media screen and (max-width: 1439px) {
-    .excerpt p > span {
-        font-size: 38px !important;
+        left: unset !important;
+		top: unset !important;
+		transform: unset !important;
     }
 }
 @media screen and (max-width: 1199px) {
@@ -151,7 +149,7 @@
                 flex-direction: column;
                 text-align: center;
                 margin: 36px 0;
-                padding: 50px !important;
+                padding: 50px 0 !important;
                 position: relative;
                 width: 100%;
     
@@ -174,11 +172,10 @@
                 }
 
                 .excerpt {
-                    padding: 0;
-
                     p {
                         span {
                             text-align: center;
+							font-size: 36px !important;
                         }
                     }
                 }
@@ -195,10 +192,19 @@
                 margin: 36px auto;
                 padding: 50px;
             }
+			img + .text-container {
+				position: relative;
+			}
         }
     }
 }
-
+@media screen and (max-width: 767px) {
+	.sis-side {
+		.text-container {
+			min-height: fit-content;
+		}
+	}
+}
 // This is to hide the text container if the form is present
 script + .text-container {
     display: none !important;
