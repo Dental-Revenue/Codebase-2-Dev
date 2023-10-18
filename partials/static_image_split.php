@@ -102,7 +102,7 @@ $randomnumber = rand(1, 100);
 
         <!-- Video Link -->
         <?php if ($leftContentType === 'youtube' && !$leftWebmVideo && !$leftMp4Video) : ?>
-            <div class="popup-youtube embed-button-play" href="<?= $leftEmbed; ?>">
+            <div class="popup-youtube embed-button-none" href="<?= $leftEmbed; ?>">
                 <img src="<?= $leftImage; ?>" alt="<?= $leftImageAlt; ?>" />
             </div>
         <?php endif; ?>
@@ -127,10 +127,14 @@ $randomnumber = rand(1, 100);
 
         <!-- Embedded Video -->
         <?php if ($leftWebmVideo || $leftMp4Video) : ?>
-            <video class="fold-video" autoplay loop muted data-audio="true" poster="<?= $leftImage; ?>">
-                <source src="<?= $leftWebmVideo; ?>" type="video/webm">
-                <source src="<?= $leftMp4Video; ?>" type="video/mp4">
-            </video>
+			<?php if (!wp_is_mobile()) { ?>
+				<video class="fold-video" autoplay loop muted data-audio="true" poster="<?= $leftImage; ?>">
+					<source src="<?= $leftWebmVideo; ?>" type="video/webm">
+					<source src="<?= $leftMp4Video; ?>" type="video/mp4">
+				</video>
+			<?php } else { ?>
+				<img src="<?= $leftImage; ?>" alt="<?= $leftImageAlt; ?>" />
+			<?php } ?>
         <? endif; ?>
 
         <!-- Text -->
@@ -233,7 +237,7 @@ $randomnumber = rand(1, 100);
 
         <!-- Video Link -->
         <?php if ($rightContentType === 'youtube' && !$rightMp4Video && !$rightWebmVideo) : ?>
-            <div class="popup-youtube embed-button-play" href="<?= $rightEmbed; ?>">
+            <div class="popup-youtube embed-button-none" href="<?= $rightEmbed; ?>">
                 <img src="<?= $rightImage; ?>" alt="<?= $rightImageAlt; ?>" />
             </div>
         <?php endif; ?>
@@ -258,10 +262,14 @@ $randomnumber = rand(1, 100);
 
         <!-- Embedded Video -->
         <?php if ($rightWebmVideo || $rightMp4Video) : ?>
-            <video class="fold-video" autoplay loop muted data-audio="true" poster="<?= $rightImage; ?>">
-                <source src="<?= $rightWebmVideo; ?>" type="video/webm">
-                <source src="<?= $rightMp4Video; ?>" type="video/mp4">
-            </video>
+			<?php if (!wp_is_mobile()) { ?>
+				<video class="fold-video" autoplay loop muted data-audio="true" poster="<?= $rightImage; ?>">
+					<source src="<?= $rightWebmVideo; ?>" type="video/webm">
+					<source src="<?= $rightMp4Video; ?>" type="video/mp4">
+				</video>
+			<?php } else { ?>
+				<img src="<?php echo $rightImage; ?>" alt="<?php echo $rightImageAlt; ?>" />
+			<?php } ?>
         <? endif; ?>
 
         <!-- Text -->

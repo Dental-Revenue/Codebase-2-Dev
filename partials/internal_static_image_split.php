@@ -102,7 +102,7 @@ $randomnumber = rand(1, 100);
 
         <!-- Video Link -->
         <?php if ($leftContentType === 'youtube' && !$leftWebmVideo && !$leftMp4Video) : ?>
-            <div class="popup-youtube embed-button-play" href="<?= $leftEmbed; ?>">
+            <div class="popup-youtube embed-button-none" href="<?= $leftEmbed; ?>">
                 <img src="<?= $leftImage; ?>" alt="<?= $leftImageAlt; ?>" />
             </div>
         <?php endif; ?>
@@ -233,7 +233,7 @@ $randomnumber = rand(1, 100);
 
         <!-- Video Link -->
         <?php if ($rightContentType === 'youtube' && !$rightMp4Video && !$rightWebmVideo) : ?>
-            <div class="popup-youtube embed-button-play" href="<?= $rightEmbed; ?>">
+            <div class="popup-youtube embed-button-none" href="<?= $rightEmbed; ?>">
                 <img src="<?= $rightImage; ?>" alt="<?= $rightImageAlt; ?>" />
             </div>
         <?php endif; ?>
