@@ -10,8 +10,6 @@ function theme_scripts_styles() {
     wp_enqueue_style('font-awesome', get_template_directory_uri() . '/assets/stylesheets/vendor/font-awesome/css/all.css',false, false);
     wp_enqueue_style( 'main-styles', get_template_directory_uri() . '/assets/stylesheets/style.css',false, false);
   
-  wp_deregister_script('jquery');
-  
   
   //recaptcha, conditionally loaded
     /* Recaptcha v3
