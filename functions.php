@@ -15,7 +15,7 @@ function theme_scripts_styles() {
     /* Recaptcha v3
     $form_info = get_option('form_info');
     $recaptcha = $form_info['form_recaptcha']; */
-  wp_register_script('recaptcha', ("https://www.google.com/recaptcha/api.js"), array(), null,true); 
+  wp_register_script('recaptcha', ("https://www.google.com/recaptcha/api.js"), array(), null, array("strategy" => "defer"));
   
 }
 add_action( 'wp_enqueue_scripts', 'theme_scripts_styles' );
