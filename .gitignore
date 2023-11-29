@@ -2,3 +2,5 @@
 node_modules
 assets/scripts/.DS_Store
 composer.phar
+package.json
+package-lock.json
