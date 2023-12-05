@@ -36,14 +36,14 @@ footer .footer-top {
   @include clearfix();
 }
 .footer-top .footer-column {
-  width: 65%;
-  float: left;
-  &:first-child {
-    width: 100%;
-  }
-  &:nth-child(3) {
-    width: 35%;
-  }
+    width: 55%;
+    float: left;
+    &:first-child {
+        width: 100%;
+    }
+    &:nth-child(3) {
+        width: 45%;
+    }
 }
 
 .footer-column .logo {
@@ -221,7 +221,8 @@ footer .footer-bottom {
   float: left;
   margin: 0;
 }
-#footer-b > div.row > div.footer-right > div:nth-child(2) {
+.footer-top:not(#footer-b) .footer-right > div:nth-child(3),
+#footer-b .footer-right > div:nth-child(2) {
   display: flex;
   align-items: baseline;
 }
@@ -259,10 +260,10 @@ footer .footer-bottom {
 }
 #footer-b.invert .footer-right .footer-contact a,
 #footer-b.invert .footer-right .footer-contact p,
-#footer-b.invert li {
+footer .invert .contact-option li {
     color: #eee;
 }
-#footer-b ul {
+footer .contact-option ul {
     list-style: none;
     columns: 2;
     -webkit-columns: 2;
@@ -284,12 +285,10 @@ footer .footer-bottom {
     justify-content: center;
     align-items: center;
     flex-wrap: wrap;
-    flex-direction: column-reverse;
   }
   #footer-b > div.row > div {
     width: 100%;
-    margin-left: 0 !important;
-    text-align: center;
+    margin-left: 0;
   }
   #footer-b > div.row > div > div > div:nth-child(3) > a {
     margin: 0 auto 30px;
@@ -337,19 +336,19 @@ footer .footer-bottom {
 
 @media all and (max-width: $bp-phablet) {
   .footer-top .footer-column {
-    width: 100% !important;
+      width: 100% !important;
   }
 
   .footer-column .logo {
-    margin: 0 auto 30px;
-    max-width: 230px;
+      margin: 0 auto 30px;
+      max-width: 230px;
   }
 
   .footer-column a.schedule {
-    display: none;
+      display: none;
   }
   .footer-column .contact-option {
-    width: 100%;
+      width: 100%;
   }
   .footer-column .contact-option.company-hours p {
     overflow: hidden;

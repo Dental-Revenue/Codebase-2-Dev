@@ -59,18 +59,18 @@ $lightness = getColorLightness($footer_color);
             <div class="footer-column">
                 <div class="contact-option company-hours">
                     <i class="far fa-clock"></i>
-                    <p>
-                        <?php 
-                        $hoursArray = explode("\n", site_ops_company_hours(false)); 
-                        foreach ($hoursArray as $index=>$value) {
-                            if ($index%2!=0) {
-                                echo "<span>$value</span></span>";
-                            } else {
-                                echo "<span class='hour-set'>".$value." " ;
-                            }
-                        }
-                        ?>
-                    </p>
+                    <ul>
+                                <?php 
+                                $hoursArray = explode("\n", site_ops_company_hours(false)); 
+                                foreach ($hoursArray as $index=>$value) {
+                                    if ($index%2!=0) {
+                                        echo "<li>$value</li></li>";
+                                    } else {
+                                        echo "<li class='hour-set'>".$value." " ;
+                                    }
+                                }
+                                ?>
+                            </ul>
                 </div>
             </div>            
             <div class="footer-info-mobile">              
@@ -143,12 +143,12 @@ $lightness = getColorLightness($footer_color);
                         <?php
                         if (!empty(site_ops_new_patient_phone(false))) {
                         ?>
-                            <p class="phone">New Patients <span class="tracknum"><?php site_ops_new_patient_phone(); ?></span></p>
+                            <p class="phone"><a href="tel:<?php echo site_ops_new_patient_phone(); ?>">New Patients <span class="tracknum"><?php site_ops_new_patient_phone(); ?></span></a></p>
                         <?php
                         }
                         if (!empty(site_ops_current_patient_phone(false))) {
                         ?>
-                            <p class="phone">Current Patients <span><?php site_ops_current_patient_phone(); ?></span></p>
+                            <p class="phone"><a href="tel:<?php echo site_ops_current_patient_phone(); ?>">Current Patients <span><?php site_ops_current_patient_phone(); ?></span></a></p>
                         <?php
                         }
                         ?>
