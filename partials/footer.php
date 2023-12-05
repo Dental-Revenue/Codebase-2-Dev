@@ -8,11 +8,18 @@ $facebook_link = $option3['facebook_link'];
 $instagram_link = $option3['instagram_link'];
 $footer_style = $appearance_info['footer_style'];
 $footer_color = $appearance_info['footer_color'];
+$lightness = getColorLightness($footer_color);
 ?>
 
 <footer>
 <?php if ($footer_style == 'footer-style-a') { ?>
-    <div class="footer-top" style="background-color: <?php echo $footer_color; ?>">
+    <div class="footer-top
+    <?php
+    if ($lightness < 700) {
+        echo " invert";
+    }
+    ?>
+    " style="background-color: <?php echo $footer_color; ?>">
         <div class="row">
         <?php if (!wp_is_mobile()) { ?>
             <div class="footer-left google-map-container">              
@@ -119,7 +126,13 @@ $footer_color = $appearance_info['footer_color'];
         </div>
     </div>
 <?php } else { ?>
-    <div  id="footer-b" class="footer-top" style="background-image: url('<?php googleMapPicture(); ?>');">
+    <div id="footer-b" class="footer-top
+    <?php
+    if ($lightness < 700) {
+        echo " invert";
+    }
+    ?>
+    " style="background-image: url('<?php googleMapPicture(); ?>');">
         <div class="row">
             <div class="footer-right" style="background-color: <?php echo $footer_color; ?>">        
                 <div class="footer-column">        
