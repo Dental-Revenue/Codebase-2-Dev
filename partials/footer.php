@@ -156,18 +156,18 @@ $lightness = getColorLightness($footer_color);
                     <div class="footer-column">
                         <div class="contact-option company-hours">
                             <i class="far fa-clock"></i>
-                            <p>
+                            <ul>
                                 <?php 
                                 $hoursArray = explode("\n", site_ops_company_hours(false)); 
                                 foreach ($hoursArray as $index=>$value) {
                                     if ($index%2!=0) {
-                                        echo "<span>$value</span></span>";
+                                        echo "<li>$value</li></li>";
                                     } else {
-                                        echo "<span class='hour-set'>".$value." " ;
+                                        echo "<li class='hour-set'>".$value." " ;
                                     }
                                 }
                                 ?>
-                            </p>
+                            </ul>
                         </div>
                         <a href="/request-appointment/" class="btn solid">Schedule Appointment</a>
                     </div>
