@@ -747,7 +747,6 @@ function cmb2_appearance_options() {
 	));
 	$box->add_field( array(
 		'name' => 'Footer Options',
-		// 'desc' => 'Additional Options',
 		'type' => 'title',
 		'id'   => 'footer_title',
 	) );
@@ -762,6 +761,13 @@ function cmb2_appearance_options() {
 
 		),
 		'default' => 'footer-style-a'
+	));
+	$box->add_field( array(
+		'name' 					=> 'Footer Color',
+		'desc'					=> 'Can be in hex format (#000) or RGBA format (rgba(0,0,0,0.7))',
+		'id'   					=> 'footer_color',
+		'type' 					=> 'text',
+		'default'				=> 'rgba(0,0,0,0.7)'
 	));
 }
 

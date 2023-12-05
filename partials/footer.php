@@ -7,11 +7,12 @@ $option3 = get_option('social_info');
 $facebook_link = $option3['facebook_link'];
 $instagram_link = $option3['instagram_link'];
 $footer_style = $appearance_info['footer_style'];
+$footer_color = $appearance_info['footer_color'];
 ?>
 
 <footer>
 <?php if ($footer_style == 'footer-style-a') { ?>
-    <div class="footer-top">
+    <div class="footer-top" style="background-color: <?php echo $footer_color; ?>">
         <div class="row">
         <?php if (!wp_is_mobile()) { ?>
             <div class="footer-left google-map-container">              
@@ -120,7 +121,7 @@ $footer_style = $appearance_info['footer_style'];
 <?php } else { ?>
     <div  id="footer-b" class="footer-top" style="background-image: url('<?php googleMapPicture(); ?>');">
         <div class="row">
-            <div class="footer-right">        
+            <div class="footer-right" style="background-color: <?php echo $footer_color; ?>">        
                 <div class="footer-column">        
                     <div class="footer-contact clearfix">
                         <h3>Contact</h3>
