@@ -97,19 +97,44 @@ $box->add_field( array(
         'type' => 'number',
     ),
 	'default' => '5',
-	'desc' => 'percent padding % (default is 5%)',
-
+	'desc' => 'percent padding % (default is 5%)'
 ));
 $box->add_field( array(
     'name' => 'Left Title',
     'id' => $prefix.'left_title',
     'type' => 'text',
 ));
+$box->add_field(
+    array(
+        'name'      => 'Left Title Alignment',
+        'id'        => $prefix . 'left_title_align',
+        'type'      => 'select',
+        'options'   => array(
+            'left'      => 'Left',
+            'center'    => 'Center',
+            'right'     => 'Right'
+        ),
+        'default' => 'left',
+    )
+);
 $box->add_field( array(
     'name' => 'Left Subtitle',
     'id' => $prefix.'left_subtitle',
     'type' => 'text',
 ));
+$box->add_field(
+    array(
+        'name'      => 'Left Subtitle Alignment',
+        'id'        => $prefix . 'left_subtitle_align',
+        'type'      => 'select',
+        'options'   => array(
+            'left'      => 'Left',
+            'center'    => 'Center',
+            'right'     => 'Right'
+        ),
+        'default' => 'left',
+    )
+);
 $box->add_field( array(
     'name' => 'Left Side Excerpt',
     'id' => $prefix.'left_excerpt',
@@ -145,6 +170,19 @@ $box->add_field( array(
     'id'   => $prefix.'left_btn_url',
     'type' => 'text',
 ));
+$box->add_field(
+    array(
+        'name'      => 'Left Button Alignment',
+        'id'        => $prefix . 'left_button_align',
+        'type'      => 'select',
+        'options'   => array(
+            'left'      => 'Left',
+            'center'    => 'Center',
+            'right'     => 'Right'
+        ),
+        'default' => 'left',
+    )
+);
 $box->add_field( array(
     'name' => 'Left Form Logo',
     'id'   => $prefix.'left_logo',
@@ -236,11 +274,37 @@ $box->add_field( array(
     'id' => $prefix.'right_title',
     'type' => 'text',
 ));
+$box->add_field(
+    array(
+        'name'      => 'Right Title Alignment',
+        'id'        => $prefix . 'right_title_align',
+        'type'      => 'select',
+        'options'   => array(
+            'left'      => 'Left',
+            'center'    => 'Center',
+            'right'     => 'Right'
+        ),
+        'default' => 'left',
+    )
+);
 $box->add_field( array(
     'name' => 'Right Subtitle',
     'id' => $prefix.'right_subtitle',
     'type' => 'text',
 ));
+$box->add_field(
+    array(
+        'name'      => 'Right Subtitle Alignment',
+        'id'        => $prefix . 'right_subtitle_align',
+        'type'      => 'select',
+        'options'   => array(
+            'left'      => 'Left',
+            'center'    => 'Center',
+            'right'     => 'Right'
+        ),
+        'default' => 'left',
+    )
+);
 $box->add_field( array(
     'name' => 'Right Side Excerpt',
     'id' => $prefix.'right_excerpt',
@@ -276,6 +340,19 @@ $box->add_field( array(
     'id'   => $prefix.'right_btn_url',
     'type' => 'text',
 ));
+$box->add_field(
+    array(
+        'name'      => 'Right Button Alignment',
+        'id'        => $prefix . 'right_button_align',
+        'type'      => 'select',
+        'options'   => array(
+            'left'      => 'Left',
+            'center'    => 'Center',
+            'right'     => 'Right'
+        ),
+        'default' => 'left',
+    )
+);
 $box->add_field( array(
     'name' => 'Right Form Logo',
     'id'   => $prefix.'right_logo',

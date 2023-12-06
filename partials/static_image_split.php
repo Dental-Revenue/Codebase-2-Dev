@@ -17,14 +17,20 @@ $leftTextPadding = get_post_meta(get_the_id(),$instance.'_left_text_padding',tru
 $rightTextPadding = get_post_meta(get_the_id(),$instance.'_right_text_padding',true);
 $leftTitle = get_post_meta(get_the_id(), $instance.'_left_title', true);
 $rightTitle = get_post_meta(get_the_id(), $instance.'_right_title', true);
+$leftTitleAlign = get_post_meta(get_the_id(), $instance . '_left_title_align', true);
+$rightTitleAlign = get_post_meta(get_the_id(), $instance . '_right_title_align', true);
 $leftSubtitle = get_post_meta(get_the_ID(), $instance.'_left_subtitle', true);
 $rightSubtitle = get_post_meta(get_the_ID(), $instance.'_right_subtitle', true);
+$leftSubtitleAlign = get_post_meta(get_the_id(), $instance . '_left_subtitle_align', true);
+$rightSubtitleAlign = get_post_meta(get_the_id(), $instance . '_right_subtitle_align', true);
 $leftDisplayPhone = get_post_meta(get_the_id(), $instance.'_left_display_phone', true);
 $leftDisplayAddress = get_post_meta(get_the_id(), $instance.'_left_display_address', true);
 $rightDisplayPhone = get_post_meta(get_the_id(), $instance.'_right_display_phone', true);
 $rightDisplayAddress = get_post_meta(get_the_id(), $instance.'_right_display_address', true);
 $leftBtnText = get_post_meta(get_the_id(), $instance.'_left_btn_text', true);
 $leftBtnurl = get_post_meta(get_the_id(), $instance.'_left_btn_url', true);
+$leftBtnAlign = get_post_meta(get_the_id(), $instance . '_left_button_align', true);
+$rightBtnAlign = get_post_meta(get_the_id(), $instance . '_right_button_align', true);
 $rightBtnText = get_post_meta(get_the_id(), $instance.'_right_btn_text', true);
 $rightBtnurl = get_post_meta(get_the_id(), $instance.'_right_btn_url', true);
 $leftExcerpt = get_post_meta(get_the_id(), $instance.'_left_excerpt', true);
@@ -141,10 +147,10 @@ $randomnumber = rand(1, 100);
         <?php if ($leftTitle || $leftSubtitle || $leftExcerpt || $leftDisplayPhone === 'yes' || $leftDisplayAddress === 'yes' || $leftBtnText) : ?>
             <div class="text-container" style="background-color: rgba(<?= $leftRGBA; ?>); padding: 5% <?php echo $leftTextPadding; ?>% 7% <?php echo $leftTextPadding; ?>%;">
                 <?php if ($leftTitle) : ?>
-                    <h3><?= $leftTitle; ?></h3>
+                    <h3 style="text-align: <?php echo $leftTitleAlign; ?>;"><?= $leftTitle; ?></h3>
                 <?php endif; ?>
                 <?php if ($leftSubtitle) : ?>
-                    <p class="subtitle"><?= $leftSubtitle; ?></p>
+                    <p class="subtitle" style="text-align: <?php echo $leftSubtitleAlign; ?>;"><?= $leftSubtitle; ?></p>
                 <?php endif; ?>
                 <?php if ($leftExcerpt) : ?>
                     <div class="excerpt">
@@ -166,10 +172,19 @@ $randomnumber = rand(1, 100);
                             </a>
                         <?php endif; ?>
                     </div>
-                <?php endif; ?>
-                <?php if ($leftBtnText) : ?>
-                    <a href="<?= $leftBtnUrl; ?>" class="btn solid"><?= $leftBtnText; ?></a>
-                <?php endif; ?>
+                <?php endif;
+                if ($leftBtnText) { 
+                    if ($leftBtnAlign === 'left') {
+                        $leftBtnAlign = 'baseline';
+                    }
+                    if ($leftBtnAlign === 'right') {
+                        $leftBtnAlign = 'end';
+                    }
+                    ?>
+                    <a href="<?= $leftBtnUrl; ?>" class="btn solid" style="place-self: <?php echo $leftBtnAlign; ?>;"><?= $leftBtnText; ?></a>
+                <?php
+                }
+                ?>
             </div>
         <?php endif; ?>
     </div>
@@ -276,10 +291,10 @@ $randomnumber = rand(1, 100);
         <?php if ($rightTitle || $rightSubtitle || $rightExcerpt || $rightDisplayPhone === 'yes' || $rightDisplayAddress === 'yes' || $rightBtnText) : ?>
             <div class="text-container" style="background-color: rgba(<?= $rightRGBA; ?>); padding: 5% <?php echo $rightTextPadding; ?>% 7% <?php echo $rightTextPadding; ?>%;">
                 <?php if ($rightTitle) : ?>
-                    <h3><?= $rightTitle; ?></h3>
+                    <h3 style="text-align: <?php echo $rightTitleAlign; ?>;"><?= $rightTitle; ?></h3>
                 <?php endif; ?>
                 <?php if ($rightSubtitle) : ?>
-                    <p class="subtitle"><?= $rightSubtitle; ?></p>
+                    <p class="subtitle" style="text-align: <?php echo $rightSubtitleAlign; ?>;"><?= $rightSubtitle; ?></p>
                 <?php endif; ?>
                 <?php if ($rightExcerpt) : ?>
                     <div class="excerpt">
@@ -301,10 +316,20 @@ $randomnumber = rand(1, 100);
                             </a>
                         <?php endif; ?>
                     </div>
-                <?php endif; ?>
-                <?php if ($rightBtnText) : ?>
-                    <a href="<?= $rightBtnUrl; ?>" class="btn solid"><?= $rightBtnText; ?></a>
-                <?php endif; ?>
+                <?php
+                endif;
+                if ($rightBtnText) { 
+                    if ($rightBtnAlign === 'left') {
+                        $rightBtnAlign = 'baseline';
+                    }
+                    if ($rightBtnAlign === 'right') {
+                        $rightBtnAlign = 'end';
+                    }
+                    ?>
+                    <a href="<?= $rightBtnUrl; ?>" class="btn solid" style="place-self: <?php echo $rightBtnAlign; ?>;"><?= $rightBtnText; ?></a>
+                <?php
+                }
+                ?>
             </div>
         <?php endif; ?>
     </div>
