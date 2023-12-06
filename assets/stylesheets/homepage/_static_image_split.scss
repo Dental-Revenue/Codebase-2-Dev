@@ -147,7 +147,6 @@
             .text-container {
                 display: flex;
                 flex-direction: column;
-                text-align: center;
                 margin: 36px 0;
                 padding: 50px 0 !important;
                 position: relative;
@@ -174,7 +173,6 @@
                 .excerpt {
                     p {
                         span {
-                            text-align: center;
 							font-size: 36px !important;
                         }
                     }
