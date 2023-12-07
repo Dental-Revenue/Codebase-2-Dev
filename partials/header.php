@@ -396,7 +396,7 @@ $right_btn_txt_color = $option['right_btn_txt_color'];
             <?php } ?>
         </div>
         <div class="header-top" style="background-color: <?php echo $header_color; ?>">
-            <p class="tracknum patient-number" style="color: <?php echo $header_text_color; ?>">New Patients: <?php site_ops_new_patient_phone(); ?></p>
+            <p class="patient-number" style="color: <?php echo $header_text_color; ?>">New Patients: <span class="tracknum"><?php site_ops_new_patient_phone(); ?></span></p>
             <?php
             if (!empty(site_ops_current_patient_phone(false)) && in_array("current_patient", $header_items)) {
                 ?>
