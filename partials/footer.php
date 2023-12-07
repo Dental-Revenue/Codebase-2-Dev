@@ -7,11 +7,19 @@ $option3 = get_option('social_info');
 $facebook_link = $option3['facebook_link'];
 $instagram_link = $option3['instagram_link'];
 $footer_style = $appearance_info['footer_style'];
+$footer_color = $appearance_info['footer_color'];
+$lightness = getColorLightness($footer_color);
 ?>
 
 <footer>
 <?php if ($footer_style == 'footer-style-a') { ?>
-    <div class="footer-top">
+    <div class="footer-top
+    <?php
+    if ($lightness < 700) {
+        echo " invert";
+    }
+    ?>
+    " style="background-color: <?php echo $footer_color; ?>">
         <div class="row">
         <?php if (!wp_is_mobile()) { ?>
             <div class="footer-left google-map-container">              
@@ -51,19 +59,19 @@ $footer_style = $appearance_info['footer_style'];
             <div class="footer-column">
                 <div class="contact-option company-hours">
                     <i class="far fa-clock"></i>
-                    <p>
-                        <?php 
-                        $hoursArray = explode("\n", site_ops_company_hours(false)); 
-                        foreach ($hoursArray as $index=>$value) {
-                            if ($index%2!=0) {
-                                echo "<span>$value</span></span>";
-                            } else {
-                                echo "<span class='hour-set'>".$value." " ;
-                            }
-                        }
-                        ?>
-                    </p>
-                </div>                        
+                    <ul>
+                                <?php 
+                                $hoursArray = explode("\n", site_ops_company_hours(false)); 
+                                foreach ($hoursArray as $index=>$value) {
+                                    if ($index%2!=0) {
+                                        echo "<li>$value</li></li>";
+                                    } else {
+                                        echo "<li class='hour-set'>".$value." " ;
+                                    }
+                                }
+                                ?>
+                            </ul>
+                </div>
             </div>            
             <div class="footer-info-mobile">              
               <div class="option">
@@ -118,28 +126,50 @@ $footer_style = $appearance_info['footer_style'];
         </div>
     </div>
 <?php } else { ?>
-  <div  id="footer-b" class="footer-top" style="background-image: url('<?php googleMapPicture(); ?>');">
+    <div id="footer-b" class="footer-top
+    <?php
+    if ($lightness < 700) {
+        echo " invert";
+    }
+    ?>
+    " style="background-image: url('<?php googleMapPicture(); ?>');">
         <div class="row">
-            <div class="footer-right">        
+            <div class="footer-right" style="background-color: <?php echo $footer_color; ?>">        
                 <div class="footer-column">        
                     <div class="footer-contact clearfix">
-                    <h3>Contact</h3>
-                        <p><a href="<?php echo googleMapUrl(); ?>" target="_blank" nofollow noreferrer><?php site_ops_address(); ?></a></p>
-                        <p><a href="<?php echo googleMapUrl(); ?>" target="_blank" nofollow noreferrer><?php site_ops_city(); ?>, <?php site_ops_state(); ?> <?php site_ops_zip(); ?></a></p>
-                        <p class="phone">New Patients <span class="tracknum"><?php site_ops_new_patient_phone(); ?></span></p>
-                        <p class="phone">Current Patients <span><?php site_ops_current_patient_phone(); ?></span></p>
+                        <h3>Contact</h3>
+                        <a href="<?php echo googleMapUrl(); ?>" target="_blank" nofollow noreferrer><?php site_ops_address(); ?></a>
+                        <a href="<?php echo googleMapUrl(); ?>" target="_blank" nofollow noreferrer><?php site_ops_city(); ?>, <?php site_ops_state(); ?> <?php site_ops_zip(); ?></a>
+                        <?php
+                        if (!empty(site_ops_new_patient_phone(false))) {
+                        ?>
+                            <p class="phone"><a href="tel:<?php echo site_ops_new_patient_phone(); ?>">New Patients <span class="tracknum"><?php site_ops_new_patient_phone(); ?></span></a></p>
+                        <?php
+                        }
+                        if (!empty(site_ops_current_patient_phone(false))) {
+                        ?>
+                            <p class="phone"><a href="tel:<?php echo site_ops_current_patient_phone(); ?>">Current Patients <span><?php site_ops_current_patient_phone(); ?></span></a></p>
+                        <?php
+                        }
+                        ?>
                     </div>
                     <div class="footer-column">
-                        <div class="footer-hours clearfix">
-                            <h3>Hours</h3>
-                            <ul class="days clearfix">
-                                <li>Mon-Fri:</li>
-                            </ul>            
-                            <ul class="hours clearfix">
-                                <li>9:00AM – 5:00PM</li>
-                            </ul>            
-                            <a href="/request-appointment/" class="btn solid">Schedule Appointment</a>
+                        <div class="contact-option company-hours">
+                            <i class="far fa-clock"></i>
+                            <ul>
+                                <?php 
+                                $hoursArray = explode("\n", site_ops_company_hours(false)); 
+                                foreach ($hoursArray as $index=>$value) {
+                                    if ($index%2!=0) {
+                                        echo "<li>$value</li></li>";
+                                    } else {
+                                        echo "<li class='hour-set'>".$value." " ;
+                                    }
+                                }
+                                ?>
+                            </ul>
                         </div>
+                        <a href="/request-appointment/" class="btn solid">Schedule Appointment</a>
                     </div>
                     <div class="footer-column">
                         <a href="/" class="logo">
@@ -150,8 +180,7 @@ $footer_style = $appearance_info['footer_style'];
                                 </picture>
                             </span>
                         </a>
-                    </div>
-        
+                    </div>        
         <div class="footer-info-mobile">
             
           <div class="option">
