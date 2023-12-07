@@ -196,7 +196,7 @@ $right_btn_txt_color = $option['right_btn_txt_color'];
                 if (!empty(site_ops_new_patient_phone(false))) { 
                     ?>
                     <div class="contact-option">
-                        <a href="tel:<?php site_ops_new_patient_phone(); ?>"><i class="fas fa-phone"></i><span class="tracknum">New Patients </span><span class="bold tracknum"><?php site_ops_new_patient_phone(); ?></span></a>
+                        <a href="tel:<?php site_ops_new_patient_phone(); ?>"><i class="fas fa-phone"></i><span>New Patients </span><span class="bold tracknum"><?php site_ops_new_patient_phone(); ?></span></a>
                     </div>
                     <?php
                 }
@@ -295,7 +295,7 @@ $right_btn_txt_color = $option['right_btn_txt_color'];
             if (!empty(site_ops_new_patient_phone(false))) {
                 ?>
                 <div class="contact-option">
-                    <a href="tel:<?php site_ops_new_patient_phone(); ?>"><i class="fas fa-phone"></i><span class="tracknum">New Patients </span><span class="bold tracknum"><?php site_ops_new_patient_phone(); ?></span></a>
+                    <a href="tel:<?php site_ops_new_patient_phone(); ?>"><i class="fas fa-phone"></i><span>New Patients </span><span class="bold tracknum"><?php site_ops_new_patient_phone(); ?></span></a>
                 </div>
                 <?php
             }
