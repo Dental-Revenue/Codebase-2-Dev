@@ -1,4 +1,4 @@
-.schedule-form{background-color: rgba($main-color, .3);border-top:3px solid $main-color;display: block;padding: 20px;box-sizing: border-box;margin: 2em auto;max-width: 700px;}
+.schedule-form{background-color: #fff;display: block;padding: 20px;box-sizing: border-box;margin: 0 auto;max-width: 90%;}
 .schedule-form p{margin:0;font-weight: 600; &:first-child{margin-bottom: 20px;}}
 .schedule-form label{display: inline-block;margin-right: 10px;font-size: 14px;opacity:.7;}
 .schedule-form input[type="checkbox"]{width: auto;}
@@ -10,7 +10,7 @@ input[name="RepeatEmailName"] { opacity: 0; position: absolute; top: 0; left: 0;
 
 .s-input {
     display: inline-block;
-    width: 90%;
+    width: 99%;
     max-width: 500px;
     height: 40px;
     padding: 9px 10px;
@@ -24,32 +24,13 @@ input[name="RepeatEmailName"] { opacity: 0; position: absolute; top: 0; left: 0;
     min-height: 27px;
     border-radius: 3px;
     background-color: #f5f8fa;
-  }
-  
-  select.is-placeholder {
+}  
+select.is-placeholder {
     color: #bfbfbf;
-  }
-  .schedule-form {
-    background-color: #fff;
-    border-top: none;
-    display: block;
-    padding: 20px;
-    box-sizing: border-box;
-    margin: 2em auto;
-    max-width: 700px;
-  }
-  .schedule-form p {
-    margin: 0;
-    font-size: inherit;
-    font-weight: inherit;
-  }
-  .user-info {
+}
+.user-info {
     display: flex;
-  }
-  .schedule-form {
-    margin: 0;
-    max-width: 90%;
-  }
+}
   .info-select,
   .name,
   .contact-info {
@@ -60,21 +41,40 @@ input[name="RepeatEmailName"] { opacity: 0; position: absolute; top: 0; left: 0;
     opacity: 1;
   }
   fieldset {
-    padding: 1.75rem 1.5rem;
     border: 2px solid #f4f4f4;
     border-radius: 4px;
     margin-bottom: 2em;
-    width: 90%;
+    max-width: 96%;
   }
-  textarea {
-    max-width: none !important;
-    width: 90% !important;
-    height: auto !important;
-    padding: 1.75rem 1.5rem !important;
-  }
-  
-  @media (max-width: 800px) {
-    .user-info {
-      flex-wrap: wrap;
+.request-appointment textarea {
+    max-width: none;
+    height: auto;
+    padding: 1.75rem 1.5rem;
+}
+@media (max-width: 767px) {
+    .schedule-form {
+        max-width: 100%;
+        padding: 0;
     }
-  }
+    fieldset {
+        padding: 0;
+        width: 100%;
+    }
+    .user-info {
+        flex-direction: column;
+    }
+    .s-input {
+        width: 100%;
+    }
+    #comments {
+        width: 100%;
+    }
+    .schedule-form legend:first-child {
+        margin-bottom: 11px;
+    }
+    .schedule-form legend:first-child,
+    .schedule-form input[type="checkbox"]:nth-child(2),
+    .schedule-form input[type="checkbox"]:nth-child(8) {
+        margin-left: 30px;
+    }
+}
