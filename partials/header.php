@@ -451,12 +451,12 @@ $right_btn_txt_color = $option['right_btn_txt_color'];
             <?php
             if ($left_btn_text) {
                 ?>
-                <a class="btn solid" href="<?php echo $btn_one_url; ?>" style="background-color: <?php echo $left_btn_bckgrnd_color; ?>; color: <?php echo $left_btn_txt_color; ?>"><?php echo $left_btn_text; ?></a>
+                <a class="btn solid" href="<?php echo $left_btn_url; ?>" style="background-color: <?php echo $left_btn_bckgrnd_color; ?>; color: <?php echo $left_btn_txt_color; ?>"><?php echo $left_btn_text; ?></a>
                 <?php
             }
             if ($right_btn_text) {
                 ?>
-                <a class="btn solid" href="<?php echo $btn_two_url; ?>"  style="background-color: <?php echo $right_btn_bckgrnd_color; ?>; color: <?php echo $right_btn_txt_color; ?>"><?php echo $right_btn_text; ?></a>
+                <a class="btn solid" href="<?php echo $right_btn_url; ?>"  style="background-color: <?php echo $right_btn_bckgrnd_color; ?>; color: <?php echo $right_btn_txt_color; ?>"><?php echo $right_btn_text; ?></a>
                 <?php
             }
             ?>
