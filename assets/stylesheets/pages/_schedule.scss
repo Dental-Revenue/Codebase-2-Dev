@@ -1,56 +1,99 @@
-.schedule-form{background-color: #fff;display: block;padding: 20px;box-sizing: border-box;margin: 0 auto;max-width: 90%;}
-.schedule-form p{margin:0;font-weight: 600; &:first-child{margin-bottom: 20px;}}
-.schedule-form label{display: inline-block;margin-right: 10px;font-size: 14px;opacity:.7;}
-.schedule-form input[type="checkbox"]{width: auto;}
-.schedule-form select{margin-bottom: 20px;}
-.schedule-form .captcha-container{margin-top: 20px;}
-.schedule-form button{margin-top: 20px;width: 100%;}
-input[name="RepeatEmailName"] { opacity: 0; position: absolute; top: 0; left: 0; height: 0; width: 0; z-index: -1; }
-
-
-.s-input {
-    display: inline-block;
-    width: 99%;
-    max-width: 500px;
-    height: 40px;
-    padding: 9px 10px;
-    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-    font-size: 16px;
-    font-weight: normal;
-    line-height: 22px;
-    border: 1px solid #cbd6e2;
+.schedule-form{
+    background-color: #fff;
+    display: block;
+    padding: 20px;
     box-sizing: border-box;
-    padding: 0 15px;
-    min-height: 27px;
-    border-radius: 3px;
-    background-color: #f5f8fa;
-}  
-select.is-placeholder {
-    color: #bfbfbf;
+    margin: 0 auto;
+    max-width: 90%;
+
+    .user-info {
+        display: flex;
+
+        .name,
+        .contact-info,
+        .info-select {
+            width: 100%;
+        }
+
+        .contact-info {
+            input[name="RepeatEmailName"] {
+                opacity: 0;
+                position: absolute;
+                top: 0;
+                left: 0;
+                height: 0;
+                width: 0;
+                z-index: -1;
+            }
+        }
+
+        .info-select {
+            select {
+                margin-bottom: 20px;
+            }
+
+            .is-placeholder {
+                color: #bfbfbf;
+            }
+        }
+    }
+
+    .bottom-info {
+        fieldset {
+            border: 2px solid #f4f4f4;
+            border-radius: 4px;
+            margin-bottom: 2em;
+            max-width: 96%;
+        }
+    }
+
+    .captcha-container {
+        margin-top: 20px;
+    }
+
+    button {
+        margin-top: 20px;
+        width: 100%;
+    }
+
+    label {
+        display: inline-block;
+        margin-right: 10px;
+        font-size: 14px;
+        color: #333;
+        opacity: 1;
+    }
+
+    .s-input {
+        display: inline-block;
+        width: 99%;
+        max-width: 500px;
+        height: 40px;
+        padding: 9px 10px;
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        font-size: 16px;
+        font-weight: normal;
+        line-height: 22px;
+        border: 1px solid #cbd6e2;
+        box-sizing: border-box;
+        padding: 0 15px;
+        min-height: 27px;
+        border-radius: 3px;
+        background-color: #f5f8fa;
+    }  
+
+    input[type="checkbox"] {
+        width: auto;
+    }
+
+    textarea {
+        max-width: none;
+        height: auto;
+        padding: 1.75rem 1.5rem;
+    }
 }
-.user-info {
-    display: flex;
-}
-  .info-select,
-  .name,
-  .contact-info {
-    width: 100%;
-  }
-  .schedule-form label {
-    color: #333;
-    opacity: 1;
-  }
-  fieldset {
-    border: 2px solid #f4f4f4;
-    border-radius: 4px;
-    margin-bottom: 2em;
-    max-width: 96%;
-  }
-.request-appointment textarea {
-    max-width: none;
-    height: auto;
-    padding: 1.75rem 1.5rem;
-}
+// .schedule-form p{margin:0;font-weight: 600; &:first-child{margin-bottom: 20px;}}
+  
 @media (max-width: 767px) {
     .schedule-form {
         max-width: 100%;
@@ -75,6 +118,6 @@ select.is-placeholder {
     .schedule-form legend:first-child,
     .schedule-form input[type="checkbox"]:nth-child(2),
     .schedule-form input[type="checkbox"]:nth-child(8) {
-        margin-left: 30px;
+        margin-left: 37px;
     }
 }

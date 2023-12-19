@@ -69,11 +69,11 @@ get_template_part('partials/page-head');
               <div class="bottom-info">
                 <fieldset>
                   <legend>What day of the week would you like to schedule your consultation (select all that apply)</legend>
-                  <label for="monday">Monday</label><input type="checkbox" value="Monday" name="AdsNext-PreferredDayMonday" id="monday"> 
-                  <label for="tuesday">Tuesday</label><input type="checkbox" value="Tuesday" name="AdsNext-PreferredDayTuesday" id="tuesday">
-                  <label for="wednesday">Wednesday</label><input type="checkbox" value="Wednesday" name="AdsNext-PreferredDayWednesday" id="wednesday">
-                  <label for="thursday">Thursday</label><input type="checkbox" value="Thursday" name="AdsNext-PreferredDayThursday" id="thursday">
-                  <label for="friday">Friday</label><input type="checkbox" value="Friday" name="AdsNext-PreferredDayFriday" id="friday">
+                  <input type="checkbox" value="Monday" name="AdsNext-PreferredDayMonday" id="monday"><label for="monday">Monday</label>
+                  <input type="checkbox" value="Tuesday" name="AdsNext-PreferredDayTuesday" id="tuesday"><label for="tuesday">Tuesday</label>
+                  <input type="checkbox" value="Wednesday" name="AdsNext-PreferredDayWednesday" id="wednesday"><label for="wednesday">Wednesday</label>
+                  <input type="checkbox" value="Thursday" name="AdsNext-PreferredDayThursday" id="thursday"><label for="thursday">Thursday</label>
+                  <input type="checkbox" value="Friday" name="AdsNext-PreferredDayFriday" id="friday"><label for="friday">Friday</label>
                 </fieldset>
                 <div>
                   <label for="comments">Comments</label><br>
