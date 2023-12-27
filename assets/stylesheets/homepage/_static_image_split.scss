@@ -3,7 +3,6 @@
 }
 .sis-container {
     display: flex;
-    // max-height: 600px;
     padding-top: 70px;
 }
 .sis-side {
@@ -33,6 +32,7 @@
     .text-container {
         width: fit-content;
         display: grid;
+        place-items: center;
         padding: 50px;
         position: absolute;
         z-index: 1;
@@ -119,11 +119,6 @@
     }
 }
 @media screen and (max-width: 1199px) {
-    .module.static_image_split {
-        .module-content {
-            padding: 70px 0 0;
-        }
-    }
     .sis-container {
         flex-direction: column;
         max-height: unset;
@@ -164,6 +159,10 @@
                         margin-top: 1em;
                     }
                 }
+
+                .excerpt {
+                    padding: 0 1rem;
+                }
             }
     
             .popup-youtube {
@@ -180,6 +179,10 @@
 			img + .text-container {
 				position: relative;
 			}
+
+            .btn {
+                place-self: center !important;
+            }
         }
     }
 }
