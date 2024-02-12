@@ -15,3 +15,4 @@ get_template_part('partials/page-head');
         </div>
     </div>
 </div>
+<?php get_footer(); ?>
