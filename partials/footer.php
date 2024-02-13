@@ -173,12 +173,7 @@ $lightness = getColorLightness($footer_color);
                     </div>
                     <div class="footer-column">
                         <a href="/" class="logo">
-                            <span>
-                                <picture>
-                                    <source srcset="<?php site_ops_logo(); ?>" type="image/png">
-                                    <img src="<?php site_ops_logo(); ?>" alt="<?php site_ops_practice_name(); ?>" />
-                                </picture>
-                            </span>
+                            <img src="<?php site_ops_logo(); ?>" alt="<?php site_ops_practice_name(); ?>" />
                         </a>
                     </div>        
         <div class="footer-info-mobile">
