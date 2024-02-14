@@ -17,16 +17,22 @@ $leftTextPadding = get_post_meta(get_the_id(),$instance.'_left_text_padding',tru
 $rightTextPadding = get_post_meta(get_the_id(),$instance.'_right_text_padding',true);
 $leftTitle = get_post_meta(get_the_id(), $instance.'_left_title', true);
 $rightTitle = get_post_meta(get_the_id(), $instance.'_right_title', true);
+$leftTitleAlign = get_post_meta(get_the_id(), $instance . '_left_title_align', true);
+$rightTitleAlign = get_post_meta(get_the_id(), $instance . '_right_title_align', true);
 $leftSubtitle = get_post_meta(get_the_ID(), $instance.'_left_subtitle', true);
 $rightSubtitle = get_post_meta(get_the_ID(), $instance.'_right_subtitle', true);
+$leftSubtitleAlign = get_post_meta(get_the_id(), $instance . '_left_subtitle_align', true);
+$rightSubtitleAlign = get_post_meta(get_the_id(), $instance . '_right_subtitle_align', true);
 $leftDisplayPhone = get_post_meta(get_the_id(), $instance.'_left_display_phone', true);
 $leftDisplayAddress = get_post_meta(get_the_id(), $instance.'_left_display_address', true);
 $rightDisplayPhone = get_post_meta(get_the_id(), $instance.'_right_display_phone', true);
 $rightDisplayAddress = get_post_meta(get_the_id(), $instance.'_right_display_address', true);
 $leftBtnText = get_post_meta(get_the_id(), $instance.'_left_btn_text', true);
-$leftBtnurl = get_post_meta(get_the_id(), $instance.'_left_btn_url', true);
+$leftBtnUrl = get_post_meta(get_the_id(), $instance.'_left_btn_url', true);
+$leftBtnAlign = get_post_meta(get_the_id(), $instance . '_left_button_align', true);
+$rightBtnAlign = get_post_meta(get_the_id(), $instance . '_right_button_align', true);
 $rightBtnText = get_post_meta(get_the_id(), $instance.'_right_btn_text', true);
-$rightBtnurl = get_post_meta(get_the_id(), $instance.'_right_btn_url', true);
+$rightBtnUrl = get_post_meta(get_the_id(), $instance.'_right_btn_url', true);
 $leftExcerpt = get_post_meta(get_the_id(), $instance.'_left_excerpt', true);
 $rightExcerpt = get_post_meta(get_the_id(), $instance.'_right_excerpt', true);
 $leftEmbed = get_post_meta(get_the_id(), $instance.'_left_embed', true);
@@ -43,19 +49,19 @@ $randomnumber = rand(1, 100);
         <?php if ($leftContentType == 'form') : ?>
             <div class="main-content schedule-form">
                 <?php if ($leftTitle) {?>
-                    <h3><?= $leftTitle; ?></h3>
+                    <h3><?php echo $leftTitle; ?></h3>
                 <?php } ?>
                 <?php if ($leftSubtitle) {?>
-                    <p class="subtitle"><?= $leftSubtitle; ?></p>
+                    <p class="subtitle"><?php echo $leftSubtitle; ?></p>
                 <?php } ?>
                 <?php if ($leftExcerpt) {?>
                     <div class="excerpt">
-                        <?= $leftExcerpt; ?>
+                        <?php echo $leftExcerpt; ?>
                     </div>
                 <?php } ?>
                 <form action="<?php echo get_form_processor(); ?>" method="post" name="form-schedule">
                     <?php if ($leftFormLogo) : ?>
-                        <img src="<?= $leftFormLogo; ?>" alt="Logo" />
+                        <img src="<?php echo $leftFormLogo; ?>" alt="Logo" />
                     <?php endif; ?>
                     <input name="FirstName" type="text" placeholder="First Name" required />
                     <input name="LastName" type="text" placeholder="Last Name" />
@@ -90,20 +96,20 @@ $randomnumber = rand(1, 100);
 
         <!-- Image -->
         <?php if ($leftContentType === 'image') : ?>
-            <img src="<?= $leftImage; ?>" alt="<?= $leftImageAlt; ?>" />
+            <img src="<?php echo $leftImage; ?>" alt="<?php echo $leftImageAlt; ?>" />
         <?php endif; ?>
 
         <!-- Google Maps/360 Tour -->
         <?php if ($leftContentType === 'iframe' && !$leftWebmVideo && !$leftMp4Video) : ?>
             <div class="popup-youtube embed-button-none">
-                <?= $leftEmbed; ?>
+                <?php echo $leftEmbed; ?>
             </div>
         <?php endif; ?>
 
         <!-- Video Link -->
         <?php if ($leftContentType === 'youtube' && !$leftWebmVideo && !$leftMp4Video) : ?>
-            <div class="popup-youtube embed-button-none" href="<?= $leftEmbed; ?>">
-                <img src="<?= $leftImage; ?>" alt="<?= $leftImageAlt; ?>" />
+            <div class="popup-youtube embed-button-none" href="<?php echo $leftEmbed; ?>">
+                <img src="<?php echo $leftImage; ?>" alt="<?php echo $leftImageAlt; ?>" />
             </div>
         <?php endif; ?>
 
@@ -127,24 +133,28 @@ $randomnumber = rand(1, 100);
 
         <!-- Embedded Video -->
         <?php if ($leftWebmVideo || $leftMp4Video) : ?>
-            <video class="fold-video" autoplay loop muted data-audio="true" poster="<?= $leftImage; ?>">
-                <source src="<?= $leftWebmVideo; ?>" type="video/webm">
-                <source src="<?= $leftMp4Video; ?>" type="video/mp4">
-            </video>
+			<?php if (!wp_is_mobile()) { ?>
+				<video class="fold-video" autoplay loop muted data-audio="true" poster="<?php echo $leftImage; ?>">
+					<source src="<?php echo $leftWebmVideo; ?>" type="video/webm">
+					<source src="<?php echo $leftMp4Video; ?>" type="video/mp4">
+				</video>
+			<?php } else { ?>
+				<img src="<?php echo $leftImage; ?>" alt="<?php echo $leftImageAlt; ?>" />
+			<?php } ?>
         <? endif; ?>
 
         <!-- Text -->
         <?php if ($leftTitle || $leftSubtitle || $leftExcerpt || $leftDisplayPhone === 'yes' || $leftDisplayAddress === 'yes' || $leftBtnText) : ?>
-            <div class="text-container" style="background-color: rgba(<?= $leftRGBA; ?>); padding: 5% <?php echo $leftTextPadding; ?>% 7% <?php echo $leftTextPadding; ?>%;">
+            <div class="text-container" style="background-color: rgba(<?php echo $leftRGBA; ?>); padding: 5% <?php echo $leftTextPadding; ?>% 7% <?php echo $leftTextPadding; ?>%;">
                 <?php if ($leftTitle) : ?>
-                    <h3><?= $leftTitle; ?></h3>
+                    <h3 style="text-align: <?php echo $leftTitleAlign; ?>;"><?php echo $leftTitle; ?></h3>
                 <?php endif; ?>
                 <?php if ($leftSubtitle) : ?>
-                    <p class="subtitle"><?= $leftSubtitle; ?></p>
+                    <p class="subtitle" style="text-align: <?php echo $leftSubtitleAlign; ?>;"><?php echo $leftSubtitle; ?></p>
                 <?php endif; ?>
                 <?php if ($leftExcerpt) : ?>
                     <div class="excerpt">
-                        <?= $leftExcerpt; ?>
+                        <?php echo $leftExcerpt; ?>
                     </div>
                 <?php endif; ?>
                 <?php if ($leftDisplayPhone === 'yes' || $leftDisplayAddress === 'yes') : ?>
@@ -162,10 +172,19 @@ $randomnumber = rand(1, 100);
                             </a>
                         <?php endif; ?>
                     </div>
-                <?php endif; ?>
-                <?php if ($leftBtnText) : ?>
-                    <a href="<?= $leftBtnUrl; ?>" class="btn solid"><?= $leftBtnText; ?></a>
-                <?php endif; ?>
+                <?php endif;
+                if ($leftBtnText) { 
+                    if ($leftBtnAlign === 'left') {
+                        $leftBtnAlign = 'baseline';
+                    }
+                    if ($leftBtnAlign === 'right') {
+                        $leftBtnAlign = 'end';
+                    }
+                    ?>
+                    <a href="<?php echo $leftBtnUrl; ?>" class="btn solid" style="place-self: <?php echo $leftBtnAlign; ?>;"><?php echo $leftBtnText; ?></a>
+                <?php
+                }
+                ?>
             </div>
         <?php endif; ?>
     </div>
@@ -174,19 +193,19 @@ $randomnumber = rand(1, 100);
         <?php if ($rightContentType == 'form') : ?>
             <div class="main-content schedule-form">
             <?php if ($rightTitle) {?>
-                    <h3><?= $rightTitle; ?></h3>
+                    <h3><?php echo $rightTitle; ?></h3>
                 <?php } ?>
                 <?php if ($rightSubtitle) {?>
-                    <p class="subtitle"><?= $rightSubtitle; ?></p>
+                    <p class="subtitle"><?php echo $rightSubtitle; ?></p>
                 <?php } ?>
                 <?php if ($rightExcerpt) {?>
                     <div class="excerpt">
-                        <?= $rightExcerpt; ?>
+                        <?php echo $rightExcerpt; ?>
                     </div>
                 <?php } ?>
                 <form action="<?php echo get_form_processor(); ?>" method="post" name="form-schedule">
                     <?php if ($rightFormLogo) : ?>
-                        <img src="<?= $rightFormLogo; ?>" alt="Logo" />
+                        <img src="<?php echo $rightFormLogo; ?>" alt="Logo" />
                     <?php endif; ?>
                     <input name="FirstName" type="text" placeholder="First Name" required />
                     <input name="LastName" type="text" placeholder="Last Name" />
@@ -221,20 +240,20 @@ $randomnumber = rand(1, 100);
 
         <!-- Image -->
         <?php if ($rightContentType === 'image') : ?>
-            <img src="<?= $rightImage; ?>" alt="<?= $rightImageAlt; ?>" />
+            <img src="<?php echo $rightImage; ?>" alt="<?php echo $rightImageAlt; ?>" />
         <?php endif; ?>
 
         <!-- Google Maps/360 Tour -->
         <?php if ($rightContentType === 'iframe' && !$rightMp4Video && !$rightWebmVideo) : ?>
             <div class="popup-youtube embed-button-none">
-                <?= $rightEmbed; ?>
+                <?php echo $rightEmbed; ?>
             </div>
         <?php endif; ?>
 
         <!-- Video Link -->
         <?php if ($rightContentType === 'youtube' && !$rightMp4Video && !$rightWebmVideo) : ?>
-            <div class="popup-youtube embed-button-none" href="<?= $rightEmbed; ?>">
-                <img src="<?= $rightImage; ?>" alt="<?= $rightImageAlt; ?>" />
+            <div class="popup-youtube embed-button-none" href="<?php echo $rightEmbed; ?>">
+                <img src="<?php echo $rightImage; ?>" alt="<?php echo $rightImageAlt; ?>" />
             </div>
         <?php endif; ?>
 
@@ -258,24 +277,28 @@ $randomnumber = rand(1, 100);
 
         <!-- Embedded Video -->
         <?php if ($rightWebmVideo || $rightMp4Video) : ?>
-            <video class="fold-video" autoplay loop muted data-audio="true" poster="<?= $rightImage; ?>">
-                <source src="<?= $rightWebmVideo; ?>" type="video/webm">
-                <source src="<?= $rightMp4Video; ?>" type="video/mp4">
-            </video>
+			<?php if (!wp_is_mobile()) { ?>
+				<video class="fold-video" autoplay loop muted data-audio="true" poster="<?php echo $rightImage; ?>">
+					<source src="<?php echo $rightWebmVideo; ?>" type="video/webm">
+					<source src="<?php echo $rightMp4Video; ?>" type="video/mp4">
+				</video>
+			<?php } else { ?>
+				<img src="<?php echo $rightImage; ?>" alt="<?php echo $rightImageAlt; ?>" />
+			<?php } ?>
         <? endif; ?>
 
         <!-- Text -->
         <?php if ($rightTitle || $rightSubtitle || $rightExcerpt || $rightDisplayPhone === 'yes' || $rightDisplayAddress === 'yes' || $rightBtnText) : ?>
-            <div class="text-container" style="background-color: rgba(<?= $rightRGBA; ?>); padding: 5% <?php echo $rightTextPadding; ?>% 7% <?php echo $rightTextPadding; ?>%;">
+            <div class="text-container" style="background-color: rgba(<?php echo $rightRGBA; ?>); padding: 5% <?php echo $rightTextPadding; ?>% 7% <?php echo $rightTextPadding; ?>%;">
                 <?php if ($rightTitle) : ?>
-                    <h3><?= $rightTitle; ?></h3>
+                    <h3 style="text-align: <?php echo $rightTitleAlign; ?>;"><?php echo $rightTitle; ?></h3>
                 <?php endif; ?>
                 <?php if ($rightSubtitle) : ?>
-                    <p class="subtitle"><?= $rightSubtitle; ?></p>
+                    <p class="subtitle" style="text-align: <?php echo $rightSubtitleAlign; ?>;"><?php echo $rightSubtitle; ?></p>
                 <?php endif; ?>
                 <?php if ($rightExcerpt) : ?>
                     <div class="excerpt">
-                        <?= $rightExcerpt; ?>
+                        <?php echo $rightExcerpt; ?>
                     </div>
                 <?php endif; ?>
                 <?php if ($rightDisplayPhone === 'yes' || $rightDisplayAddress === 'yes') : ?>
@@ -293,10 +316,20 @@ $randomnumber = rand(1, 100);
                             </a>
                         <?php endif; ?>
                     </div>
-                <?php endif; ?>
-                <?php if ($rightBtnText) : ?>
-                    <a href="<?= $rightBtnUrl; ?>" class="btn solid"><?= $rightBtnText; ?></a>
-                <?php endif; ?>
+                <?php
+                endif;
+                if ($rightBtnText) { 
+                    if ($rightBtnAlign === 'left') {
+                        $rightBtnAlign = 'baseline';
+                    }
+                    if ($rightBtnAlign === 'right') {
+                        $rightBtnAlign = 'end';
+                    }
+                    ?>
+                    <a href="<?php echo $rightBtnUrl; ?>" class="btn solid" style="place-self: <?php echo $rightBtnAlign; ?>;"><?php echo $rightBtnText; ?></a>
+                <?php
+                }
+                ?>
             </div>
         <?php endif; ?>
     </div>
