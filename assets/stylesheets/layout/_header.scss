@@ -894,6 +894,31 @@ a.open:after {
     margin-top: 212px;
   }
 }
+@media (min-width: 768px) and (max-width: $bp-laptop) {
+  .header-style-e .header-logo {
+    width: 100%;
+    left: 0;
+  }
+  .header-style-e .header-logo {
+    height: 138px;
+  }
+  .header-style-e .header-top {
+    height: 138px;
+  }
+  .header-style-e .header-logo .logo img {
+    max-height: 57%;
+  }
+  .header-style-e .header-logo .logo img {
+    left: 36%;
+  }
+  .header-style-e #panel-main {
+    top: 58px;
+  }
+
+  .header-style-e .page-wrap {
+    margin-top: 182px;
+  }
+}
 @media screen and (min-width: 1200px) {
   .alternate-left {
     margin-left: 70px;
