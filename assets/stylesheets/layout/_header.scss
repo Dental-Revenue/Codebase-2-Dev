@@ -1383,7 +1383,7 @@ a.open:after {
     font-family: Lato;
   }
   .header-style-e .header-top ul {
-    display: none;
+    display: none !important;
   }
   .header-style-e #panel-main {
     color: invert($nav-color);
