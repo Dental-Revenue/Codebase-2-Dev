@@ -10,3 +10,13 @@
     	padding-top: min(0px, 70px) !important;
 	}
 }
+
+input[name="RepeatEmailName"] {
+	opacity: 0;
+	position: absolute;
+	top: 0;
+	left: 0;
+	height: 0;
+	width: 0;
+	z-index: -1;
+}
